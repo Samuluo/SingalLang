@@ -1,0 +1,37 @@
+<!--pages/cidianDetail/cidianDetail.wxml-->
+<view class="container" >
+	<view class="container-body space-content" style="width: 100%; align-items: center;">
+	  <view class="cidian-top">
+	  	<view class="cidian-banner" >
+				<view class="layout_horizontal">  				
+						<image src="{{cidiandata.img}}" mode="aspectFill" class="cidianpicture"/>
+						<view class="layout_vertical" style="margin-left: 40rpx;">
+							<view class="cidianname" >{{cidiandata.Name}} </view>
+              <view  style="font-size:14px;text-align: end;">{{cidiandata.amount}} 词</view>
+							<view style="font-size:14px;margin-top: 14px;" >{{cidiandata.detail}}</view>
+						</view>
+				</view>
+	  	  
+	  	</view>
+	  </view>
+    <view class="danci-records">
+    <view class="container-footer">
+		<text>已学单词</text>
+		<text bindtap="reserveHandle">已错单词</text>
+		<text class="apply-btn" bindtap="goApply">未学单词</text>
+	  </view>
+    <view class="danci"> 
+    <text class="danci-time">2022年4月10日</text>
+    <view class="layout_horizontal" style="width: 80%;margin-left: 10%;">
+      <view style="width: 30%;margin-top: 10rpx;">
+      <text style="font-size:20px;">人民</text>
+      <van-icon name="chat-o" custom-style="margin-left:20%" size="20px" /></view>
+      
+    </view>
+    </view>
+  </view>
+	</view>
+  
+	
+</view>
+

@@ -1,0 +1,25 @@
+<!--pages/add-plan/add-plan.wxml-->
+<view class="container2">
+  <view class="list-body">
+      <view class="flex-wrp" style="flex-direction:row;">
+      <view class="item2">
+      <text class="content">可选词库</text>
+      </view>
+      <view wx:for="{{dictionary}}">
+          <view class="item">
+          <van-card    
+          >  <view slot="title" style="margin-top:10rpx;margin-left:10rpx">
+          <text class="title">{{item.name}}</text>
+          </view>
+          <view slot="thumb" style="margin-top:20rpx;margin-left:0rpx">
+          <image style="width: 120rpx; height: 120rpx;margin-left:20rpx" mode="scaleToFill" src="{{item.picture}}"></image>
+          </view>
+           <view slot="desc" style="margin-top:20rpx;margin-left:5rpx">
+          <text class="desc" >{{item.des}}</text>
+          </view>
+          </van-card>
+          </view>
+      </view>
+      </view>
+  </view>
+</view>

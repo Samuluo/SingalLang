@@ -1,0 +1,11 @@
+{
+  "usingComponents": {
+    "van-button": "@vant/weapp/button/index",
+    "van-card": "@vant/weapp/card/index",
+    "van-progress": "@vant/weapp/progress/index",
+    "van-icon": "@vant/weapp/icon/index"
+  },
+  "navigationBarBackgroundColor": "#A8E9BD",
+  "navigationBarTextStyle": "black",
+  "navigationBarTitleText": "切换计划"
+}
