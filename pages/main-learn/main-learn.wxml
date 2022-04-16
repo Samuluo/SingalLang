@@ -24,7 +24,7 @@
           >
           <view slot="title" style="margin-top:10rpx;margin-left:10rpx">
           <text class="title">{{dictionary.name}}</text>
-            <van-button plain  type="primary" style="float:right;margin-right:5rpx" size="small">调整计划</van-button>
+            <van-button plain  type="primary" style="float:right;margin-right:5rpx" size="small" catchtap="adjust">调整计划</van-button>
           </view>
           <view slot="desc" style="margin-top:20rpx;margin-left:5rpx">
           <text class="desc" >每日30词，剩余20天</text>
