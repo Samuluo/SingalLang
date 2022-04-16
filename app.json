@@ -1,11 +1,11 @@
 {
   "pages": [
+    "pages/main-learn/main-learn",
+    "pages/mine/mine",
     "pages/index/index",
     "pages/logs/logs",
     "pages/adjustPlan/adjustPlan",
-    "pages/mine/mine",
     "pages/cidianDetail/cidianDetail",
-    "pages/main-learn/main-learn",
     "pages/switch-plan/switch-plan",
     "pages/add-plan/add-plan",
     "pages/learn-word/learn-word"
@@ -13,14 +13,14 @@
   "window": {
     "backgroundTextStyle": "dark",
     "navigationBarBackgroundColor": "#A8E9BD",
-    "navigationBarTitleText": "手语学习",
+    "navigationBarTitleText": "手语",
     "navigationBarTextStyle": "black"
   },
   "tabBar": {
     "list": [
       {
-        "pagePath": "pages/index/index",
-        "text": "手语学习",
+        "pagePath": "pages/main-learn/main-learn",
+        "text": "学习",
         "iconPath": "images/xihuan.png",
         "selectedIconPath": "images/xihuanfill.png"
       },
