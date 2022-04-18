@@ -27,7 +27,8 @@ Page({
     var col = [parseInt(2000/x)+"天"]
     picker.setColumnValues(1, col);
   },
-  onLoad: function () {
+  onLoad: function (options) {
+    console.log(JSON.parse(options.plan))
     this.setData({
       cidiandata:{
         "ParkCode": "ZCKJ20160831200444",

@@ -22,26 +22,27 @@
       <view class="item"><van-card
           thumb="{{dictionary.picture}}"
           >
+
           <view slot="title" style="margin-top:10rpx;margin-left:10rpx">
-          <text class="title">{{dictionary.name}}</text>
-            <van-button plain  type="primary" style="float:right;margin-right:5rpx" size="small" catchtap="adjust">调整计划</van-button>
+          <text class="title">{{plan.id}}</text>
+            <van-button plain  type="primary" style="float:right;margin-right:5rpx" size="small" data-item="{{plan}}"catchtap="adjust">调整计划</van-button>
           </view>
           <view slot="desc" style="margin-top:20rpx;margin-left:5rpx">
-          <text class="desc" >每日30词，剩余20天</text>
-          <van-progress percentage="50" stroke-width="1" color="#49CB55"/>
+          <text class="desc" >每日{{plan.amount}}词，剩余20天</text>  
+          <progress percent="{{plan.learnedNumber*100/plan.totalNumber}}" color="#10AEFF" active  color="#49CB55" stroke-width="3" />
           </view>
           <view slot="bottom" style="margin-left:5rpx">
            <text class="bottom-desc"  style="margin-top:15rpx;float:left">已学单词</text>
-           <text class="bottom-desc"  style="margin-top:15rpx;float:right">2500</text>
+           <text class="bottom-desc"  style="margin-top:15rpx;float:right">{{plan.totalNumber}}</text>
            <text class="bottom-desc"  style="margin-top:15rpx;float:right">/</text>
-           <text class="bottom-desc"  style="margin-top:15rpx;float:right">1300</text>
+           <text class="bottom-desc"  style="margin-top:15rpx;float:right">{{plan.learnedNumber}}</text>
           </view>
           </van-card>
           <view class="divLine"></view>
           <view wx:if="{{dictionary.finish==0}}">
           <view style="margin-left:36rpx;margin-top:20rpx;font-weight:bold">今日计划</view>
-          <view style="margin-left:36rpx;margin-top:20rpx;font-size:18rpx"><text style="font-weight:normal;font-size:25rpx;"  >需新学</text><text style="font-weight:normal;font-size:25rpx;margin-left:200rpx"  >需复习</text></view>
-          <view style="margin-left:40rpx;margin-top:20rpx"><text style="font-weight:bold;font-size:90rpx;font-style:italic">30</text><text style="font-weight:bold;font-size:40rpx;margin-left:20rpx">词</text><text style="font-weight:bold;font-size:90rpx;font-style:italic;margin-left:110rpx">25</text><text style="font-weight:bold;font-size:40rpx;margin-left:2rpx">词</text></view>
+          <view style="margin-left:36rpx;margin-top:20rpx;font-size:18rpx"><text style="font-weight:normal;font-size:25rpx;"  >未完成</text><text style="font-weight:normal;font-size:25rpx;margin-left:200rpx"  >已完成</text></view>
+          <view style="margin-left:40rpx;margin-top:20rpx"><text style="font-weight:bold;font-size:90rpx;font-style:italic">{{plan.todayAmount-todayLearned}}</text><text style="font-weight:bold;font-size:40rpx;margin-left:20rpx">词</text><text style="font-weight:bold;font-size:90rpx;font-style:italic;margin-left:110rpx">{{todayLearned}}</text><text style="font-weight:bold;font-size:40rpx;margin-left:20rpx">词</text></view>
           <view style="margin-left:20rpx;margin-top:20rpx;margin-bottom:20rpx;margin-right:20rpx"> <van-button round type="info" style="width:90%;margin-top:50rpx" color="#9EDDB2" block>开始学习</van-button></view>
           </view>
           <view wx:if="{{dictionary.finish==1}}">

@@ -5,51 +5,52 @@ Page({
    * 页面的初始数据
    */
   data: {
-    dictionary:[{
-      name:'HSK-1级',
-      picture:"/images/loadpicture.png",
-      condition:"1",
-      des:'一本初级词典'
-    },{
-      name:'HSK-2级',
-      picture:"/images/loadpicture.png",
-      condition:"1",
-      des:'一本中级词典'
-    },{
-      name:'HSK-2级',
-      picture:"/images/loadpicture.png",
-      condition:"2",
-      des:'一本高级词典'
-    },{
-      name:'HSK-2级',
-      picture:"/images/loadpicture.png",
-      condition:"1",
-      des:'一本中级词典'
-    },{
-      name:'HSK-2级',
-      picture:"/images/loadpicture.png",
-      condition:"2",
-      des:'一本高级词典'
-    },{
-      name:'HSK-2级',
-      picture:"/images/loadpicture.png",
-      condition:"1",
-      des:'一本中级词典'
-    },{
-      name:'HSK-2级',
-      picture:"/images/loadpicture.png",
-      condition:"2",
-      des:'一本高级词典'
-    }]
+    userId:1000,
+    picture:"/images/loadpicture.png",
+    plans:[],
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    var that = this
+    wx.request({
+      url: 'http://bewcf.info:8081/plan/queryAll',
+      method:"get",
+      data:{
+        userId:this.data.userId
+      },
+      success:(res)=>{
+        that.setData({
+          'plans':res.data,
+        })
+        console.log(this.data.plans)
+      }
+    })
   },
-
+  add: function(e){
+    wx.navigateTo({
+      url: '/pages/add-plan/add-plan'
+    })
+  },
+  switch: function(e){
+  
+    var that = this
+    wx.request({
+      url: 'http://bewcf.info:8081/plan/switchPlan',
+      method:"post",
+      data:{
+        id:e.currentTarget.dataset.item
+      },
+      success:(res)=>{
+        console.log(res)
+        wx.reLaunch({
+          url: '/pages/main-learn/main-learn'
+        })
+      }
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

@@ -5,26 +5,35 @@ Page({
    * 页面的初始数据
    */
   data: {
-    dictionary:[{
-      name:'HSK-1级',
-      picture:"/images/loadpicture.png",
-      des:'一本初级词典'
-    },{
-      name:'HSK-2级',
-      picture:"/images/loadpicture.png",
-      des:'一本中级词典'
-    },{
-      name:'HSK-2级',
-      picture:"/images/loadpicture.png",
-      des:'一本高级词典'
-    }]
+    userId:1000,
+    picture:"/images/loadpicture.png",
+    dictionaries:{
+    },
   },
-
+  addplan: function(e){
+    console.log(e)
+    wx.navigateTo({
+      url: '/pages/adjustPlan/adjustPlan?items='+JSON.stringify(e.currentTarget.dataset.item),
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    var that = this
+    wx.request({
+      url: 'http://bewcf.info:8081/dictionary/queryAll',
+      method:"get",
+      data:{
+        userId:this.data.userId
+      },
+      success:(res)=>{
+        that.setData({
+          'dictionaries':res.data,
+        })
+        console.log(this.data.dictionaries)
+      }
+    })
   },
 
   /**

@@ -1,10 +1,25 @@
 // pages/main-learn/main-learn.js
 Page({
-
   /**
    * 页面的初始数据
    */
   data: {
+    todayLearned:[],
+    userId:1000,
+    plan:{
+        id:[],
+        userId:[],
+        dictionaryId:[],
+        amount:[],
+        porder:[],
+        startTime:[],
+        completed:[],
+        totalNumber:[],
+        learnedNumber:[],
+        state:[],
+        needday:[],
+        todayAmount:[],
+    },
     dictionary:{
       name:'HSK-1级',
       picture:"/images/loadpicture.png",
@@ -13,16 +28,52 @@ Page({
       finish:'0',
     }
   },
-  adjust: function(){
+  adjust: function(e){
+      console.log(e.currentTarget.dataset.item)
       wx.navigateTo({
-        url: '/pages/adjustPlan/adjustPlan'
+        url: '/pages/adjustPlan/adjustPlan?plan='+JSON.stringify(e.currentTarget.dataset.item),
       })
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+     var that = this
+     wx.request({
+      url: 'http://bewcf.info:8081/plan/queryNow',
+      method:"get",
+      data:{
+        userId:this.data.userId
+      },
+      success:(res)=>{
+        that.setData({
+          'plan.id':res.data.id,
+          'plan.amount':res.data.amount,
+          'plan.completed':res.data.completed,
+          'plan.dictionaryId':res.data.dictionaryId,
+          'plan.learnedNumber':res.data.learnedNumber,
+          'plan.porder':res.data.porder,
+          'plan.startTime':res.data.startTime,
+          'plan.state':res.data.state,
+          'plan.totalNumber':res.data.totalNumber,
+          'plan.userId':res.data.userId,
+          'plan.todayAmount':res.data.todayAmount,
+        })
+      }
+    })
+    wx.request({
+      url: 'http://bewcf.info:8081/word/getTodayLearned',
+      method:"get",
+      data:{
+        userId:this.data.userId
+      },
+      success:(res)=>{
+        console.log(res)
+        that.setData({
+          'todayLearned':res.data
+        })
+      }
+    })
   },
 
   /**

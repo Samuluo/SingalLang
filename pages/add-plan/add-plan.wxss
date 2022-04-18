@@ -15,7 +15,7 @@
   height:200rpx;
   border-color: #46CA53;
   border-style: solid;
-  border-width: 2rpx 4rpx 2rpx 4rpx;
+  border-width: 2rpx 4rpx 10rpx 4rpx;
 }
 .item2{
   height:80rpx;
