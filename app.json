@@ -43,5 +43,11 @@
     "borderStyle": "white"
   },
   "sitemapLocation": "sitemap.json",
-  "lazyCodeLoading": "requiredComponents"
+  "lazyCodeLoading": "requiredComponents",
+  "plugins": {
+    "echarts": {
+      "version": "2.1.1",
+      "provider": "wx1db9e5ab1149ea03"
+    }
+  }
 }

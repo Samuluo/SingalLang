@@ -28,9 +28,11 @@ Page({
     picker.setColumnValues(1, col);
   },
   onLoad: function (options) {
-    console.log(JSON.parse(options.plan))
+    var f = JSON.parse(options.plan) 
+    console.log(f)
     this.setData({
       cidiandata:{
+        "id": f.id,
         "ParkCode": "ZCKJ20160831200444",
         "Name": "国家通用手语词典",
         "img": "https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/cover/(5).jpg.webp",
