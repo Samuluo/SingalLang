@@ -36,7 +36,7 @@
         "pagePath": "pages/mine/mine",
         "text": "我",
         "iconPath": "images/yonghu.png",
-        "selectedIconPath": "images/biaoxingfill.png"
+        "selectedIconPath": "images/yonghufill.png"
       }
     ],
     "color": "#333",

@@ -3,6 +3,8 @@ const app = getApp()
 Page({
   data: {
     filePath:'',//临时雷达图路径
+    totalAmount: 3000,
+    totalDate:30,
     options: {
       title: {
         text: ''
@@ -128,7 +130,7 @@ Page({
               console.log(res);
               wx.setStorage({
                 key: 'userInfo' ,
-                data: res
+                data: res.data
               }
               )
             }

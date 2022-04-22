@@ -15,6 +15,12 @@
 				</view>
 	  	  <view style="display: flex;width: 90%; border: 1rpx solid #BBBBBB;margin-left: 5%; margin-top: 40rpx;margin-bottom: -50rpx;height: 140rpx;background-color: #F1FBF2;align-items: center;text-align: center;">
           <text style="color:#101010; font-size: 40rpx;align-items: center;text-align: center;">累计学习</text>
+          <text style="color:#101010; font-size: 40rpx;align-items: center;text-align: center;margin-left: 10rpx;">{{totalAmount}}词</text>
+          <text style="color:#BBBBBB ; font-size: 40rpx;align-items: center;text-align: center;margin-left: 10rpx;">|</text>
+          <text style="color:#BBBBBB ; font-size: 40rpx;align-items: center;text-align: center;margin-left: 10rpx;">|</text>
+          <text style="color:#101010; font-size: 40rpx;align-items: center;text-align: center;">累计学习</text>
+          <text style="color:#101010; font-size: 40rpx;align-items: center;text-align: center;margin-left: 10rpx;">{{totalDate}}天</text>
+
         </view>
 	  	</view>
     </view>
