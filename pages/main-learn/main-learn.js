@@ -19,6 +19,8 @@ Page({
         state:[],
         needday:[],
         todayAmount:[],
+        dictionaryName:[],
+        dictionaryImg:[],
     },
     dictionary:{
       name:'HSK-1级',
@@ -39,6 +41,15 @@ Page({
    */
   onLoad: function (options) {
      var that = this
+     wx.getStorage({
+      key: 'userInfo',
+      success(res){
+        console.log(res.data.id)
+        that.setData({
+          'userId': res.data.id,
+        })
+      }
+    })
      wx.request({
       url: 'http://bewcf.info:8081/plan/queryNow',
       method:"get",
