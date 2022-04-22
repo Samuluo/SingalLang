@@ -1,0 +1,23 @@
+<!--pages/mine/mine.wxml-->
+<!-- <chart chart-class="radar_map" option="{{ options }}" notMerge bindinstance="onInstance" /> -->
+<view class="container" >
+	<view class="container-body space-content" style="width: 100%; align-items: center;">
+	  <view class="mine-top">
+	  	<view class="cidian-banner" >
+				<view style="display: flex;flex-direction: row;">  				
+          <block wx:if="{{canIUseOpenData}}">
+            <view class="userinfo-avatar" bindtap="bindViewTap">
+              <open-data type="userAvatarUrl"></open-data>
+            </view>
+            <open-data type="userNickName" style="font-size: 56rpx;margin-top: 6%;"></open-data>
+            <van-icon name="arrow" size="56rpx"/>
+          </block>
+				</view>
+	  	  <view style="display: flex;width: 90%; border: 1rpx solid #BBBBBB;margin-left: 5%; margin-top: 40rpx;margin-bottom: -50rpx;height: 140rpx;background-color: #F1FBF2;align-items: center;text-align: center;">
+          <text style="color:#101010; font-size: 40rpx;align-items: center;text-align: center;">累计学习</text>
+        </view>
+	  	</view>
+    </view>
+  	 
+  </view>
+</view>

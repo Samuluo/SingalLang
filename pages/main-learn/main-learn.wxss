@@ -1,0 +1,72 @@
+/* pages/test/test.wxss */
+
+.container2{
+  min-height: 100vh;
+  background-color: rgba(241, 251, 242, 100);
+  padding: 20rpx;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+.item{
+  background-color: #ffffff;
+  margin-top: 50rpx;
+  border-color: #46CA53;
+  border-style: solid;
+  border-width: 2rpx;
+}
+.list-body{
+  margin-top: 10rpx;
+  height: 100%;
+  width: 90%;
+}
+.title{
+  font-weight: bold;
+  font-size: 30rpx;
+}
+.desc{
+  font-weight: normal;
+  font-size: 25rpx;
+  display: flex;
+  margin-bottom: 20rpx;
+  flex-direction: column; /**子元素上下排列*/
+}
+.bottom-desc{
+  font-weight: normal;
+  font-size: 25rpx;
+}
+.container3{
+  min-height: 100vh;
+  background-color: rgba(241, 251, 242, 100);
+  height: 100%;
+}
+
+view .search-button {
+  width: 100%;
+  height: 40rpx;
+  padding-top: 0rpx;
+  margin-top: 20rpx;
+  margin-left: 0rpx;
+}
+.van-search__content{
+  background-color:#E8E8E8  !important;
+  margin-left: 0rpx;
+}
+/*分割线样式*/
+.divLine{
+  background: #BDECC2;
+  margin-left: 5%;
+  width: 90%;
+  height: 2rpx;
+ }
+.van-button--normal{
+  font-size: 40rpx !important;
+  letter-spacing:20rpx;
+}
+.button2{
+  letter-spacing:10rpx;
+}
+  

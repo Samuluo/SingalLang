@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "chart": "plugin://echarts/chart",
+    "van-icon": "@vant/weapp/icon/index"
+  }
+}

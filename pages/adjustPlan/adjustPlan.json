@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "调整计划",
+  "usingComponents": {
+    "van-picker": "@vant/weapp/picker/index",
+    "van-button": "@vant/weapp/button/index"
+  }
+}

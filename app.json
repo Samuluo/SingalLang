@@ -1,0 +1,55 @@
+{
+  "pages": [
+    "pages/main-learn/main-learn",
+    "pages/mine/mine",
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/adjustPlan/adjustPlan",
+    "pages/cidianDetail/cidianDetail",
+    "pages/switch-plan/switch-plan",
+    "pages/add-plan/add-plan",
+    "pages/learn-word/learn-word",
+    "pages/word-detail/word-detail",
+    "pages/search/search"
+  ],
+  "window": {
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#A8E9BD",
+    "navigationBarTitleText": "手语",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/main-learn/main-learn",
+        "text": "学习",
+        "iconPath": "images/xihuan.png",
+        "selectedIconPath": "images/xihuanfill.png"
+      },
+      {
+        "pagePath": "pages/switch-plan/switch-plan",
+        "text": "科普",
+        "iconPath": "images/biaoxing.png",
+        "selectedIconPath": "images/biaoxingfill.png"
+      },
+      {
+        "pagePath": "pages/mine/mine",
+        "text": "我",
+        "iconPath": "images/yonghu.png",
+        "selectedIconPath": "images/biaoxingfill.png"
+      }
+    ],
+    "color": "#333",
+    "selectedColor": "#f7982a",
+    "backgroundColor": "#A8E9BD",
+    "borderStyle": "white"
+  },
+  "sitemapLocation": "sitemap.json",
+  "lazyCodeLoading": "requiredComponents",
+  "plugins": {
+    "echarts": {
+      "version": "2.1.1",
+      "provider": "wx1db9e5ab1149ea03"
+    }
+  }
+}

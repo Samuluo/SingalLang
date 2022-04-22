@@ -1,0 +1,44 @@
+<!--pages/adjustPlan/adjustPlan.wxml-->
+<!--logs.wxml-->
+<view class="container" >
+	<view class="container-body space-content" style="width: 100%; align-items: center;">
+	  <view class="cidian-top">
+	  	<view class="cidian-banner" >
+				<view class="layout_horizontal">  				
+						<image src="{{cidiandata.img}}" mode="aspectFill" class="cidianpicture"/>
+						<view class="layout_vertical" style="margin-left: 40rpx;">
+							<view class="cidianname" >{{cidiandata.Name}}</view>
+							<view style="font-size:14px;margin-top: 20rpx;" >每日 30 词 ，剩余 20 天</view>
+							<view class="progress-box" style="margin-top: 20rpx;">
+              	<progress percent="60" active stroke-width="4" />
+								<view style="font-size:14px;margin-top: 20rpx;">已学单词  1400/2000</view>
+							</view>
+						</view>
+				</view>
+	  	  
+	  	</view>
+  	 <view class="space-info">	
+  	  	<view class="space-list">
+  	  		<view class="space-item">
+  	  			<text class="text-left" style="font-size: 14px;">预计完成日期：</text>
+  	  			<text class="text-right">
+  	  				<text class="text-orange">{{cidiandata.CompleteDate}}</text>
+  	  			</text>
+  	  		</view>
+  	  	</view>
+  	  </view> 
+	  </view>
+	  <view class="cidian-adjust" style="align-items: center;">
+			<van-picker show-toolbar custom-class="selectcidian"
+  title="" columns="{{ columns }}" bind:change="onChange" confirm-button-text="完成天数" cancel-button-text="每日背单词"/>
+	<van-button round custom-style="width:100%;font-size:24px;margin-top:20rpx" color="#9EDDB2 100%">确认修改</van-button>
+	  </view>
+	 
+	</view>
+	<!-- <view class="container-footer">
+		<text>每日挑战</text>
+		<text bindtap="reserveHandle">单词训练</text>
+		<text class="apply-btn" bindtap="goApply">词量测试</text>
+	</view> -->
+</view>
+
