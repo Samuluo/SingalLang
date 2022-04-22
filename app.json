@@ -9,7 +9,7 @@
     "pages/switch-plan/switch-plan",
     "pages/add-plan/add-plan",
     "pages/learn-word/learn-word",
-    "pages/word-detail/word-detatil",
+    "pages/word-detail/word-detail",
     "pages/search/search"
   ],
   "window": {
