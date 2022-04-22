@@ -23,6 +23,13 @@
           "name": "",
           "pathName": "pages/main-learn/main-learn",
           "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/mine/mine",
+          "query": "",
           "scene": null,
           "launchMode": "default"
         }
