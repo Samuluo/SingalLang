@@ -77,7 +77,6 @@
 		"gamePlugin": {
 			"list": []
 		},
-		"miniprogram": {
-		}
+		"miniprogram": {}
 	}
 }
