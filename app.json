@@ -8,7 +8,9 @@
     "pages/cidianDetail/cidianDetail",
     "pages/switch-plan/switch-plan",
     "pages/add-plan/add-plan",
-    "pages/learn-word/learn-word"
+    "pages/learn-word/learn-word",
+    "pages/word-detail/word-detatil",
+    "pages/search/search"
   ],
   "window": {
     "backgroundTextStyle": "dark",
