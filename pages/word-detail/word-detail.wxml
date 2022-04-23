@@ -1,3 +1,25 @@
 <!--pages/word-detail/word-detail.wxml-->
-<view class="top"></view>
-<text>pages/word-detail/word-detail.wxml</text>
+<view class="bg">
+<view class="top">
+<view class="top-first">
+    <view class="top-first-item">
+      <image style="width: 40rpx; height: 40rpx;" mode="scaleToFill" src="../../images/star.png"></image>
+      <text>收藏</text>
+    </view>
+    <view class="top-first-item">
+      <image style="width: 40rpx; height: 40rpx;" mode="scaleToFill" src="../../images/share.png"></image>
+      <text>分享</text>
+    </view>
+</view>
+</view>
+
+<view class="top2" >
+<text style="font-size:80rpx;margin-top:50rpx">我</text>
+</view>
+<view class="content">
+      <image style="width: 450rpx; height: 300rpx; background-color: #eeeeee" mode="scaleToFill" src="https://img.yzcdn.cn/vant/cat.jpeg"></image>
+      <text style="margin-top:30rpx">解释</text>
+      <view class="div" style="margin-top:40rpx;margin-bottom:60rpx"></view>
+      <image style="width: 450rpx; height: 300rpx; background-color: #eeeeee" mode="scaleToFill" src="https://img.yzcdn.cn/vant/cat.jpeg"></image>
+</view>
+</view>

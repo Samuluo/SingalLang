@@ -90,6 +90,13 @@
 					"id": -1,
 					"name": "pages/word-detail/word-detail",
 					"pathName": "pages/word-detail/word-detail",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/learn-word/learn-word",
+					"pathName": "pages/learn-word/learn-word",
 					"scene": null
 				}
 			]
