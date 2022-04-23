@@ -15,19 +15,27 @@ Page({
    */
   onLoad: function (options) {
     var that = this
-    wx.request({
-      url: 'http://bewcf.info:8081/plan/queryAll',
-      method:"get",
-      data:{
-        userId:this.data.userId
-      },
-      success:(res)=>{
-        that.setData({
-          'plans':res.data,
-        })
-        console.log(this.data.plans)
-      }
-    })
+    wx.getStorage({
+     key: 'userInfo',
+     success(res){
+       that.setData({
+         'userId': res.data.id,
+       })
+       wx.request({
+        url: 'http://bewcf.info:8081/plan/queryAll',
+        method:"get",
+        data:{
+          userId:that.data.userId
+        },
+        success:(res)=>{
+          that.setData({
+            'plans':res.data,
+          })
+          console.log(res)
+        }
+      })
+     }
+   })
   },
   add: function(e){
     wx.navigateTo({

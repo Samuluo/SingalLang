@@ -77,6 +77,22 @@
 		"gamePlugin": {
 			"list": []
 		},
-		"miniprogram": {}
+		"miniprogram": {
+			"list": [
+				{
+					"id": -1,
+					"name": "pages/adjustPlan/adjustPlan",
+					"pathName": "pages/adjustPlan/adjustPlan",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/word-detail/word-detail",
+					"pathName": "pages/word-detail/word-detail",
+					"scene": null
+				}
+			]
+		}
 	}
 }

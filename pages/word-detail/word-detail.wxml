@@ -1,2 +1,3 @@
 <!--pages/word-detail/word-detail.wxml-->
+<view class="top"></view>
 <text>pages/word-detail/word-detail.wxml</text>

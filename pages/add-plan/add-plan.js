@@ -20,9 +20,13 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    console.log(options)
     var that = this
+    that.setData({
+      'userId':options.userId,
+    })
     wx.request({
-      url: 'http://bewcf.info:8081/dictionary/queryAll',
+      url: 'http://bewcf.info:8081/dictionary/queryRest',
       method:"get",
       data:{
         userId:this.data.userId
@@ -31,7 +35,6 @@ Page({
         that.setData({
           'dictionaries':res.data,
         })
-        console.log(this.data.dictionaries)
       }
     })
   },

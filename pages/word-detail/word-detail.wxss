@@ -1,1 +1,4 @@
 /* pages/word-detail/word-detail.wxss */
+.top{
+  background-color: #FFFFFF;
+}
