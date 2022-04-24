@@ -7,12 +7,12 @@
       </view>
       <view wx:for="{{dictionaries}}">
           <view class="item">
-          <van-card    
+          <van-card bindtap= "todetail" data-item="{{item}}"
           >  <view slot="title" style="margin-top:10rpx;margin-left:10rpx">
           <text class="title">{{item.name}}</text>
           </view>
           <view slot="thumb" style="margin-top:20rpx;margin-left:0rpx">
-          <image style="width: 120rpx; height: 120rpx;margin-left:20rpx" mode="scaleToFill" src="{{item.imgUrl}}" data-item="{{item}}" catchtap="addplan"></image>
+          <image style="width: 120rpx; height: 120rpx;margin-left:20rpx" mode="scaleToFill" src="{{item.imgUrl}}" data-item="{{item}}" catchtap="todetail"></image>
           </view>
            <view slot="desc" style="margin-top:20rpx;margin-left:5rpx">
           <text class="desc" >{{item.description}}</text>
@@ -22,4 +22,32 @@
       </view>
       </view>
   </view>
+  <van-dialog
+  use-slot
+  title="添加"
+  show="{{ show }}"
+  show-cancel-button
+  confirm-button-open-type="getUserInfo"
+  bind:close="onClose"
+  bind:getuserinfo="getUserInfo"
+>
+<view class="container" >
+	<view class="container-body space-content" style="width: 100%; align-items: center;">
+
+	  <view class="cidian-adjust" style="align-items: center;">
+    <view style="background-color: #A8E9BD;text-align: center;padding: 20rpx;">制订计划</view>
+    <view style="padding: 20rpx;font-size: 28rpx;border-left: 1rpx solid #46CA53;border-right: 1rpx solid #46CA53;">预计完成日期:</view>
+			<van-picker show-toolbar custom-class="selectcidian"
+  title="" columns="{{ columns }}" bind:change="onChange" confirm-button-text="完成天数" cancel-button-text="每日背单词"/>
+  
+	  </view>
+	 
+	</view>
+	<!-- <view class="container-footer">
+		<text>每日挑战</text>
+		<text bindtap="reserveHandle">单词训练</text>
+		<text class="apply-btn" bindtap="goApply">词量测试</text>
+	</view> -->
+</view>
+</van-dialog>
 </view>

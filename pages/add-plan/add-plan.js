@@ -1,4 +1,8 @@
 // pages/add-plan/add-plan.js
+const citys = {
+  每日背单词: ['5个', '10个', '20个', '30个', '40个'],
+  完成天数: ['福州', '厦门', '莆田', '三明', '泉州'],
+};
 Page({
 
   /**
@@ -9,11 +13,33 @@ Page({
     picture:"/images/loadpicture.png",
     dictionaries:{
     },
+    show: false,
+    spacedata:{},
+    spaceimgs:[],
+    currentIndex:1,
+    columns: [
+      {
+        values: citys['每日背单词'],
+        className: 'column1',
+      },
+      {
+        values: ["400天"],
+        className: 'column2',
+        defaultIndex: 2,
+      },
+    ],
   },
-  addplan: function(e){
-    console.log(e)
-    wx.navigateTo({
-      url: '/pages/adjustPlan/adjustPlan?items='+JSON.stringify(e.currentTarget.dataset.item),
+  onChange(event) {
+    const { picker, value, index } = event.detail;
+    var x = value[0].replace("个","");
+    var col = [parseInt(2000/x)+"天"]
+    picker.setColumnValues(1, col);
+  },
+  todetail:function(e) {
+    var item = e.currentTarget.dataset.item
+    console.log(item)
+    this.setData({
+      'show':true,
     })
   },
   /**
@@ -38,10 +64,15 @@ Page({
       }
     })
   },
-
+  getUserInfo(event) {
+    console.log(event.detail);
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
+  onClose() {
+    this.setData({ show: false });
+  },
   onReady: function () {
 
   },

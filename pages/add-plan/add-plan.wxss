@@ -46,3 +46,61 @@
   font-weight: lighter;
   font-size: 25rpx;
 }
+/* pages/adjustPlan/adjustPlan.wxss */
+.cidianpicture {
+  left: 28rpx;
+  top: 192rpx;
+  width:30%;
+  height: 300rpx;
+}
+.cidianname {
+  left: 108px;
+  top: 96px;
+  width: 156px;
+  height: 26px;
+  color: #101010 100%;
+  font-size: 18px;
+  text-align: left;
+  font-family: PingFangSC-regular;
+}
+/*横向布局  */
+.layout_horizontal{
+  height: 360rpx;
+  display: flex;
+  /*row 横向  column 列表  */
+  flex-direction: row;
+}
+ 
+/*纵向布局  */
+.layout_vertical{
+  height: 360rpx;
+  display: flex;
+  /*row 横向  column 列表  */
+  flex-direction: column;
+}
+ 
+/*划线  */
+.line {
+   background-color: blue;
+   height: 2rpx;
+   width: 100%;
+}
+
+.cidian-adjust{
+  
+  margin-top: 20rpx;
+  width: 80% ;
+  text-align: center;
+  align-self: center; 
+  margin-bottom: 20rpx;
+  margin-left: 10%;
+
+}
+.selectcidian {
+  width: auto;
+  text-align: center;
+  align-self: center;
+  margin-bottom: 20rpx;
+  background: #F1FBF2;
+  border: 1rpx solid #46CA53;
+}

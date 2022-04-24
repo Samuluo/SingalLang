@@ -5,6 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    userId:1000,
     dictionary:[{
       name:'HSK-1级',
       picture:"/images/loadpicture.png",
@@ -32,7 +33,17 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    var that = this
+    wx.request({
+      url: 'http://bewcf.info:8081/word/getTodayWord',
+      method:"get",
+      data:{
+        userId:that.data.userId
+      },
+      success:(res)=>{
+        console.log(res)
+      }
+    })
   },
 
   /**
