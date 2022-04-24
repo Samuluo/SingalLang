@@ -27,21 +27,6 @@
       </view>
   </view></van-col>
 </van-row>
-<view class="container2">
-  <view class="list-body">
-      <view class="flex-wrp" style="flex-direction:row;">
-      <view style="margin-top:0rpx">
-      <text>请选择正确选项</text>
-      </view>
-      <view style="margin-top:40rpx">
-      <image style="width: 600rpx; height: 400rpx; background-color: #eeeeee;margin-left:25rpx" mode="scaleToFill" src="https://img.yzcdn.cn/vant/cat.jpeg"></image>
-     </view>
-      <view wx:for="{{dictionary}}">
-          <view class="item">
-              <van-button round type="info" style="width:90%;margin-top:50rpx" color="#9EDDB2" block>添加计划</van-button>
-          </view>
-      </view>
-      </view>
-  </view>
-</view>
+
+<learn words="{{words}}"/>
 </view>

@@ -1,0 +1,28 @@
+<!--components/learn.wxml-->
+<view class="container2">
+  <view class="list-body">
+      <view class="flex-wrp" style="flex-direction:row;">
+      <view style="margin-top:0rpx">
+      <text>请选择正确选项</text>
+      </view>
+      <view style="margin-top:40rpx">
+      <image style="width: 600rpx; height: 400rpx; background-color: #eeeeee;margin-left:25rpx" mode="scaleToFill" src="{{words[index].word.imgUrl}}"></image>
+     </view>
+
+      <view >
+          <view class="item">
+              <van-button round type="info" style="width:90%;margin-top:50rpx" color="#9EDDB2" block>{{words[index].word.answer}}</van-button>
+          </view>
+        <view class="item">
+              <van-button round type="info" style="width:90%;margin-top:50rpx" color="#9EDDB2" block>{{words[index].word.answer2}}</van-button>
+          </view>
+        <view class="item">
+              <van-button round type="info" style="width:90%;margin-top:50rpx" color="#9EDDB2" block>{{words[index].word.answer3}}</van-button>
+          </view>
+        <view class="item" >
+              <van-button round catchtap="answer" type="info" style="width:90%;margin-top:50rpx" color="#9EDDB2" block>{{words[index].word.answer4}}</van-button>
+          </view>
+      </view>
+      </view>
+  </view>
+</view>

@@ -5,6 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    words:[],
     userId:1000,
     dictionary:[{
       name:'HSK-1级',
@@ -41,7 +42,9 @@ Page({
         userId:that.data.userId
       },
       success:(res)=>{
-        console.log(res)
+        that.setData({
+          'words':res.data,
+        })
       }
     })
   },
