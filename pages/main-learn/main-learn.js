@@ -21,6 +21,7 @@ Page({
         state:[],
         needday:[],
         todayAmount:[],
+        dictionary:[],
         dictionaryName:[],
         dictionaryImg:[],
     },
@@ -62,10 +63,12 @@ Page({
             userId:that.data.userId
           },
           success:(res)=>{
+            console.log(res)
             that.setData({
               'plans':res.data,
-              'planN':that.data.plans.length
+              'planN':res.data.length
             })
+            console.log(that.data.planN)
           }
         })
         wx.request({
@@ -80,6 +83,7 @@ Page({
               'plan.amount':res.data.amount,
               'plan.completed':res.data.completed,
               'plan.dictionaryId':res.data.dictionaryId,
+              'plan.dictionary': res.data.dictionary,
               'plan.learnedNumber':res.data.learnedNumber,
               'plan.porder':res.data.porder,
               'plan.startTime':res.data.startTime,

@@ -59,6 +59,24 @@ Page({
       }
     })
   },
+  deleteplan: function(e) {
+    var item = e.currentTarget.dataset.item
+    wx.request({
+      url: 'http://bewcf.info:8081/plan/removeOne?id='+item.id,
+      method:"POST",
+    })
+  },
+  changeplan: function(e) {
+    var item = e.currentTarget.dataset.item
+    console.log(item)
+    wx.request({
+      url: 'http://bewcf.info:8081/plan/switchPlan?id='+item.id,
+      method:"POST",
+      success:(res)=>{
+        this.onLoad();
+      }
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

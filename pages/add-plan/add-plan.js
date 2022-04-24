@@ -9,10 +9,15 @@ Page({
    * 页面的初始数据
    */
   data: {
+    amount:'',
+    pOrder:1,
     userId:1000,
     picture:"/images/loadpicture.png",
+    totalNumber: 2000,
+    predictnum: 'xxxx年xx月xx日',
     dictionaries:{
     },
+    dictionaryId: '',
     show: false,
     spacedata:{},
     spaceimgs:[],
@@ -32,7 +37,18 @@ Page({
   onChange(event) {
     const { picker, value, index } = event.detail;
     var x = value[0].replace("个","");
-    var col = [parseInt(2000/x)+"天"]
+    console.log(this.data.totalNumber)
+    var days = this.data.totalNumber/x;
+    var col = [parseInt(days)+"天"]
+    var d=new Date(); 
+    d.setDate(d.getDate()+days); 
+    var m=d.getMonth()+1; 
+    var newdate = d.getFullYear()+'年'+m+'月'+d.getDate()+'日';
+    console.log(newdate);
+    this.setData({
+      'predictnum': newdate,
+      'amount': x
+    })
     picker.setColumnValues(1, col);
   },
   todetail:function(e) {
@@ -40,6 +56,8 @@ Page({
     console.log(item)
     this.setData({
       'show':true,
+      'totalNumber':item.totalNumber,
+      'dictionaryId':item.id
     })
   },
   /**
@@ -51,6 +69,7 @@ Page({
     that.setData({
       'userId':options.userId,
     })
+    console.log(this.data.userId)
     wx.request({
       url: 'http://bewcf.info:8081/dictionary/queryRest',
       method:"get",
@@ -64,8 +83,24 @@ Page({
       }
     })
   },
-  getUserInfo(event) {
-    console.log(event.detail);
+  getSubmit(event) {
+    wx.request({
+      url: 'http://bewcf.info:8081/plan/add',
+      method:"post",
+      data: ({
+        "userId": this.data.userId,
+        "dictionaryId":this.data.dictionaryId,
+        "amount":this.data.amount,
+        "pOrder":this.data.pOrder,
+      }),
+      header:{  
+        'content-type':"application/x-www-form-urlencoded"
+     },
+      dataType:'JSON', 
+      success:(res)=>{
+          console.log(res)  
+      }
+    })
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -76,7 +111,6 @@ Page({
   onReady: function () {
 
   },
-
   /**
    * 生命周期函数--监听页面显示
    */

@@ -20,11 +20,11 @@
 </van-row>
       <view class="flex-wrp" style="flex-direction:row;">
       <view class="item"><van-card
-          thumb="{{dictionary.picture}}"
+          thumb="{{plan.dictionary.imgUrl}}"
           >
 
           <view slot="title" style="margin-top:10rpx;margin-left:10rpx">
-          <text class="title">{{plan.id}}</text>
+          <text class="title">{{plan.dictionary.name}}</text>
           <van-button plain wx:if="{{planN==0}}" type="primary" style="float:right;margin-right:5rpx" size="small" data-item="{{plan}}"catchtap="addplan">添加计划</van-button>
           <van-button plain wx:if="{{planN!=0}}" type="primary" style="float:right;margin-right:5rpx" size="small" data-item="{{plan}}"catchtap="adjust">调整计划</van-button>
           </view>

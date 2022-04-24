@@ -3,17 +3,16 @@
   <view class="list-body">
       <view class="flex-wrp" style="flex-direction:row;">
       <view wx:for="{{plans}}">
-          <view class="item"><van-card
-      
+          <view class="item"><van-card bindtap="changeplan" data-item="{{item}}"
           >
           <view slot="thumb" style="margin-top:10rpx;margin-left:0rpx">
-          <image style="width: 160rpx; height: 140rpx;margin-left:10rpx" mode="scaleToFill" src="{{picture}}" data-item="{{item.id}}" catchtap="switch"></image>
+          <image style="width: 180rpx; height: 180rpx;margin-left:10rpx" mode="scaleToFill" src="{{item.dictionary.imgUrl}}" data-item="{{item.id}}" catchtap="switch"></image>
           </view>
           <view slot="title" style="margin-top:10rpx;margin-left:10rpx">
-          <text class="title">{{item.id}}</text>
+          <text class="title">{{item.dictionary.name}}</text>
           <text wx:if="{{item.state==true}}" class="title" style="float:right;color:green;font-size:22rpx">正在学习</text>
           <van-icon wx:if="{{item.state==false}}" name="delete"  style="float:right;margin-left:2rpx" />
-          <text wx:if="{{item.state==false}}" class="title" style="float:right;font-size:22rpx">删除</text>
+          <text wx:if="{{item.state==false}}" class="title" style="float:right;font-size:22rpx" bindtap="deleteplan" data-item="{{item}}">删除</text>
           </view>
           <view slot="desc" style="margin-top:20rpx;margin-left:5rpx">
           <text class="desc" >每日{{item.amount}}词，剩余20天</text>

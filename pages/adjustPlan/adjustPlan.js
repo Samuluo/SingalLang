@@ -5,6 +5,12 @@ const citys = {
 
 Page({
   data: {
+    amount:'',
+    pOrder:1,
+    userId:1000,
+    picture:"/images/loadpicture.png",
+    totalNumber: 2000,
+    predictnum: 'xxxx年xx月xx日',
     spacedata:{},
     spaceimgs:[],
     currentIndex:1,
@@ -23,8 +29,18 @@ Page({
   onChange(event) {
     const { picker, value, index } = event.detail;
     var x = value[0].replace("个","");
-    console.log(x)
-    var col = [parseInt(2000/x)+"天"]
+    console.log(this.data.totalNumber)
+    var days = this.data.totalNumber/x;
+    var col = [parseInt(days)+"天"]
+    var d=new Date(); 
+    d.setDate(d.getDate()+days); 
+    var m=d.getMonth()+1; 
+    var newdate = d.getFullYear()+'年'+m+'月'+d.getDate()+'日';
+    console.log(newdate);
+    this.setData({
+      'predictnum': newdate,
+      'amount': x
+    })
     picker.setColumnValues(1, col);
   },
   onLoad: function (options) {
@@ -60,6 +76,22 @@ Page({
   setCurrent: function(e){  //当前图片索引
     this.setData({
       currentIndex:e.detail.current+1
+    })
+  },
+  getSubmit(event) {
+    wx.request({
+      url: 'http://bewcf.info:8081/plan/changeOne',
+      method:"post",
+      data: ({
+        "userId": this.data.userId,
+        "amount":this.data.amount,
+        "pOrder":this.data.pOrder,
+      }),
+     
+      dataType:'JSON', 
+      success:(res)=>{
+          console.log(res)  
+      }
     })
   },
   imgPreview: function(){ //图片预览

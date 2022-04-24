@@ -27,16 +27,16 @@
   title="添加"
   show="{{ show }}"
   show-cancel-button
-  confirm-button-open-type="getUserInfo"
+  confirm-button-open-type="getSubmit"
   bind:close="onClose"
-  bind:getuserinfo="getUserInfo"
+  bind:confirm="getSubmit"
 >
 <view class="container" >
 	<view class="container-body space-content" style="width: 100%; align-items: center;">
 
 	  <view class="cidian-adjust" style="align-items: center;">
     <view style="background-color: #A8E9BD;text-align: center;padding: 20rpx;">制订计划</view>
-    <view style="padding: 20rpx;font-size: 28rpx;border-left: 1rpx solid #46CA53;border-right: 1rpx solid #46CA53;">预计完成日期:</view>
+    <view style="padding: 20rpx;font-size: 28rpx;border-left: 1rpx solid #46CA53;border-right: 1rpx solid #46CA53;">预计完成日期:{{predictnum}}</view>
 			<van-picker show-toolbar custom-class="selectcidian"
   title="" columns="{{ columns }}" bind:change="onChange" confirm-button-text="完成天数" cancel-button-text="每日背单词"/>
   
