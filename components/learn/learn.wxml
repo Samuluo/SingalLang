@@ -6,21 +6,21 @@
       <text>请选择正确选项</text>
       </view>
       <view style="margin-top:40rpx">
-      <image style="width: 600rpx; height: 400rpx; background-color: #eeeeee;margin-left:25rpx" mode="scaleToFill" src="{{words[index].word.imgUrl}}"></image>
+      <image style="width: 600rpx; height: 400rpx; background-color: #eeeeee;margin-left:25rpx" mode="scaleToFill" src="{{wordToFinish[index].word.imgUrl}}"></image>
      </view>
 
       <view >
           <view class="item">
-              <van-button round type="info" style="width:90%;margin-top:50rpx" color="#9EDDB2" block>{{words[index].word.answer}}</van-button>
+              <van-button round custom-class="{{button1}}" color="{{color1}}" data-button="button1" catchtap="answer" data-id="{{wordToFinish[index].word.id}}" data-answer="{{wordToFinish[index].word.answer}}" type="info" style="width:90%;margin-top:50rpx" block>{{wordToFinish[index].word.answer}}</van-button>
           </view>
         <view class="item">
-              <van-button round type="info" style="width:90%;margin-top:50rpx" color="#9EDDB2" block>{{words[index].word.answer2}}</van-button>
+              <van-button round custom-class="{{button2}}" color="{{color2}}" data-button="button2" catchtap="answer" data-id="{{wordToFinish[index].word.id}}" data-answer="{{wordToFinish[index].word.answer2}}" type="info" style="width:90%;margin-top:50rpx"  block>{{wordToFinish[index].word.answer2}}</van-button>
           </view>
         <view class="item">
-              <van-button round type="info" style="width:90%;margin-top:50rpx" color="#9EDDB2" block>{{words[index].word.answer3}}</van-button>
+              <van-button round custom-class="{{button3}}" color="{{color3}}" data-button="button3" catchtap="answer"  data-id="{{wordToFinish[index].word.id}}" data-answer="{{wordToFinish[index].word.answer3}}" type="info" style="width:90%;margin-top:50rpx" block>{{wordToFinish[index].word.answer3}}</van-button>
           </view>
         <view class="item" >
-              <van-button round catchtap="answer" type="info" style="width:90%;margin-top:50rpx" color="#9EDDB2" block>{{words[index].word.answer4}}</van-button>
+              <van-button round custom-class="{{button4}}" color="{{color4}}" data-button="button4" catchtap="answer" data-id="{{wordToFinish[index].word.id}}" data-answer="{{wordToFinish[index].word.answer4}}" type="info" style="width:90%;margin-top:50rpx"  block>{{wordToFinish[index].word.answer4}}</van-button>
           </view>
       </view>
       </view>

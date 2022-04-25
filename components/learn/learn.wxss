@@ -70,3 +70,10 @@
   height:70rpx;
   font-size:26rpx
 }
+.right:focus {
+  color: rgb(79, 134, 253);
+
+}
+.wrong:foucs {
+  color: rgb(253, 79, 79);
+}

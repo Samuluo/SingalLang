@@ -5,14 +5,31 @@ Page({
    * 页面的初始数据
    */
   data: {
+    word:{
 
+    }
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    var that = this
 
+    console.log(options)
+    wx.request({
+      url: 'http://bewcf.info:8081/word/queryOne',
+      method:"get",
+      data:{
+        id:options.id
+      },
+      success:(res)=>{
+        console.log(res)
+        that.setData({
+          'word':res.data,
+        })
+      }
+    })
   },
 
   /**
@@ -26,7 +43,9 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    wx.hideHomeButton({
+      success: function() {},
+    })
   },
 
   /**

@@ -3,8 +3,8 @@
 <van-row>
 
   <van-col span="8"> <view class="top-left" style="border-color: #46CA53;border-style:solid;border-width:2rpx 2rpx 2rpx 0rpx;">
-    <text>需新学20词</text>
-    <text>需复习20词</text>
+    <text>已完成20词</text>
+    <text>待完成20词</text>
   </view></van-col>
 
 

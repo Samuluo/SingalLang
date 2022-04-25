@@ -1,4 +1,5 @@
 <!--pages/word-detail/word-detail.wxml-->
+
 <view class="bg">
 <view class="top">
 <view class="top-first">
@@ -14,11 +15,11 @@
 </view>
 
 <view class="top2" >
-<text style="font-size:80rpx;margin-top:50rpx">我</text>
+<text style="font-size:80rpx;margin-top:50rpx">{{word.answer}}</text>
 </view>
 <view class="content">
-      <image style="width: 450rpx; height: 300rpx; background-color: #eeeeee" mode="scaleToFill" src="https://img.yzcdn.cn/vant/cat.jpeg"></image>
-      <text style="margin-top:30rpx">解释</text>
+      <image style="width: 450rpx; height: 300rpx; background-color: #eeeeee" mode="scaleToFill" src="{{word.imgUrl}}"></image>
+      <text style="margin-top:30rpx">{{word.description}}</text>
       <view class="div" style="margin-top:40rpx;margin-bottom:60rpx"></view>
       <image style="width: 450rpx; height: 300rpx; background-color: #eeeeee" mode="scaleToFill" src="https://img.yzcdn.cn/vant/cat.jpeg"></image>
 </view>
