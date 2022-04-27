@@ -97,6 +97,13 @@
 					"id": -1,
 					"name": "pages/learn-word/learn-word",
 					"pathName": "pages/learn-word/learn-word",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/cidianDetail/cidianDetail",
+					"pathName": "pages/cidianDetail/cidianDetail",
 					"scene": null
 				}
 			]

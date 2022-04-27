@@ -15,8 +15,6 @@ Page({
    */
   onLoad: function (options) {
     var that = this
-
-    console.log(options)
     wx.request({
       url: 'http://bewcf.info:8081/word/queryOne',
       method:"get",
@@ -24,7 +22,6 @@ Page({
         id:options.id
       },
       success:(res)=>{
-        console.log(res)
         that.setData({
           'word':res.data,
         })
