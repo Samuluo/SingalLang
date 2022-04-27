@@ -50,7 +50,6 @@ Component({
           wordToFinish.push(v[i])
         }
       }
-      console.log(wordToFinish)
       that.setData({
         "amount":v.length,
        "wordToFinish":wordToFinish
