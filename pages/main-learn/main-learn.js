@@ -38,6 +38,11 @@ Page({
       url: '/pages/add-plan/add-plan?userId='+this.data.userId
     })
   },
+  beginLearn:function(e){
+    wx.navigateTo({
+      url: '/pages/learn-word/learn-word?userId='+this.data.userId
+    })
+  },
   adjust: function(e){
       console.log(e.currentTarget.dataset.item)
       wx.navigateTo({

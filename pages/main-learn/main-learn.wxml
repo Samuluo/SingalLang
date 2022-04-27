@@ -44,7 +44,7 @@
           <view style="margin-left:36rpx;margin-top:20rpx;font-weight:bold">今日计划</view>
           <view style="margin-left:36rpx;margin-top:20rpx;font-size:18rpx"><text style="font-weight:normal;font-size:25rpx;"  >未完成</text><text style="font-weight:normal;font-size:25rpx;margin-left:200rpx"  >已完成</text></view>
           <view style="margin-left:40rpx;margin-top:20rpx"><text style="font-weight:bold;font-size:90rpx;font-style:italic">{{plan.todayAmount-todayLearned}}</text><text style="font-weight:bold;font-size:40rpx;margin-left:20rpx">词</text><text style="font-weight:bold;font-size:90rpx;font-style:italic;margin-left:110rpx">{{todayLearned}}</text><text style="font-weight:bold;font-size:40rpx;margin-left:20rpx">词</text></view>
-          <view style="margin-left:20rpx;margin-top:20rpx;margin-bottom:20rpx;margin-right:20rpx"> <van-button round type="info" style="width:90%;margin-top:50rpx" color="#9EDDB2" block>开始学习</van-button></view>
+          <view style="margin-left:20rpx;margin-top:20rpx;margin-bottom:20rpx;margin-right:20rpx"> <van-button round type="info" style="width:90%;margin-top:50rpx" catchtap="beginLearn" color="#9EDDB2" block>开始学习</van-button></view>
           </view>
           <view wx:if="{{dictionary.finish==1&&planN!=0}}">
           <view style="margin-left:36rpx;margin-top:20rpx"><text style="font-weight:bold">2022年3月29日</text> <text style="font-weight:normal;margin-left:50rpx;font-size:25rpx">已连续完成计划5天</text></view>

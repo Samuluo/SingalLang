@@ -14,6 +14,12 @@ Component({
    * 组件的初始数据
    */
   data: {
+    answer1:[],
+    answer2:[],
+    answer3:[],
+    answer4:[],
+    completeN:[],
+    toCompletedN:[],
     button1:'primary',
     button2:'primary',
     button3:'primary',
@@ -25,9 +31,11 @@ Component({
     judge:[],
     userId:1000,
     index:0,
+    amount:0,
     wordIndex:[],
     wordToFinish:[],
-    wordId:[]
+    FinishIndex:[],
+    wordIds:[]
   },
 
   /**
@@ -43,8 +51,26 @@ Component({
         }
       }
       that.setData({
+        "amount":v.length,
        "wordToFinish":wordToFinish
       })
+      if(wordToFinish.length>0){
+      let answer = [that.data.wordToFinish[that.data.index].word.answer,that.data.wordToFinish[that.data.index].word.answer2,that.data.wordToFinish[that.data.index].word.answer3,that.data.wordToFinish[that.data.index].word.answer4];
+      const randomSort = () => {
+        return Math.random() > 0.5 ? -1 : 1;
+      };
+      answer.sort(() => randomSort());
+      that.setData({
+        'answer1':answer[0],
+        'answer2':answer[1],
+        'answer3':answer[2],
+        'answer4':answer[3],
+        'completeN':that.data.amount-that.data.wordToFinish.length+that.data.wordIds.length,
+        'toCompletedN':that.data.wordToFinish.length-that.data.wordIds.length
+      })
+      }
+      that.triggerEvent("completeN",that.data.completeN);
+      that.triggerEvent("toCompletedN",that.data.toCompletedN);
    },
     answer:function(e){
       var that = this
@@ -54,6 +80,8 @@ Component({
           'button1':"right",
           'color1':" rgb(79, 134, 253)"
         })
+        that.data.FinishIndex.push(that.data.index)
+        that.data.wordIds.push(e.currentTarget.dataset.id)
       }else{
         that.setData({
           'button1':"wrong",
@@ -67,6 +95,8 @@ Component({
           'button2':"right",
           'color2':" rgb(79, 134, 253)"
         })
+        that.data.FinishIndex.push(that.data.index)
+        that.data.wordIds.push(e.currentTarget.dataset.id)
       }else{
         that.setData({
           'button2':"wrong",
@@ -80,6 +110,8 @@ Component({
           'button3':"right",
           'color3':" rgb(79, 134, 253)"
         })
+        that.data.FinishIndex.push(that.data.index)
+        that.data.wordIds.push(e.currentTarget.dataset.id)
       }else{
         that.setData({   
           'button3':"wrong",
@@ -93,6 +125,8 @@ Component({
           'button4':"right",
           'color4':" rgb(79, 134, 253)"
         })
+        that.data.FinishIndex.push(that.data.index)
+        that.data.wordIds.push(e.currentTarget.dataset.id)
       }else{
         that.setData({
           'button4':"wrong",
@@ -107,6 +141,8 @@ Component({
           setTimeout(function() {
             that.setData({
               'index':that.data.index+1,
+              'completeN':that.data.amount-that.data.wordToFinish.length+that.data.wordIds.length,
+              'toCompletedN':that.data.wordToFinish.length-that.data.wordIds.length,
               'button1':"",
               'color1':"#9EDDB2",
               'button2':"",
@@ -116,6 +152,20 @@ Component({
               'button4':"",
               'color4':"#9EDDB2 "
             })
+            console.log(that.data.completeN)
+            that.triggerEvent("completeN",that.data.completeN);
+            that.triggerEvent("toCompletedN",that.data.toCompletedN);
+            let answer = [that.data.wordToFinish[that.data.index].word.answer,that.data.wordToFinish[that.data.index].word.answer2,that.data.wordToFinish[that.data.index].word.answer3,that.data.wordToFinish[that.data.index].word.answer4];
+            const randomSort = () => {
+              return Math.random() > 0.5 ? -1 : 1;
+            };
+            answer.sort(() => randomSort());
+            that.setData({
+              'answer1':answer[0],
+              'answer2':answer[1],
+              'answer3':answer[2],
+              'answer4':answer[3],
+            })
           }, 1000);
           wx.setStorage({
             key: 'learnIndex' ,
@@ -124,27 +174,15 @@ Component({
         }
       })
     },600);
-     console.log(that.data.button1)
-     console.log(that.data.button2)
-     console.log(that.data.button3)
-     console.log(that.data.button4)
-     console.log(e)
-     console.log(that.data.wordToFinish)
-     console.log(that.data.wordToFinish[that.data.index])
-     console.log(that.data.judge)
+      console.log(that.data.wordIds)
     }
   },
   lifetimes:{
     ready:function(){
-      var that = this
+  
     },
     attached: function () {
       var that = this
-      wx.setStorage({
-        key: 'learnIndex' ,
-        data: that.data.index
-      }
-      )
       wx.getStorage({
         key: 'learnIndex',
         success(res){

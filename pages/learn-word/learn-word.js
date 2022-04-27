@@ -6,6 +6,8 @@ Page({
    */
   data: {
     words:[],
+    completeN:[],
+    toCompletedN:[],
     userId:1000,
     dictionary:[{
       name:'HSK-1级',
@@ -33,6 +35,18 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
+  new(e){
+    var that = this
+    that.setData({
+      'completeN':e.detail,
+    })
+  },
+  new2(e){
+    var that = this
+    that.setData({
+      'toCompletedN':e.detail,
+    })
+  },
   onLoad: function (options) {
     var that = this
     wx.request({

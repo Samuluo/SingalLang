@@ -2,9 +2,9 @@
 <view class="container3">
 <van-row>
 
-  <van-col span="8"> <view class="top-left" style="border-color: #46CA53;border-style:solid;border-width:2rpx 2rpx 2rpx 0rpx;">
-    <text>已完成20词</text>
-    <text>待完成20词</text>
+  <van-col span="8"> <view  class="top-left" style="border-color: #46CA53;border-style:solid;border-width:2rpx 2rpx 2rpx 0rpx;">
+    <text>已完成 {{completeN}} 词</text>
+    <text>未完成 {{toCompletedN}} 词</text>
   </view></van-col>
 
 
@@ -28,5 +28,5 @@
   </view></van-col>
 </van-row>
 
-<learn words="{{words}}"/>
+<learn bind:completeN="new" bind:toCompletedN="new2" words="{{words}}"/>
 </view>
