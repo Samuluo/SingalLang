@@ -5,6 +5,11 @@ const citys = {
 
 Page({
   data: {
+    countArr:[],
+    dateArr:[],
+    nameArr:[],
+    planid: 10,
+    wordList:{},
     spacedata:{},
     spaceimgs:[],
     currentIndex:1,
@@ -20,25 +25,45 @@ Page({
       },
     ],
   },
-  onChange(event) {
-    const { picker, value, index } = event.detail;
-    var x = value[0].replace("个","");
-    console.log(x)
-    var col = [parseInt(2000/x)+"天"]
-    picker.setColumnValues(1, col);
-  },
   onLoad: function () {
-    this.setData({
-      cidiandata:{
-        "ParkCode": "ZCKJ20160831200444",
-        "Name": "国家通用手语词典",
-        "img": "https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/cover/(5).jpg.webp",
-        "CompleteDate":"2022年4月10日",
-        "detail":"国家通用手语词典是一本国家通用手语单词的词典，适合国家通用手语学习。",
-        "amount":2000,
-      },
-      spaceimgs:["https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/cover/(5).jpg.webp"]
-    })  
+    wx.request({
+      url: 'http://bewcf.info:8081/plan/queryCompletedWord?id='+this.data.planid,
+      method:'GET',
+      success: (res)=> {
+        console.log(res.data)
+        this.setData({
+          wordList: res.data,
+          cidiandata:{
+            "ParkCode": "ZCKJ20160831200444",
+            "Name": "国家通用手语词典",
+            "img": "https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/cover/(5).jpg.webp",
+            "CompleteDate":"2022年4月10日",
+            "detail":"国家通用手语词典是一本国家通用手语单词的词典，适合国家通用手语学习。",
+            "amount":2000,
+          },
+          spaceimgs:["https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/cover/(5).jpg.webp"]
+        })  
+        var clearRoom = this.data.wordList;
+        let countArr = [];
+        let dateArr = [];
+        let nameArr = [];
+        var i = 0; // 定义一个数组来存放name
+        for (let date in clearRoom) {
+          dateArr.push(date);
+          nameArr.push(clearRoom[date]);
+          countArr.push(i);
+          i++;
+        }
+        this.setData ({
+          "dateArr":dateArr,
+          "nameArr":nameArr,
+          "countArr":countArr,
+        })
+        console.log(this.data.countArr)
+      }
+    })
+    console.log(this.data.wordList)
+    
   },
   setCurrent: function(e){  //当前图片索引
     this.setData({
@@ -82,6 +107,18 @@ Page({
   goApply: function(){
     wx.navigateTo({
       url: '../apply/apply'
+    })
+  },
+  studied:function() {
+    wx.request({
+      url: 'http://bewcf.info:8081/plan/queryCompletedWord?id='+this.data.planid,
+      method:'GET',
+      success: (res)=> {
+        console.log(res.data)
+        this.setData({
+          'wordList':res.data
+        })
+      }
     })
   }
   // formateNumber:function(n){

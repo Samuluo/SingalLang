@@ -17,12 +17,17 @@
 }
 /*横向布局  */
 .layout_horizontal{
-  height: 360rpx;
   display: flex;
   /*row 横向  column 列表  */
   flex-direction: row;
+  position: relative;
 }
- 
+.layout_horizontal2{
+  display: flex;
+  /*row 横向  column 列表  */
+  flex-direction: row;
+  flex-wrap: wrap;
+}
 /*纵向布局  */
 .layout_vertical{
   height: 360rpx;
@@ -73,6 +78,7 @@
 .danci-time {
   height: 30px;
   width: 40%;
+  padding-right: 20rpx;
   margin-top: 20px;
   margin-bottom: 20px;
   line-height: 20px;

@@ -1,4 +1,5 @@
 <!--pages/search/search.wxml-->
+
 <view class="container4">
 <van-row>
   <van-col span="24" > <van-search
@@ -18,7 +19,7 @@
   <view class="history"><text>清除历史记录</text></view>
   </van-tab>
   <van-tab title="词典索引"><view>
-  <text>200</text>
+ 
   </view>
   </van-tab>
   <van-tab title="词库">

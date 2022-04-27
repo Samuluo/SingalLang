@@ -16,19 +16,24 @@
 	  </view>
     <view class="danci-records">
     <view class="container-footer">
-		<text>已学单词</text>
-		<text bindtap="reserveHandle">已错单词</text>
-		<text class="apply-btn" bindtap="goApply">未学单词</text>
+		<text bindtap="studied">已学单词</text>
+		<text bindtap="mistaked">已错单词</text>
+		<text class="notstudy" bindtap="goApply">未学单词</text>
 	  </view>
-    <view class="danci"> 
-    <text class="danci-time">2022年4月10日</text>
-    <view class="layout_horizontal" style="width: 80%;margin-left: 10%;">
-      <view style="width: 30%;margin-top: 10rpx;">
-      <text style="font-size:20px;">人民</text>
-      <van-icon name="chat-o" custom-style="margin-left:20%" size="20px" /></view>
-      
+    <view class="danci" wx:for="{{countArr}}"> 
+    	<text class="danci-time">{{dateArr[item]}}</text>
+			<view class="layout_horizontal2">
+				<view wx:for="{{nameArr[item]}}" style="width: 45%; position: relative;">
+				<view class="layout_horizontal" style="width: 100%;margin-left: 10%;">
+      	<view style="margin-top: 10rpx;">
+      		<text style="font-size:20px;width: 60px;position:absolute;">{{item.word.answer}}</text>
+					<van-icon name="description" custom-style="margin-left:100%;position:absolute;" size="20px" />
+      		<van-icon name="star-o"  custom-style="margin-left:140%;position:absolute;" size="20px" />
+				</view>
+    	</view>
+			</view>
     </view>
-    </view>
+			</view>
   </view>
 	</view>
   
