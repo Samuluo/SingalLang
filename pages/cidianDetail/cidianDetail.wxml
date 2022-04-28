@@ -27,8 +27,8 @@
 				<view class="layout_horizontal" style="width: 100%;margin-left: 10%;">
       	<view style="margin-top: 10rpx;">
       		<text style="font-size:20px;width: 60px;position:absolute;">{{item.word.answer}}</text>
-					<van-icon name="description" custom-style="margin-left:100%;position:absolute;" size="20px" />
-      		<van-icon name="star-o"  custom-style="margin-left:140%;position:absolute;" size="20px" />
+					<van-icon name="description" custom-style="margin-left:100%;position:absolute;" size="20px" bindtap="getdetail" data-item="{{item.wordId}}"/>
+      		<van-icon name="star-o"  custom-style="margin-left:140%;position:absolute;" size="20px" bindtap="setStar" data-item="{{item.wordId}}" />
 				</view>
     	</view>
 			</view>

@@ -5,6 +5,8 @@ const citys = {
 
 Page({
   data: {
+    userId: -1,
+    planId:10,
     countArr:[],
     dateArr:[],
     nameArr:[],
@@ -120,7 +122,35 @@ Page({
         })
       }
     })
-  }
+  },
+  getdetail: function(e) {
+    var item = e.currentTarget.dataset.item;
+    wx.redirectTo({
+      url: '/pages/word-detail?id='+item,
+    })
+  },
+  setStar: function(e) {
+    var that = this;
+    var item = e.currentTarget.dataset.item;
+    wx.getStorage({
+      key: 'userInfo',
+      success(res){
+        console.log(res.data.id)
+        that.setData({
+          'userId': res.data.id,
+        })
+        wx.request({
+          url: 'http://bewcf.info:8081/starWord/add',
+          method:'POST',
+          data:{
+            "userId": that.data.userId,
+            "wordId": item,
+            "planId": that.data.planId,
+          }
+        })
+      }
+    })
+  },
   // formateNumber:function(n){
   //   return n>9?n:'0'+n
   // }
