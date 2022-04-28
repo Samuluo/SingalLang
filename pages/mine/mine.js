@@ -116,6 +116,7 @@ Page({
     this.login();
   },
   login() {
+    var that = this;
     // 登录
     wx.login({
       success (res) {
@@ -131,8 +132,25 @@ Page({
               wx.setStorage({
                 key: 'userInfo' ,
                 data: res.data
-              }
-              )
+              })
+              wx.request({
+                url: 'http://bewcf.info:8081/card/queryLearnedWord?userId='+res.data.id,
+                method:"GET",
+                success: function(res) {
+                 that.setData ({
+                   totalAmount:res.data
+                 })
+                }
+              })
+              wx.request({
+                url: 'http://bewcf.info:8081/card/queryLearnedDay?userId='+res.data.id,
+                method:"GET",
+                success: function(res) {
+                 that.setData ({
+                   totalDate:res.data
+                 })
+                }
+              })
             }
           })
         } else {

@@ -125,8 +125,8 @@ Page({
   },
   getdetail: function(e) {
     var item = e.currentTarget.dataset.item;
-    wx.redirectTo({
-      url: '/pages/word-detail?id='+item,
+    wx.navigateTo({
+      url: '/pages/word-detail/word-detail?id='+item,
     })
   },
   setStar: function(e) {
@@ -151,7 +151,4 @@ Page({
       }
     })
   },
-  // formateNumber:function(n){
-  //   return n>9?n:'0'+n
-  // }
 })
