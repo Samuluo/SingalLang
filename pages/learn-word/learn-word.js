@@ -6,9 +6,10 @@ Page({
    */
   data: {
     words:[],
+    wordIds:[],
     completeN:[],
     toCompletedN:[],
-    userId:1000,
+    userId:[],
     dictionary:[{
       name:'HSK-1级',
       picture:"/images/loadpicture.png",
@@ -47,22 +48,30 @@ Page({
       'toCompletedN':e.detail,
     })
   },
+
   onLoad: function (options) {
     var that = this
-    wx.request({
-      url: 'http://bewcf.info:8081/word/getTodayWord',
-      method:"get",
-      data:{
-        userId:that.data.userId
-      },
-      success:(res)=>{
+    wx.getStorage({
+      key: 'userInfo',
+      success(res){
         that.setData({
-          'words':res.data,
+          'userId':res.data.id
+        })
+        wx.request({
+          url: 'http://bewcf.info:8081/word/getTodayWord',
+          method:"get",
+          data:{
+            userId:that.data.userId
+          },
+          success:(res)=>{
+            that.setData({
+              'words':res.data,
+            })
+          }
         })
       }
     })
   },
-
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -88,7 +97,33 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-
+    var that = this
+    console.log("res")
+    wx.getStorage({
+      key: 'wordIds',
+      success(res){
+        console.log(res)
+        wx.request({
+          url: 'http://bewcf.info:8081/word/completeWord',
+          method:"post",
+          data:{
+            userId:that.data.userId,
+            wordIds:res.data
+          },
+          header: {
+            "content-type": "application/x-www-form-urlencoded" 
+          },
+          success:(res)=>{
+            wx.removeStorage({
+              key: 'wordIds',
+              success: function(res) {
+              },
+            })
+            console.log("完成了一些")
+          }
+        })
+      }
+    })
   },
 
   /**

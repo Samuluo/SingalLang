@@ -152,9 +152,14 @@ Component({
               'button4':"",
               'color4':"#9EDDB2 "
             })
-            console.log(that.data.completeN)
             that.triggerEvent("completeN",that.data.completeN);
             that.triggerEvent("toCompletedN",that.data.toCompletedN);
+            that.triggerEvent("wordIds",that.data.wordIds);
+            wx.setStorage({
+              key: 'wordIds' ,
+              data: that.data.wordIds
+            }
+            )
             let answer = [that.data.wordToFinish[that.data.index].word.answer,that.data.wordToFinish[that.data.index].word.answer2,that.data.wordToFinish[that.data.index].word.answer3,that.data.wordToFinish[that.data.index].word.answer4];
             const randomSort = () => {
               return Math.random() > 0.5 ? -1 : 1;
@@ -167,30 +172,15 @@ Component({
               'answer4':answer[3],
             })
           }, 1000);
-          wx.setStorage({
-            key: 'learnIndex' ,
-            data: that.data.index
-          })
         }
       })
     },600);
-      console.log(that.data.wordIds)
     }
   },
   lifetimes:{
     ready:function(){
-  
     },
     attached: function () {
-      var that = this
-      wx.getStorage({
-        key: 'learnIndex',
-        success(res){
-          that.setData({
-            'userId': that.data.index,
-          })
-        }
-      })
     },
   }
 })

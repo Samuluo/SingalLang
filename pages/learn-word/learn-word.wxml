@@ -28,5 +28,5 @@
   </view></van-col>
 </van-row>
 
-<learn bind:completeN="new" bind:toCompletedN="new2" words="{{words}}"/>
+<learn bind:completeN="new" bind:toCompletedN="new2" bind:wordIds="new3" words="{{words}}"/>
 </view>

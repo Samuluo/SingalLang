@@ -44,7 +44,6 @@ Page({
     })
   },
   adjust: function(e){
-      console.log(e.currentTarget.dataset.item)
       wx.navigateTo({
         url: '/pages/adjustPlan/adjustPlan?plan='+JSON.stringify(e.currentTarget.dataset.item),
       })
@@ -57,7 +56,6 @@ Page({
      wx.getStorage({
       key: 'userInfo',
       success(res){
-        console.log(res.data.id)
         that.setData({
           'userId': res.data.id,
         })
@@ -68,12 +66,10 @@ Page({
             userId:that.data.userId
           },
           success:(res)=>{
-            console.log(res)
             that.setData({
               'plans':res.data,
               'planN':res.data.length
             })
-            console.log(that.data.planN)
           }
         })
         wx.request({
@@ -99,18 +95,7 @@ Page({
             })
           }
         })
-        wx.request({
-          url: 'http://bewcf.info:8081/word/getTodayLearned',
-          method:"get",
-          data:{
-            userId:that.data.userId
-          },
-          success:(res)=>{
-            that.setData({
-              'todayLearned':res.data
-            })
-          }
-        })
+
       }
     })
 
@@ -120,14 +105,41 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
+    var that = this
+    wx.request({
+      url: 'http://bewcf.info:8081/word/getTodayLearned',
+      method:"get",
+      data:{
+        userId:that.data.userId
+      },
+      success:(res)=>{
+        that.setData({
+          'todayLearned':res.data
+        })
+      }
+    })
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    var that = this
+    setTimeout(function() {
+      wx.request({
+        url: 'http://bewcf.info:8081/word/getTodayLearned',
+        method:"get",
+        data:{
+          userId:that.data.userId
+        },
+        success:(res)=>{
+          console.log(res.data)
+          that.setData({
+            'todayLearned':res.data
+          })
+        }
+        })
+    }, 100);
   },
 
   /**
