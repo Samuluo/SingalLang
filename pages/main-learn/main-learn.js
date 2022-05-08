@@ -176,15 +176,9 @@ Page({
    */
   onShow: function () {
     var that = this
-    if(that.data.plan.todayAmount==that.data.todayLearned){
-      that.setData({
-        'finish':1
-      })
-    }else{
-      that.setData({
-        'finish':0
-      })
-    }
+    console.log(that.data.plan.todayAmount)
+    console.log(that.data.todayLearned)
+
     setTimeout(function() {
       wx.request({
         url: 'http://bewcf.info:8081/word/getTodayLearned',
@@ -197,6 +191,15 @@ Page({
           that.setData({
             'todayLearned':res.data
           })
+          if(that.data.plan.todayAmount==that.data.todayLearned){
+            that.setData({
+              'finish':1
+            })
+          }else{
+            that.setData({
+              'finish':0
+            })
+          }
         }
         })
     }, 100);
