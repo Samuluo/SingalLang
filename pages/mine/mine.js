@@ -100,13 +100,14 @@ Page({
     });
   },
   onLoad: function () {
+    this.onLoad2();
     if (wx.getUserProfile) {
       this.setData({
         canIUseGetUserProfile: true
       })
     }
   },
-  onLoad() {
+  onLoad2() {
     if (wx.getUserProfile) {
       this.setData({
         canIUseGetUserProfile: true

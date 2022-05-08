@@ -39,7 +39,7 @@ Page({
   },
   add: function(e){
     wx.navigateTo({
-      url: '/pages/add-plan/add-plan'
+      url: '/pages/add-plan/add-plan?userId='+this.data.userId
     })
   },
   switch: function(e){

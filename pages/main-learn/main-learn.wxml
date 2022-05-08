@@ -73,16 +73,19 @@
            <van-row>
             <image style="width: 600rpx; height: 400rpx; background-color: #eeeeee;margin-left:25rpx" mode="scaleToFill" src="{{todayword.imgUrl}}"></image>
            </van-row>
-           <van-row gutter="20">
+           <van-row gutter="20" custom-style="margin-top:20rpx">
             <van-col span="10" offset="4">
-              <van-button type="primary" size = "small">{{answerpool[0]}}</van-button>
+              <van-button color="#9EDDB2" size = "small">{{answerpool[0]}}</van-button>
             </van-col>
-            <van-col span="10"><van-button type="primary" size = "small">{{answerpool[1]}}</van-button></van-col>
+            <van-col span="10"><van-button color="#9EDDB2" size = "small">{{answerpool[1]}}</van-button></van-col>
            </van-row>
-           <van-row gutter="20">
-            <van-col span="10" offset="4"><van-button type="primary" size = "small">{{answerpool[2]}}</van-button></van-col>
-            <van-col span="10"><van-button type="primary" size = "small">{{answerpool[3]}}</van-button></van-col>
+           <view style="margin-top: 20rpx;"> 
+            <van-row gutter="20" custom-style="margin-top:20rpx">
+            <van-col span="10" offset="4"><van-button color="#9EDDB2" size = "small">{{answerpool[2]}}</van-button></van-col>
+            <van-col span="10"><van-button color="#9EDDB2" size = "small">{{answerpool[3]}}</van-button></van-col>
           </van-row>
+           </view>
+          
           </view>
       </view>
   </view>

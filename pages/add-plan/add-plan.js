@@ -69,12 +69,12 @@ Page({
     that.setData({
       'userId':options.userId,
     })
-    console.log(this.data.userId)
+    console.log(that.data.userId)
     wx.request({
       url: 'http://bewcf.info:8081/dictionary/queryRest',
       method:"get",
       data:{
-        userId:this.data.userId
+        userId:that.data.userId
       },
       success:(res)=>{
         that.setData({

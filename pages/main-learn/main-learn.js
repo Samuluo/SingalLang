@@ -118,6 +118,11 @@ Page({
           }
         })
 
+      },fail(){
+        console.log("hjh")
+        wx.switchTab({
+          url: '/pages/mine/mine'
+        })
       }
     })
 
@@ -176,6 +181,56 @@ Page({
    */
   onShow: function () {
     var that = this
+    wx.getStorage({
+      key: 'userInfo',
+      success(res){
+        that.setData({
+          'userId': res.data.id,
+        })
+        wx.request({
+          url: 'http://bewcf.info:8081/plan/queryAll',
+          method:"get",
+          data:{
+            userId:that.data.userId
+          },
+          success:(res)=>{
+            that.setData({
+              'plans':res.data,
+              'planN':res.data.length
+            })
+          }
+        })
+        wx.request({
+          url: 'http://bewcf.info:8081/plan/queryNow',
+          method:"get",
+          data:{
+            userId:that.data.userId
+          },
+          success:(res)=>{
+            that.setData({
+              'plan.id':res.data.id,
+              'plan.amount':res.data.amount,
+              'plan.completed':res.data.completed,
+              'plan.dictionaryId':res.data.dictionaryId,
+              'plan.dictionary': res.data.dictionary,
+              'plan.learnedNumber':res.data.learnedNumber,
+              'plan.porder':res.data.porder,
+              'plan.startTime':res.data.startTime,
+              'plan.state':res.data.state,
+              'plan.totalNumber':res.data.totalNumber,
+              'plan.userId':res.data.userId,
+              'plan.todayAmount':res.data.todayAmount,
+            })
+          }
+        })
+
+      },fail(){
+        console.log("hjh")
+        wx.switchTab({
+          url: '/pages/mine/mine'
+        })
+      }
+    })
     if(that.data.plan.todayAmount==that.data.todayLearned){
       that.setData({
         'finish':1
@@ -271,5 +326,24 @@ shuffle: function(arr){
       l--
   }
   return arr
-}
+},
+  exchangeword: function() {
+    wx.request({
+      url: 'http://bewcf.info:8081/word/getRandomOne',
+      method:"GET",
+      success:(res)=>{
+        console.log(res.data);
+        this.setData({
+          todayword:res.data
+        })
+        let answer = [res.data.answer,res.data.answer2,res.data.answer3,res.data.answer4];
+        console.log(answer)
+        answer = this.shuffle(answer);
+        this.setData({
+          answerpool: answer
+        })
+       
+      }
+    })
+  }
 })
