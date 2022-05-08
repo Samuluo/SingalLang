@@ -92,7 +92,7 @@ Component({
         that.setData({
           'button1':"right",
           'color1':" rgb(79, 134, 253)",
-          [cWordTF]:"true"
+          [cWordTF]:true
         })
         that.data.FinishIndex.push(that.data.index)
         that.data.wordIds.push(e.currentTarget.dataset.id)
@@ -108,7 +108,7 @@ Component({
         that.setData({
           'button2':"right",
           'color2':" rgb(79, 134, 253)",
-          [cWordTF]:"true"
+          [cWordTF]:true
         })
         that.data.FinishIndex.push(that.data.index)
         that.data.wordIds.push(e.currentTarget.dataset.id)
@@ -124,7 +124,7 @@ Component({
         that.setData({
           'button3':"right",
           'color3':" rgb(79, 134, 253)",
-          [cWordTF]:"true"
+          [cWordTF]:true
         })
         that.data.FinishIndex.push(that.data.index)
         that.data.wordIds.push(e.currentTarget.dataset.id)
@@ -140,7 +140,7 @@ Component({
         that.setData({
           'button4':"right",
           'color4':" rgb(79, 134, 253)",
-          [cWordTF]:"true"
+          [cWordTF]:true
         })
         that.data.FinishIndex.push(that.data.index)
         that.data.wordIds.push(e.currentTarget.dataset.id)
