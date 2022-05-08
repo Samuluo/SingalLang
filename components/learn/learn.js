@@ -42,6 +42,18 @@ Component({
    * 组件的方法列表
    */
   methods: {
+    updateWTF(){
+      var that = this
+      let wordToFinish=[];
+      for(var i = 0; i<that.data.wordToFinish.length;i++){
+        if(that.data.wordToFinish[i].completed==false){
+          wordToFinish.push(that.data.wordToFinish[i])
+        }
+      }
+      that.setData({
+       "wordToFinish":wordToFinish
+      })
+    },
     loadFirst(v) {
       var that = this
       let wordToFinish=[];
@@ -74,11 +86,13 @@ Component({
    },
     answer:function(e){
       var that = this
+      var cWordTF = "wordToFinish["+that.data.index+"].completed";
       if(e.currentTarget.dataset.button=="button1"){
       if(e.currentTarget.dataset.answer==that.data.wordToFinish[that.data.index].word.answer){
         that.setData({
           'button1':"right",
-          'color1':" rgb(79, 134, 253)"
+          'color1':" rgb(79, 134, 253)",
+          [cWordTF]:"true"
         })
         that.data.FinishIndex.push(that.data.index)
         that.data.wordIds.push(e.currentTarget.dataset.id)
@@ -88,19 +102,20 @@ Component({
           'color1':"rgb(253, 79, 79)"
         })
       }
-     }
+     }//判断选择了哪个按钮，并做出相应样式改变，正确的话将正确的答案放入wordIds，并将wordtoFinish中的状态改为true
      if(e.currentTarget.dataset.button=="button2"){
       if(e.currentTarget.dataset.answer==that.data.wordToFinish[that.data.index].word.answer){
         that.setData({
           'button2':"right",
-          'color2':" rgb(79, 134, 253)"
+          'color2':" rgb(79, 134, 253)",
+          [cWordTF]:"true"
         })
         that.data.FinishIndex.push(that.data.index)
         that.data.wordIds.push(e.currentTarget.dataset.id)
       }else{
         that.setData({
           'button2':"wrong",
-          'color2':"rgb(253, 79, 79)"
+          'color2':"rgb(253, 79, 79)",
         })
       }
      }
@@ -108,7 +123,8 @@ Component({
       if(e.currentTarget.dataset.answer==that.data.wordToFinish[that.data.index].word.answer){
         that.setData({
           'button3':"right",
-          'color3':" rgb(79, 134, 253)"
+          'color3':" rgb(79, 134, 253)",
+          [cWordTF]:"true"
         })
         that.data.FinishIndex.push(that.data.index)
         that.data.wordIds.push(e.currentTarget.dataset.id)
@@ -123,7 +139,8 @@ Component({
       if(e.currentTarget.dataset.answer==that.data.wordToFinish[that.data.index].word.answer){
         that.setData({
           'button4':"right",
-          'color4':" rgb(79, 134, 253)"
+          'color4':" rgb(79, 134, 253)",
+          [cWordTF]:"true"
         })
         that.data.FinishIndex.push(that.data.index)
         that.data.wordIds.push(e.currentTarget.dataset.id)
@@ -135,10 +152,40 @@ Component({
       }
      }
      setTimeout(function() {
+       //如果需要完成的和已完成的相等，则说明上个是最后一题并且成功答对
+      if(that.data.wordToFinish.length==that.data.wordIds.length){
+        console.log("全部完成，返回上级")
+        wx.setStorage({
+          key: 'wordIds' ,
+          data: that.data.wordIds
+        }
+        )
+        wx.redirectTo({
+          url: '/pages/word-detail/word-detail?id='+e.currentTarget.dataset.id,
+        })
+      }else{//答题未结束
       wx.navigateTo({
         url: '/pages/word-detail/word-detail?id='+e.currentTarget.dataset.id,
         success: function(res) {
           setTimeout(function() {
+            console.log(that.data.index)
+            console.log(that.data.wordToFinish)
+            //如果这道题是一次循环的最后一题，下一题从0开始
+            if(that.data.index==that.data.wordToFinish.length-1){
+              that.setData({
+                'index':0,
+                'completeN':that.data.amount-that.data.wordToFinish.length+that.data.wordIds.length,
+                'toCompletedN':that.data.wordToFinish.length-that.data.wordIds.length,
+                'button1':"",
+                'color1':"#9EDDB2",
+                'button2':"",
+                'color2':"#9EDDB2 ",
+                'button3':"",
+                'color3':"#9EDDB2 ",
+                'button4':"",
+                'color4':"#9EDDB2 "
+              })
+            }else{//如果不是一次循环的后一道题，则+1
             that.setData({
               'index':that.data.index+1,
               'completeN':that.data.amount-that.data.wordToFinish.length+that.data.wordIds.length,
@@ -152,6 +199,20 @@ Component({
               'button4':"",
               'color4':"#9EDDB2 "
             })
+           }//当为true，继续到下一道
+            while(that.data.wordToFinish[that.data.index].completed==true){
+                if(that.data.index==that.data.wordToFinish.length-1){
+                  console.log("到头了")
+                  that.setData({
+                    'index':0,
+                  })
+                }
+                else{
+                  that.setData({
+                    'index':that.data.index+1,
+                  })
+                }
+            }
             that.triggerEvent("completeN",that.data.completeN);
             that.triggerEvent("toCompletedN",that.data.toCompletedN);
             that.triggerEvent("wordIds",that.data.wordIds);
@@ -174,6 +235,7 @@ Component({
           }, 1000);
         }
       })
+    }
     },600);
     }
   },

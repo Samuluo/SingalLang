@@ -98,7 +98,6 @@ Page({
    */
   onUnload: function () {
     var that = this
-    console.log("res")
     wx.getStorage({
       key: 'wordIds',
       success(res){

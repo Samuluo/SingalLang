@@ -8,6 +8,10 @@ Page({
     userId:[],
     planN:[],
     plans:[],
+    Day:[],
+    Year:[],
+    Month:[],
+    continuday:[],
     plan:{
         id:[],
         userId:[],
@@ -25,13 +29,7 @@ Page({
         dictionaryName:[],
         dictionaryImg:[],
     },
-    dictionary:{
-      name:'HSK-1级',
-      picture:"/images/loadpicture.png",
-      condition:"1",
-      des:'一本初级词典',
-      finish:'0',
-    }
+    finish:[]
   },
   addplan: function(e){
     wx.navigateTo({
@@ -47,6 +45,25 @@ Page({
       wx.navigateTo({
         url: '/pages/adjustPlan/adjustPlan?plan='+JSON.stringify(e.currentTarget.dataset.item),
       })
+  },
+  getTime: function(){
+    var that =this
+    var timestamp = Date.parse(new Date());
+    timestamp = timestamp / 1000;
+    //获取当前时间
+    var n = timestamp * 1000;
+    var date = new Date(n);
+    //年
+    var Y = date.getFullYear();
+    //月
+    var M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1);
+    //日
+    var D = date.getDate() < 10 ? '0' + date.getDate() : date.getDate();
+    that.setData({
+      'Year':Y,
+      'Month':M,
+      'Day':D
+    })
   },
   /**
    * 生命周期函数--监听页面加载
@@ -106,6 +123,7 @@ Page({
    */
   onReady: function () {
     var that = this
+    that.getTime();
     wx.request({
       url: 'http://bewcf.info:8081/word/getTodayLearned',
       method:"get",
@@ -116,6 +134,17 @@ Page({
         that.setData({
           'todayLearned':res.data
         })
+        console.log(that.data.plan.todayAmount)
+        console.log(that.data.todayLearned)
+        if(that.data.plan.todayAmount==that.data.todayLearned){
+          that.setData({
+            'finish':1
+          })
+        }else{
+          that.setData({
+            'finish':0
+          })
+        }
       }
     })
   },
@@ -125,6 +154,15 @@ Page({
    */
   onShow: function () {
     var that = this
+    if(that.data.plan.todayAmount==that.data.todayLearned){
+      that.setData({
+        'finish':1
+      })
+    }else{
+      that.setData({
+        'finish':0
+      })
+    }
     setTimeout(function() {
       wx.request({
         url: 'http://bewcf.info:8081/word/getTodayLearned',
