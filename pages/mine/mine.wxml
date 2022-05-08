@@ -17,8 +17,8 @@
           <text style="color:#101010; font-size: 40rpx;align-items: center;text-align: center;">累计学习</text>
           <text style="color:#101010; font-size: 40rpx;align-items: center;text-align: center;margin-left: 10rpx;">{{totalAmount}}词</text>
           <text style="color:#BBBBBB ; font-size: 40rpx;align-items: center;text-align: center;margin-left: 10rpx;">|</text>
-          <text style="color:#101010; font-size: 40rpx;align-items: center;text-align: center;">累计学习</text>
-          <text style="color:#101010; font-size: 40rpx;align-items: center;text-align: center;margin-left: 10rpx;">{{totalDate}}天</text>
+          <text style="color:#101010; font-size: 40rpx;align-items: center;margin-left: 10px;text-align: end;">累计学习</text>
+          <text style="color:#101010; font-size: 40rpx;align-items: center;text-align: center;margin-left: 10px;text-align: end;">{{totalDate}}天</text>
 
         </view>
 	  	</view>

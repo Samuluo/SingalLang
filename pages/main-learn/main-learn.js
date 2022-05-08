@@ -4,6 +4,11 @@ Page({
    * 页面的初始数据
    */
   data: {
+    answerpool:[],
+    todayword:{},
+    color1:'',
+    color2:'',
+    color3:'',
     todayLearned:[],
     userId:[],
     planN:[],
@@ -125,6 +130,23 @@ Page({
     var that = this
     that.getTime();
     wx.request({
+      url: 'http://bewcf.info:8081/word/getRandomOne',
+      method:"GET",
+      success:(res)=>{
+        console.log(res.data);
+        this.setData({
+          todayword:res.data
+        })
+        let answer = [res.data.answer,res.data.answer2,res.data.answer3,res.data.answer4];
+        console.log(answer)
+        answer = this.shuffle(answer);
+        this.setData({
+          answerpool: answer
+        })
+       
+      }
+    })
+    wx.request({
       url: 'http://bewcf.info:8081/word/getTodayLearned',
       method:"get",
       data:{
@@ -213,5 +235,41 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+  fighteveryday: function() {
+    this.setData({
+      color1: '#46CA53',
+      color2: '#F1FBF2',
+      color3: '#F1FBF2'
+    })
+  },
+  wordtrain: function() {
+    this.setData({
+      color1: '#F1FBF2',
+      color2: '#46CA53',
+      color3: '#F1FBF2'
+    })
+  },
+  vocabularytext: function() {
+    this.setData({
+      color1: '#F1FBF2',
+      color2: '#F1FBF2',
+      color3: '#46CA53'
+    })
+  },
+/**
+ * 数组排序算法
+ */
+shuffle: function(arr){
+  var l = arr.length
+  var index, temp
+  while(l>0){
+      index = Math.floor(Math.random()*l)
+      temp = arr[l-1]
+      arr[l-1] = arr[index]
+      arr[index] = temp
+      l--
   }
+  return arr
+}
 })

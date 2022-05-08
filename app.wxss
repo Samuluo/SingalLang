@@ -16,7 +16,6 @@
 	width: 80%;
 	display: flex;
 	height: 29px;
-	margin-left: 10%;
 	
 	background: #F1FBF2;
 }
@@ -83,3 +82,4 @@
   width: 75px;
   height: 95px;*/
 }
+@import 'app-wxa-auto-dark.wxss'

@@ -53,6 +53,38 @@
           </view>
           </view>
       </view>
+      <view>
+        <view class="container-footer" style="width: 100%;margin-top: 20rpx;">
+          <text bindtap="fighteveryday" style="background-color: {{color1}};">每日挑战</text>
+          <text bindtap="wordtrain" style="background-color: {{color2}};">单词训练</text>
+          <text bindtap="vocabularytext" style="background-color: {{color3}};">词量测试</text>
+          </view>
+          <view class="dancieveryday">
+            <van-row>
+              <van-col span="17">  <text style="font-size: 30rpx;color: #101010;margin-left: 10rpx;">根据图片所示，选择正确的答案</text>
+              </van-col>
+              <van-col span="6">
+                <view class="" bindtap="exchangeword">
+              <text style="font-size: 28rpx;color: #101010;margin-left: 10rpx;">换一个</text>
+              <van-icon name="exchange" />
+            </view>
+              </van-col>
+            </van-row>
+           <van-row>
+            <image style="width: 600rpx; height: 400rpx; background-color: #eeeeee;margin-left:25rpx" mode="scaleToFill" src="{{todayword.imgUrl}}"></image>
+           </van-row>
+           <van-row gutter="20">
+            <van-col span="10" offset="4">
+              <van-button type="primary" size = "small">{{answerpool[0]}}</van-button>
+            </van-col>
+            <van-col span="10"><van-button type="primary" size = "small">{{answerpool[1]}}</van-button></van-col>
+           </van-row>
+           <van-row gutter="20">
+            <van-col span="10" offset="4"><van-button type="primary" size = "small">{{answerpool[2]}}</van-button></van-col>
+            <van-col span="10"><van-button type="primary" size = "small">{{answerpool[3]}}</van-button></van-col>
+          </van-row>
+          </view>
+      </view>
   </view>
   
 </view>

@@ -5,13 +5,17 @@ const citys = {
 
 Page({
   data: {
+    color1: '',
+    color2: '',
+    color3: '',
     userId: -1,
     planId:10,
     countArr:[],
     dateArr:[],
     nameArr:[],
     planid: 10,
-    wordList:{},
+    wordList:null,
+    wordList2:null,
     spacedata:{},
     spaceimgs:[],
     currentIndex:1,
@@ -28,6 +32,15 @@ Page({
     ],
   },
   onLoad: function () {
+    wx.getStorage({
+      key: 'userInfo',
+      success:(res)=>{
+        console.log(res.data.id)
+        this.setData({
+          'userId': res.data.id,
+        })
+      }
+    })
     wx.request({
       url: 'http://bewcf.info:8081/plan/queryCompletedWord?id='+this.data.planid,
       method:'GET',
@@ -112,6 +125,14 @@ Page({
     })
   },
   studied:function() {
+    this.setData({
+      wordList2: null,
+    })
+    this.setData({
+      color1: '#46CA53',
+      color2: '#F1FBF2',
+      color3: '#F1FBF2'
+    })
     wx.request({
       url: 'http://bewcf.info:8081/plan/queryCompletedWord?id='+this.data.planid,
       method:'GET',
@@ -119,6 +140,31 @@ Page({
         console.log(res.data)
         this.setData({
           'wordList':res.data
+        })
+      }
+    })
+  },
+  mistaked: function(e) {
+    this.setData({
+      color1: '#F1FBF2',
+      color2: '#46CA53',
+      color3: '#F1FBF2'
+    })
+  },
+  notstudy: function(e) {
+    this.setData({
+      color1: '#F1FBF2',
+      color2: '#F1FBF2',
+      color3: '#46CA53'
+    })
+    var that = this;
+    wx.request({
+      url: 'http://bewcf.info:8081/mistakeWord/queryAll?userId=1000',//+this.data.userId,
+      method:'GET',
+      success: (res)=> {
+        console.log(res.data)
+        this.setData({
+          'wordList2':res.data
         })
       }
     })

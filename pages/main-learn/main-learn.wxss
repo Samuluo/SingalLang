@@ -69,4 +69,14 @@ view .search-button {
 .button2{
   letter-spacing:10rpx;
 }
-  
+
+.dancieveryday {
+  background: white;
+  flex-direction: column;
+  width: 100%;
+  border-bottom: 1rpx solid #46CA53;
+  border-left: 1rpx solid #46CA53;
+  border-right: 1rpx solid #46CA53;
+  padding-top: 20rpx;
+  padding-bottom: 20rpx;
+}
