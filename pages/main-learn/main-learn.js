@@ -4,6 +4,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    needday:[],
     answerpool:[],
     todayword:{},
     color1:'',
@@ -28,7 +29,6 @@ Page({
         totalNumber:[],
         learnedNumber:[],
         state:[],
-        needday:[],
         todayAmount:[],
         dictionary:[],
         dictionaryName:[],
@@ -117,7 +117,6 @@ Page({
             })
           }
         })
-
       },fail(){
         console.log("hjh")
         wx.switchTab({
@@ -125,7 +124,6 @@ Page({
         })
       }
     })
-
   },
 
   /**
@@ -170,6 +168,10 @@ Page({
         }
       }
     })
+    var needday = Math.ceil((that.data.plan.totalNumber-that.data.plan.learnedNumber)/that.data.plan.amount)
+    that.setData({
+     'needday':needday,
+   })
   },
 
   /**
@@ -194,32 +196,35 @@ Page({
               'plans':res.data,
               'planN':res.data.length
             })
-          }
-        })
-        wx.request({
-          url: 'http://bewcf.info:8081/plan/queryNow',
-          method:"get",
-          data:{
-            userId:that.data.userId
-          },
-          success:(res)=>{
-            that.setData({
-              'plan.id':res.data.id,
-              'plan.amount':res.data.amount,
-              'plan.completed':res.data.completed,
-              'plan.dictionaryId':res.data.dictionaryId,
-              'plan.dictionary': res.data.dictionary,
-              'plan.learnedNumber':res.data.learnedNumber,
-              'plan.porder':res.data.porder,
-              'plan.startTime':res.data.startTime,
-              'plan.state':res.data.state,
-              'plan.totalNumber':res.data.totalNumber,
-              'plan.userId':res.data.userId,
-              'plan.todayAmount':res.data.todayAmount,
+            wx.request({
+              url: 'http://bewcf.info:8081/plan/queryNow',
+              method:"get",
+              data:{
+                userId:that.data.userId
+              },
+              success:(res)=>{
+                that.setData({
+                  'plan.id':res.data.id,
+                  'plan.amount':res.data.amount,
+                  'plan.completed':res.data.completed,
+                  'plan.dictionaryId':res.data.dictionaryId,
+                  'plan.dictionary': res.data.dictionary,
+                  'plan.learnedNumber':res.data.learnedNumber,
+                  'plan.porder':res.data.porder,
+                  'plan.startTime':res.data.startTime,
+                  'plan.state':res.data.state,
+                  'plan.totalNumber':res.data.totalNumber,
+                  'plan.userId':res.data.userId,
+                  'plan.todayAmount':res.data.todayAmount,
+                })
+                var needday = Math.ceil((that.data.plan.totalNumber-that.data.plan.learnedNumber)/that.data.plan.amount)
+                that.setData({
+                 'needday':needday,
+               })
+              }
             })
           }
         })
-
       },fail(){
         console.log("hjh")
         wx.switchTab({

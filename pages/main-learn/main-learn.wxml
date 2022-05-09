@@ -29,7 +29,7 @@
           <van-button plain wx:if="{{planN!=0}}" type="primary" style="float:right;margin-right:5rpx" size="small" data-item="{{plan}}"catchtap="adjust">调整计划</van-button>
           </view>
           <view slot="desc" style="margin-top:20rpx;margin-left:5rpx" wx:if="{{planN!=0}}">
-          <text class="desc" >每日{{plan.amount}}词，剩余20天</text>  
+          <text class="desc" >每日{{plan.amount}}词，剩余{{needday}}天</text>  
           <progress percent="{{plan.learnedNumber*100/plan.totalNumber}}" color="#10AEFF" active  color="#49CB55" stroke-width="3" />
           </view>
           <view slot="bottom" style="margin-left:5rpx" wx:if="{{planN!=0}}">
