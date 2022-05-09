@@ -5,32 +5,12 @@ Page({
    * 页面的初始数据
    */
   data: {
+    nowword:[],
     words:[],
     wordIds:[],
     completeN:[],
     toCompletedN:[],
     userId:[],
-    dictionary:[{
-      name:'HSK-1级',
-      picture:"/images/loadpicture.png",
-      condition:"1",
-      des:'一本初级词典'
-    },{
-      name:'HSK-2级',
-      picture:"/images/loadpicture.png",
-      condition:"1",
-      des:'一本中级词典'
-    },{
-      name:'HSK-2级',
-      picture:"/images/loadpicture.png",
-      condition:"2",
-      des:'一本高级词典'
-    },{
-      name:'HSK-2级',
-      picture:"/images/loadpicture.png",
-      condition:"2",
-      des:'一本高级词典'
-    }]
   },
 
   /**
@@ -48,7 +28,62 @@ Page({
       'toCompletedN':e.detail,
     })
   },
+  new3(e){
+    var that = this
+    that.setData({
+      'nowword':e.detail,
+    })
+  },
+  star: function(e){
+    var that = this
+    console.log(that.data.nowword)
+    if(that.data.nowword.isStar==false){
+      wx.request({
+        url: 'http://bewcf.info:8081/starWord/add',
+        method:"post",
+        data:{
+          userId:that.data.userId,
+          planId:that.data.nowword.planId,
+          wordId:that.data.nowword.wordId
+        },
+        header: {
+          "content-type": "application/x-www-form-urlencoded" 
+        },
+        success:(res)=>{
+          that.setData({
+            'nowword.isStar':true,
+          })
+        }
+      })
+    }else if(that.data.nowword.isStar==true){
+      wx.request({
+        url: 'http://bewcf.info:8081/starWord/removeOne',
+        method:"post",
+        data:{
+          userId:that.data.userId,
+          planId:that.data.nowword.planId,
+          wordId:that.data.nowword.wordId
+        },
+        header: {
+          "content-type": "application/x-www-form-urlencoded" 
+        },
+        success:(res)=>{
+          that.setData({
+            'nowword.isStar':false,
+          })
+        }
+      })
+    }
+  },
+  detail:function(e){
+    var that = this;
+    wx.navigateTo({
+      url: '/pages/word-detail/word-detail?id='+that.data.nowword.wordId,
+    })
+  },
+  prev:function(e){
 
+  },
   onLoad: function (options) {
     var that = this
     wx.getStorage({
@@ -83,7 +118,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    console.log("hh")
   },
 
   /**

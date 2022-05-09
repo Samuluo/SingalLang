@@ -138,12 +138,10 @@ Page({
       url: 'http://bewcf.info:8081/word/getRandomOne',
       method:"GET",
       success:(res)=>{
-        console.log(res.data);
         this.setData({
           todayword:res.data
         })
         let answer = [res.data.answer,res.data.answer2,res.data.answer3,res.data.answer4];
-        console.log(answer)
         answer = this.shuffle(answer);
         this.setData({
           answerpool: answer
@@ -161,8 +159,6 @@ Page({
         that.setData({
           'todayLearned':res.data
         })
-        console.log(that.data.plan.todayAmount)
-        console.log(that.data.todayLearned)
         if(that.data.plan.todayAmount==that.data.todayLearned){
           that.setData({
             'finish':1
@@ -240,9 +236,6 @@ Page({
         'finish':0
       })
     }
-    console.log(that.data.plan.todayAmount)
-    console.log(that.data.todayLearned)
-
     setTimeout(function() {
       wx.request({
         url: 'http://bewcf.info:8081/word/getTodayLearned',
@@ -251,7 +244,6 @@ Page({
           userId:that.data.userId
         },
         success:(res)=>{
-          console.log(res.data)
           that.setData({
             'todayLearned':res.data
           })

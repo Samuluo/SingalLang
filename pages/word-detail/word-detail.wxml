@@ -4,7 +4,7 @@
 <view class="top">
 <view class="top-first">
     <view class="top-first-item">
-      <image style="width: 40rpx; height: 40rpx;" mode="scaleToFill" src="../../images/star.png"></image>
+      <image catchtap="star" style="width: 40rpx; height: 40rpx;" mode="scaleToFill" src="../../images/star.png"></image>
       <text>收藏</text>
     </view>
     <view class="top-first-item">

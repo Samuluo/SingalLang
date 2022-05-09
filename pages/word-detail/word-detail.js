@@ -9,7 +9,48 @@ Page({
 
     }
   },
-
+//    <-{{nowword.isStar==false?'../../images/star.png':'../../images/star-y.png'}}->
+  /*star: function(e){
+  var that = this
+  console.log(that.data.nowword)
+  if(that.data.nowword.isStar==false){
+    wx.request({
+      url: 'http://bewcf.info:8081/starWord/add',
+      method:"post",
+      data:{
+        userId:that.data.userId,
+        planId:that.data.nowword.planId,
+        wordId:that.data.nowword.wordId
+      },
+      header: {
+        "content-type": "application/x-www-form-urlencoded" 
+      },
+      success:(res)=>{
+        that.setData({
+          'nowword.isStar':true,
+        })
+      }
+    })
+  }else if(that.data.nowword.isStar==true){
+    wx.request({
+      url: 'http://bewcf.info:8081/starWord/removeOne',
+      method:"post",
+      data:{
+        userId:that.data.userId,
+        planId:that.data.nowword.planId,
+        wordId:that.data.nowword.wordId
+      },
+      header: {
+        "content-type": "application/x-www-form-urlencoded" 
+      },
+      success:(res)=>{
+        that.setData({
+          'nowword.isStar':false,
+        })
+      }
+    })
+  }
+},*/
   /**
    * 生命周期函数--监听页面加载
    */
@@ -25,10 +66,10 @@ Page({
         that.setData({
           'word':res.data,
         })
+        console.log(that.data.word)
       }
     })
   },
-
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

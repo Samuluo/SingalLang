@@ -32,6 +32,7 @@ Component({
     userId:1000,
     index:0,
     amount:0,
+    nowword:[],
     wordIndex:[],
     wordToFinish:[],
     FinishIndex:[],
@@ -81,8 +82,12 @@ Component({
         'toCompletedN':that.data.wordToFinish.length-that.data.wordIds.length
       })
       }
+      that.setData({
+        'nowword':that.data.wordToFinish[that.data.index],
+      })
       that.triggerEvent("completeN",that.data.completeN);
       that.triggerEvent("toCompletedN",that.data.toCompletedN);
+      that.triggerEvent("nowword",that.data.nowword);
    },
     answer:function(e){
       var that = this
@@ -213,9 +218,12 @@ Component({
                   })
                 }
             }
+            that.setData({
+              'nowword':that.data.wordToFinish[that.data.index],
+            })
             that.triggerEvent("completeN",that.data.completeN);
             that.triggerEvent("toCompletedN",that.data.toCompletedN);
-            that.triggerEvent("wordIds",that.data.wordIds);
+            that.triggerEvent("nowword",that.data.nowword);
             wx.setStorage({
               key: 'wordIds' ,
               data: that.data.wordIds
