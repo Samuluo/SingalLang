@@ -14,6 +14,7 @@ Component({
    * 组件的初始数据
    */
   data: {
+    prevId:-1,
     answer1:[],
     answer2:[],
     answer3:[],
@@ -159,7 +160,7 @@ Component({
      setTimeout(function() {
        //如果需要完成的和已完成的相等，则说明上个是最后一题并且成功答对
       if(that.data.wordToFinish.length==that.data.wordIds.length){
-        console.log("全部完成，返回上级")
+
         wx.setStorage({
           key: 'wordIds' ,
           data: that.data.wordIds
@@ -173,8 +174,11 @@ Component({
         url: '/pages/word-detail/word-detail?id='+e.currentTarget.dataset.id,
         success: function(res) {
           setTimeout(function() {
-            console.log(that.data.index)
-            console.log(that.data.wordToFinish)
+            that.setData({
+              'prevId':that.data.wordToFinish[that.data.index].wordId,
+            })
+        
+            that.triggerEvent("prevId",that.data.prevId);
             //如果这道题是一次循环的最后一题，下一题从0开始
             if(that.data.index==that.data.wordToFinish.length-1){
               that.setData({

@@ -5,6 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    prevId:-1,
     nowword:[],
     words:[],
     wordIds:[],
@@ -82,7 +83,21 @@ Page({
     })
   },
   prev:function(e){
+    var that = this;
+    that.setData({
+      'prevId':e.detail,
+    })
+  },
+  toPrev:function(e){
+    var that = this;
+    console.log(that.data.prevId)
+    if(that.data.prevId==-1){
 
+    }else{
+    wx.navigateTo({
+      url: '/pages/word-detail/word-detail?id='+that.data.prevId,
+    })
+  }
   },
   onLoad: function (options) {
     var that = this
@@ -135,7 +150,7 @@ Page({
     wx.getStorage({
       key: 'wordIds',
       success(res){
-        console.log(res)
+
         wx.request({
           url: 'http://bewcf.info:8081/word/completeWord',
           method:"post",
@@ -152,7 +167,7 @@ Page({
               success: function(res) {
               },
             })
-            console.log("完成了一些")
+  
           }
         })
       }

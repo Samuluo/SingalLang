@@ -49,7 +49,7 @@
           <view wx:if="{{finish==1&&planN!=0}}">
           <view style="margin-left:36rpx;margin-top:20rpx"><text style="font-weight:bold">{{Year}}年{{Month}}月{{Day}}日</text> <text style="font-weight:normal;margin-left:50rpx;font-size:25rpx">已连续完成计划5天</text></view>
           <view style="margin-left:60rpx;margin-top:30rpx;"><text style="font-weight:bold;font-size:65rpx;font-style:italic;text-align:center"  >今日计划已完成!</text></view>
-          <view style="margin-left:20rpx;margin-top:60rpx;margin-bottom:20rpx;margin-right:20rpx"> <van-button round style="margin-left:5rpx;" custom-class="button2" type="info"  size="normal" color="#9EDDB2" catchtap="add">加量学习</van-button> <van-button round type="info" style="margin-right:5rpx;float:right"  custom-class="button2" size="normal" color="#9EDDB2" >完成打卡</van-button></view>
+          <view style="margin-left:20rpx;margin-top:60rpx;margin-bottom:20rpx;margin-right:20rpx"> <van-button round style="margin-left:5rpx;" custom-class="button2" type="info"  size="normal" color="#9EDDB2" catchtap="add">加量学习</van-button> <van-button round type="info" style="margin-right:5rpx;float:right"  custom-class="button2" size="normal" color="#9EDDB2" >打卡分享</van-button></view>
           </view>
           </view>
       </view>

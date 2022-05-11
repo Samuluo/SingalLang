@@ -19,11 +19,11 @@
       <text>收藏</text>
       </view>
       <view class="top-left2" style="">
-      <image catchtap="prev" style="width: 40rpx; height: 40rpx;" mode="scaleToFill" src="../../images/prev.png"></image>
+      <image catchtap="toPrev" style="width: 40rpx; height: 40rpx;" mode="scaleToFill" src="../../images/prev.png"></image>
       <text>上一个</text>
       </view>
   </view></van-col>
 </van-row>
 
-<learn bind:completeN="new" bind:toCompletedN="new2" bind:nowword="new3" words="{{words}}"/>
+<learn bind:completeN="new" bind:toCompletedN="new2" bind:nowword="new3" bind:prevId="prev" words="{{words}}"/>
 </view>

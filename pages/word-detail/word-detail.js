@@ -66,7 +66,6 @@ Page({
         that.setData({
           'word':res.data,
         })
-        console.log(that.data.word)
       }
     })
   },
