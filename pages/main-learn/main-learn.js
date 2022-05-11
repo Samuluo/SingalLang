@@ -4,6 +4,9 @@ Page({
    * 页面的初始数据
    */
   data: {
+    columns: ['5', '10', '15', '20', '25','30','35','40','45','50'],
+    addWords: 5,
+    show: false,
     needday:[],
     answerpool:[],
     todayword:{},
@@ -70,6 +73,16 @@ Page({
       'Day':D
     })
   },
+  onChange(event) {
+    var that = this
+    const { picker, value, index } = event.detail;
+    that.setData({
+      'addWords': value,
+    })
+  },
+  onClose() {
+    this.setData({ show: false });
+  },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -118,7 +131,6 @@ Page({
           }
         })
       },fail(){
-        console.log("hjh")
         wx.switchTab({
           url: '/pages/mine/mine'
         })
@@ -173,7 +185,31 @@ Page({
      'needday':needday,
    })
   },
-
+  add:function(e) {
+    this.setData({
+      'show':true,
+    })
+  },
+  getSubmit(event) {
+    var that = this
+    wx.request({
+      url: 'http://bewcf.info:8081/word/addTodayWord',
+      method:"post",
+      data:{
+        userId:that.data.userId,
+        addAmount: that.data.addWords
+      },
+      header: {
+        "content-type": "application/x-www-form-urlencoded" 
+      },
+      success:(res)=>{
+        that.setData({
+          'addWords': 5,
+        })
+        this.onShow()
+      }
+    })
+  },
   /**
    * 生命周期函数--监听页面显示
    */
