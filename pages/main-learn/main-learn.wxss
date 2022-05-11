@@ -80,3 +80,10 @@ view .search-button {
   padding-top: 20rpx;
   padding-bottom: 20rpx;
 }
+.right:focus {
+  color: rgb(79, 134, 253);
+
+}
+.wrong:foucs {
+  color: rgb(253, 79, 79);
+}

@@ -4,6 +4,14 @@ Page({
    * 页面的初始数据
    */
   data: {
+    button1:'primary',
+    button2:'primary',
+    button3:'primary',
+    button4:'primary',
+    Acolor1:'#9EDDB2 ',
+    Acolor2:'#9EDDB2 ',
+    Acolor3:'#9EDDB2 ',
+    Acolor4:'#9EDDB2 ',
     columns: ['5', '10', '15', '20', '25','30','35','40','45','50'],
     addWords: 5,
     show: false,
@@ -82,6 +90,71 @@ Page({
   },
   onClose() {
     this.setData({ show: false });
+  },
+  answer(e){
+    var that = this
+    that.setData({
+      'button1':"primary",
+      'Acolor1':"#9EDDB2",
+      'button2':"primary",
+      'Acolor2':"#9EDDB2",
+      'button3':"primary",
+      'Acolor3':"#9EDDB2",
+      'button4':"primary",
+      'Acolor4':"#9EDDB2",
+    })
+    if(e.currentTarget.dataset.button=="button1"){
+      if(e.currentTarget.dataset.answer==that.data.todayword.answer){
+        that.setData({
+          'button1':"right",
+          'Acolor1':" rgb(79, 134, 253)",
+        })
+      }else{
+        that.setData({
+          'button1':"wrong",
+          'Acolor1':"rgb(253, 79, 79)"
+        })
+      }
+     }//判断选择了哪个按钮，并做出相应样式改变，正确的话将正确的答案放入wordIds，并将wordtoFinish中的状态改为true
+     if(e.currentTarget.dataset.button=="button2"){
+      if(e.currentTarget.dataset.answer==that.data.todayword.answer){
+        that.setData({
+          'button2':"right",
+          'Acolor2':" rgb(79, 134, 253)",
+        })
+      }else{
+        that.setData({
+          'button2':"wrong",
+          'Acolor2':"rgb(253, 79, 79)",
+        })
+      }
+     }
+     if(e.currentTarget.dataset.button=="button3"){
+      if(e.currentTarget.dataset.answer==that.data.todayword.answer){
+        that.setData({
+          'button3':"right",
+          'Acolor3':" rgb(79, 134, 253)",
+        })
+      }else{
+        that.setData({   
+          'button3':"wrong",
+          'Acolor3':"rgb(253, 79, 79)"
+        })
+      }
+     }
+     if(e.currentTarget.dataset.button=="button4"){
+      if(e.currentTarget.dataset.answer==that.data.todayword.answer){
+        that.setData({
+          'button4':"right",
+          'Acolor4':" rgb(79, 134, 253)",
+        })
+      }else{
+        that.setData({
+          'button4':"wrong",
+          'Acolor4':"rgb(253, 79, 79)"
+        })
+      }
+     }
   },
   /**
    * 生命周期函数--监听页面加载
@@ -373,16 +446,25 @@ shuffle: function(arr){
   return arr
 },
   exchangeword: function() {
+    var that = this
+    that.setData({
+      'button1':"primary",
+      'Acolor1':"#9EDDB2",
+      'button2':"primary",
+      'Acolor2':"#9EDDB2",
+      'button3':"primary",
+      'Acolor3':"#9EDDB2",
+      'button4':"primary",
+      'Acolor4':"#9EDDB2",
+    })
     wx.request({
       url: 'http://bewcf.info:8081/word/getRandomOne',
       method:"GET",
       success:(res)=>{
-        console.log(res.data);
         this.setData({
           todayword:res.data
         })
         let answer = [res.data.answer,res.data.answer2,res.data.answer3,res.data.answer4];
-        console.log(answer)
         answer = this.shuffle(answer);
         this.setData({
           answerpool: answer

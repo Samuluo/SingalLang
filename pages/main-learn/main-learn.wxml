@@ -75,14 +75,14 @@
            </van-row>
            <van-row gutter="20" custom-style="margin-top:20rpx">
             <van-col span="10" offset="4">
-              <van-button color="#9EDDB2" size = "small">{{answerpool[0]}}</van-button>
+              <van-button  custom-class="{{button1}}" color="{{Acolor1}}" data-button="button1" catchtap="answer" data-answer="{{answerpool[0]}}"   size = "small">{{answerpool[0]}}</van-button>
             </van-col>
-            <van-col span="10"><van-button color="#9EDDB2" size = "small">{{answerpool[1]}}</van-button></van-col>
+            <van-col span="10"><van-button  custom-class="{{button2}}" color="{{Acolor2}}" data-button="button2" catchtap="answer" data-answer="{{answerpool[1]}}"   size = "small">{{answerpool[1]}}</van-button></van-col>
            </van-row>
            <view style="margin-top: 20rpx;"> 
             <van-row gutter="20" custom-style="margin-top:20rpx">
-            <van-col span="10" offset="4"><van-button color="#9EDDB2" size = "small">{{answerpool[2]}}</van-button></van-col>
-            <van-col span="10"><van-button color="#9EDDB2" size = "small">{{answerpool[3]}}</van-button></van-col>
+            <van-col span="10" offset="4"><van-button custom-class="{{button3}}" color="{{Acolor3}}" data-button="button3" catchtap="answer" data-answer="{{answerpool[2]}}"   size = "small">{{answerpool[2]}}</van-button></van-col>
+            <van-col span="10"><van-button  custom-class="{{button4}}" color="{{Acolor4}}" data-button="button4" catchtap="answer" data-answer="{{answerpool[3]}}"   size = "small">{{answerpool[3]}}</van-button></van-col>
           </van-row>
            </view>
           
