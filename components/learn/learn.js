@@ -14,6 +14,7 @@ Component({
    * 组件的初始数据
    */
   data: {
+    method:'answer',
     prevId:-1,
     answer1:[],
     answer2:[],
@@ -92,6 +93,9 @@ Component({
    },
     answer:function(e){
       var that = this
+      that.setData({
+        'method':"",
+      })
       var cWordTF = "wordToFinish["+that.data.index+"].completed";
       if(e.currentTarget.dataset.button=="button1"){
       if(e.currentTarget.dataset.answer==that.data.wordToFinish[that.data.index].word.answer){
@@ -239,6 +243,7 @@ Component({
             };
             answer.sort(() => randomSort());
             that.setData({
+              'method':'answer',
               'answer1':answer[0],
               'answer2':answer[1],
               'answer3':answer[2],
