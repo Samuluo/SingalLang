@@ -7,76 +7,24 @@ Page({
     totalDate:30,
     options: {
       title: {
-        text: ''
+        text: '学习统计'
       },
 
       tooltip: {},
       legend: {
-        data: []
+        data: ['已学单词数'],
+        x:'right'
       },
-      radar: {
-        shape: 'polygon',
-        name: {
-          textStyle: {
-            color: '#999999',
-            backgroundColor: '#fff',
-            borderRadius: 3,
-            padding: [3, 5]
-          }
-        },
-        center: ['50%', '50%'],
-        indicator:  [{
-          "name": "测试",
-          "max": 10
-        }, {
-          "name": "店铺陈列",
-          "max": 10
-        }, {
-          "name": "护理知识",
-          "max": 10
-        }, {
-          "name": "营养知识",
-          "max": 10
-        }, {
-          "name": "店铺知识",
-          "max": 10
-        }],
-        radius: 70,
-        splitArea: {
-          show: false,
-          areaStyle: {
-            color: 'transparent', // 雷达图背景的颜色
-          }
-        },
+      xAxis:{
+        data:["1月","2月","3月","4月","5月"]
       },
+      yAxis:{},
       series: [{
-        name: '',
-        type: 'radar',
+        name: '已学单词数',
+        type: 'bar',
         data: [
-          {
-            value:  [0, 0, 5, 5, 10],
-            name: '',
-            label: {
-              normal: {
-                show: true,
-                formatter: function (params) {
-                  return params.value;
-                }
-              },
-              color: '#000'
-            }
-          }
+          10,20,30,40,50
         ],
-        symbol: 'none',
-        label: {
-          color: '#000',
-        },
-        lineStyle: {
-          color: '#F3CD99'
-        },
-        areaStyle: {
-          color: '#FDF4E8'
-        }
       }]
     },
     userInfo: {},
@@ -85,20 +33,20 @@ Page({
     canIUseGetUserProfile: false,
     canIUseOpenData: wx.canIUse('open-data.type.userAvatarUrl') && wx.canIUse('open-data.type.userNickName') // 如需尝试获取用户信息可改为false
   },
-  onInstance({detail: instance}) {
-    const dom = instance.getDom()
-    const that = this;
-    dom.saveAsImage().then((path) => {
-      // 临时地址
-      console.log(path);
-      wx.saveImageToPhotosAlbum({
-        filePath: path
-      })
-      that.setData({
-        filePath:path
-      })
-    });
-  },
+  // onInstance({detail: instance}) {
+  //   const dom = instance.getDom()                                                                                                                                                                                                                                                                                                                                                                                                            
+  //   const that = this;
+  //   dom.saveAsImage().then((path) => {
+  //     // 临时地址
+  //     console.log(path);
+  //     wx.saveImageToPhotosAlbum({
+  //       filePath: path
+  //     })
+  //     that.setData({
+  //       filePath:path
+  //     })
+  //   });
+  //},
   onLoad: function () {
     this.onLoad2();
     if (wx.getUserProfile) {

@@ -29,3 +29,13 @@
   border-bottom-left-radius: 40px;
 	flex-direction: row;
 }
+
+.box{
+  width:90%;
+  height: 500rpx;
+  border:4px double seagreen;
+  margin-left: 5%;
+  float: left;
+}
+
+@import 'mine-wxa-auto-dark.wxss'
