@@ -38,7 +38,9 @@ Component({
     wordIndex:[],
     wordToFinish:[],
     FinishIndex:[],
-    wordIds:[]
+    wordIds:[],
+    planId:[],
+    uesrId:[]
   },
 
   /**
@@ -111,6 +113,20 @@ Component({
           'button1':"wrong",
           'color1':"rgb(253, 79, 79)"
         })
+        wx.request({
+          url: 'http://bewcf.info:8081/mistakeWord/add',
+          method:"post",
+          data:{
+            userId:that.data.userId,
+            wordId:e.currentTarget.dataset.id,
+            planId:that.data.planId
+          },
+          header: {
+            "content-type": "application/x-www-form-urlencoded" 
+          },
+          success:(res)=>{
+          }
+        })
       }
      }//判断选择了哪个按钮，并做出相应样式改变，正确的话将正确的答案放入wordIds，并将wordtoFinish中的状态改为true
      if(e.currentTarget.dataset.button=="button2"){
@@ -126,6 +142,20 @@ Component({
         that.setData({
           'button2':"wrong",
           'color2':"rgb(253, 79, 79)",
+        })
+        wx.request({
+          url: 'http://bewcf.info:8081/mistakeWord/add',
+          method:"post",
+          data:{
+            userId:that.data.userId,
+            wordId:e.currentTarget.dataset.id,
+            planId:that.data.planId
+          },
+          header: {
+            "content-type": "application/x-www-form-urlencoded" 
+          },
+          success:(res)=>{
+          }
         })
       }
      }
@@ -143,6 +173,20 @@ Component({
           'button3':"wrong",
           'color3':"rgb(253, 79, 79)"
         })
+        wx.request({
+          url: 'http://bewcf.info:8081/mistakeWord/add',
+          method:"post",
+          data:{
+            userId:that.data.userId,
+            wordId:e.currentTarget.dataset.id,
+            planId:that.data.planId
+          },
+          header: {
+            "content-type": "application/x-www-form-urlencoded" 
+          },
+          success:(res)=>{
+          }
+        })
       }
      }
      if(e.currentTarget.dataset.button=="button4"){
@@ -158,6 +202,21 @@ Component({
         that.setData({
           'button4':"wrong",
           'color4':"rgb(253, 79, 79)"
+        })
+        wx.request({
+          url: 'http://bewcf.info:8081/mistakeWord/add',
+          method:"post",
+          data:{
+            userId:that.data.userId,
+            wordId:e.currentTarget.dataset.id,
+            planId:that.data.planId
+          },
+          header: {
+            "content-type": "application/x-www-form-urlencoded" 
+          },
+          success:(res)=>{
+      
+          }
         })
       }
      }
@@ -258,6 +317,28 @@ Component({
   },
   lifetimes:{
     ready:function(){
+      var that = this
+      wx.getStorage({
+        key: 'userInfo',
+        success(res){
+          that.setData({
+            'userId':res.data.id
+          })
+          wx.request({
+            url: 'http://bewcf.info:8081/plan/queryNow',
+            method:"get",
+            data:{
+              userId:that.data.userId
+            },
+            success:(res)=>{
+              that.setData({
+                'planId':res.data.id,
+              })
+            }
+          })
+        }
+      })
+
     },
     attached: function () {
     },
