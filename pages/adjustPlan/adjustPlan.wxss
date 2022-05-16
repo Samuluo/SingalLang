@@ -42,7 +42,7 @@
   
   margin-top: 20rpx;
   width: 80% ;
-  text-align: center;
+  
   align-self: center; 
   margin-bottom: 20rpx;
   margin-left: 10%;

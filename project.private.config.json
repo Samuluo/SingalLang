@@ -51,6 +51,13 @@
           "name": "",
           "pathName": "pages/search/search",
           "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/adjustPlan/adjustPlan",
+          "query": "",
           "scene": null,
           "launchMode": "default"
         }
