@@ -6,6 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    historySearch:'',
     value:'',
     nowValue:'',
     findWord:[],
@@ -33,12 +34,60 @@ Page({
     })
   },
   toTheWord2:function(e){
+    var that = this
     wx.navigateTo({
       url: '/pages/word-detail/word-detail?id='+e.currentTarget.dataset.item.id,
+    })
+    wx.getStorage({
+      key: 'historySearch',
+      success(res){
+        let historySearch=[]
+        for(var i = 0; i<res.data.length;i++){
+            historySearch.push(res.data[i])
+        }
+        historySearch.push(e.currentTarget.dataset.item)
+        console.log(historySearch)
+        wx.setStorage({
+          key: 'historySearch' ,
+          data: history,
+          success(res){
+            that.setData({
+              'historySearch':historySearch
+            })
+          }
+        })
+      },fail(res){
+        let historySearch=[]
+        historySearch.push(e.currentTarget.dataset.item)     
+        wx.setStorage({
+          key: 'historySearch' ,
+          data: historySearch
+        })
+      }
+    })
+  },
+  removeHistory:function(e){
+    var that = this
+    wx.removeStorage({
+      key: 'historySearch',
+      success: function(res) {
+        that.setData({
+          'historySearch':[]
+        })
+      },
     })
   },
   onLoad: function (options) {
     var that = this
+    wx.getStorage({
+      key: 'historySearch',
+      success(res){
+        that.setData({
+          'historySearch':res.data
+        })
+      },fail(res){
+      }
+    })
     wx.request({
       url: 'http://bewcf.info:8081/dictionary/getAllWord',
       method:"get",
@@ -66,7 +115,6 @@ Page({
           'findWord':res.data,
           'nowValue':e.detail
         })
-        console.log(that.data.findWord)
       }
     })
     }else if(e.detail==''){

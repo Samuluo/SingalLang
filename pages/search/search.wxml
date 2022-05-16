@@ -15,12 +15,12 @@
 </van-row>
 <van-tabs>
   <van-tab title="查询历史">
-    <van-cell wx:for="{{columns}}" wx:if="{{nowValue==''}}" data-item="{{item}}">
+    <van-cell wx:for="{{historySearch}}" wx:if="{{nowValue==''}}" data-item="{{item}}">
   <view slot="title">
-  <van-icon name="clock-o" style="margin-right:10rpx" class="a-word"/><text>你好</text>
+  <van-icon name="clock-o" style="margin-right:10rpx" class="a-word"/><text>{{item.answer}}</text>
   </view>
   </van-cell> 
-  <view class="history" wx:if="{{nowValue==''}}" ><text>清除历史记录</text></view>
+  <view class="history" wx:if="{{nowValue==''}}" catchtap="removeHistory" ><text>清除历史记录</text></view>
       <van-cell wx:for="{{findWord}}" wx:if="{{nowValue!=''}}" data-item="{{item}}" bind:click="toTheWord2">
   <view slot="title">
   <text>{{item.answer}}</text>
