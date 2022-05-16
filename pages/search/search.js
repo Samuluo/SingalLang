@@ -6,6 +6,9 @@ Page({
    * 页面的初始数据
    */
   data: {
+    value:'',
+    nowValue:'',
+    findWord:[],
     oneWordList:[],
     WholeWordList:[],
     id:11,
@@ -21,28 +24,66 @@ Page({
     ], 
   },
   /**
-   * 生命周期函数--监听页面加载
+   * 生命周期函数--监听页面加载i
    */
-
+  toTheWord:function(e){
+    console.log(e)
+    wx.navigateTo({
+      url: '/pages/word-detail/word-detail?id='+e.currentTarget.dataset.item.id,
+    })
+  },
+  toTheWord2:function(e){
+    wx.navigateTo({
+      url: '/pages/word-detail/word-detail?id='+e.currentTarget.dataset.item.id,
+    })
+  },
   onLoad: function (options) {
     var that = this
     wx.request({
-      url: 'http://bewcf.info:8081/plan/queryAllWord',
+      url: 'http://bewcf.info:8081/dictionary/getAllWord',
       method:"get",
       data:{
-        id:this.data.id
+        dictionaryId:3
       },
       success:(res)=>{
-        console.log(res)
         that.setData({
           'WholeWordList':res.data
         })
       }
     })
   },
-
-  onChoose(e) {
-    console.log('onChoose', e)
+  onChange(e){
+    var that = this
+    if(e.detail!=''){
+    wx.request({
+      url: 'http://bewcf.info:8081/word/find',
+      method:"get",
+      data:{
+        findWord:e.detail
+      },
+      success:(res)=>{
+        that.setData({
+          'findWord':res.data,
+          'nowValue':e.detail
+        })
+        console.log(that.data.findWord)
+      }
+    })
+    }else if(e.detail==''){
+      that.setData({
+        'nowValue':'',
+        'value':''
+      })
+    }
+  },
+  onClear:function(e){
+    var that = this
+    that.setData({
+      'nowValue':'',
+      'value':''
+    })
+  },
+  onBlur:function(e){
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
