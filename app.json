@@ -10,7 +10,8 @@
     "pages/add-plan/add-plan",
     "pages/learn-word/learn-word",
     "pages/word-detail/word-detail",
-    "pages/search/search"
+    "pages/search/search",
+    "pages/wrong-learn/wrong-learn"
   ],
   "window": {
     "backgroundTextStyle": "dark",

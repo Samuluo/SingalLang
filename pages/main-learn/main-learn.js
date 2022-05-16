@@ -29,6 +29,7 @@ Page({
     Year:[],
     Month:[],
     continuday:[],
+    wrongwords:[],
     plan:{
         id:[],
         userId:[],
@@ -326,6 +327,29 @@ Page({
                   'plan.userId':res.data.userId,
                   'plan.todayAmount':res.data.todayAmount,
                 })
+                wx.request({
+                  url: 'http://bewcf.info:8081/plan/queryAllWord',
+                  method:"get",
+                  data:{
+                    id:that.data.plan.id,
+                  },
+                  success:(res)=>{
+                    that.setData({
+                      'wrongwords':res.data,
+                    })
+                
+                    let wrongtoFinish=[];
+                    console.log()
+                    for(var i = 0; i<that.data.wrongwords.length;i++){
+                      if(that.data.wrongwords[i].isMistake==true){
+                        wrongtoFinish.push(that.data.wrongwords[i])
+                      }
+                    }
+                    that.setData({
+                      'wrongwords': wrongtoFinish,
+                    })
+                  }
+                })
                 var needday = Math.ceil((that.data.plan.totalNumber-that.data.plan.learnedNumber)/that.data.plan.amount)
                 that.setData({
                  'needday':needday,
@@ -421,6 +445,9 @@ Page({
       color1: '#F1FBF2',
       color2: '#46CA53',
       color3: '#F1FBF2'
+    })
+    wx.navigateTo({
+      url: '/pages/wrong-learn/wrong-learn?userId='+this.data.userId+'&&wrongwords='+JSON.stringify(this.data.wrongwords)
     })
   },
   vocabularytext: function() {
