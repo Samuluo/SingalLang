@@ -51,12 +51,12 @@ Page({
           cidiandata:{
             "ParkCode": "ZCKJ20160831200444",
             "Name": "国家通用手语词典",
-            "img": "https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/cover/(5).jpg.webp",
+            "img": "https://www.bewcf.info/test/dictionaryImg.jpg",
             "CompleteDate":"2022年4月10日",
             "detail":"国家通用手语词典是一本国家通用手语单词的词典，适合国家通用手语学习。",
             "amount":2000,
           },
-          spaceimgs:["https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/cover/(5).jpg.webp"]
+          spaceimgs:["https://www.bewcf.info/test/dictionaryImg.jpg"]
         })  
         var clearRoom = this.data.wordList;
         let countArr = [];

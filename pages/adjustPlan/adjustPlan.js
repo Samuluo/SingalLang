@@ -29,8 +29,8 @@ Page({
   onChange(event) {
     const { picker, value, index } = event.detail;
     var x = value[0].replace("个","");
-    console.log(this.data.totalNumber)
-    var days = this.data.totalNumber/x;
+    console.log(this.data.cidiandata.dictionary.totalNumber)
+    var days = this.data.cidiandata.dictionary.totalNumber/x;
     var col = [parseInt(days)+"天"]
     var d=new Date(); 
     d.setDate(d.getDate()+days); 
