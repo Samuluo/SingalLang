@@ -5,34 +5,27 @@
   <van-col span="24" > <van-search
   value="{{ value }}"
   shape="round"
-  show-action
   background="#ECECEC"
   bind:search="onSearch"
-  bind:cancel="onCancel"
   placeholder="查词"
   custom-class="search"
 /></van-col>
 </van-row>
-<van-tabs animated>
+<van-tabs>
   <van-tab title="查询历史">
     <view wx:for="{{columns}}" ><van-icon name="clock-o" style="margin-right:10rpx" class="a-word"/><text>你好</text><van-divider class="div"/></view>
   <view class="history"><text>清除历史记录</text></view>
   </van-tab>
-  <van-tab title="词典索引"><view>
- 
-  </view>
+  <van-tab title="词典索引" >
+  <van-swipe-cell right-width="{{ 65 }}" left-width="{{ 65 }}">
+  <view slot="left">选择</view>
+  <van-cell-group>
+    <van-cell title="单元格" value="内容" />
+  </van-cell-group>
+  <view slot="right">删除</view>
+</van-swipe-cell>
   </van-tab>
   <van-tab title="词库">
-  <mp-indexList class="city__list" list="{{list}}" bindchoose="onChoose">
-    <view class="page">
-        <view class="page__hd">
-            <view class="page__title">Index List</view>
-            <view class="page__desc">类通讯录列表</view>
-        </view>
-        <view class="page__bd">
-        </view>
-    </view>
-</mp-indexList>
   </van-tab>
 </van-tabs>
 </view>

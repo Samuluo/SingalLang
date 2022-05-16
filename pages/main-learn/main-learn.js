@@ -53,6 +53,11 @@ Page({
       url: '/pages/add-plan/add-plan?userId='+this.data.userId
     })
   },
+  search:function(e){
+    wx.navigateTo({
+      url: '/pages/search/search?userId='+this.data.userId
+    })
+  },
   beginLearn:function(e){
     wx.navigateTo({
       url: '/pages/learn-word/learn-word?userId='+this.data.userId
@@ -211,7 +216,6 @@ Page({
       }
     })
   },
-
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

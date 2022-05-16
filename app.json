@@ -11,6 +11,7 @@
     "pages/learn-word/learn-word",
     "pages/word-detail/word-detail",
     "pages/search/search",
+    "pages/dictionary/dictionary",
     "pages/wrong-learn/wrong-learn"
   ],
   "window": {

@@ -8,11 +8,13 @@
 
   <van-col span="22">   <van-search
   value="{{ value }}"
+  disabled
   shape="round"
   input-class="serach-input"
   custom-class="search-button"
   background="rgba(241, 251, 242, 100);"
   placeholder="查词"
+  bind:click-input="search"
 /></van-col>
   <van-col span="2">
       <image style="width: 40rpx; height: 40rpx;margin-top:10rpx" mode="scaleToFill" src="../../images/calendar.png"></image>

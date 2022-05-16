@@ -1,49 +1,20 @@
-// pages/search/search.js
-
+// pages/dictionary/dictionary.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    oneWordList:[],
-    WholeWordList:[],
-    id:11,
-    columns: [
-      {
-        values: 2,
-        className: 'column1',
-      },
-      {
-        values: 3,
-        className: 'column2',
-      }
-    ], 
+
   },
+
   /**
    * 生命周期函数--监听页面加载
    */
-
   onLoad: function (options) {
-    var that = this
-    wx.request({
-      url: 'http://bewcf.info:8081/plan/queryAllWord',
-      method:"get",
-      data:{
-        id:this.data.id
-      },
-      success:(res)=>{
-        console.log(res)
-        that.setData({
-          'WholeWordList':res.data
-        })
-      }
-    })
+
   },
 
-  onChoose(e) {
-    console.log('onChoose', e)
-  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
