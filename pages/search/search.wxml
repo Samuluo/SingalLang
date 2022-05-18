@@ -13,14 +13,14 @@
   custom-class="search"
 /></van-col>
 </van-row>
-<van-tabs>
-  <van-tab title="查询历史">
-    <van-cell wx:for="{{historySearch}}" wx:if="{{nowValue==''}}" data-item="{{item}}">
+<van-tabs bind:change="titleChange">
+  <van-tab title="搜索查词">
+    <van-cell wx:for="{{historySearch}}" wx:if="{{nowValue==''}}" data-item="{{item}}"  bind:click="toTheWord2">
   <view slot="title">
   <van-icon name="clock-o" style="margin-right:10rpx" class="a-word"/><text>{{item.answer}}</text>
   </view>
   </van-cell> 
-  <view class="history" wx:if="{{nowValue==''}}" catchtap="removeHistory" ><text>清除历史记录</text></view>
+  <view class="history" wx:if="{{nowValue==''&&historySearch.length!=0}}" catchtap="removeHistory" ><text>清除历史记录</text></view>
       <van-cell wx:for="{{findWord}}" wx:if="{{nowValue!=''}}" data-item="{{item}}" bind:click="toTheWord2">
   <view slot="title">
   <text>{{item.answer}}</text>
@@ -34,7 +34,24 @@
   </view>
   </van-cell> 
   </van-tab>
-  <van-tab title="词库">
+  <van-tab title="{{title}}">
+  <van-grid column-num="3" wx:if="{{title=='分类词典'}}">
+    <van-grid-item use-slot wx:for="{{dictionaries}}" >
+    <image
+      mode="scaleToFill"
+      style="width: 80%; height: 150rpx;"
+      src="{{item.imgUrl}}"
+      catchtap="choseDictionary"
+      data-item="{{item}}"
+    />
+    <text style="margin-top:20rpx;font-size:25rpx">{{item.name}}</text>
+  </van-grid-item>
+ </van-grid>
+     <van-cell wx:for="{{kindList}}" wx:if="{{title!='分类词典'}}" data-item="{{item}}" bind:click="toTheWord">
+  <view slot="title" >
+  <text>{{item.answer}}</text>
+  </view>
+  </van-cell> 
   </van-tab>
 </van-tabs>
 </view>

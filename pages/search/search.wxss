@@ -36,5 +36,5 @@
   margin:15rpx;
 }
 .van-sticky{
-  margin-bottom: 15rpx;
+  margin-bottom: 0rpx;
 }

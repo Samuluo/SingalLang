@@ -6,7 +6,10 @@ Page({
    * 页面的初始数据
    */
   data: {
-    historySearch:'',
+    title:'分类词典',
+    dictionaries:[],
+    kindList:[],
+    historySearch:[],
     value:'',
     nowValue:'',
     findWord:[],
@@ -27,6 +30,32 @@ Page({
   /**
    * 生命周期函数--监听页面加载i
    */
+  choseDictionary:function(e){
+    var that = this
+    console.log(e)
+    that.setData({
+      'title':e.currentTarget.dataset.item.name
+    })
+    wx.request({
+      url: 'http://bewcf.info:8081/dictionary/getAllWord',
+      method:"get",
+      data:{
+        dictionaryId:e.currentTarget.dataset.item.id
+      },
+      success:(res)=>{
+        console.log(res)
+        that.setData({
+          'kindList':res.data
+        })
+      }
+    })
+  },
+  titleChange:function(e){
+    var that = this
+    that.setData({
+      'title':"分类词典"
+    })
+  },
   toTheWord:function(e){
     console.log(e)
     wx.navigateTo({
@@ -43,13 +72,15 @@ Page({
       success(res){
         let historySearch=[]
         for(var i = 0; i<res.data.length;i++){
+          if(res.data[i].id!=e.currentTarget.dataset.item.id){
             historySearch.push(res.data[i])
+          }
         }
         historySearch.push(e.currentTarget.dataset.item)
         console.log(historySearch)
         wx.setStorage({
           key: 'historySearch' ,
-          data: history,
+          data: historySearch,
           success(res){
             that.setData({
               'historySearch':historySearch
@@ -62,6 +93,9 @@ Page({
         wx.setStorage({
           key: 'historySearch' ,
           data: historySearch
+        })
+        that.setData({
+          'historySearch':historySearch
         })
       }
     })
@@ -97,6 +131,17 @@ Page({
       success:(res)=>{
         that.setData({
           'WholeWordList':res.data
+        })
+      }
+    })
+    wx.request({
+      url: 'http://bewcf.info:8081/dictionary/queryAll',
+      method:"get",
+      data:{
+      },
+      success:(res)=>{
+        that.setData({
+          'dictionaries':res.data
         })
       }
     })
