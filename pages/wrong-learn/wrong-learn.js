@@ -158,8 +158,7 @@ Page({
           method:"post",
           data:{
             userId:that.data.userId,
-            wordIds:res.data,
-            planId:that.data.id
+            wordIds:res.data
           },
           header: {
             "content-type": "application/x-www-form-urlencoded" 

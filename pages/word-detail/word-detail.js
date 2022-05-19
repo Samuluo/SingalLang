@@ -10,7 +10,7 @@ Page({
     }
   },
 //    <-{{nowword.isStar==false?'../../images/star.png':'../../images/star-y.png'}}->
-  /*star: function(e){
+  star: function(e){
   var that = this
   console.log(that.data.nowword)
   if(that.data.nowword.isStar==false){
@@ -50,7 +50,7 @@ Page({
       }
     })
   }
-},*/
+},
   /**
    * 生命周期函数--监听页面加载
    */
