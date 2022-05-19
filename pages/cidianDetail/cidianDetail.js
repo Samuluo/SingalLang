@@ -197,4 +197,26 @@ Page({
       }
     })
   },
+  setNotStar: function(e) {
+    var that = this;
+    var item = e.currentTarget.dataset.item;
+    wx.getStorage({
+      key: 'userInfo',
+      success(res){
+        console.log(res.data.id)
+        that.setData({
+          'userId': res.data.id,
+        })
+        wx.request({
+          url: 'http://bewcf.info:8081/starWord/removeOne',
+          method:'POST',
+          data:{
+            "userId": that.data.userId,
+            "wordId": item,
+            "planId": that.data.planId,
+          }
+        })
+      }
+    })
+  },
 })

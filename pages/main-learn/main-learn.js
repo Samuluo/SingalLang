@@ -461,6 +461,11 @@ Page({
       color3: '#46CA53'
     })
   },
+  cidianDetail: function() {
+    wx.navigateTo({
+      url: '/pages/cidianDetail/cidianDetail?plan='+this.data.plan,
+    })
+  },
 /**
  * 数组排序算法
  */

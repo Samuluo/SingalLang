@@ -111,8 +111,13 @@ Page({
     wx.navigateTo({
       url: '../apply/apply'
     })
-  }
+  },
   // formateNumber:function(n){
   //   return n>9?n:'0'+n
   // }
+  changePlan:function() {
+    wx.navigateTo({
+      url: '../switch-plan/switch-plan',
+    })
+  }
 })
