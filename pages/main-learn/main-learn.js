@@ -461,9 +461,9 @@ Page({
       color3: '#46CA53'
     })
   },
-  cidianDetail: function() {
+  cidianDetail: function(e) {
     wx.navigateTo({
-      url: '/pages/cidianDetail/cidianDetail?plan='+this.data.plan,
+      url: '/pages/cidianDetail/cidianDetail?plan='+JSON.stringify(e.currentTarget.dataset.item),
     })
   },
 /**

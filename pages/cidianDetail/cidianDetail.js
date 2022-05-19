@@ -10,6 +10,7 @@ Page({
     color3: '',
     userId: -1,
     planId:10,
+    plan: {},
     countArr:[],
     dateArr:[],
     nameArr:[],
@@ -31,14 +32,18 @@ Page({
       },
     ],
   },
-  onLoad: function () {
+  onLoad: function (options) {
+    var f = JSON.parse(options.plan) 
+    console.log(f)
     wx.getStorage({
       key: 'userInfo',
       success:(res)=>{
         console.log(res.data.id)
         this.setData({
           'userId': res.data.id,
+          'plan': f
         })
+        console.log(this.data.plan)
       }
     })
     wx.request({

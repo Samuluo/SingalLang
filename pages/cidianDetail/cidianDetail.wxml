@@ -4,11 +4,11 @@
 	  <view class="cidian-top">
 	  	<view class="cidian-banner" >
 				<view class="layout_horizontal">  				
-						<image src="{{cidiandata.img}}" mode="aspectFill" class="cidianpicture"/>
+						<image src="{{plan.dictionary.imgUrl}}" mode="aspectFill" class="cidianpicture"/>
 						<view class="layout_vertical" style="margin-left: 40rpx;">
-							<view class="cidianname" >{{cidiandata.Name}} </view>
-              <view  style="font-size:14px;text-align: end;">{{cidiandata.amount}} 词</view>
-							<view style="font-size:14px;margin-top: 14px;" >{{cidiandata.detail}}</view>
+							<view class="cidianname" >{{plan.dictionary.name}} </view>
+              <view  style="font-size:14px;text-align: end;">{{plan.dictionary.totalNumber}} 词</view>
+							<view style="font-size:14px;margin-top: 14px;" >{{plan.dictionary.description}}</view>
 						</view>
 				</view>
 	  	  
