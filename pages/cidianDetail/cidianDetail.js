@@ -155,6 +155,17 @@ Page({
       color2: '#46CA53',
       color3: '#F1FBF2'
     })
+    var that = this;
+    wx.request({
+      url: 'http://bewcf.info:8081/mistakeWord/queryAll?userId=1000',//+this.data.userId,
+      method:'GET',
+      success: (res)=> {
+        console.log(res.data)
+        this.setData({
+          'wordList2':res.data
+        })
+      }
+    })
   },
   notstudy: function(e) {
     this.setData({
@@ -164,7 +175,7 @@ Page({
     })
     var that = this;
     wx.request({
-      url: 'http://bewcf.info:8081/mistakeWord/queryAll?userId=1000',//+this.data.userId,
+      url: 'http://bewcf.info:8081/plan/queryAllWord?id=10&completed=0',//+this.data.userId,
       method:'GET',
       success: (res)=> {
         console.log(res.data)
