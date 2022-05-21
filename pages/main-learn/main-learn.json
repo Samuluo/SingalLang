@@ -9,7 +9,12 @@
     "van-search": "@vant/weapp/search/index",
     "van-dialog": "@vant/weapp/dialog/index",
     "van-picker": "@vant/weapp/picker/index",
-    "van-calendar": "@vant/weapp/calendar/index"
+    "van-calendar": "@vant/weapp/calendar/index",
+    "van-overlay": "@vant/weapp/overlay/index",
+    "van-share-sheet": "@vant/weapp/share-sheet/index",
+    "van-popup": "@vant/weapp/popup/index",
+    "calendar":"/components/calendar/calendar",
+    "van-cell": "@vant/weapp/cell/index"
   },
   "navigationBarBackgroundColor": "#A8E9BD",
   "navigationBarTextStyle": "black",

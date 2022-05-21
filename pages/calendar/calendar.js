@@ -5,6 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    userId:[],
     week: ["一", "二", "三", "四", "五", "六", "日"],//星期
     maxDayList: [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31],//一年12个月，每个月的天数，初始化都给平年
     nowYear: new Date().getFullYear(),//当前年份
@@ -52,7 +53,6 @@ Page({
    */
   initCalendar() {
     var that = this
-    console.log(that.data.cards)
     let maxDayList = this.data.maxDayList;
     let year = this.data.nowYear, month = this.data.nowMonth;
     if((year%4 == 0 && year%100 != 0) || year%400 == 0) {//计算当前年是不是闰年，规则：能被4整除且不被100整除，或者能被400整除的年份
@@ -95,7 +95,6 @@ Page({
         }
       }
     }
-    console.log(nowMonthArr)
     let totalDayList = beforArr.concat(nowMonthArr).concat(afterArr);//将所有日期拼接
     let totalDay = [], arr = [];//totalDay:最终用来展示数据，arr：用来分割每一周的日子
     for(let i=0; i<totalDayList.length; i++) {
@@ -116,7 +115,7 @@ Page({
       url: 'http://bewcf.info:8081/card/queryAll',
       method:"get",
       data:{
-        userId:1000
+        userId:options.userId
       },
       success:(res)=>{                
         let cardday=[];
@@ -126,7 +125,8 @@ Page({
           }
         }
         that.setData({
-          cards:cardday
+          cards:cardday,
+          userId:options.userId
         })
         this.initCalendar();
       }

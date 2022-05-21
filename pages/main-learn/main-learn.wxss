@@ -90,3 +90,18 @@ view .search-button {
 .calendar {
   --calendar-height: 500px;
 }
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+.block {
+  width: 120px;
+  height: 120px;
+  background-color: #fff;
+}
+.buttom-button{
+  position:fixed;
+  bottom:0;
+}

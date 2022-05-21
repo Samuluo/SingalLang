@@ -4,6 +4,8 @@ Page({
    * 页面的初始数据
    */
   data: {
+    showshare:false,
+    cardshow: false,
     button1:'primary',
     button2:'primary',
     button3:'primary',
@@ -28,6 +30,13 @@ Page({
     Day:[],
     Year:[],
     Month:[],
+    options: [
+      { name: '微信', icon: 'wechat', openType: 'share' },
+      { name: '微博', icon: 'weibo' },
+      { name: '复制链接', icon: 'link' },
+      { name: '分享海报', icon: 'poster' },
+      { name: '二维码', icon: 'qrcode' },
+    ],
     continuday:[],
     wrongwords:[],
     plan:{
@@ -48,14 +57,23 @@ Page({
     },
     finish:[]
   },
+  onShare(event) {
+    this.setData({ showShare: true });
+  },
+
+  shareClose() {
+    this.setData({ showShare: false });
+  },
+
+  shareSelect(event) {
+    console.log(event)
+    Toast(event.detail.name);
+    this.shareClose();
+  },
   showCalendar() {
     wx.navigateTo({
       url: '/pages/calendar/calendar?userId='+this.data.userId
     })
-  },
-  calClose(){
-    var that = this
-    that.setData({ calendar: false });
   },
   addplan: function(e){
     wx.navigateTo({
@@ -218,6 +236,17 @@ Page({
             })
           }
         })
+        wx.request({
+          url: 'http://bewcf.info:8081/card/queryCardDays',
+          method:"get",
+          data:{
+            userId:that.data.userId
+          },
+          success:(res)=>{
+            that.setData({
+            })
+          }
+        })
       },fail(){
         wx.switchTab({
           url: '/pages/mine/mine'
@@ -280,6 +309,19 @@ Page({
   getSubmit(event) {
     var that = this
     wx.request({
+      url: 'http://bewcf.info:8081/card/cancelClock',
+      method:"post",
+      data:{
+        userId:that.data.userId,
+      },
+      header: {
+        "content-type": "application/x-www-form-urlencoded" 
+      },
+      success:(res)=>{
+        console.log(res)
+      }
+    })
+    wx.request({
       url: 'http://bewcf.info:8081/word/addTodayWord',
       method:"post",
       data:{
@@ -296,6 +338,28 @@ Page({
         this.onShow()
       }
     })
+  },
+  getCard(){
+    var that =this
+    that.setData({
+      'cardshow': true,
+    })
+    wx.request({
+      url: 'http://bewcf.info:8081/card/clock',
+      method:"post",
+      data:{
+        userId:that.data.userId,
+      },
+      header: {
+        "content-type": "application/x-www-form-urlencoded" 
+      },
+      success:(res)=>{
+        console.log(res)
+      }
+    })
+  },
+  cardClose() {
+    this.setData({ cardshow: false });
   },
   /**
    * 生命周期函数--监听页面显示
