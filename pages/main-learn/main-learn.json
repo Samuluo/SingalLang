@@ -8,7 +8,8 @@
     "van-col": "@vant/weapp/col/index",
     "van-search": "@vant/weapp/search/index",
     "van-dialog": "@vant/weapp/dialog/index",
-    "van-picker": "@vant/weapp/picker/index"
+    "van-picker": "@vant/weapp/picker/index",
+    "van-calendar": "@vant/weapp/calendar/index"
   },
   "navigationBarBackgroundColor": "#A8E9BD",
   "navigationBarTextStyle": "black",

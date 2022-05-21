@@ -1,0 +1,21 @@
+<!--pages/calendar/calendar.wxml-->
+<view class="calendar-page">
+  <view class="calendar">
+    <view class="btn-row">
+      <image src="../../images/arrow-double-left.png" bindtap="changeDate" data-type="preYear"></image>
+      <image src="../../images/arrow-left.png" bindtap="changeDate" data-type="preMonth"></image>
+      <view>{{nowYear + "-" + (nowMonth >= 10 ? nowMonth : "0" + nowMonth)}}</view>
+      <image src="../../images/arrow-right.png" bindtap="changeDate" data-type="nextMonth"></image>
+      <image src="../../images/arrow-double-right.png" bindtap="changeDate" data-type="nextYear"></image>
+    </view>
+    <view class="week-row">
+      <view class="week-item"  wx:for="{{week}}" wx:key="index">{{item}}</view>
+    </view>
+    <view class="day-row" wx:for="{{totalDay}}" wx:for-item="item" wx:for-index="index" wx:key="index">
+      <view wx:for="{{item}}" wx:for-item="subItem" wx:for-index="subIndex" wx:key="subIndex"
+      class="day-item {{subItem.car?'day-today':''}}{{subItem.otherMonth?'day-otherMonth':''}}" >
+        <text>{{subItem.day}}</text>
+      </view>
+    </view>
+  </view>
+</view>

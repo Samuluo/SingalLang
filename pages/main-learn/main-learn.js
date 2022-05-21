@@ -48,6 +48,15 @@ Page({
     },
     finish:[]
   },
+  showCalendar() {
+    wx.navigateTo({
+      url: '/pages/calendar/calendar?userId='+this.data.userId
+    })
+  },
+  calClose(){
+    var that = this
+    that.setData({ calendar: false });
+  },
   addplan: function(e){
     wx.navigateTo({
       url: '/pages/add-plan/add-plan?userId='+this.data.userId

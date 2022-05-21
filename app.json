@@ -12,7 +12,8 @@
     "pages/word-detail/word-detail",
     "pages/search/search",
     "pages/dictionary/dictionary",
-    "pages/wrong-learn/wrong-learn"
+    "pages/wrong-learn/wrong-learn",
+    "pages/calendar/calendar"
   ],
   "window": {
     "backgroundTextStyle": "dark",

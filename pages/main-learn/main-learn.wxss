@@ -87,3 +87,6 @@ view .search-button {
 .wrong:foucs {
   color: rgb(253, 79, 79);
 }
+.calendar {
+  --calendar-height: 500px;
+}

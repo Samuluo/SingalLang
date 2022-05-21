@@ -17,7 +17,7 @@
   bind:click-input="search"
 /></van-col>
   <van-col span="2">
-      <image style="width: 40rpx; height: 40rpx;margin-top:10rpx" mode="scaleToFill" src="../../images/calendar.png"></image>
+      <image style="width: 40rpx; height: 40rpx;margin-top:10rpx" catchtap="showCalendar" mode="scaleToFill" src="../../images/calendar.png"></image>
   </van-col>
 </van-row>
       <view class="flex-wrp" style="flex-direction:row;">
