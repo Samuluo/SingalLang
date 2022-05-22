@@ -248,6 +248,7 @@ Page({
           }
         })
       },fail(){
+        console.log("跳转")
         wx.switchTab({
           url: '/pages/mine/mine'
         })

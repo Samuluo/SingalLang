@@ -1,3 +1,4 @@
+
 {
   "pages": [
     "pages/main-learn/main-learn",
@@ -15,7 +16,8 @@
     "pages/wrong-learn/wrong-learn",
     "pages/calendar/calendar",
     "pages/find/find",
-    "pages/main/main"
+    "pages/main/main",
+    "pages/voice-translation/voice-translation"
   ],
   "window": {
     "backgroundTextStyle": "dark",
