@@ -16,14 +16,14 @@ Page({
         x:'right'
       },
       xAxis:{
-        data:["1月","2月","3月","4月","5月"]
+        data:["1月","2月","3月","4月","5月","6月"]
       },
       yAxis:{},
       series: [{
         name: '已学单词数',
         type: 'bar',
         data: [
-          10,20,30,40,50
+          10,20,30,40,50,10
         ],
       }]
     },
@@ -33,20 +33,6 @@ Page({
     canIUseGetUserProfile: false,
     canIUseOpenData: wx.canIUse('open-data.type.userAvatarUrl') && wx.canIUse('open-data.type.userNickName') // 如需尝试获取用户信息可改为false
   },
-  // onInstance({detail: instance}) {
-  //   const dom = instance.getDom()                                                                                                                                                                                                                                                                                                                                                                                                            
-  //   const that = this;
-  //   dom.saveAsImage().then((path) => {
-  //     // 临时地址
-  //     console.log(path);
-  //     wx.saveImageToPhotosAlbum({
-  //       filePath: path
-  //     })
-  //     that.setData({
-  //       filePath:path
-  //     })
-  //   });
-  //},
   onLoad: function () {
     this.onLoad2();
     if (wx.getUserProfile) {
@@ -54,6 +40,46 @@ Page({
         canIUseGetUserProfile: true
       })
     }
+  },
+  statisticformonth: function() {
+    wx.request({
+      url: 'https://bewcf.info/card/queryLearnedByMonth?userId='+this.data.userInfo.id,
+      method:'GET',
+      success: (res) => {
+        console.log(res)
+        var a = []
+        var b = []
+        for (var key in res) {
+          console.log(key);     //获取key值 
+          a.push(key);
+          console.log(res[key]); //获取对应的value值
+          b.push(res[key])
+        }
+        this.setData({
+          options: {
+            title: {
+              text: '学习统计'
+            },
+      
+            tooltip: {},
+            legend: {
+              data: ['已学单词数'],
+              x:'right'
+            },
+            xAxis:{
+              data:a,
+            },
+            yAxis:{},
+            series: [{
+              name: '已学单词数',
+              type: 'bar',
+              data: b,
+            }]
+          },
+
+        })
+      }
+    })
   },
   onLoad2() {
     if (wx.getUserProfile) {
@@ -72,7 +98,7 @@ Page({
         if (res.code) {
           //发起网络请求
           wx.request({
-            url: 'http://bewcf.info:8081/user/login',
+            url: 'https://bewcf.info:8081/user/login',
             data: {
               code: res.code
             },
@@ -83,7 +109,7 @@ Page({
                 data: res.data
               })
               wx.request({
-                url: 'http://bewcf.info:8081/card/queryLearnedWord?userId='+res.data.id,
+                url: 'https://bewcf.info:8081/card/queryLearnedWord?userId='+res.data.id,
                 method:"GET",
                 success: function(res) {
                  that.setData ({
@@ -92,7 +118,7 @@ Page({
                 }
               })
               wx.request({
-                url: 'http://bewcf.info:8081/card/queryLearnedDay?userId='+res.data.id,
+                url: 'https://bewcf.info:8081/card/queryLearnedDay?userId='+res.data.id,
                 method:"GET",
                 success: function(res) {
                  that.setData ({

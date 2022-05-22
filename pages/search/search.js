@@ -37,7 +37,7 @@ Page({
       'title':e.currentTarget.dataset.item.name
     })
     wx.request({
-      url: 'http://bewcf.info:8081/dictionary/getAllWord',
+      url: 'https://bewcf.info:8081/dictionary/getAllWord',
       method:"get",
       data:{
         dictionaryId:e.currentTarget.dataset.item.id
@@ -123,7 +123,7 @@ Page({
       }
     })
     wx.request({
-      url: 'http://bewcf.info:8081/dictionary/getAllWord',
+      url: 'https://bewcf.info:8081/dictionary/getAllWord',
       method:"get",
       data:{
         dictionaryId:3
@@ -135,7 +135,7 @@ Page({
       }
     })
     wx.request({
-      url: 'http://bewcf.info:8081/dictionary/queryAll',
+      url: 'https://bewcf.info:8081/dictionary/queryAll',
       method:"get",
       data:{
       },
@@ -150,7 +150,7 @@ Page({
     var that = this
     if(e.detail!=''){
     wx.request({
-      url: 'http://bewcf.info:8081/word/find',
+      url: 'https://bewcf.info:8081/word/find',
       method:"get",
       data:{
         findWord:e.detail

@@ -22,7 +22,7 @@ Page({
          'userId': res.data.id,
        })
        wx.request({
-        url: 'http://bewcf.info:8081/plan/queryAll',
+        url: 'https://bewcf.info:8081/plan/queryAll',
         method:"get",
         data:{
           userId:that.data.userId
@@ -46,7 +46,7 @@ Page({
   
     var that = this
     wx.request({
-      url: 'http://bewcf.info:8081/plan/switchPlan',
+      url: 'https://bewcf.info:8081/plan/switchPlan',
       method:"post",
       data:{
         id:e.currentTarget.dataset.item
@@ -62,7 +62,7 @@ Page({
   deleteplan: function(e) {
     var item = e.currentTarget.dataset.item
     wx.request({
-      url: 'http://bewcf.info:8081/plan/removeOne?id='+item.id,
+      url: 'https://bewcf.info:8081/plan/removeOne?id='+item.id,
       method:"POST",
     })
   },
@@ -70,7 +70,7 @@ Page({
     var item = e.currentTarget.dataset.item
     console.log(item)
     wx.request({
-      url: 'http://bewcf.info:8081/plan/switchPlan?id='+item.id,
+      url: 'https://bewcf.info:8081/plan/switchPlan?id='+item.id,
       method:"POST",
       success:(res)=>{
         this.onLoad();

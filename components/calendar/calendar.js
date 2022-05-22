@@ -29,7 +29,7 @@ Component({
         userId:e
       })
       wx.request({
-        url: 'http://bewcf.info:8081/card/queryAll',
+        url: 'https://bewcf.info:8081/card/queryAll',
         method:"get",
         data:{
           userId:that.data.userId

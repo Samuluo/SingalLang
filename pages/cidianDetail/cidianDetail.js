@@ -47,7 +47,7 @@ Page({
       }
     })
     wx.request({
-      url: 'http://bewcf.info:8081/plan/queryCompletedWord?id='+this.data.planid,
+      url: 'https://bewcf.info:8081/plan/queryCompletedWord?id='+this.data.planid,
       method:'GET',
       success: (res)=> {
         console.log(res.data)
@@ -93,8 +93,8 @@ Page({
   imgPreview: function(){ //图片预览
     const imgs = this.data.spaceimgs;
     wx.previewImage({
-      current: imgs[this.data.currentIndex-1], // 当前显示图片的http链接
-      urls: imgs // 需要预览的图片http链接列表
+      current: imgs[this.data.currentIndex-1], // 当前显示图片的https链接
+      urls: imgs // 需要预览的图片https链接列表
     })
   },
   getAddress:function(e){
@@ -139,7 +139,7 @@ Page({
       color3: '#F1FBF2'
     })
     wx.request({
-      url: 'http://bewcf.info:8081/plan/queryCompletedWord?id='+this.data.planid,
+      url: 'https://bewcf.info:8081/plan/queryCompletedWord?id='+this.data.planid,
       method:'GET',
       success: (res)=> {
         console.log(res.data)
@@ -157,7 +157,7 @@ Page({
     })
     var that = this;
     wx.request({
-      url: 'http://bewcf.info:8081/mistakeWord/queryAll?userId=1000',//+this.data.userId,
+      url: 'https://bewcf.info:8081/mistakeWord/queryAll?userId=1000',//+this.data.userId,
       method:'GET',
       success: (res)=> {
         console.log(res.data)
@@ -175,7 +175,7 @@ Page({
     })
     var that = this;
     wx.request({
-      url: 'http://bewcf.info:8081/plan/queryAllWord?id=10&completed=0',//+this.data.userId,
+      url: 'https://bewcf.info:8081/plan/queryAllWord?id=10&completed=0',//+this.data.userId,
       method:'GET',
       success: (res)=> {
         console.log(res.data)
@@ -202,7 +202,7 @@ Page({
           'userId': res.data.id,
         })
         wx.request({
-          url: 'http://bewcf.info:8081/starWord/add',
+          url: 'https://bewcf.info:8081/starWord/add',
           method:'POST',
           data:{
             "userId": that.data.userId,
@@ -224,7 +224,7 @@ Page({
           'userId': res.data.id,
         })
         wx.request({
-          url: 'http://bewcf.info:8081/starWord/removeOne',
+          url: 'https://bewcf.info:8081/starWord/removeOne',
           method:'POST',
           data:{
             "userId": that.data.userId,

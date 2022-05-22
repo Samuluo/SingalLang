@@ -59,7 +59,7 @@ Page({
   },
   getSubmit(event) {
     wx.request({
-      url: 'http://bewcf.info:8081/plan/changeOne',
+      url: 'https://bewcf.info:8081/plan/changeOne',
       method:"post",
       data: ({
         "userId": this.data.userId,
@@ -76,8 +76,8 @@ Page({
   imgPreview: function(){ //图片预览
     const imgs = this.data.spaceimgs;
     wx.previewImage({
-      current: imgs[this.data.currentIndex-1], // 当前显示图片的http链接
-      urls: imgs // 需要预览的图片http链接列表
+      current: imgs[this.data.currentIndex-1], // 当前显示图片的https链接
+      urls: imgs // 需要预览的图片https链接列表
     })
   },
   getAddress:function(e){

@@ -41,7 +41,7 @@ Page({
     console.log(that.data.nowword)
     if(that.data.nowword.isStar==false){
       wx.request({
-        url: 'http://bewcf.info:8081/starWord/add',
+        url: 'https://bewcf.info:8081/starWord/add',
         method:"post",
         data:{
           userId:that.data.userId,
@@ -59,7 +59,7 @@ Page({
       })
     }else if(that.data.nowword.isStar==true){
       wx.request({
-        url: 'http://bewcf.info:8081/starWord/removeOne',
+        url: 'https://bewcf.info:8081/starWord/removeOne',
         method:"post",
         data:{
           userId:that.data.userId,
@@ -109,7 +109,7 @@ Page({
           'userId':res.data.id
         })
         wx.request({
-          url: 'http://bewcf.info:8081/plan/queryNow',
+          url: 'https://bewcf.info:8081/plan/queryNow',
           method:"get",
           data:{
             userId:that.data.userId
@@ -154,7 +154,7 @@ Page({
       key: 'wordIds',
       success(res){
         wx.request({
-          url: 'http://bewcf.info:8081/mistakeWord/removeSeveral',
+          url: 'https://bewcf.info:8081/mistakeWord/removeSeveral',
           method:"post",
           data:{
             userId:that.data.userId,
