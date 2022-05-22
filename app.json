@@ -13,7 +13,9 @@
     "pages/search/search",
     "pages/dictionary/dictionary",
     "pages/wrong-learn/wrong-learn",
-    "pages/calendar/calendar"
+    "pages/calendar/calendar",
+    "pages/find/find",
+    "pages/main/main"
   ],
   "window": {
     "backgroundTextStyle": "dark",
@@ -24,27 +26,33 @@
   "tabBar": {
     "list": [
       {
-        "pagePath": "pages/main-learn/main-learn",
-        "text": "学习",
-        "iconPath": "images/xihuan.png",
-        "selectedIconPath": "images/xihuanfill.png"
+        "pagePath": "pages/main/main",
+        "text": "首页",
+        "iconPath": "images/home.png",
+        "selectedIconPath": "images/homes.png"
       },
       {
-        "pagePath": "pages/switch-plan/switch-plan",
-        "text": "科普",
-        "iconPath": "images/biaoxing.png",
-        "selectedIconPath": "images/biaoxingfill.png"
+        "pagePath": "pages/main-learn/main-learn",
+        "text": "手语",
+        "iconPath": "images/hand.png",
+        "selectedIconPath": "images/hands.png"
+      },
+      {
+        "pagePath": "pages/find/find",
+        "text": "发现",
+        "iconPath": "images/find.png",
+        "selectedIconPath": "images/finds.png"
       },
       {
         "pagePath": "pages/mine/mine",
-        "text": "我",
-        "iconPath": "images/yonghu.png",
-        "selectedIconPath": "images/yonghufill.png"
+        "text": "个人",
+        "iconPath": "images/mine.png",
+        "selectedIconPath": "images/mines.png"
       }
     ],
     "color": "#333",
-    "selectedColor": "#f7982a",
-    "backgroundColor": "#A8E9BD",
+    "selectedColor": "#83c6c2",
+    "backgroundColor": "#ffffff",
     "borderStyle": "white"
   },
   "sitemapLocation": "sitemap.json",
