@@ -112,7 +112,7 @@ Page({
   onLoad: function (options) {
     var that = this
     wx.request({
-      url: 'https://bewcf.info:8081/card/queryAll',
+      url: 'https://bewcf.info/card/queryAll',
       method:"get",
       data:{
         userId:options.userId

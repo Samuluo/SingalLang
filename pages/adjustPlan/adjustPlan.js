@@ -59,7 +59,7 @@ Page({
   },
   getSubmit(event) {
     wx.request({
-      url: 'https://bewcf.info:8081/plan/changeOne',
+      url: 'https://bewcf.info/plan/changeOne',
       method:"post",
       data: ({
         "userId": this.data.userId,

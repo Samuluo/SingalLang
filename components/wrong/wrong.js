@@ -245,7 +245,7 @@ Component({
             'userId':res.data.id
           })
           wx.request({
-            url: 'https://bewcf.info:8081/plan/queryNow',
+            url: 'https://bewcf.info/plan/queryNow',
             method:"get",
             data:{
               userId:that.data.userId

@@ -201,7 +201,7 @@ Page({
           'userId': res.data.id,
         })
         wx.request({
-          url: 'https://bewcf.info:8081/plan/queryAll',
+          url: 'https://bewcf.info/plan/queryAll',
           method:"get",
           data:{
             userId:that.data.userId
@@ -214,7 +214,7 @@ Page({
           }
         })
         wx.request({
-          url: 'https://bewcf.info:8081/plan/queryNow',
+          url: 'https://bewcf.info/plan/queryNow',
           method:"get",
           data:{
             userId:that.data.userId
@@ -237,7 +237,7 @@ Page({
           }
         })
         wx.request({
-          url: 'https://bewcf.info:8081/card/queryCardDays',
+          url: 'https://bewcf.info/card/queryCardDays',
           method:"get",
           data:{
             userId:that.data.userId
@@ -262,7 +262,7 @@ Page({
     var that = this
     that.getTime();
     wx.request({
-      url: 'https://bewcf.info:8081/word/getRandomOne',
+      url: 'https://bewcf.info/word/getRandomOne',
       method:"GET",
       success:(res)=>{
         this.setData({
@@ -277,7 +277,7 @@ Page({
       }
     })
     wx.request({
-      url: 'https://bewcf.info:8081/word/getTodayLearned',
+      url: 'https://bewcf.info/word/getTodayLearned',
       method:"get",
       data:{
         userId:that.data.userId
@@ -310,7 +310,7 @@ Page({
   getSubmit(event) {
     var that = this
     wx.request({
-      url: 'https://bewcf.info:8081/card/cancelClock',
+      url: 'https://bewcf.info/card/cancelClock',
       method:"post",
       data:{
         userId:that.data.userId,
@@ -323,7 +323,7 @@ Page({
       }
     })
     wx.request({
-      url: 'https://bewcf.info:8081/word/addTodayWord',
+      url: 'https://bewcf.info/word/addTodayWord',
       method:"post",
       data:{
         userId:that.data.userId,
@@ -346,7 +346,7 @@ Page({
       'cardshow': true,
     })
     wx.request({
-      url: 'https://bewcf.info:8081/card/clock',
+      url: 'https://bewcf.info/card/clock',
       method:"post",
       data:{
         userId:that.data.userId,
@@ -374,7 +374,7 @@ Page({
           'userId': res.data.id,
         })
         wx.request({
-          url: 'https://bewcf.info:8081/plan/queryAll',
+          url: 'https://bewcf.info/plan/queryAll',
           method:"get",
           data:{
             userId:that.data.userId
@@ -385,7 +385,7 @@ Page({
               'planN':res.data.length
             })
             wx.request({
-              url: 'https://bewcf.info:8081/plan/queryNow',
+              url: 'https://bewcf.info/plan/queryNow',
               method:"get",
               data:{
                 userId:that.data.userId
@@ -406,7 +406,7 @@ Page({
                   'plan.todayAmount':res.data.todayAmount,
                 })
                 wx.request({
-                  url: 'https://bewcf.info:8081/plan/queryAllWord',
+                  url: 'https://bewcf.info/plan/queryAllWord',
                   method:"get",
                   data:{
                     id:that.data.plan.id,
@@ -454,7 +454,7 @@ Page({
     }
     setTimeout(function() {
       wx.request({
-        url: 'https://bewcf.info:8081/word/getTodayLearned',
+        url: 'https://bewcf.info/word/getTodayLearned',
         method:"get",
         data:{
           userId:that.data.userId
@@ -568,7 +568,7 @@ shuffle: function(arr){
       'Acolor4':"#9EDDB2",
     })
     wx.request({
-      url: 'https://bewcf.info:8081/word/getRandomOne',
+      url: 'https://bewcf.info/word/getRandomOne',
       method:"GET",
       success:(res)=>{
         this.setData({

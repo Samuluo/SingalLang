@@ -114,7 +114,7 @@ Component({
           'color1':"rgb(253, 79, 79)"
         })
         wx.request({
-          url: 'https://bewcf.info:8081/mistakeWord/add',
+          url: 'https://bewcf.info/mistakeWord/add',
           method:"post",
           data:{
             userId:that.data.userId,
@@ -144,7 +144,7 @@ Component({
           'color2':"rgb(253, 79, 79)",
         })
         wx.request({
-          url: 'https://bewcf.info:8081/mistakeWord/add',
+          url: 'https://bewcf.info/mistakeWord/add',
           method:"post",
           data:{
             userId:that.data.userId,
@@ -174,7 +174,7 @@ Component({
           'color3':"rgb(253, 79, 79)"
         })
         wx.request({
-          url: 'https://bewcf.info:8081/mistakeWord/add',
+          url: 'https://bewcf.info/mistakeWord/add',
           method:"post",
           data:{
             userId:that.data.userId,
@@ -204,7 +204,7 @@ Component({
           'color4':"rgb(253, 79, 79)"
         })
         wx.request({
-          url: 'https://bewcf.info:8081/mistakeWord/add',
+          url: 'https://bewcf.info/mistakeWord/add',
           method:"post",
           data:{
             userId:that.data.userId,
@@ -325,7 +325,7 @@ Component({
             'userId':res.data.id
           })
           wx.request({
-            url: 'https://bewcf.info:8081/plan/queryNow',
+            url: 'https://bewcf.info/plan/queryNow',
             method:"get",
             data:{
               userId:that.data.userId

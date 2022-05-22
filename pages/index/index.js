@@ -31,7 +31,7 @@ Page({
         if (res.code) {
           //发起网络请求
           wx.request({
-            url: 'https://bewcf.info:8081/user/login',
+            url: 'https://bewcf.info/user/login',
             data: {
               code: res.code
             },

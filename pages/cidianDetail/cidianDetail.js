@@ -47,7 +47,7 @@ Page({
       }
     })
     wx.request({
-      url: 'https://bewcf.info:8081/plan/queryCompletedWord?id='+this.data.planid,
+      url: 'https://bewcf.info/plan/queryCompletedWord?id='+this.data.planid,
       method:'GET',
       success: (res)=> {
         console.log(res.data)
@@ -139,7 +139,7 @@ Page({
       color3: '#F1FBF2'
     })
     wx.request({
-      url: 'https://bewcf.info:8081/plan/queryCompletedWord?id='+this.data.planid,
+      url: 'https://bewcf.info/plan/queryCompletedWord?id='+this.data.planid,
       method:'GET',
       success: (res)=> {
         console.log(res.data)
@@ -157,7 +157,7 @@ Page({
     })
     var that = this;
     wx.request({
-      url: 'https://bewcf.info:8081/mistakeWord/queryAll?userId=1000',//+this.data.userId,
+      url: 'https://bewcf.info/mistakeWord/queryAll?userId=1000',//+this.data.userId,
       method:'GET',
       success: (res)=> {
         console.log(res.data)
@@ -175,7 +175,7 @@ Page({
     })
     var that = this;
     wx.request({
-      url: 'https://bewcf.info:8081/plan/queryAllWord?id=10&completed=0',//+this.data.userId,
+      url: 'https://bewcf.info/plan/queryAllWord?id=10&completed=0',//+this.data.userId,
       method:'GET',
       success: (res)=> {
         console.log(res.data)
@@ -202,7 +202,7 @@ Page({
           'userId': res.data.id,
         })
         wx.request({
-          url: 'https://bewcf.info:8081/starWord/add',
+          url: 'https://bewcf.info/starWord/add',
           method:'POST',
           data:{
             "userId": that.data.userId,
@@ -224,7 +224,7 @@ Page({
           'userId': res.data.id,
         })
         wx.request({
-          url: 'https://bewcf.info:8081/starWord/removeOne',
+          url: 'https://bewcf.info/starWord/removeOne',
           method:'POST',
           data:{
             "userId": that.data.userId,

@@ -71,7 +71,7 @@ Page({
     })
     console.log(that.data.userId)
     wx.request({
-      url: 'https://bewcf.info:8081/dictionary/queryRest',
+      url: 'https://bewcf.info/dictionary/queryRest',
       method:"get",
       data:{
         userId:that.data.userId
@@ -85,7 +85,7 @@ Page({
   },
   getSubmit(event) {
     wx.request({
-      url: 'https://bewcf.info:8081/plan/add',
+      url: 'https://bewcf.info/plan/add',
       method:"post",
       data: ({
         "userId": this.data.userId,

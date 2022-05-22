@@ -98,7 +98,7 @@ Page({
         if (res.code) {
           //发起网络请求
           wx.request({
-            url: 'https://bewcf.info:8081/user/login',
+            url: 'https://bewcf.info/user/login',
             data: {
               code: res.code
             },
@@ -109,7 +109,7 @@ Page({
                 data: res.data
               })
               wx.request({
-                url: 'https://bewcf.info:8081/card/queryLearnedWord?userId='+res.data.id,
+                url: 'https://bewcf.info/card/queryLearnedWord?userId='+res.data.id,
                 method:"GET",
                 success: function(res) {
                  that.setData ({
@@ -118,7 +118,7 @@ Page({
                 }
               })
               wx.request({
-                url: 'https://bewcf.info:8081/card/queryLearnedDay?userId='+res.data.id,
+                url: 'https://bewcf.info/card/queryLearnedDay?userId='+res.data.id,
                 method:"GET",
                 success: function(res) {
                  that.setData ({
