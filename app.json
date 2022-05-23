@@ -21,8 +21,8 @@
   ],
   "window": {
     "backgroundTextStyle": "dark",
-    "navigationBarBackgroundColor": "#A8E9BD",
-    "navigationBarTitleText": "手语",
+    "navigationBarBackgroundColor": "#83c6c2",
+    "navigationBarTitleText": "声笙慢",
     "navigationBarTextStyle": "black"
   },
   "tabBar": {

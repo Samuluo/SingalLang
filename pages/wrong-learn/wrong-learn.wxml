@@ -1,4 +1,5 @@
 <!--pages/test/test.wxml-->
+<navigation-bar default-data="{{defaultData}} "></navigation-bar>
 <view class="container3">
 <van-row>
 

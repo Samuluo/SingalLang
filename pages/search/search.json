@@ -13,6 +13,7 @@
     "van-cell-group": "@vant/weapp/cell-group/index",
     "van-swipe-cell": "@vant/weapp/swipe-cell/index",
     "van-grid": "@vant/weapp/grid/index",
-    "van-grid-item": "@vant/weapp/grid-item/index"
+    "van-grid-item": "@vant/weapp/grid-item/index",
+    "navigation-bar": "/components/navigation-bar/navigation-bar"
   }
 }

@@ -1,2 +1,3 @@
 <!--pages/find/find.wxml-->
+<navigation-bar default-data="{{defaultData}}"></navigation-bar>
 <text>pages/find/find.wxml</text>

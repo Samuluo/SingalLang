@@ -2,7 +2,7 @@
 
 .container2{
   min-height: 100vh;
-  background-color: rgba(241, 251, 242, 100);
+  background-color: #f7f6f6;
   padding: 20rpx;
   height: 100%;
   display: flex;
@@ -14,9 +14,10 @@
 .item{
   background-color: #ffffff;
   margin-top: 50rpx;
-  border-color: #46CA53;
+  border-color: #83c6c2;
   border-style: solid;
   border-width: 2rpx;
+  border-radius: 20rpx;
 }
 .list-body{
   margin-top: 10rpx;
@@ -57,7 +58,7 @@ view .search-button {
 }
 /*分割线样式*/
 .divLine{
-  background: #BDECC2;
+  background: #83c6c2;
   margin-left: 5%;
   width: 90%;
   height: 2rpx;
@@ -74,14 +75,15 @@ view .search-button {
   background: white;
   flex-direction: column;
   width: 100%;
-  border-bottom: 1rpx solid #46CA53;
-  border-left: 1rpx solid #46CA53;
-  border-right: 1rpx solid #46CA53;
+  border-bottom: 1rpx solid #83c6c2;
+  border-left: 1rpx solid #83c6c2;
+  border-right: 1rpx solid #83c6c2;
+  border-radius: 0rpx 0rpx 20rpx 20rpx;
   padding-top: 20rpx;
   padding-bottom: 20rpx;
 }
 .right:focus {
-  color: rgb(79, 134, 253);
+  color: rgba(79, 253, 137, 0.63);
 
 }
 .wrong:foucs {
@@ -104,4 +106,8 @@ view .search-button {
 .buttom-button{
   position:fixed;
   bottom:0;
+}
+.card{
+  border-radius: 20rpx;
+  border-color: #83c6c2;
 }

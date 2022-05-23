@@ -1,2 +1,3 @@
 <!--pages/dictionary/dictionary.wxml-->
+<navigation-bar default-data="{{defaultData}}"></navigation-bar>
 <text>pages/dictionary/dictionary.wxml</text>

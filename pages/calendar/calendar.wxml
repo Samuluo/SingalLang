@@ -1,1 +1,2 @@
+<navigation-bar default-data="{{defaultData}}"></navigation-bar>
 <calendar userId="{{userId}}"/>

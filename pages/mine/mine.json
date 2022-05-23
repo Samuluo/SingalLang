@@ -3,6 +3,7 @@
     "chart": "plugin://echarts/chart",
     "van-icon": "@vant/weapp/icon/index",
     "van-tab": "@vant/weapp/tab/index",
-    "van-tabs": "@vant/weapp/tabs/index"
+    "van-tabs": "@vant/weapp/tabs/index",
+    "navigation-bar": "/components/navigation-bar/navigation-bar"
   }
 }

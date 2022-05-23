@@ -1,5 +1,5 @@
 <!--pages/search/search.wxml-->
-
+<navigation-bar default-data="{{defaultData}}"></navigation-bar>
 <view class="container4">
 <van-row>
   <van-col span="24" > <van-search

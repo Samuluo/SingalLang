@@ -1,28 +1,33 @@
+const app = getApp();
 // pages/main-learn/main-learn.js
 Page({
   /**
    * 页面的初始数据
    */
   data: {
+    defaultData: {
+      title: "我的主页", // 导航栏标题
+   },
+   tabshow:false,
     showshare:false,
     cardshow: false,
     button1:'primary',
     button2:'primary',
     button3:'primary',
     button4:'primary',
-    Acolor1:'#9EDDB2 ',
-    Acolor2:'#9EDDB2 ',
-    Acolor3:'#9EDDB2 ',
-    Acolor4:'#9EDDB2 ',
+    Acolor1:'#83c6c2 ',
+    Acolor2:'#83c6c2 ',
+    Acolor3:'#83c6c2 ',
+    Acolor4:'#83c6c2 ',
     columns: ['5', '10', '15', '20', '25','30','35','40','45','50'],
     addWords: 5,
     show: false,
     needday:[],
     answerpool:[],
     todayword:{},
-    color1:'',
-    color2:'',
-    color3:'',
+    color1:'#aad1cf',
+    color2:'#aad1cf',
+    color3:'#aad1cf',
     todayLearned:[],
     userId:[],
     planN:[],
@@ -128,19 +133,19 @@ Page({
     var that = this
     that.setData({
       'button1':"primary",
-      'Acolor1':"#9EDDB2",
+      'Acolor1':"#83c6c2",
       'button2':"primary",
-      'Acolor2':"#9EDDB2",
+      'Acolor2':"#83c6c2",
       'button3':"primary",
-      'Acolor3':"#9EDDB2",
+      'Acolor3':"#83c6c2",
       'button4':"primary",
-      'Acolor4':"#9EDDB2",
+      'Acolor4':"#83c6c2",
     })
     if(e.currentTarget.dataset.button=="button1"){
       if(e.currentTarget.dataset.answer==that.data.todayword.answer){
         that.setData({
           'button1':"right",
-          'Acolor1':" rgb(79, 134, 253)",
+          'Acolor1':"#87c38f",
         })
       }else{
         that.setData({
@@ -153,7 +158,7 @@ Page({
       if(e.currentTarget.dataset.answer==that.data.todayword.answer){
         that.setData({
           'button2':"right",
-          'Acolor2':" rgb(79, 134, 253)",
+          'Acolor2':" #87c38f",
         })
       }else{
         that.setData({
@@ -166,7 +171,7 @@ Page({
       if(e.currentTarget.dataset.answer==that.data.todayword.answer){
         that.setData({
           'button3':"right",
-          'Acolor3':" rgb(79, 134, 253)",
+          'Acolor3':" #87c38f",
         })
       }else{
         that.setData({   
@@ -179,7 +184,7 @@ Page({
       if(e.currentTarget.dataset.answer==that.data.todayword.answer){
         that.setData({
           'button4':"right",
-          'Acolor4':" rgb(79, 134, 253)",
+          'Acolor4':" #87c38f",
         })
       }else{
         that.setData({
@@ -513,16 +518,16 @@ Page({
   },
   fighteveryday: function() {
     this.setData({
-      color1: '#46CA53',
-      color2: '#F1FBF2',
-      color3: '#F1FBF2'
+      color1: '#83c6c2',
+      color2: '#aad1cf',
+      color3: '#aad1cf'
     })
   },
   wordtrain: function() {
     this.setData({
-      color1: '#F1FBF2',
-      color2: '#46CA53',
-      color3: '#F1FBF2'
+      color1: '#aad1cf',
+      color2: '#83c6c2',
+      color3: '#aad1cf'
     })
     wx.navigateTo({
       url: '/pages/wrong-learn/wrong-learn?userId='+this.data.userId+'&&wrongwords='+JSON.stringify(this.data.wrongwords)
@@ -530,9 +535,9 @@ Page({
   },
   vocabularytext: function() {
     this.setData({
-      color1: '#F1FBF2',
-      color2: '#F1FBF2',
-      color3: '#46CA53'
+      color1: '#aad1cf',
+      color2: '#aad1cf',
+      color3: '#83c6c2'
     })
   },
   cidianDetail: function(e) {
@@ -559,13 +564,13 @@ shuffle: function(arr){
     var that = this
     that.setData({
       'button1':"primary",
-      'Acolor1':"#9EDDB2",
+      'Acolor1':"#83c6c2",
       'button2':"primary",
-      'Acolor2':"#9EDDB2",
+      'Acolor2':"#83c6c2",
       'button3':"primary",
-      'Acolor3':"#9EDDB2",
+      'Acolor3':"#83c6c2",
       'button4':"primary",
-      'Acolor4':"#9EDDB2",
+      'Acolor4':"#83c6c2",
     })
     wx.request({
       url: 'https://bewcf.info/word/getRandomOne',

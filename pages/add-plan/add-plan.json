@@ -5,7 +5,8 @@
     "van-cell": "@vant/weapp/cell/index",
     "van-cell-group": "@vant/weapp/cell-group/index",
     "van-dialog": "@vant/weapp/dialog/index",
-    "van-picker": "@vant/weapp/picker/index"
+    "van-picker": "@vant/weapp/picker/index",
+    "navigation-bar": "/components/navigation-bar/navigation-bar"
   },
   "navigationBarBackgroundColor": "#A8E9BD",
   "navigationBarTextStyle": "black",

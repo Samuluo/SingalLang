@@ -14,9 +14,11 @@
     "van-share-sheet": "@vant/weapp/share-sheet/index",
     "van-popup": "@vant/weapp/popup/index",
     "calendar":"/components/calendar/calendar",
-    "van-cell": "@vant/weapp/cell/index"
+    "van-cell": "@vant/weapp/cell/index",
+    "navigation-bar": "/components/navigation-bar/navigation-bar"
   },
-  "navigationBarBackgroundColor": "#A8E9BD",
+  "navigationBarBackgroundColor": "#83c6c2",
   "navigationBarTextStyle": "black",
-  "navigationBarTitleText": "手语学习"
+  "navigationBarTitleText": "声笙慢",
+  "navigationStyle":"custom"
 }

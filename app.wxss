@@ -26,10 +26,10 @@
 	height: 29px;
 	line-height: 29px;
 	font-size: 14px;
-	border-top: 1rpx solid #46CA53;
-	border-left: 1rpx solid #46CA53 ;
-	border-right: 1rpx solid #46CA53 ;
-	border-bottom: 1rpx solid #46CA53 ;
+	border-top: 1rpx solid #83c6c2;
+	border-left: 1rpx solid #83c6c2 ;
+	border-right: 1rpx solid #83c6c2;
+	border-bottom: 1rpx solid #83c6c2 ;
 	border-top-left-radius: 10px; 
   border-top-right-radius: 10px; 	
 }

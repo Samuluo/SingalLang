@@ -1,4 +1,5 @@
 <!--pages/cidianDetail/cidianDetail.wxml-->
+<navigation-bar default-data="{{defaultData}}"></navigation-bar>
 <view class="container" >
 	<view class="container-body space-content" style="width: 100%; align-items: center;">
 	  <view class="cidian-top">

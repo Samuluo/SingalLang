@@ -1,5 +1,5 @@
 <!--pages/word-detail/word-detail.wxml-->
-
+<navigation-bar default-data="{{defaultData}}"></navigation-bar>
 <view class="bg">
 <view class="top">
 <view class="top-first">
