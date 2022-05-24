@@ -1,3 +1,50 @@
 <!--pages/main/main.wxml-->
-<navigation-bar default-data="{{defaultData}}"></navigation-bar>
-<text>pages/main/main.wxml</text>
+<navigation-bar default-data="{{defaultData}}" show='{{navshow}}'></navigation-bar>
+    <view class="header">
+        <scroll-view class="sv__container" scroll-x="true">
+            <block wx:for="{{categoryTabs}}" wx:key="lanmu_id" wx:if="{{ item.selected }}">
+                <view 
+                    class="sv__item {{ currentTab==item.lanmu_id ? 'active':'' }}" 
+                    bindtap="changeCategory" 
+                    data-id="{{ item.lanmu_id }}"
+                >
+                    {{ item.lanmu_name }}
+                </view>
+            </block>
+        </scroll-view>
+    </view>
+<van-tabs  active="{{ active }}" color="#83c6c2">
+<Swiper imgUrls="{{imgUrls}}"/>
+  <van-tab title="标签 1"> <view style="margin-top:100rpx" class="container2">
+    <view class="post-container">
+    <view class="post-auther-date">
+      <text class="post-date">Sep 18 2016</text>
+      <view style="float:right;margin-right:40rpx">
+      <van-tag type="danger" size="medium">标签</van-tag>
+      </view>
+    </view>
+    <text class="post-title">正是虾肥蟹壮时</text>
+    <image class="post-image" src="/images/post/crab.png"></image>
+    <text class="post-content">菊黄蟹正肥，品尝秋之味。徐志摩把,“看初花的荻芦”和“到楼外楼吃蟹”,</text>
+  </view>
+
+  <view class="post-container">
+    <view class="post-auther-date">
+      <image class="post-auther" src="/images/avatar/2.png"></image>
+      <text class="post-date">Nov 20 2016</text>
+    </view>
+    <text class="post-title">当我们在谈论经济学时，我们在谈论什么?</text>
+    <image class="post-image" src="/images/post/vr.png"></image>
+    <text class="post-content">引言在我跟学生课后交流时，以及我在知乎上阅读有关“经济”问题的论题时，经常会遇到这样的情况：...</text>
+
+  </view>
+
+  </view></van-tab>
+
+
+  <van-tab title="标签 2">  <view style="margin-top:100rpx" class="container2"></view></van-tab>
+  <van-tab title="标签 3">  <view style="margin-top:100rpx" class="container2"></view></van-tab>
+  <van-tab title="标签 4">   <view style="margin-top:100rpx" class="container2"></view></van-tab>
+  <van-tab title="标签 5"> <view style="margin-top:100rpx" class="container2"></view></van-tab>
+  <van-tab title="标签 6">  <view style="margin-top:100rpx" class="container2"></view></van-tab>
+</van-tabs>

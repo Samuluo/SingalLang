@@ -118,6 +118,13 @@
 					"id": -1,
 					"name": "pages/calendar/calendar",
 					"pathName": "pages/calendar/calendar",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/news-detail/news-detail",
+					"pathName": "pages/news-detail/news-detail",
 					"scene": null
 				}
 			]
