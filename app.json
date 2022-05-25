@@ -1,6 +1,6 @@
-
 {
   "pages": [
+    "pages/main/main",
     "pages/main-learn/main-learn",
     "pages/mine/mine",
     "pages/index/index",
@@ -16,8 +16,8 @@
     "pages/wrong-learn/wrong-learn",
     "pages/calendar/calendar",
     "pages/find/find",
-    "pages/main/main",
-    "pages/voice-translation/voice-translation"
+    "pages/voice-translation/voice-translation",
+    "pages/news-detail/news-detail"
   ],
   "window": {
     "backgroundTextStyle": "dark",

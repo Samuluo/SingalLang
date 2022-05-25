@@ -5,7 +5,8 @@
   z-index: 99;
   top: 0;
   left: 0;
-  background-color: #83c6c2;
+  background-image: linear-gradient(to right,  #83c6c2 ,#e1eded);
+
   border-radius: 0rpx 0rpx 30rpx 30rpx;
 }
 .navigation-bar {
