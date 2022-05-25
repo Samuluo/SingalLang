@@ -7,7 +7,7 @@
 				<view style="display: flex;flex-direction: row;">  				
           <block wx:if="{{canIUseOpenData}}">
             <view class="userinfo-avatar" bindtap="bindViewTap">
-              <open-data type="userAvatarUrl"></open-data>
+              <image class="userInfo-avatar" src="{{avatar}}"></image>
             </view>
             <open-data type="userNickName" style="font-size: 56rpx;margin-top: 6%;"></open-data>
             <van-icon name="arrow" size="56rpx"/>
@@ -24,12 +24,9 @@
 	  	</view>
     </view>
     <van-tabs active="{{ active }}">
-  <van-tab title="月统计"><chart chart-class="box" option="{{ options }}" notMerge bindinstance="onInstance" /></van-tab>
+  <van-tab title="月统计"><chart chart-class="box" option="{{ options }}" notMerge bindinstance="" /></van-tab>
   <van-tab title="最近一周">内容 2</van-tab>
-  <van-tab title="标签 3">内容 3</van-tab>
-  <van-tab title="标签 4">内容 4</van-tab>
-  <van-tab title="标签 5">内容 5</van-tab>
-  <van-tab title="标签 6">内容 6</van-tab>
+  
     </van-tabs>
   </view>
 </view>
