@@ -1,6 +1,13 @@
 <!--pages/test/test.wxml-->
-<navigation-bar default-data="{{defaultData}}"></navigation-bar>
 <view class="container2">
+<navigation-bar default-data="{{defaultData}}"></navigation-bar>
+  <view wx:if="{{plans.length==0}}">
+  <van-empty
+  class="custom-image"
+  image="https://img.yzcdn.cn/vant/custom-empty-image.png"
+  description="暂无其他计划"
+  />
+  </view>
   <view class="list-body">
       <view class="flex-wrp" style="flex-direction:row;">
       <view wx:for="{{plans}}">
@@ -31,5 +38,5 @@
       </view>
   </view>
   
-  <van-button round type="info" style="width:90%;margin-top:50rpx" color="#9EDDB2" block catchtap="add">添加计划</van-button>
+  <van-button round type="info" style="width:90%;margin-top:50rpx" color="#83c6c2" block catchtap="add">添加计划</van-button>
 </view>

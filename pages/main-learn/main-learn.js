@@ -96,6 +96,7 @@ Page({
     })
   },
   adjust: function(e){
+     console.log(e)
       wx.navigateTo({
         url: '/pages/adjustPlan/adjustPlan?plan='+JSON.stringify(e.currentTarget.dataset.item),
       })
@@ -541,6 +542,9 @@ Page({
     })
   },
   cidianDetail: function(e) {
+    console.log(this.data.plan)
+    console.log(e)
+    console.log(JSON.stringify(e.currentTarget.dataset.item))
     wx.navigateTo({
       url: '/pages/cidianDetail/cidianDetail?plan='+JSON.stringify(e.currentTarget.dataset.item),
     })

@@ -2,7 +2,7 @@
 
 .container2{
   min-height: 100vh;
-  background-color: rgba(241, 251, 242, 100);
+  background-color: #f7f6f6;
   padding: 20rpx;
   height: 100%;
   display: flex;

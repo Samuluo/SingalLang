@@ -10,5 +10,6 @@
   },
   "navigationBarBackgroundColor": "#A8E9BD",
   "navigationBarTextStyle": "black",
-  "navigationBarTitleText": "添加计划"
+  "navigationBarTitleText": "添加计划",
+  "navigationStyle":"custom"
 }

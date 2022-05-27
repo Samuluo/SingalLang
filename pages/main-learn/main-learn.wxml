@@ -23,7 +23,7 @@
 </van-row>
       <view class="flex-wrp" style="flex-direction:row;">
       <view class="item"><van-card
-          thumb="{{plan.dictionary.imgUrl}}" catchtap="cidianDetail" data-item="{{plan}} "
+          thumb="{{plan.dictionary.imgUrl}}" catchtap="cidianDetail" data-item="{{plan}}"
           custom-class="card"
           >
 
