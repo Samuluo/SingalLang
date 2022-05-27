@@ -35,11 +35,9 @@ Component({
   methods: {
     loadFirst(v) {
         var that = this
-        console.log(v)
         that.setData({
             'ashow':v
         })
-        console.log(that.data.ashow)
 
      },
     // 返回上一页面

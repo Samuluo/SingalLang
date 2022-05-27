@@ -24,17 +24,17 @@
       </view>
     </view>
     <text class="post-title">正是虾肥蟹壮时</text>
-    <image class="post-image" src="/images/post/crab.png"></image>
+    <image class="post-image" src=""></image>
     <text class="post-content">菊黄蟹正肥，品尝秋之味。徐志摩把,“看初花的荻芦”和“到楼外楼吃蟹”,</text>
   </view>
 
   <view class="post-container">
     <view class="post-auther-date">
-      <image class="post-auther" src="/images/avatar/2.png"></image>
+      <image class="post-auther" src=""></image>
       <text class="post-date">Nov 20 2016</text>
     </view>
     <text class="post-title">当我们在谈论经济学时，我们在谈论什么?</text>
-    <image class="post-image" src="/images/post/vr.png"></image>
+    <image class="post-image" src=""></image>
     <text class="post-content">引言在我跟学生课后交流时，以及我在知乎上阅读有关“经济”问题的论题时，经常会遇到这样的情况：...</text>
 
   </view>
