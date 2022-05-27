@@ -4,6 +4,8 @@ Page({
   data: {
     filePath:'',//临时雷达图路径
     totalAmount: 3000,
+    avatar: "",
+    nickname: "",
     totalDate:30,
     options: {
       title: {
@@ -34,12 +36,6 @@ Page({
     canIUseOpenData: wx.canIUse('open-data.type.userAvatarUrl') && wx.canIUse('open-data.type.userNickName') // 如需尝试获取用户信息可改为false
   },
   onLoad: function () {
-    if (wx.getUserProfile) {
-      this.setData({
-        canIUseGetUserProfile: true
-      })    
-    }
-    this.login();
   },
   statisticformonth: function() {
     wx.request({
@@ -84,6 +80,7 @@ Page({
   login() {
     var that = this;
     // 登录
+    console.log("执行了")
     wx.login({
       success (res) {
         if (res.code) {
@@ -110,9 +107,9 @@ Page({
                   var a = []
                   var b = []
                   for (var key in res.data) {
-                    console.log(key);     //获取key值 
+                   
                     a.push(key+"月");
-                    console.log(res[key]); //获取对应的value值
+                   
                     b.push(res.data[key])
                   }
                   that.setData({
@@ -170,35 +167,18 @@ Page({
     
     // 推荐使用wx.getUserProfile获取用户信息，开发者每次通过该接口获取用户个人信息均需用户确认，开发者妥善保管用户快速填写的头像昵称，避免重复弹窗
     wx.getUserProfile({
-      desc: '展示用户信息', // 声明获取用户个人信息后的用途，后续会展示在弹窗中，请谨慎填写
+      desc: '展示用户昵称', // 声明获取用户个人信息后的用途，后续会展示在弹窗中，请谨慎填写
       success: (res) => {
         console.log(res)
         this.setData({
-          userInfo: res.userInfo,
-          hasUserInfo: true
+          nickname: res.userInfo.nickName,
+          avatar:res.userInfo.avatarUrl,
+          hasUserInfo: true,
+          canIUseGetUserProfile: true
         })
+        console.log(this.data.avatar)
       }
     })
+    this.login();
   },
-  getUserProfile(e) {
-    // 推荐使用wx.getUserProfile获取用户信息，开发者每次通过该接口获取用户个人信息均需用户确认，开发者妥善保管用户快速填写的头像昵称，避免重复弹窗
-    wx.getUserProfile({
-      desc: '展示用户信息', // 声明获取用户个人信息后的用途，后续会展示在弹窗中，请谨慎填写
-      success: (res) => {
-        console.log(res)
-        this.setData({
-          userInfo: res.userInfo,
-          hasUserInfo: true
-        })
-      }
-    })
-  },
-  getUserInfo(e) {
-    // 不推荐使用getUserInfo获取用户信息，预计自2021年4月13日起，getUserInfo将不再弹出弹窗，并直接返回匿名的用户个人信息
-    console.log(e)
-    this.setData({
-      userInfo: e.detail.userInfo,
-      hasUserInfo: true
-    })
-  }
 })
