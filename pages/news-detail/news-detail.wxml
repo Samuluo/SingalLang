@@ -5,7 +5,7 @@
     <text class="author">新华网</text>
     <text class="const-text">发表于</text>
     <text class="date">{{des.time}}</text>
-      <image class="avatar" src="{{isStar==false?'../../images/star2.png':'../../images/star1.png'}}"></image>
+      <image class="avatar" catchtap="star" src="{{isStar==false?'../../images/star2.png':'../../images/star1.png'}}"></image>
   </view>
   <text class="title">{{des.title}}</text>
   <view class="tool">

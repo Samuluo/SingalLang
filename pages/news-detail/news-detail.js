@@ -6,12 +6,51 @@ Page({
    */
   data: {
     userId:[],
-    isStar:[]
+    isStar:[],
+    articleId:[]
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
+  star:function(e){
+    var that = this
+    if(that.data.isStar==false){
+      wx.request({
+        url: 'https://bewcf.info/article/addStarArticle',
+        method:"post",
+        data:{
+          userId:that.data.userId,
+          articleId:that.data.articleId
+        },
+        header: {
+          "content-type": "application/x-www-form-urlencoded" 
+        },
+        success:(res)=>{
+          that.setData({
+            'isStar':true,
+          })
+        }
+      })
+    }else if(that.data.isStar==true){
+      wx.request({
+        url: 'https://bewcf.info/article/cancelStarArticle',
+        method:"post",
+        data:{
+          userId:that.data.userId,
+          articleId:that.data.articleId
+        },
+        header: {
+          "content-type": "application/x-www-form-urlencoded" 
+        },
+        success:(res)=>{
+          that.setData({
+            'isStar':false,
+          })
+        }
+      })
+    }
+  },
   onLoad: function (options) {
     var that = this
     wx.getStorage({
@@ -19,6 +58,7 @@ Page({
       success(res){
         that.setData({
           'userId': res.data.id,
+          'articleId':options.id
         })
         wx.request({
           url: 'https://bewcf.info/article/queryStar',
