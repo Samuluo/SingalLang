@@ -11,7 +11,9 @@ Page({
       "https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=281531042,273318123&fm=27&gp=0.jpg",
       "http://img4.imgtn.bdimg.com/it/u=2731345960,2613387946&fm=26&gp=0.jpg"
     ],
-    currentIndex:0
+    currentIndex:0,
+    types:[],
+    list:[]
   },
   swiperChange(e){
     console.log(e)
@@ -20,7 +22,19 @@ Page({
     })
   },
   onLoad: function () {
-
+    var that = this;
+    wx.request({
+      url: 'https://bewcf.info/article/queryAll',
+      method:"get",
+      data:{
+        type:'首页'
+      },
+      success:(res)=>{
+        that.setData({
+          'list':res.data
+        })
+      }
+    })
    },
 
   /**
@@ -32,12 +46,37 @@ Page({
     wx.navigateTo({
       'url':'../news_details/news-details?newsDetails='+data,
       'success':function(){
-        console.log("succeed");
+      }
+    })
+  },
+  typeChange:function(e){
+    var that = this;
+    wx.request({
+      url: 'https://bewcf.info/article/queryAll',
+      method:"get",
+      data:{
+        type:e.detail.title
+      },
+      success:(res)=>{
+        that.setData({
+          'list':res.data
+        })
       }
     })
   },
   onReady: function () {
-    var _this = this;
+    var that = this;
+    wx.request({
+      url: 'https://bewcf.info/article/getAllType',
+      method:"get",
+      data:{
+      },
+      success:(res)=>{
+        that.setData({
+          'types':res.data
+        })
+      }
+    })
   },
 
   /**

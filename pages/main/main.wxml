@@ -13,38 +13,20 @@
             </block>
         </scroll-view>
     </view>
-<van-tabs  active="{{ active }}" color="#83c6c2">
+<van-tabs  active="{{ active }}" color="#83c6c2" bind:change="typeChange">
 <Swiper imgUrls="{{imgUrls}}"/>
-  <van-tab title="标签 1"> <view style="margin-top:100rpx" class="container2">
-    <view class="post-container">
+  <van-tab wx:for="{{types}}" title="{{item}}" > <view style="margin-top:100rpx" class="container2">
+    <view class="post-container" wx:for="{{list}}" wx:for-item="one">
     <view class="post-auther-date">
-      <text class="post-date">Sep 18 2016</text>
+      <text class="post-date">{{one.time}}</text>
       <view style="float:right;margin-right:40rpx">
-      <van-tag type="danger" size="medium">标签</van-tag>
+      <van-tag type="danger" size="medium">{{item}}</van-tag>
       </view>
     </view>
-    <text class="post-title">正是虾肥蟹壮时</text>
-    <image class="post-image" src=""></image>
-    <text class="post-content">菊黄蟹正肥，品尝秋之味。徐志摩把,“看初花的荻芦”和“到楼外楼吃蟹”,</text>
+    <text class="post-title">{{one.title}}</text>
+    <image class="post-image" src="{{one.imgUrl}}"></image>
+    <text class="post-content">{{one.introduction}}</text>
   </view>
-
-  <view class="post-container">
-    <view class="post-auther-date">
-      <image class="post-auther" src=""></image>
-      <text class="post-date">Nov 20 2016</text>
-    </view>
-    <text class="post-title">当我们在谈论经济学时，我们在谈论什么?</text>
-    <image class="post-image" src=""></image>
-    <text class="post-content">引言在我跟学生课后交流时，以及我在知乎上阅读有关“经济”问题的论题时，经常会遇到这样的情况：...</text>
-
-  </view>
-
   </view></van-tab>
 
-
-  <van-tab title="标签 2">  <view style="margin-top:100rpx" class="container2"></view></van-tab>
-  <van-tab title="标签 3">  <view style="margin-top:100rpx" class="container2"></view></van-tab>
-  <van-tab title="标签 4">   <view style="margin-top:100rpx" class="container2"></view></van-tab>
-  <van-tab title="标签 5"> <view style="margin-top:100rpx" class="container2"></view></van-tab>
-  <van-tab title="标签 6">  <view style="margin-top:100rpx" class="container2"></view></van-tab>
 </van-tabs>
