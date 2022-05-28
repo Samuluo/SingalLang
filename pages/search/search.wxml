@@ -1,6 +1,6 @@
 <!--pages/search/search.wxml-->
 <navigation-bar default-data="{{defaultData}}"></navigation-bar>
-<view class="container4">
+<view class="container4" style="margin-top:20rpx">
 <van-row>
   <van-col span="24" > <van-search
   value="{{value}}"
@@ -13,7 +13,7 @@
   custom-class="search"
 /></van-col>
 </van-row>
-<van-tabs bind:change="titleChange">
+<van-tabs bind:change="titleChange" color="#83c6c2">
   <van-tab title="搜索查词">
     <van-cell wx:for="{{historySearch}}" wx:if="{{nowValue==''}}" data-item="{{item}}"  bind:click="toTheWord2">
   <view slot="title">

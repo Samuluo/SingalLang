@@ -8,9 +8,10 @@
     "van-progress": "@vant/weapp/progress/index",
     "van-icon": "@vant/weapp/icon/index",
     "learn":"/components/learn/learn",
-    "navigation-bar": "/components/navigation-bar/navigation-bar"
+    "navigation-bar": "/components/navigation-bar-full/navigation-bar-full"
   },
   "navigationBarBackgroundColor": "#A8E9BD",
   "navigationBarTextStyle": "black",
-  "navigationBarTitleText": "单词学习"
+  "navigationBarTitleText": "单词学习",
+  "navigationStyle":"custom"
 }
