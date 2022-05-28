@@ -41,12 +41,9 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   showDetails:function(event){
-    console.log(event);
-    var data = JSON.stringify(event.currentTarget.dataset.content);
+
     wx.navigateTo({
-      'url':'../news_details/news-details?newsDetails='+data,
-      'success':function(){
-      }
+      url:'/pages/news-detail/news-detail?id='+event.currentTarget.dataset.id,
     })
   },
   typeChange:function(e){

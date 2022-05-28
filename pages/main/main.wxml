@@ -24,7 +24,7 @@
       </view>
     </view>
     <text class="post-title">{{one.title}}</text>
-    <image class="post-image" src="{{one.imgUrl}}"></image>
+    <image class="post-image"     style=""  src="{{one.imgUrl}}" catchtap="showDetails" data-id="{{one.id}}" mode="scaleToFill"></image>
     <text class="post-content">{{one.introduction}}</text>
   </view>
   </view></van-tab>

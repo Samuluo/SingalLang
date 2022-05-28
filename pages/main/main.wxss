@@ -103,11 +103,12 @@ page{
 }
 
 .post-image{
-  margin-left: 16px;
-  width: 90%;
+
+  width: 60%;
   height: 300rpx;
-  margin: auto 0;
-  margin-bottom: 15px;
+
+  margin: 0 auto;
+  display: block;    
 }
 
 .post-content{

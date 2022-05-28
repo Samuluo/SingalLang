@@ -5,14 +5,50 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    userId:[],
+    isStar:[]
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    var that = this
+    wx.getStorage({
+      key: 'userInfo',
+      success(res){
+        that.setData({
+          'userId': res.data.id,
+        })
+        wx.request({
+          url: 'https://bewcf.info/article/queryStar',
+          method:"get",
+          data:{
+            userId:that.data.userId,
+            articleId:options.id
+          },
+          success:(res)=>{
+            that.setData({
+              'isStar': res.data,
+            })
+          }
+        })
+      },fail(){
+      }
+    })
+    wx.request({
+      url: 'https://bewcf.info/article/queryOne',
+      method:"get",
+      data:{
+        articleId:options.id
+      },
+      success:(res)=>{
+        that.setData({
+          'des':res.data
+        })
+        console.log(that.data.des)
+      }
+    })
   },
 
   /**
