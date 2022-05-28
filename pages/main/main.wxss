@@ -1,8 +1,8 @@
 page{
-  background-color: #fff;
+  background-color: #f7f6f6;
 }
 .container2{
-  min-height: 100vh;
+
   background-color: #f7f6f6;
   padding: 20rpx;
   height: 100%;

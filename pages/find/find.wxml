@@ -1,3 +1,23 @@
 <!--pages/find/find.wxml-->
 <navigation-bar default-data="{{defaultData}}"></navigation-bar>
-<text>pages/find/find.wxml</text>
+
+  <van-row gutter="30" custom-class="Grid">
+  <van-col offset="2" span="10"><view class="card">
+     <text  class="title">测听</text>
+         <text  class="desc">测试听力情况</text>
+          <image
+      mode="scaleToFill"
+      style="width: 230rpx; height: 250rpx;float:right;float:bottom;margin-top:15rpx;margin-right:0rpx"
+      src="../../images/test.png"
+    />
+</view>  </van-col>
+  <van-col span="10"><view class="card">
+     <text  class="title">音乐</text>
+      <text  class="desc">各类舒耳音乐</text>
+        <image
+      mode="scaleToFill"
+      style="width: 210rpx; height: 230rpx;float:right;float:bottom;margin-top:15rpx;margin-right:0rpx"
+      src="../../images/music.png"
+    />
+</view>  </van-col>
+</van-row>

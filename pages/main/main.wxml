@@ -1,18 +1,6 @@
 <!--pages/main/main.wxml-->
 <navigation-bar default-data="{{defaultData}}" show='{{navshow}}'></navigation-bar>
-    <view class="header">
-        <scroll-view class="sv__container" scroll-x="true">
-            <block wx:for="{{categoryTabs}}" wx:key="lanmu_id" wx:if="{{ item.selected }}">
-                <view 
-                    class="sv__item {{ currentTab==item.lanmu_id ? 'active':'' }}" 
-                    bindtap="changeCategory" 
-                    data-id="{{ item.lanmu_id }}"
-                >
-                    {{ item.lanmu_name }}
-                </view>
-            </block>
-        </scroll-view>
-    </view>
+
 <van-tabs  active="{{ active }}" color="#83c6c2" bind:change="typeChange">
 <Swiper imgUrls="{{imgUrls}}"/>
   <van-tab wx:for="{{types}}" title="{{item}}" > <view style="margin-top:100rpx" class="container2">
