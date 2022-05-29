@@ -1,7 +1,7 @@
 <!--pages/find/find.wxml-->
-<navigation-bar default-data="{{defaultData}}"></navigation-bar>
+<navigation-bar default-data="{{defaultData}}" show="{{tabshow}}"></navigation-bar>
 
-  <van-row gutter="30" custom-class="Grid">
+  <van-row gutter="30" custom-class="Grid" catchtap="toTest">
   <van-col offset="2" span="10"><view class="card">
      <text  class="title">测听</text>
          <text  class="desc">测试听力情况</text>
@@ -11,7 +11,7 @@
       src="../../images/test.png"
     />
 </view>  </van-col>
-  <van-col span="10"><view class="card">
+  <van-col span="10"><view class="card" catchtap="toMusic">
      <text  class="title">音乐</text>
       <text  class="desc">各类舒耳音乐</text>
         <image
