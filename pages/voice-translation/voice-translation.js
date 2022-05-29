@@ -5,7 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    styleA: 'transform:rotate(0deg);'
   },
 
   /**
@@ -63,7 +63,18 @@ Page({
   onShareAppMessage: function () {
 
   },
-
+  //点击卡片旋转
+  circle: function() {
+    if(this.data.styleA=='transform:rotate(180deg);transition: .5s;') {
+      this.setData({
+        styleA: 'transform:rotate(0deg);transition: .5s;'
+      })
+    }
+    else
+      this.setData({
+        styleA: 'transform:rotate(180deg);transition: .5s;'
+      })
+  },
   tartRecord: function() {
 
     if (this.recorderManager == null) {

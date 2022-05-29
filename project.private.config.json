@@ -58,6 +58,13 @@
           "query": "",
           "launchMode": "default",
           "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/draw/draw",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
         }
       ]
     }

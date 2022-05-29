@@ -1,3 +1,39 @@
 <!--pages/voice-translation/voice-translation.wxml-->
 <navigation-bar default-data="{{defaultData}}"></navigation-bar>
-<text>pages/voice-translation/voice-translation.wxml</text>
+<!-- <text>pages/voice-translation/voice-translation.wxml</text> -->
+<view class='container'>
+  <view class='button-layer' >
+      <image src='/images/button.png' class='speak-button' catchtouchstart="touchdown_plugin" catchtouchend="touchup_plugin"></image>
+  </view>
+
+  <!-- 页面输入框 -->
+  <view class='showme-layer' style="{{styleA}}">
+    <view class='content-box-showme' scroll-y="true">
+      <van-cell-group>
+        <van-field
+          value="{{ content }}"
+          type="textarea"
+          placeholder="等待输入"
+          autosize
+          border="{{ false }}"
+          custom-style="height:600rpx;font-size:100rpx"
+        />
+      </van-cell-group>
+      
+    </view>
+  </view>
+
+  <!-- 按钮栏 -->
+  <view class='input-layer'>
+      <view class="input-panel">
+          <input class="send-input" value="{{input}}" type="text" name="content" bindinput="listenInput" placeholder="打字给对方看" />
+          <view class="send-btn" bindtap='dele'>
+            <image class='icon' src='/images/dele.png'></image>
+          </view>
+            <view class="send-btn" bindtap='circle' data-content="{{content_down}}">
+              <image class='icon' src='/images/speak.png'></image>
+            </view>
+
+      </view>
+  </view>
+</view>

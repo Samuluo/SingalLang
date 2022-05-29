@@ -17,7 +17,8 @@
     "pages/calendar/calendar",
     "pages/find/find",
     "pages/voice-translation/voice-translation",
-    "pages/news-detail/news-detail"
+    "pages/news-detail/news-detail",
+    "pages/draw/draw"
   ],
   "window": {
     "backgroundTextStyle": "dark",
