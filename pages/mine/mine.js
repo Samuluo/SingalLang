@@ -4,7 +4,7 @@ Page({
   data: {
     filePath:'',//临时雷达图路径
     totalAmount: 3000,
-    avatar: "",
+    avatar: "http://m.imeitou.com/uploads/allimg/220318/5-22031Q55648.jpg",
     nickname: "",
     totalDate:30,
     options: {
@@ -36,6 +36,17 @@ Page({
     canIUseOpenData: wx.canIUse('open-data.type.userAvatarUrl') && wx.canIUse('open-data.type.userNickName') // 如需尝试获取用户信息可改为false
   },
   onLoad: function () {
+    wx.getStorage({
+      key: 'avatar',
+      success: (res)=>{
+        this.setData({
+          canIUseGetUserProfile: true,
+          avatar: res.data.avatar,
+          nickname: res.data.nickname,
+        })
+      }
+    })
+    this.login();
   },
   statisticformonth: function() {
     wx.request({
@@ -175,6 +186,13 @@ Page({
           avatar:res.userInfo.avatarUrl,
           hasUserInfo: true,
           canIUseGetUserProfile: true
+        })
+        wx.setStorage({
+          key: 'avatar' ,
+          data: {
+            avatar: res.userInfo.avatarUrl,
+            nickname: res.userInfo.nickName,
+          }
         })
         console.log(this.data.avatar)
       }

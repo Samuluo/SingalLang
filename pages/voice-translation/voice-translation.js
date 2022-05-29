@@ -96,7 +96,7 @@ Page({
     
     wx.uploadFile({
     
-    url: 'https://xxxx',//将录音文件传到后台服务器
+    url: 'https://https://bewcf.info/transform/speechRecognition',//将录音文件传到后台服务器
     
     filePath: res.tempFilePath,
     
