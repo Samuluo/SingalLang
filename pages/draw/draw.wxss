@@ -6,9 +6,9 @@ page{
 }
 
 .canvas-area{
-  margin-top: 15%;
+  margin-top: 100rpx;
   width:750rpx;
-  height: 80%;
+  height: 900rpx;
   background: #ffffff
 }
 .myCanvas{

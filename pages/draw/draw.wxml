@@ -5,7 +5,7 @@
       <image class='icon'src='/images/rotate-pink.png' bindtap='rotate'></image>
     </view>
   </view>
-    <view class='canvas-area'>
+    <view class='canvas-area' style="{{styleA}}">
       <canvas canvas-id='myCanvas' class='myCanvas' disable-scroll='true' bindtouchstart='touchstart' bindtouchmove='touchmove'></canvas>
     </view>
   <view class='canvas-tools-me'>

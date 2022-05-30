@@ -6,7 +6,8 @@ Page({
     pen: {
       lineWidth: 5,
       color: "#2c2c2c"
-    }
+    },
+    styleA:'transform:rotate(0deg);',
   },
   onShareAppMessage: function () {
     return {
@@ -25,7 +26,7 @@ Page({
   touchstart(e) {
     ctx.setStrokeStyle(this.data.pen.color);
     ctx.setLineWidth(this.data.pen.lineWidth);
-    ctx.moveTo(e.touches[0].x, e.touches[0].y);
+    ctx.moveTo(e.touche-s[0].x, e.touches[0].y);
   },
   touchmove(e) {
     let x = e.touches[0].x;
@@ -41,11 +42,14 @@ Page({
     ctx.draw()
   },
   rotate: function () {
-    wx.showToast({
-      title: '旋转功能开发中',
-      image: '/images/fail.png',
-      duration: 1000,
-      mask: true,
-    })
+    if(this.data.styleA=='transform:rotate(180deg);transition: .5s;') {
+      this.setData({
+        styleA: 'transform:rotate(0deg);transition: .5s;'
+      })
+    }
+    else
+      this.setData({
+        styleA: 'transform:rotate(180deg);transition: .5s;'
+      })
   },
 })

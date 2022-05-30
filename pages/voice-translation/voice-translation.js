@@ -5,16 +5,36 @@ Page({
    * 页面的初始数据
    */
   data: {
-    styleA: 'transform:rotate(0deg);'
+    styleA: 'transform:rotate(0deg);',
+    screenWidth:'',
+    content:'郭运鹏是憨批',
+    history:[],//输入历史记录
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    var that = this;
+    // 获取屏幕宽度
+    wx.getSystemInfo({
+      success: function (res) {
+        that.setData({
+          screenWidth: res.screenWidth
+        })
+      },
+    })
   },
-
+  clear: function(e) {
+    var that = this;
+    var h = that.data.history;
+    h.push(that.data.content)
+    that.setData({
+      history:h,
+      content:'',
+    })
+    console.log(that.data.history)
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -117,19 +137,19 @@ Page({
     
     header: {
     
-    'content-type': 'multipart/form-data'
+      'content-type': 'multipart/form-data'
     
     },
     
     success: function(res) {
     
-    console.log(res);
+      console.log(res);
     
     },
     
     fail: function() {
     
-    console.log("语音识别失败");
+      console.log("语音识别失败");
     
     }
     
@@ -141,7 +161,7 @@ Page({
     
     stopRecord: function() {
     
-    this.recorderManager.stop()
+      this.recorderManager.stop()
     
     }
 })

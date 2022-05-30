@@ -26,14 +26,15 @@
   <!-- 按钮栏 -->
   <view class='input-layer'>
       <view class="input-panel">
-          <input class="send-input" value="{{input}}" type="text" name="content" bindinput="listenInput" placeholder="打字给对方看" />
+          <!-- <input class="send-input" value="{{input}}" type="text" name="content" bindinput="listenInput" placeholder="打字给对方看" />
           <view class="send-btn" bindtap='dele'>
             <image class='icon' src='/images/dele.png'></image>
           </view>
             <view class="send-btn" bindtap='circle' data-content="{{content_down}}">
               <image class='icon' src='/images/speak.png'></image>
-            </view>
-
+            </view> -->
+            <van-button round icon="replay" type="primary" size="mini" bindtap='circle'/>
+            <van-button round icon="delete-o" type="primary" size="mini" custom-style="font-size:30rpx;" bindtap='clear'>清空</van-button>
       </view>
   </view>
 </view>
