@@ -20,7 +20,7 @@
         <text>云音乐新歌榜</text>
     </view>
 </view>
-<view class="content-info-list">
+<view class="content-info-list" >
     <view class="list-title">推荐歌曲</view>
     <view class="list-inner">
     <view class="list-item">
@@ -36,6 +36,33 @@
         <image src="http://localhost:3000/images/08.png"></image><view>火爆--歌曲</view>
     </view>
     <view class="list-item">
+        <image src="http://localhost:3000/images/09.png"></image><view>翻唱--歌曲</view>
+    </view>
+    <view class="list-item">
+        <image src="http://localhost:3000/images/10.png"></image><view>温情--歌曲</view>
+    </view>
+        <view class="list-item">
+        <image src="http://localhost:3000/images/08.png"></image><view>火爆--歌曲</view>
+    </view>
+    <view class="list-item">
+        <image src="http://localhost:3000/images/09.png"></image><view>翻唱--歌曲</view>
+    </view>
+    <view class="list-item">
+        <image src="http://localhost:3000/images/10.png"></image><view>温情--歌曲</view>
+    </view>
+        <view class="list-item">
+        <image src="http://localhost:3000/images/10.png"></image><view>温情--歌曲</view>
+    </view>
+        <view class="list-item">
+        <image src="http://localhost:3000/images/08.png"></image><view>火爆--歌曲</view>
+    </view>
+    <view class="list-item">
+        <image src="http://localhost:3000/images/09.png"></image><view>翻唱--歌曲</view>
+    </view>
+    <view class="list-item">
+        <image src="http://localhost:3000/images/10.png"></image><view>温情--歌曲</view>
+    </view>
+        <view class="list-item">
         <image src="http://localhost:3000/images/09.png"></image><view>翻唱--歌曲</view>
     </view>
     <view class="list-item">

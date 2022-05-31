@@ -1,7 +1,7 @@
 page{
   display: flex;
   flex-direction: column;
-  background: #141b10;
+  background: #f7f6f6;
   color: #ccc;
   height: 100%;
 }
@@ -15,15 +15,17 @@ page{
   text-align: center;
   line-height: 72rpx;
   height: 72rpx;
+  color: #000;
   border-bottom: 6rpx solid #eee;
 }
 /* 激活当前选项 */
 .tab-item.active{
-  color: #c25b5b;
-  border-bottom-color:#c25b5b;
+  color: #83c6c2;
+  border-bottom-color:#83c6c2;
 }
 .content{
-  flex: 1;
+  flex:1;
+  height: 150%;
 }
 .content > swiper{
     /* 宽度给其自适应 */
