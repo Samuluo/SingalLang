@@ -1,13 +1,13 @@
 <navigation-bar default-data="{{defaultData}}" ></navigation-bar>
 <!-- 上导航部分 -->
 <view class="tab">
-  <view class="tab-item {{tab==0?'active':''}}" bindtap="changeitem" data-item="0">音乐播放</view>
+  <view class="tab-item {{tab==0?'active':''}}" bindtap="changeitem" data-item="0">音频广场</view>
   <view class="tab-item {{tab==1?'active':''}}" bindtap="changeitem" data-item="1">播放列表</view>
 </view>
 <!-- 内容 -->
 <view class="content">
 <!-- 滑块视图容器 current当前所在滑块的 index-->
-  <swiper current="{{item}}" bindchange="changetab">
+  <swiper current="{{item}}"  bindchange="changetab">
     
     <swiper-item>
     <!-- 跳转当前自己的文件 -->

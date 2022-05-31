@@ -9,18 +9,11 @@ Page({
      isPlayingMusic:false,
      playlist:[
         {
-        id:0,title:'钢琴曲',singer:'肖邦',src:'http://localhost:3000/images/song.mp3',coverImgeUrl:'http://localhost:3000/images/11.png'
+        id:0,title:'钢琴曲',singer:'肖邦',src:'../../images/music/test.mp3',coverImgeUrl:'../../images/protectEar.png'
         },
         {
-         id:1,title:'奏鸣曲',singer:'莫扎特',src:'http://localhost:3000/images/song.mp3',coverImgeUrl:'http://localhost:3000/images/12.png'
+         id:1,title:'奏鸣曲',singer:'莫扎特',src:'../../images/music/test.mp3',coverImgeUrl:'../../images/protectEar.png'
          },
-        {
-         id:2,title:'欢乐颂',singer:'贝多芬',src:'http://localhost:3000/images/song.mp3',coverImgeUrl:'http://localhost:3000/images/13.png'
-         },
-         {
-         id:3,title:'爱之梦',singer:'李斯特',src:'http://localhost:3000/images/song.mp3',coverImgeUrl:'http://localhost:3000/images/14.png'
-        },
-   
    ],
    stata:'paused',
    playIndex:0,
@@ -30,14 +23,13 @@ Page({
       percent: 0,
       title:'',
       singer:'',
-      coverImgeUrl:'http://localhost:3000/images/11.png',
+      coverImgeUrl:'../../images/protectEar.png',
    },
 
-     imgUrls:[
-        "http://localhost:3000/images/01.png",
-        "http://localhost:3000/images/02.png",
-        "http://localhost:3000/images/03.png",
-        "http://localhost:3000/images/04.png"
+   imgUrls:[
+      "../../images/music/swip1.jpg",
+      "../../images/music/prop2.jpeg",
+      "../../images/music/prop3.jpeg",
     ],
     indicatorDots:true,
     autoplay:true,

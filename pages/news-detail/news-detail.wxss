@@ -88,13 +88,13 @@
 }
 
 .detail {
-  color: #666;
   margin-left: 30rpx;
   margin-top: 20rpx;
   margin-right: 30rpx;
   line-height: 44rpx;
   letter-spacing: 2px;
   font-size: 24rpx;
+  color: #666;
   font-family: MicroSoft Yahei;
 }
 
