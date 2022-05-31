@@ -3,7 +3,8 @@
     "navigation-bar": "/components/navigation-bar/navigation-bar",
     "van-field": "@vant/weapp/field/index",
     "van-icon": "@vant/weapp/icon/index",
-    "van-button": "@vant/weapp/button/index"
+    "van-button": "@vant/weapp/button/index",
+    "van-slider": "@vant/weapp/slider/index"
   },
   "navigationStyle": "custom"
 }

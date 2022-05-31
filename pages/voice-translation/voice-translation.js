@@ -9,6 +9,7 @@ Page({
     screenWidth:'',
     content:'郭运鹏是憨批',
     history:[],//输入历史记录
+    normal:["你好","谢谢","我说不了话","我听不见","对不起","麻烦了","劳驾了","我叫郭运鹏"]
   },
 
   /**
@@ -25,15 +26,22 @@ Page({
       },
     })
   },
-  clear: function(e) {
+  clear: function() {
     var that = this;
+    var c = this.data.content;
     var h = that.data.history;
-    h.push(that.data.content)
+    h.push(c)
     that.setData({
       history:h,
       content:'',
     })
     console.log(that.data.history)
+  },
+  onChange(event) {
+    // event.detail 为当前输入的值
+    this.setData({
+      content:event.detail
+    })
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

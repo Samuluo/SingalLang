@@ -18,6 +18,25 @@
   border: 1rpx solid #83c6c2;
   border-radius: 40rpx 40rpx 40rpx 40rpx;
 }
+.showme-layer2{
+  height: 30%;
+  width: 90%;
+  margin-left: 5%;
+  background: #ffffff;
+}
+.showme-layer2 .layer2-top {
+  background-color: #83c6c2;
+  height: 20%;
+  color:#f3f3f3;
+  border-radius: 20rpx 20rpx 0rpx 0rpx;
+}
+.showme-layer2 .layer2-content {
+  background-color: #095751;
+  color:#5e5a5a;
+  border-radius: 0rpx 0rpx 20rpx 20rpx;
+  font-size: 40rpx;
+  height: 100rpx;
+}
 .content-box-showme{
   height: 100%;
   line-height: 5.5;

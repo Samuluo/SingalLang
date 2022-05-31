@@ -11,18 +11,31 @@
     <view class='content-box-showme' scroll-y="true">
       <van-cell-group>
         <van-field
-          value="{{ content }}"
+          value="{{content}}"
           type="textarea"
           placeholder="等待输入"
           autosize
           border="{{ false }}"
-          custom-style="height:600rpx;font-size:100rpx"
+          bind:change="onChange"
+          custom-style="height:600rpx;font-size:80rpx"
         />
       </van-cell-group>
       
     </view>
   </view>
-
+  <!-- 输入记录 -->
+  <view class='showme-layer2' style="margin-top: 20rpx;">
+    <view class='layer2-top' scroll-y="true">
+      输入记录:
+    </view>
+    <view class="layer2-content">
+      <scroll-view scroll-y style="height: 100rpx;">
+      <view wx:for="{{history}}" style="height: 40rpx; margin-left: 20rpx;">
+        {{item}}
+      </view>
+      </scroll-view>
+    </view>
+  </view>
   <!-- 按钮栏 -->
   <view class='input-layer'>
       <view class="input-panel">
@@ -33,7 +46,11 @@
             <view class="send-btn" bindtap='circle' data-content="{{content_down}}">
               <image class='icon' src='/images/speak.png'></image>
             </view> -->
-            <van-button round icon="replay" type="primary" size="mini" bindtap='circle'/>
+            <!-- <van-button round icon="replay" type="primary" size="mini" bindtap='circle'></van-button> -->
+            <image src="/images/ques.png" bindtap="circle" style="height: 50rpx;width: 50rpx;"></image>
+            <image src="/images/setting.png" bindtap="setting" style="height: 50rpx;width: 50rpx;margin-left: 20rpx;"></image>
+            <image src="/images/edit.png" bindtap="setting" style="height: 50rpx;width: 50rpx;margin-left: 20rpx;"></image>
+            <image src="/images/reverse.png" bindtap="circle" style="height: 50rpx;width: 50rpx;margin-left: 20rpx;"></image>
             <van-button round icon="delete-o" type="primary" size="mini" custom-style="font-size:30rpx;" bindtap='clear'>清空</van-button>
       </view>
   </view>
