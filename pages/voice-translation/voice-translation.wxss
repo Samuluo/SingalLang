@@ -153,3 +153,40 @@
 .warning-text{
   margin-left: 20rpx;
 }
+
+.footer{
+	width: 80%;
+	height: 25px;
+	border: 1px solid #83c6c2;
+  background: #83c6c2;
+  border-top-left-radius: 10px; 
+  border-top-right-radius: 10px;
+}
+.sdf{
+  width: 200rpx;
+  display: inline-block;
+	text-align: center;
+	height: 20px;
+	line-height: 20px;
+  font-size: 14px;
+  background-color: #095751;
+	border-bottom-left-radius: 10rpx; 
+  border-bottom-right-radius: 10rpx; 	
+  color:#ffffff;
+  font-weight: bold;
+}
+.footer text:first-child{
+	border-left: 1;
+}
+.footer .btn-block{
+	border-radius:2;
+}
+.footer .btn-block:after{
+	border: 0;
+}
+.scroll-view{
+  white-space: nowrap;
+}
+.scroll-item{
+  display: inline-block;
+}

@@ -3,7 +3,7 @@
 <!-- <text>pages/voice-translation/voice-translation.wxml</text> -->
 <view class='container'>
   <view class='button-layer' >
-      <image src='/images/button.png' class='speak-button' catchtouchstart="touchdown_plugin" catchtouchend="touchup_plugin"></image>
+      <image src='/images/button.png' style="width: 50rpx;height: 50rpx;" class='speak-button' catchtouchstart="touchdown_plugin" catchtouchend="touchup_plugin"></image>
   </view>
 
   <!-- 页面输入框 -->
@@ -36,17 +36,17 @@
       </scroll-view>
     </view>
   </view>
+  <!-- 常用语模块 -->
+  <view class="footer" style="margin-top: 20rpx;margin-left: 10%;">
+  <scroll-view scroll-x class="scroll-view">
+      <view bindtap="selecttarget" class="scroll-item" wx:for="{{array}}" class="sdf" style="background-color: {{color1[item%5]}}">
+        <text>{{sentence[item]}}</text>
+      </view>
+  </scroll-view>
+  </view>
   <!-- 按钮栏 -->
   <view class='input-layer'>
       <view class="input-panel">
-          <!-- <input class="send-input" value="{{input}}" type="text" name="content" bindinput="listenInput" placeholder="打字给对方看" />
-          <view class="send-btn" bindtap='dele'>
-            <image class='icon' src='/images/dele.png'></image>
-          </view>
-            <view class="send-btn" bindtap='circle' data-content="{{content_down}}">
-              <image class='icon' src='/images/speak.png'></image>
-            </view> -->
-            <!-- <van-button round icon="replay" type="primary" size="mini" bindtap='circle'></van-button> -->
             <image src="/images/ques.png" bindtap="circle" style="height: 50rpx;width: 50rpx;"></image>
             <image src="/images/setting.png" bindtap="setting" style="height: 50rpx;width: 50rpx;margin-left: 20rpx;"></image>
             <image src="/images/edit.png" bindtap="setting" style="height: 50rpx;width: 50rpx;margin-left: 20rpx;"></image>

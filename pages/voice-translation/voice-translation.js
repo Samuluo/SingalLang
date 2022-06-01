@@ -5,8 +5,14 @@ Page({
    * 页面的初始数据
    */
   data: {
+    css2:"",
+    userId: '',
     styleA: 'transform:rotate(0deg);',
     screenWidth:'',
+    array:[],
+    sentence:[],
+    color1:['red','orange','green','blue','purple'],
+    sentencedetail:[],
     content:'郭运鹏是憨批',
     history:[],//输入历史记录
     normal:["你好","谢谢","我说不了话","我听不见","对不起","麻烦了","劳驾了","我叫郭运鹏"]
@@ -24,6 +30,16 @@ Page({
           screenWidth: res.screenWidth
         })
       },
+    })
+    wx.getStorage({
+      key: "userInfo",
+      success:(res)=>{
+        that.setData({
+          userId: res.data.id
+        })
+        that.getSentence(that.data.userId);
+        //console.log(that.data.userId)
+      }
     })
   },
   clear: function() {
@@ -47,7 +63,6 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
   },
 
   /**
@@ -90,6 +105,39 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+  //获取常用语列表
+  getSentence: function(e) {
+    var that = this;
+    console.log(this.data.userId)
+    wx.request({
+      url: 'https://bewcf.info/sentence/queryAll?userId='+e,
+      success:(res)=>{
+        console.log(res)
+        var a = []
+        var b = []
+        var arr = []
+        var i = 0
+        for (var key in res.data) {
+          arr.push(i)
+          i++
+          console.log(key);     //获取key值 
+          a.push(key);
+          console.log(a); //获取对应的value值
+          b.push(res[key])
+        }
+        console.log(arr)
+        that.setData({
+          sentence: a,
+          sentencedetail:b,
+          array:arr
+        })
+      }
+    })
+  },
+  //选择卡片
+  selecttarget: function() {
+    
   },
   //点击卡片旋转
   circle: function() {
@@ -172,4 +220,6 @@ Page({
       this.recorderManager.stop()
     
     }
+
+    
 })
