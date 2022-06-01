@@ -14,7 +14,7 @@
     <text>{{play.currentTime}}</text>
     <view>
     <!-- 滑动选择器 -->
-    <slider bindtap="sliderChange" activeColor="#d33a31" block-size="12" backgroundColor="#dadada" value="{{play.percent}}"></slider>
+    <slider bindchange="sliderChange" activeColor="#d33a31" block-size="12" backgroundColor="#dadada" value="{{play.percent}}" ></slider>
     </view>
     <text>{{play.duration}}</text>
 </view>

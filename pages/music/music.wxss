@@ -2,7 +2,7 @@ page{
   display: flex;
   flex-direction: column;
   background:  #f7f6f6;
-  color: #ccc;
+  color: #000000;
   height: 100%;
 }
 .tab{
@@ -180,15 +180,16 @@ page{
 .playlist-item{
     display: flex;
     align-items: center;
-    border-bottom: 1rpx solid #333;
+    background: linear-gradient(to right,  #dbeeee ,#ffffff);
+    border-bottom: 1rpx solid #f7f7f7;
     height: 112rpx;
 }
 .playlist-cover{
     width: 80rpx;
     height: 80rpx;
     margin-left: 15rpx;
-    border-radius: 8rpx;
-    border: 1px solid #333;
+    border-radius: 50%;
+    border: 1px solid #83c6c2;
 }
 .playlist-info{
     float: 1px;
@@ -197,13 +198,17 @@ page{
     margin-left: 20rpx;
     padding-bottom: 8rpx;
 }
+.playlist-info-title{
+  color: #000000;
+}
 .playlist-info-singer{
     color: #888;
 }
 .playlist-controls{
     font-size: 10pt;
+    margin-left: 20rpx;
     margin-right: 20rpx;
-    color: #c25b5b;
+    color: #83c6c2;
 }
 
 /* 播放和暂停的效果 */
