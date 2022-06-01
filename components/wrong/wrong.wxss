@@ -1,7 +1,7 @@
 /* pages/test/test.wxss */
 
 .container2{
-  background-color: rgba(241, 251, 242, 100);
+  background-color: #f7f6f6;
   padding: 20rpx;
   height: 100%;
   display: flex;
@@ -11,8 +11,8 @@
   box-sizing: border-box;
 }
 .container3{
-  min-height: 100vh;
-  background-color: rgba(241, 251, 242, 100);
+  min-height: 95vh;
+  background-color: #f7f6f6;
   height: 100%;
 }
 .item{

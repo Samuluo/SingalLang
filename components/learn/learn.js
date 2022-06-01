@@ -26,10 +26,10 @@ Component({
     button2:'primary',
     button3:'primary',
     button4:'primary',
-    color1:'#9EDDB2 ',
-    color2:'#9EDDB2 ',
-    color3:'#9EDDB2 ',
-    color4:'#9EDDB2 ',
+    color1:'#83c6c2',
+    color2:'#83c6c2',
+    color3:'#83c6c2',
+    color4:'#83c6c2',
     judge:[],
     userId:1000,
     index:0,
@@ -103,7 +103,7 @@ Component({
       if(e.currentTarget.dataset.answer==that.data.wordToFinish[that.data.index].word.answer){
         that.setData({
           'button1':"right",
-          'color1':" rgb(79, 134, 253)",
+          'color1':" #87c38f",
           [cWordTF]:true
         })
         that.data.FinishIndex.push(that.data.index)
@@ -133,7 +133,7 @@ Component({
       if(e.currentTarget.dataset.answer==that.data.wordToFinish[that.data.index].word.answer){
         that.setData({
           'button2':"right",
-          'color2':" rgb(79, 134, 253)",
+          'color2':" #87c38f",
           [cWordTF]:true
         })
         that.data.FinishIndex.push(that.data.index)
@@ -163,7 +163,7 @@ Component({
       if(e.currentTarget.dataset.answer==that.data.wordToFinish[that.data.index].word.answer){
         that.setData({
           'button3':"right",
-          'color3':" rgb(79, 134, 253)",
+          'color3':" #87c38f",
           [cWordTF]:true
         })
         that.data.FinishIndex.push(that.data.index)
@@ -193,7 +193,7 @@ Component({
       if(e.currentTarget.dataset.answer==that.data.wordToFinish[that.data.index].word.answer){
         that.setData({
           'button4':"right",
-          'color4':" rgb(79, 134, 253)",
+          'color4':" #87c38f",
           [cWordTF]:true
         })
         that.data.FinishIndex.push(that.data.index)
@@ -249,13 +249,13 @@ Component({
                 'completeN':that.data.amount-that.data.wordToFinish.length+that.data.wordIds.length,
                 'toCompletedN':that.data.wordToFinish.length-that.data.wordIds.length,
                 'button1':"",
-                'color1':"#9EDDB2",
+                'color1':"#83c6c2",
                 'button2':"",
-                'color2':"#9EDDB2 ",
+                'color2':"#83c6c2",
                 'button3':"",
-                'color3':"#9EDDB2 ",
+                'color3':"#83c6c2",
                 'button4':"",
-                'color4':"#9EDDB2 "
+                'color4':"#83c6c2"
               })
             }else{//如果不是一次循环的后一道题，则+1
             that.setData({
@@ -263,13 +263,13 @@ Component({
               'completeN':that.data.amount-that.data.wordToFinish.length+that.data.wordIds.length,
               'toCompletedN':that.data.wordToFinish.length-that.data.wordIds.length,
               'button1':"",
-              'color1':"#9EDDB2",
+              'color1':"#83c6c2",
               'button2':"",
-              'color2':"#9EDDB2 ",
+              'color2':"#83c6c2",
               'button3':"",
-              'color3':"#9EDDB2 ",
+              'color3':"#83c6c2",
               'button4':"",
-              'color4':"#9EDDB2 "
+              'color4':"#83c6c2"
             })
            }//当为true，继续到下一道
             while(that.data.wordToFinish[that.data.index].completed==true){

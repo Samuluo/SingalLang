@@ -70,18 +70,11 @@ Page({
     console.log(this.audioCtx.duration)
     console.log(second)
     //跳到指定位置
+    this.audioCtx.pause()
     this.audioCtx.seek(second)
-    this.audioCtx.onPlay(function(){})
-    this.audioCtx.onTimeUpdate(function(){
-      console.log("hi")
-      that.setData({
-        //获取总时间
-        'play.duration':formatTime(that.audioCtx.duration),
-        //当前歌曲播放的时长
-        'play.currentTime':formatTime(that.audioCtx.currentTime),
-        'play.percent':that.audioCtx.currentTime/that.audioCtx.duration*100
-      })
-    })
+    setTimeout(() => {
+      this.play()
+    }, 500); 
   },
   onReady:function(){
     //获取音频播放对象
@@ -108,9 +101,8 @@ Page({
   })
  },
   play:function(){
-    console.log('e')
     var that = this
-      this.audioCtx.play()
+    that.audioCtx.play()
     this.setData({
       state:"running"
     })
@@ -122,7 +114,6 @@ Page({
     }
     this.audioCtx.onPlay(function(){})
     this.audioCtx.onTimeUpdate(function(){
-      console.log("hi")
       that.setData({
         //获取总时间
         'play.duration':formatTime(that.audioCtx.duration),
@@ -140,10 +131,14 @@ Page({
   },
   // 播放列表中的换曲功能
   change:function(e){
+    if(e.currentTarget.dataset.index!=this.data.playIndex)
+    {
+    console.log("hi")
     var that = this
     this.setMusic(e.currentTarget.dataset.index);
     setTimeout(function () {
       that.play()
     }, 700)
+   }
   }
 })

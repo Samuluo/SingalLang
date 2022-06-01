@@ -3,13 +3,13 @@
 <view class="container3">
 <van-row>
 
-  <van-col span="8"> <view  class="top-left" style="border-color: #46CA53;border-style:solid;border-width:2rpx 2rpx 2rpx 0rpx;">
+  <van-col span="8"> <view  class="top-left" style="border-color: #83c6c2;border-style:solid;border-width:2rpx 2rpx 2rpx 0rpx;">
     <text>已纠正{{completeN}} 词</text>
     <text>未纠正{{toCompletedN}} 词</text>
   </view></van-col>
 
 
-  <van-col span="16"><view class="top-right" style="border-color: #46CA53;border-style:solid;border-width:2rpx 0rpx 2rpx 0rpx;">
+  <van-col span="16"><view class="top-right" style="border-color: #83c6c2;border-style:solid;border-width:2rpx 0rpx 2rpx 0rpx;">
 
       <view class="top-left2">
       <image catchtap="detail" style="width: 40rpx; height: 40rpx;" mode="scaleToFill" src="../../images/info.png"></image>
