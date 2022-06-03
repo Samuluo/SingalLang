@@ -5,6 +5,9 @@ Page({
    * 页面的初始数据
    */
   data: {
+    curr: 0,
+    color2: 'red',
+    startPoint:[0,0],
     css2:"",
     userId: '',
     styleA: 'transform:rotate(0deg);',
@@ -124,9 +127,9 @@ Page({
           console.log(key);     //获取key值 
           a.push(key);
           console.log(a); //获取对应的value值
-          b.push(res[key])
+          b.push(res.data[key])
         }
-        console.log(arr)
+        console.log(b)
         that.setData({
           sentence: a,
           sentencedetail:b,
@@ -136,8 +139,15 @@ Page({
     })
   },
   //选择卡片
-  selecttarget: function() {
-    
+  selecttarget: function(e) {
+    var x = e.currentTarget.dataset;
+    console.log(x)
+    var that = this;
+    var arr = that.data.color1;
+    console.log(arr[x.item%5])
+    that.setData({
+      color2: arr[x.item%5]
+    })
   },
   //点击卡片旋转
   circle: function() {
@@ -219,7 +229,42 @@ Page({
     
       this.recorderManager.stop()
     
-    }
+    },
+    startFn: function(e){
+      console.log('触摸移动开始')
+      this.setData({
+        startPoint:[e.touches[0].pageX,e.touches[0].pageY]
+      })
+    },
+     touchmoveFn: function(e){
+      console.log(e)
+      console.log("触屏移动")
+      var curPoint = [e.touches[0].pageX,e.touches[0].pageY];
+      var startPointX = this.data.screenWidth*0.08;
+      var lastPointX = this.data.screenWidth*0.92;
+      console.log(this.data.sentencedetail)
+      var len = this.data.sentencedetail[3].length+2;
+      var step = (lastPointX-startPointX)/len;
+      console.log(step)
+      if(curPoint[0]<=startPointX||curPoint[0]>lastPointX) {
+        this.setData({
+          i: -1
+        })
+      }
+      for(var i=0;i<len;i++) {
+        if(startPointX+step*i<curPoint[0]&&curPoint[0]<=startPointX+step*(i+1)) {
+          this.setData({
+            curr: i
+          })
+        }
+      }
+      console.log(this.data.curr);
+    },
+    endFn(){
+      console.log("触摸移动结束")
+    },
+   
+  
 
     
 })

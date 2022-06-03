@@ -129,6 +129,13 @@
 					"id": -1,
 					"name": "pages/testE/testE",
 					"pathName": "pages/testE/testE",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/voice-translation/voice-translation",
+					"pathName": "pages/voice-translation/voice-translation",
 					"scene": null
 				}
 			]
