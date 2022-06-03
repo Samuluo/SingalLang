@@ -1,0 +1,19 @@
+/* pages/testE/testE.wxss */
+.container{
+  min-height: 100vh;
+  background-color: #f7f6f6;
+  padding: 20rpx;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+.goodbutton{
+  margin-top: 40rpx;
+  background: #83c6c2; 
+  width:70%;
+  color:#ffffff;
+  font-weight: bold;
+}

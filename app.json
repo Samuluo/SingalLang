@@ -1,11 +1,12 @@
 {
   "pages": [
+    "pages/testDetail/testDetail",
     "pages/main/main",
     "pages/music/music",
     "pages/music-playlist/music-playlist",
     "pages/music-play/music-play",
     "pages/music-info/music-info",
-    "pages/test/test",
+    "pages/testE/testE",
     "pages/main-learn/main-learn",
     "pages/mine/mine",
     "pages/index/index",

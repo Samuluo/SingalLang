@@ -1,28 +1,13 @@
-// pages/find/find.js
+// pages/testDetail/testDetail.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    tanshow:false,
-    imgUrls: [
-      "../../images/test.png",
-      "../../images/music.png",
-      "../../images/test.png",
-      "../../images/music.png"
-    ],
+
   },
-  toMusic:function(e){
-    wx.navigateTo({
-      url: '/pages/music/music',
-    })
-  },
-  toTest:function(e){
-    wx.navigateTo({
-      url: '/pages/testE/testE',
-    })
-  },
+
   /**
    * 生命周期函数--监听页面加载
    */

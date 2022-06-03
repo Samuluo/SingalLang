@@ -1,0 +1,10 @@
+{
+  "usingComponents": {
+
+    "navigation-bar": "/components/navigation-bar/navigation-bar"
+  },
+  "navigationBarBackgroundColor": "#83c6c2",
+  "navigationBarTextStyle": "black",
+  "navigationBarTitleText": "声笙慢",
+  "navigationStyle":"custom"
+}
