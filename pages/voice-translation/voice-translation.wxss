@@ -197,3 +197,14 @@
 .scroll-item{
   display: inline-block;
 }
+.tcp{
+  bottom: 800rpx;
+  text-align:center;
+  writing-mode: vertical-lr;
+  border: 2rpx solid pink;
+  color: white;
+  background: pink;
+  width: 70rpx;
+
+  line-height:70rpx;
+}

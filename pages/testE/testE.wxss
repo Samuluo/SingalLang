@@ -1,6 +1,6 @@
 /* pages/testE/testE.wxss */
 .container{
-  min-height: 100vh;
+  min-height: 90vh;
   background-color: #f7f6f6;
   padding: 20rpx;
   height: 100%;
