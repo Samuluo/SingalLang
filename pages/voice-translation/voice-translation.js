@@ -5,6 +5,8 @@ Page({
    * 页面的初始数据
    */
   data: {
+    h1: "600rpx",
+    istouch: false,
     curr: 0,
     color2: 'red',
     startPoint:[0,0],
@@ -233,7 +235,9 @@ Page({
     startFn: function(e){
       console.log('触摸移动开始')
       this.setData({
-        startPoint:[e.touches[0].pageX,e.touches[0].pageY]
+        startPoint:[e.touches[0].pageX,e.touches[0].pageY],
+        istouch:true,
+        h1:"760rpx"
       })
     },
      touchmoveFn: function(e){
@@ -262,6 +266,10 @@ Page({
     },
     endFn(){
       console.log("触摸移动结束")
+      this.setData({
+        istouch:false,
+        h1:"600rpx"
+      })
     },
    
   

@@ -12,6 +12,7 @@
 }
 .showme-layer{
   height: 100%;
+  position: relative;
   width: 90%;
   margin-left: 5%;
   background: #ffffff;
@@ -20,6 +21,7 @@
 }
 .showme-layer2{
   height: 30%;
+  position: relative;
   width: 90%;
   margin-left: 5%;
   background: #ffffff;
@@ -59,11 +61,11 @@
   transform: scaleX(-1);
 }
 .input-layer{
-  height: 10%;
+  height: 5%;
   width: 100%;
   position: fixed;
   bottom: 0;
-  background: blue;
+  background: #ffffff;
 }
 
 .speak-button{
@@ -168,7 +170,7 @@
   display: inline-block;
 	text-align: center;
   height: 20px;
-  
+  z-index: 1;
 	line-height: 20px;
   font-size: 14px;
   background-color: #095751;
@@ -198,13 +200,18 @@
   display: inline-block;
 }
 .tcp{
-  bottom: 800rpx;
+  z-index: 5;
+  margin-left: 10%;
+  position:fixed;
+  display: inline-block;
+  bottom: 290rpx;
   text-align:center;
   writing-mode: vertical-lr;
   border: 2rpx solid pink;
   color: white;
   background: pink;
   width: 70rpx;
-
+  padding-top: 20rpx;
+  padding-bottom: 20rpx;
   line-height:70rpx;
 }
