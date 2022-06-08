@@ -1,2 +1,5 @@
 <!--pages/testDetail/testDetail.wxml-->
-<text>pages/testDetail/testDetail.wxml</text>
+<navigation-bar default-data="{{defaultData}} "></navigation-bar>
+<view class="index">
+<image class="bg" src="../../images/test/test1.jpeg"></image>
+</view>

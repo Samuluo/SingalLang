@@ -5,6 +5,6 @@
             <image style="width: 450rpx; height: 450rpx; background-color: #f7f6f6;" mode="scaleToFill" src="../../images/music/test.png"></image>
               <text style="display: block;display:flex;text-align:center;margin-left:97rpx;color:#83c6c2;font-size:55rpx;font-weight:bold">请带好耳机</text>
 </view>
-<button class='goodbutton'  hover-class="hover" >点击开始进行快速测试</button>
+<button class='goodbutton'  hover-class="hover" catchtap="toTest" >点击开始进行快速测试</button>
 <view></view>
 </view>

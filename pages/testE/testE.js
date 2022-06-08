@@ -11,6 +11,12 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
+  toTest: function(){
+
+    wx.navigateTo({
+      url: '/pages/testDetail/testDetail',
+    })
+  },
   onLoad: function (options) {
 
   },
