@@ -1,5 +1,23 @@
 <!--pages/testDetail/testDetail.wxml-->
 <navigation-bar default-data="{{defaultData}} "></navigation-bar>
-<view class="index">
+<view class="bg">
 <image class="bg" src="../../images/test/test1.jpeg"></image>
+<view class="container2" >
+
+  <view class="list-body" >
+    <van-row gutter="30" custom-class="Grid" catchtap="toTest">
+  <van-col offset="2" span="20"><view class="card">
+</view>  </van-col>
+</van-row>
+
+    <van-row gutter="30" custom-class="Grid" catchtap="toTest">
+      <van-col offset="2" span="20">
+          <view class="card2">
+
+          </view>
+     </van-col>
+     </van-row>
+
+</view>
+</view>
 </view>
