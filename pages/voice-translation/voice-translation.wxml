@@ -3,7 +3,7 @@
 <!-- <text>pages/voice-translation/voice-translation.wxml</text> -->
 <view class='container'>
   <view class='button-layer' >
-      <image src='/images/button.png' style="width: 50rpx;height: 50rpx;" class='speak-button' catchtouchstart="touchdown_plugin" catchtouchend="touchup_plugin"></image>
+      <image src='/images/button.png' style="width: 50rpx;height: 50rpx;" class='speak-button' bindtouchstart="touchdown_plugin" bindtouchend="touchup_plugin"></image>
   </view>
 
   <!-- 页面输入框 -->
@@ -50,8 +50,10 @@
     bindtouchmove="touchmoveFn"
     bindtouchend="endFn">《滑动选择，松开输入》</button>
   <!-- 显示隐藏具体信息 -->
-  <scroll-view hidden="{{!istouch}}" scroll-x class="scroll-view">
-    <view wx:for="{{sentencedetail[0]}}" class="tcp">{{item.content}}</view>
+  <scroll-view hidden="{{!istouch}}" scroll-x class="scroll-view" scroll-with-animation="true" scroll-left="{{scrollLeft}}" bindscroll="scrollMove">
+      <view wx:for="{{normal}}"  class="{{curr==index?'tcp':'udp'}}" data-index='{{index}}'>
+        <view id="id">{{item.content}}</view>
+      </view>
   </scroll-view>
   
   <!-- 按钮栏 -->

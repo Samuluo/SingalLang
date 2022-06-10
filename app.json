@@ -24,7 +24,8 @@
     "pages/find/find",
     "pages/voice-translation/voice-translation",
     "pages/news-detail/news-detail",
-    "pages/draw/draw"
+    "pages/draw/draw",
+    "pages/voice-transdetail/voice-transdetail"
   ],
   "window": {
     "backgroundTextStyle": "dark",
@@ -70,6 +71,10 @@
     "echarts": {
       "version": "2.1.1",
       "provider": "wx1db9e5ab1149ea03"
+    },
+    "WechatSI": {
+      "version": "0.3.4",
+      "provider": "wx069ba97219f66d99"
     }
   }
 }

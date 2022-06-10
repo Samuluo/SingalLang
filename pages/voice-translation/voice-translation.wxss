@@ -195,21 +195,36 @@
 }
 .scroll-view{
   white-space: nowrap;
+  position: fixed;
+  bottom: 250rpx;
 }
 .scroll-item{
   display: inline-block;
 }
-.tcp{
+.udp{
   z-index: 5;
-  margin-left: 10%;
-  position:fixed;
+  margin-left: 5%;
   display: inline-block;
   bottom: 290rpx;
   text-align:center;
   writing-mode: vertical-lr;
-  border: 2rpx solid pink;
   color: white;
   background: pink;
+  width: 70rpx;
+  padding-top: 20rpx;
+  padding-bottom: 20rpx;
+  line-height:70rpx;
+}
+.tcp {
+  z-index: 5;
+  margin-left: 5%;
+  display: inline-block;
+  bottom: 290rpx;
+  text-align:center;
+  writing-mode: vertical-lr;
+  border: 8rpx solid white;
+  color: white;
+  background: blue;
   width: 70rpx;
   padding-top: 20rpx;
   padding-bottom: 20rpx;

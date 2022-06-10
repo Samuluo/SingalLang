@@ -1,4 +1,6 @@
 // pages/voice-translation/voice-translation.js
+var plugin = requirePlugin("WechatSI")
+let manager = plugin.getRecordRecognitionManager()
 Page({
 
   /**
@@ -7,7 +9,7 @@ Page({
   data: {
     h1: "600rpx",
     istouch: false,
-    curr: 0,
+    curr: 1,
     color2: 'red',
     startPoint:[0,0],
     css2:"",
@@ -20,13 +22,19 @@ Page({
     sentencedetail:[],
     content:'郭运鹏是憨批',
     history:[],//输入历史记录
-    //normal:["你好","谢谢","我说不了话","我听不见","对不起","麻烦了","劳驾了","我叫郭运鹏"]
+    normal:["你好","谢谢","我说不了话","我听不见","对不起","麻烦了","劳驾了","我叫郭运鹏"]
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    let scrollInfo = {
+      prevDistance: 0, //滚动条的距离（默认为0）
+      screenHalfwidth: wx.getSystemInfoSync().windowWidth / 2, 
+    }
+ 
+    this.data.scrollInfo = scrollInfo;
     var that = this;
     // 获取屏幕宽度
     wx.getSystemInfo({
@@ -46,7 +54,98 @@ Page({
         //console.log(that.data.userId)
       }
     })
+    var that = this;
+
+manager.onRecognize = function (res) {
+
+       cons.log("current result", res.result)
+
+    }
+
+    manager.onStop = function (res) {
+
+      console.log('识别开始');
+
+      var result = res.result;
+
+      var s = result.indexOf('。') //找到第一次出现下划线的位置
+
+      result = result.substring(0,s)  //取下划线前的字符
+
+      var searchType = that.data.searchType;
+
+      wx.showToast({
+
+        title: result,
+
+      })
+
+}
+
+    manager.onError = function (res) {
+
+      console.log('manager.onError')
+
+      console.log(res) //报错信息打印
+
+      wx.showToast({
+
+        title: res.msg,
+
+      })
+
+      // UTIL.log("error msg", res.msg)
+
+    }
+
   },
+   //手指按下
+
+touchdown_plugin: function () {
+
+  var _this = this
+
+  // UTIL.stopTTS();
+
+  manager.start({
+
+    duration: 30000,
+
+    lang: "zh_CN"
+
+  })
+
+},
+
+//手指松开
+
+touchup_plugin: function (e) {
+
+  var searchType = e.currentTarget.dataset.type;
+
+  this.setData({
+
+    searchType: searchType,
+
+    background:  "#ED6C00",
+
+    yysb:"长按语音识别"
+
+  });
+
+  manager.stop();
+
+  wx.showToast({
+
+    title: '正在识别……',
+
+    icon: 'loading',
+
+    duration: 2000
+
+  })
+
+},
   clear: function() {
     var that = this;
     var c = this.data.content;
@@ -146,9 +245,11 @@ Page({
     console.log(x)
     var that = this;
     var arr = that.data.color1;
+    var sen = this.data.sentencedetail;
     console.log(arr[x.item%5])
     that.setData({
-      color2: arr[x.item%5]
+      color2: arr[x.item%5],
+      normal: sen[x.item]
     })
   },
   //点击卡片旋转
@@ -163,93 +264,101 @@ Page({
         styleA: 'transform:rotate(180deg);transition: .5s;'
       })
   },
-  tartRecord: function() {
+  // tartRecord: function() {
 
-    if (this.recorderManager == null) {
+  //   if (this.recorderManager == null) {
     
-    this.recorderManager = wx.getRecorderManager();
+  //   this.recorderManager = wx.getRecorderManager();
     
-    this.options = {
+  //   this.options = {
     
-    duration: 10000,
+  //   duration: 10000,
     
-    sampleRate: 16000,
+  //   sampleRate: 16000,
     
-    numberOfChannels: 1,
+  //   numberOfChannels: 1,
     
-    encodeBitRate: 64000,
+  //   encodeBitRate: 64000,
     
-    format: 'mp3',
+  //   format: 'mp3',
     
-    frameSize: 50
+  //   frameSize: 50
     
-    }
+  //   }
     
-    }
+  //   }
     
-    this.recorderManager.start(this.options);
+  //   this.recorderManager.start(this.options);
     
-    this.recorderManager.onStop((res) => {
+  //   this.recorderManager.onStop((res) => {
     
-    console.log(res)
+  //   console.log(res)
     
-    wx.uploadFile({
+  //   wx.uploadFile({
     
-    url: 'https://https://bewcf.info/transform/speechRecognition',//将录音文件传到后台服务器
+  //   url: 'https://https://bewcf.info/transform/speechRecognition',//将录音文件传到后台服务器
     
-    filePath: res.tempFilePath,
+  //   filePath: res.tempFilePath,
     
-    method:'POST',
+  //   method:'POST',
     
-    name: 'file',
+  //   name: 'file',
     
-    header: {
+  //   header: {
     
-      'content-type': 'multipart/form-data'
+  //     'content-type': 'multipart/form-data'
     
-    },
+  //   },
     
-    success: function(res) {
+  //   success: function(res) {
     
-      console.log(res);
+  //     console.log(res);
     
-    },
+  //   },
     
-    fail: function() {
+  //   fail: function() {
     
-      console.log("语音识别失败");
+  //     console.log("语音识别失败");
     
-    }
+  //   }
     
-    })
+  //   })
     
-    });
+  //   });
     
-    },
+  //   },
     
-    stopRecord: function() {
+  //   stopRecord: function() {
     
-      this.recorderManager.stop()
+  //     this.recorderManager.stop()
     
-    },
+  //   },
+  
     startFn: function(e){
-      console.log('触摸移动开始')
-      this.setData({
-        startPoint:[e.touches[0].pageX,e.touches[0].pageY],
-        istouch:true,
-        h1:"760rpx"
-      })
+      var startPointX = this.data.screenWidth*0.08;
+      var lastPointX = this.data.screenWidth*0.92;
+      var len = this.data.normal.length+2;
+      //var len = 7;
+      var step = (lastPointX-startPointX)/len;
+      for(var i=0;i<len;i++) {
+        if(startPointX+step*i<e.touches[0].pageX&&e.touches[0].pageX<=startPointX+step*(i+1)) {
+          this.setData({
+            curr: i,
+            startPoint:[e.touches[0].pageX,e.touches[0].pageY],
+            istouch:true,
+            h1:"760rpx"
+          })
+          
+        }
+      }
     },
      touchmoveFn: function(e){
-      console.log(e)
-      console.log("触屏移动")
       var curPoint = [e.touches[0].pageX,e.touches[0].pageY];
       var startPointX = this.data.screenWidth*0.08;
       var lastPointX = this.data.screenWidth*0.92;
-      console.log(this.data.sentencedetail)
-      var len = this.data.sentencedetail[3].length+2;
+      var len = this.data.normal.length+2;
+      //var len = 7;
       var step = (lastPointX-startPointX)/len;
-      console.log(step)
       if(curPoint[0]<=startPointX||curPoint[0]>lastPointX) {
         this.setData({
           i: -1
@@ -260,18 +369,41 @@ Page({
           this.setData({
             curr: i
           })
+          this.data.scrollInfo.subLeft = startPointX+step*i; //元素一半宽度
+          this.data.scrollInfo.subHalfWidth = 35; 
+          this.moveTo();
         }
       }
-      console.log(this.data.curr);
     },
     endFn(){
-      console.log("触摸移动结束")
+      var con = this.data.content+this.data.normal[this.data.curr].content;
       this.setData({
         istouch:false,
-        h1:"600rpx"
+        h1:"600rpx",
+        content: con
       })
     },
-   
+  //移动导航栏
+  moveTo: function() {
+    let subLeft = this.data.scrollInfo.subLeft;
+    let subHalfWidth = this.data.scrollInfo.subHalfWidth;
+    let prevDistance = this.data.scrollInfo.prevDistance;
+    let screenHalfwidth = this.data.scrollInfo.screenHalfwidth;
+ 
+    let needScroll = subLeft - screenHalfwidth + subHalfWidth;
+    let scrollLeft = needScroll + prevDistance;
+ 
+    this.setData({
+      scrollLeft: scrollLeft
+    })
+  },
+ 
+  //记录滚动的距离
+  scrollMove: function(e) {
+ 
+    let distance = e.detail.scrollLeft;
+    this.data.scrollInfo.prevDistance = distance
+  },
   
 
     
