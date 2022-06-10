@@ -3,11 +3,10 @@
 <view class="bg">
 <image class="bg" src="../../images/test/test1.jpeg"></image>
 <view class="container2" >
-
   <view class="list-body" >
     <van-row gutter="30" custom-class="Grid" catchtap="toTest">
   <van-col offset="2" span="20"><view class="card">
-  <createProcess processList="{{showProcessList}}" iconIndex="{{showIndex}}" ></createProcess>
+  <createProcess processList="{{processList}}" iconIndex="{{iconIndex}}" ></createProcess>
 
 </view>  </van-col>
 </van-row>
@@ -15,11 +14,24 @@
     <van-row gutter="30" custom-class="Grid" catchtap="toTest">
       <van-col offset="2" span="20">
           <view class="card2">
-
+          <view style="padding-top:50rpx">
+<van-circle class="item" value="{{ value }}" size="120" stroke-width="10" color="{{ gradientColor }}" text="500HZ" layer-color="#f7f6f6"  />
+          </view>
+    <text>频率</text>
+    <text>分贝</text>
+<button class="btn btn-grad8">
+</button>
+   <view class="content-play-progress">
+    <view>
+    <!-- 滑动选择器 -->
+    <slider  min="0" max="10" show-value activeColor="#83c6c2" block-size="12" backgroundColor="#dadada" value="0.5" ></slider>
+    </view>
+    </view>
+              <button class="button">听得见</button>
+<button class="button">听不见</button>
           </view>
      </van-col>
      </van-row>
-
 </view>
 </view>
 </view>

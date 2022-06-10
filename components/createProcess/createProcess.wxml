@@ -3,10 +3,8 @@
   <view class="order_process">
     <view class="process_wrap " wx:for="{{processList}}" wx:key="index">
       <view class="process" data-index="{{index}}">
-        <view class="process_line {{index==0?'bg-transparent':''}} {{index<iconIndex?'opacity10':'opacity5'}}"></view>
         <view
-          class="process_icon {{ index<iconIndex?'icon-active active-bg opacity10':'icon-noactive active-bg opacity5'}}">
-          {{index+1}}</view>
+          class="process_icon {{ index<iconIndex?'icon-active active-bg opacity10':'icon-noactive active-bg opacity5'}}">{{index+1}}</view>
         <view
           class="process_line {{index==processList.length-1?'bg-transparent':''}} {{index<iconIndex-1?'opacity10':'opacity5'}}">
         </view>

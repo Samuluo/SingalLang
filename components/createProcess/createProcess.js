@@ -6,11 +6,12 @@ Component({
   properties: {
     processList: {
       type: Array,
-      value: '',
+      observer:'loadFirst'
     },
     iconIndex: {
       type: String,
       value: '',
+      observer:'loadFirst'
     },
   },
 
@@ -25,5 +26,14 @@ Component({
    * 组件的方法列表
    */
   methods: {
+    loadFirst(v){
+      console.log(v)
+    }
+  },
+  lifetimes:{
+    ready:function(){
+    },
+    attached: function () {
+    },
   }
 })

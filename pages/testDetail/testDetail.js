@@ -5,7 +5,13 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    processList:['通知','调音','测试','结果'],
+    iconIndex:2,
+    value: 20,
+    gradientColor: {
+      '0%': '#c1f4f4',
+      '100%': '#83c6c2',
+    },
   },
 
   /**

@@ -1,17 +1,17 @@
 
 .entry-top{width: 100%;height: 250rpx;}
-.entry-top .order_process {display: flex;flex-wrap: nowrap;padding:48rpx 88rpx;}
+.entry-top .order_process {display: flex;flex-wrap: nowrap;padding:48rpx 48rpx;}
 .entry-top .process_wrap {display: flex;flex-direction: column;flex: 1;align-items: center;}
 .entry-top .process {display: flex;align-items: center;width: 100%;}
 .entry-top .process_icon {width: 50rpx;height: 50rpx;border-radius: 50%;line-height: 50rpx;text-align: center;border: 2rpx solid #fff;color: #fff;}
-.entry-top .process_line {background: #D60002;flex: 1;height: 5rpx;}
+.entry-top .process_line {background: #83c6c2;flex: 1;height: 5rpx; width:100rpx}
 .entry-top .process-opcity{opacity: 0.6;}
-.entry-top .process_name {font-size: 24rpx;color: #333333;opacity: 0.5;line-height: 60rpx;}
+.entry-top .process_name {font-size: 24rpx;color: #333333;opacity: 0.5;line-height: 60rpx; width:150rpx;  font-weight: bold}
 .entry-top .name-active{opacity: 1;}
 .entry-top .line-active{opacity: 1;}
-.entry-top .icon-active{background: #D60002;}
+.entry-top .icon-active{background: #83c6c2;}
 .entry-top .icon-noactive{background: transparent;}
 .opacity10{opacity: 1;}
 .opacity5{opacity: 0.5;}
 .bg-transparent {background: transparent !important;}
-.active-bg {background: #D60002 !important;}
+.active-bg {background: #83c6c2 !important;}
