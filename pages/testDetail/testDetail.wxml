@@ -7,6 +7,8 @@
   <view class="list-body" >
     <van-row gutter="30" custom-class="Grid" catchtap="toTest">
   <van-col offset="2" span="20"><view class="card">
+  <createProcess processList="{{showProcessList}}" iconIndex="{{showIndex}}" ></createProcess>
+
 </view>  </van-col>
 </van-row>
 

@@ -1,5 +1,7 @@
 {
   "usingComponents": {
+    "processBar": "../../../components/processBar/processBar",
+    "createProcess": "../../../components/createProcess/createProcess",
     "van-row": "@vant/weapp/row/index",
     "van-col": "@vant/weapp/col/index",
     "navigation-bar": "/components/navigation-bar-full/navigation-bar-full"
