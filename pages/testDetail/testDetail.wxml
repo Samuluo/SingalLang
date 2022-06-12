@@ -4,34 +4,136 @@
 <image class="bg" src="../../images/test/test1.jpeg"></image>
 <view class="container2" >
   <view class="list-body" >
-    <van-row gutter="30" custom-class="Grid" catchtap="toTest">
-  <van-col offset="2" span="20"><view class="card">
-  <createProcess processList="{{processList}}" iconIndex="{{iconIndex}}" ></createProcess>
+  <van-row gutter="30" custom-class="Grid" >
+    <van-col offset="2" span="20">
+    <view class="card">
+    <createProcess processList="{{processList}}" iconIndex="{{item+1}}" ></createProcess>
+    </view>  
+  </van-col>
+  </van-row>
+  </view>
+  
+</view>
+<view class="content">
+<!-- 滑块视图容器 current当前所在滑块的 index-->
+  <swiper current="{{item}}" >
+    
+    <swiper-item catchtouchmove='catchTouchMove' >
+    <!-- 跳转当前自己的文件 -->
+        <van-row gutter="30" custom-class="Grid" >
+      <van-col offset="2" span="20">
+          <view class="card2">
+          <view style=" margin:0 auto;text-align: center">
+          <text class="title">测试须知</text>
+          </view>
+          <text decode="{{true}}" class="desc">&nbsp;&nbsp;&nbsp;&nbsp;1.安全：<text decode="{{true}}" class="desc-r">请保证周围环境适合进行听力测试</text>，在进行听力测试前会进行调音，请确认自己的音量设置</text>
+          <text decode="{{true}}" class="desc">&nbsp;&nbsp;&nbsp;&nbsp;2.规则：系统会按序播放纯音频 <text decode="{{true}}" class="desc-r">(建议使用耳机,以区分左右耳,因此请多加注意音量问题)</text>，若您听得到音频声音则选择能听见，反之选择不听见</text>
+          <text decode="{{true}}" class="desc">&nbsp;&nbsp;&nbsp;&nbsp;3.说明：该测试是符合相关知识规范的简单测试，可在一定程度上检测听力受损问题。<text decode="{{true}}" class="desc-r">若您已经有严重的听力损伤问题或者根据该测试认为自己有听力问题，请前往相关诊疗所进行进一步体检</text></text>
+                      <view style="margin-top:40rpx;margin-left:100rpx" >
+              <button class="button" catchtap="nextStep" style="width:440rpx;margin:0 auto;text-align: center">我已认真阅读该须知</button>
+              </view>
+          </view>
+          
+     </van-col>
+     </van-row>
+    </swiper-item>
+        <swiper-item >
+        <van-row gutter="30" custom-class="Grid" >
+      <van-col offset="2" span="20">
+          <view class="card2">
+          <view style="padding-top:50rpx" class="item" >
+          <image  mode="scaleToFill" style="width: 100rpx;height:100rpx;margin-right:20rpx;margin-bottom:55rpx" src="../../images/test/RSS-L.png"></image>
+<van-circle value="{{ value }}" size="120" stroke-width="10" color="{{ gradientColor }}" text="测试音频" layer-color="#f7f6f6"  />
+         <image  mode="scaleToFill" style="width: 100rpx;height:100rpx;margin-left:20rpx;margin-bottom:55rpx"  src="../../images/test/RSS-R.png"></image>
+          </view>
+    <text style="display:block;margin:0 auto; text-align: center;margin-top:30rpx;">播放测试音频，<text decode="{{true}}" style="color:red">请注意音量</text></text>
+      <text style="padding-top:30rpx;display:block;margin:0 auto; text-align: center">建议系统音量:<text decode="{{true}}" style="color:red">50%</text></text>
 
-</view>  </van-col>
-</van-row>
-
-    <van-row gutter="30" custom-class="Grid" catchtap="toTest">
+<button class="btn btn-grad8">
+</button>
+   <view class="content-play-progress" style="margin-top:50rpx">
+    <view>
+    <!-- 滑动选择器 -->
+    <slider  min="0" max="10"  activeColor="#83c6c2" block-size="12" backgroundColor="#dadada" value="0.5" ></slider>
+    </view>
+    </view>
+              <view style="margin-top:60rpx;margin:0 auto;text-align: center;display:block">
+              <view>
+               <text decode="{{true}}" class="desc" style="display:inline-block;margin-left:110rpx">正在播放</text>
+               <image  mode="scaleToFill" style="width: 40rpx;height:40rpx;float:right;margin-right:30rpx"  src="../../images/test/replay.png"></image>
+              </view>
+              <button class="button" style="width:230rpx;margin-left:0rpx;margin-top:30rpx" catchtap="nextStep">开始测试</button>
+              </view>
+          </view>
+     </van-col>
+     </van-row>
+    </swiper-item>
+    <swiper-item >
+    <!-- 跳转当前自己的文件 -->
+          <van-row gutter="30" custom-class="Grid" >
+      <van-col offset="2" span="20">
+          <view class="card2">
+          <view style="padding-top:50rpx" class="item" >
+          <image  mode="scaleToFill" style="width: 100rpx;height:100rpx;margin-right:20rpx;margin-bottom:55rpx" src="../../images/test/RSS-L.png"></image>
+<van-circle value="{{ value }}" size="120" stroke-width="10" color="{{ gradientColor }}" text="测试音频" layer-color="#f7f6f6"  />
+         <image  mode="scaleToFill" style="width: 100rpx;height:100rpx;margin-left:20rpx;margin-bottom:55rpx"  src="../../images/test/RSS-R.png"></image>
+          </view>
+    <text style="margin-left:50rpx;margin-top:20rpx">频率500Hz</text>
+    <text style="float:right;margin-right:50rpx">分贝10DB</text>
+<button class="btn btn-grad8">
+</button>
+   <view class="content-play-progress" style="margin-top:50rpx">
+    <view>
+    <!-- 滑动选择器 -->
+    <slider  min="0" max="10"  activeColor="#83c6c2" block-size="12" backgroundColor="#dadada" value="0.5" ></slider>
+    </view>
+    </view>
+              <view style="margin:0 auto;text-align: center;display:block">
+               <text decode="{{true}}" class="desc" style="display:inline-block;margin-left:110rpx">正在播放</text>
+               <image  mode="scaleToFill" style="width: 40rpx;height:40rpx;float:right;margin-right:30rpx"  src="../../images/test/replay.png"></image>
+              </view>
+              <view style="margin-top:100rpx">
+              <button class="button">能听见</button>
+              <button class="button">听不见</button>
+              </view>
+          </view>
+     </van-col>
+     </van-row>
+    </swiper-item>
+        <swiper-item catchtouchmove='catchTouchMove'>
+        <van-row gutter="30" custom-class="Grid" >
       <van-col offset="2" span="20">
           <view class="card2">
           <view style="padding-top:50rpx">
 <van-circle class="item" value="{{ value }}" size="120" stroke-width="10" color="{{ gradientColor }}" text="500HZ" layer-color="#f7f6f6"  />
           </view>
-    <text>频率</text>
-    <text>分贝</text>
+    <text style="margin-left:50rpx">频率500Hz</text>
+    <text style="float:right;margin-right:50rpx">分贝10DB</text>
 <button class="btn btn-grad8">
 </button>
-   <view class="content-play-progress">
+   <view class="content-play-progress" style="margin-top:50rpx">
     <view>
     <!-- 滑动选择器 -->
     <slider  min="0" max="10" show-value activeColor="#83c6c2" block-size="12" backgroundColor="#dadada" value="0.5" ></slider>
     </view>
     </view>
+    <text style="margin-top:50rpx;display:block;margin:0 auto; text-align: center">继续播放</text>
+              <view style="margin-top:50rpx">
               <button class="button">听得见</button>
-<button class="button">听不见</button>
+              <button class="button">听不见</button>
+              </view>
           </view>
      </van-col>
      </van-row>
-</view>
+    </swiper-item>
+    <swiper-item catchtouchmove='catchTouchMove'>
+        <van-row gutter="30" custom-class="Grid" >
+      <van-col offset="2" span="20">
+          <view class="card2">
+          </view>
+     </van-col>
+     </van-row>
+    </swiper-item>
+  </swiper>
 </view>
 </view>

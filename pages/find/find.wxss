@@ -3,7 +3,7 @@ Page{
   background-color: #f7f6f6;
 }
 .Grid{
-  margin-top: 150rpx;
+  margin-top: 100rpx;
 }
 .title {
   font-size: 50rpx;

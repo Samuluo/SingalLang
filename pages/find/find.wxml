@@ -16,8 +16,22 @@
       <text  class="desc">各类舒耳音乐</text>
         <image
       mode="scaleToFill"
-      style="width: 210rpx; height: 230rpx;float:right;float:bottom;margin-top:15rpx;margin-right:0rpx"
+      style="width: 200rpx; height: 220rpx;float:right;float:bottom;margin-top:15rpx;margin-right:10rpx"
       src="../../images/music.png"
     />
 </view>  </van-col>
+
+</van-row>
+  <van-row gutter="30" custom-class="Grid" catchtap="toDraw">
+  <van-col offset="2" span="10"><view class="card">
+     <text  class="title">画板</text>
+         <text  class="desc">以画代声</text>
+          <image
+      mode="scaleToFill"
+      style="width: 180rpx; height: 210rpx;float:right;float:bottom;margin-top:15rpx;margin-right:15rpx"
+      src="../../images/draw.png"
+    />
+</view>  </van-col>
+
+
 </van-row>

@@ -16,6 +16,7 @@
   color: #333;
   margin-left: 30rpx;
   margin-top: 300rpx;
+
 }
 
 .card{
@@ -36,11 +37,19 @@
  }
  .desc{
   color: rgb(143, 140, 140);
-  font-size: 26rpx;
+  font-size: 28rpx;
   margin-top: 20rpx;
   margin-left: 30rpx;
-  letter-spacing: 2rpx;
-  display:block
+  margin-right: 30rpx;
+  letter-spacing: 3rpx;
+  display:block;
+  line-height: 40rpx;
+}
+.desc-r{
+  color: red;
+  font-size: 28rpx;
+  letter-spacing: 3rpx;
+  line-height: 40rpx;
 }
 .item{
   color: rgb(143, 140, 140);
@@ -52,11 +61,11 @@
   text-align: center
 }
 .content-play-progress{
- 
+  text-align: center;
   align-items: center;
   margin: 0 35rpx;
   font-size: 9pt;
-  text-align: center;
+
 }
  .button {
     width: 100px;
@@ -75,14 +84,21 @@
     text-indent: 5px;
     box-shadow: 0px 3px 0px 0px rgba(0,0,0,.2);
     cursor: pointer;
-  
+    display: inline-block;
   /* Just for presentation */  
-    display: block;
-    margin: 0 0 0 12px;
+    
+    margin: 0 0 0 70rpx;
   }
   .button:active {
     box-shadow: 0px 2px 0px 0px rgba(0,0,0,.2);
     top: 1px;
   }
   
-  
+  .content{
+    flex:1;
+    height: 100%;
+  }
+  .content > swiper{
+      /* 宽度给其自适应 */
+    height: 100%;
+  }

@@ -152,6 +152,12 @@
 					"pathName": "pages/testDetail/testDetail",
 					"query": "",
 					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/find/find",
+					"pathName": "pages/find/find",
+					"scene": null
 				}
 			]
 		}

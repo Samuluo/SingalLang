@@ -12,8 +12,19 @@ Page({
       '0%': '#c1f4f4',
       '100%': '#83c6c2',
     },
+    item:0
   },
+  catchTouchMove:function(res){
 
+    return false
+  
+  },
+  nextStep:function(res){
+    var that = this
+    that.setData({
+      item:that.data.item+1
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */

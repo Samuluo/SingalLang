@@ -23,6 +23,11 @@ Page({
       url: '/pages/testE/testE',
     })
   },
+  toDraw:function(e){
+    wx.navigateTo({
+      url: '/pages/draw/draw',
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
