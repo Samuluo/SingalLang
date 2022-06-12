@@ -1,5 +1,7 @@
 /* pages/test/test.wxss */
-
+page{
+  background-color: #f7f6f6;
+}
 .container2{
   min-height: 100vh;
   background-color: #f7f6f6;

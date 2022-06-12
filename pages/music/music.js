@@ -66,9 +66,6 @@ Page({
   sliderChange:function(e){
     var that = this
     var second=e.detail.value *this.audioCtx.duration / 100
-    console.log(e)
-    console.log(this.audioCtx.duration)
-    console.log(second)
     //跳到指定位置
     this.audioCtx.pause()
     this.audioCtx.seek(second)
@@ -114,6 +111,7 @@ Page({
     }
     this.audioCtx.onPlay(function(){})
     this.audioCtx.onTimeUpdate(function(){
+      console.log('hi')
       that.setData({
         //获取总时间
         'play.duration':formatTime(that.audioCtx.duration),

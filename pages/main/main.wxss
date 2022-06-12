@@ -98,13 +98,13 @@ page{
   font-size: 34rpx;
   font-weight: 600;
   color: #333;
-  margin-bottom: 10rpx;
+  margin-bottom: 20rpx;
   margin-left: 30rpx;
 }
 
 .post-image{
 
-  width: 60%;
+  width: 80%;
   height: 300rpx;
 
   margin: 0 auto;
@@ -114,6 +114,7 @@ page{
 .post-content{
   color: #666;
   font-size: 28rpx;
+  margin-top: 20rpx;
   margin-bottom: 20rpx;
   margin-left: 20rpx;
   letter-spacing: 2rpx;

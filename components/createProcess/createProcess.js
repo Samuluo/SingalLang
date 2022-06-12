@@ -27,7 +27,7 @@ Component({
    */
   methods: {
     loadFirst(v){
-      console.log(v)
+
     }
   },
   lifetimes:{

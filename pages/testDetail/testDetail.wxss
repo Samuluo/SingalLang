@@ -60,6 +60,17 @@
   margin:0 auto; 
   text-align: center
 }
+.item2{
+  color: rgb(143, 140, 140);
+  font-size: 40rpx;
+  font-weight: bold;
+  letter-spacing: 2rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin:0 auto; 
+  text-align: center
+}
 .content-play-progress{
   text-align: center;
   align-items: center;
