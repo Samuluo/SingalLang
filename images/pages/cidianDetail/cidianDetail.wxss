@@ -1,0 +1,92 @@
+/* pages/cidianDetail/cidianDetail.wxss */
+.cidianpicture {
+  left: 28rpx;
+  top: 192rpx;
+  width:80%;
+  height: 300rpx;
+}
+.cidianname {
+  left: 108px;
+  top: 96px;
+  width: 156px;
+  height: 26px;
+  color: #101010 100%;
+  font-size: 18px;
+  text-align: left;
+  font-family: PingFangSC-regular;
+}
+/*横向布局  */
+.layout_horizontal{
+  display: flex;
+  /*row 横向  column 列表  */
+  flex-direction: row;
+  position: relative;
+}
+.layout_horizontal2{
+  display: flex;
+  /*row 横向  column 列表  */
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+/*纵向布局  */
+.layout_vertical{
+  height: 360rpx;
+  display: flex;
+  /*row 横向  column 列表  */
+  flex-direction: column;
+}
+ 
+/*划线  */
+.line {
+   background-color: blue;
+   height: 2rpx;
+   width: 100%;
+}
+
+.cidian-adjust{
+  
+  margin-top: 20rpx;
+  width: 80% ;
+  text-align: center;
+  align-self: center; 
+  margin-bottom: 20rpx;
+  margin-left: 10%;
+
+}
+.selectcidian {
+  width: auto;
+  text-align: center;
+  align-self: center;
+  margin-bottom: 20rpx;
+  background: #F1FBF2;
+  border: 1rpx solid #46CA53;
+}
+.danci-records {
+  margin-top: 10rpx;
+  width: auto;
+  background: #F1FBF2;
+}
+.danci {
+  background: white;
+  flex-direction: column;
+  width: 80%;
+  margin-left: 10%;
+  border: 1rpx solid #46CA53;
+  padding-top: 20rpx;
+  padding-bottom: 20rpx;
+}
+.danci-time {
+  height: 30px;
+  width: 40%;
+  padding-right: 20rpx;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  line-height: 20px;
+  text-align: center;
+  background: #9EDDB2;
+  color: #fff;
+  border-bottom-right-radius: 10px; 
+  border-top-right-radius: 10px; 	
+  font-size: 14px;
+}
+@import 'cidianDetail-wxa-auto-dark.wxss'

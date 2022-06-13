@@ -5,6 +5,8 @@ Page({
    * 页面的初始数据
    */
   data: {
+    testListL2:[],
+    testListR2:[],
     testListL:[
       {
         Hz:'250',
@@ -221,7 +223,24 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady:function(){
+    var that = this
     //获取音频播放对象
+        wx.request({
+      url: 'https://bewcf.info/listen/getListeningTest',
+      method:'GET',
+      success: (res) => {
+        for (var i in res.data) {
+          if(i=='250'||i=='500'||i=='1000'||i=='2000'||i=='3000'||i=='4000'){
+            that.data.testListR2.push(res.data[i])
+          }
+          if(i=='250R'||i=='500R'||i=='1000R'||i=='2000R'||i=='3000R'||i=='4000R'){
+            that.data.testListL2.push(res.data[i])
+          }
+        }
+        console.log(that.data.testListL2)
+        console.log(that.data.testListR2)
+      }
+    })
   },
   audioCtx:null,
   beginTest:function(){
@@ -239,18 +258,33 @@ Page({
  setMusic:function(){
    var that = this
    if(this.data.earIndex==0){
-  var music=this.data.testListL[this.data.testIndex].DB[this.data.DBIndex]
+     var music=this.data.testListL2[this.data.testIndex][this.data.DBIndex].url
    }else{
-    var music=this.data.testRistL[this.data.testIndex].DB[this.data.DBIndex]
+    var music=this.data.testListR2[this.data.testIndex][this.data.DBIndex].url
    }
+   console.log(that.data.testIndex)
+   if(that.data.testIndex==0){
+     var Hz = 250
+   }else if(that.data.testIndex==1){
+    var Hz = 500
+  }else if(that.data.testIndex==2){
+    var Hz = 1000
+  }else if(that.data.testIndex==3){
+    var Hz = 2000
+  }else if(that.data.testIndex==4){
+    var Hz = 3000
+  }
+  else if(that.data.testIndex==5){
+    var Hz = 4000
+  }
    var DB = that.data.DBIndex*10+10
-  console.log(music.test)
-  this.audioCtx.src=music.test
+  console.log(music)
+  this.audioCtx.src=music
   that.setData({
     "play.currentTime":'00:00',
     "play.duration":'00:00',
     "play.percent":0,
-    "play.Hz":that.data.testListL[that.data.testIndex].Hz,
+    "play.Hz":Hz,
     "play.DB":DB
   })
   console.log(that.data.play)
@@ -278,19 +312,73 @@ Page({
         })
       })
   },
-  // 播放列表中的换曲功能
-  change:function(e){
-    if(e.currentTarget.dataset.index!=this.data.playIndex)
-    {
-    console.log("hi")
+  canHear:function(e){
     var that = this
-    this.setMusic(e.currentTarget.dataset.index);
-    setTimeout(function () {
-      that.play()
-    }, 700)
-   }
+    if(that.data.testIndex==5){
+        if(that.data.earIndex==0){
+          that.data.resultList.push(that.data.DBIndex)
+          that.setData({
+          //获取总时间
+          'earIndex':1,
+          'testIndex':0,
+          'DBIndex':0,
+          })
+        }else{
+          that.data.resultList.push(that.data.DBIndex)
+          console.log( that.data.resultList)
+          this.nextStep()
+        }
+      }else{
+        that.data.resultList.push(that.data.DBIndex)
+        that.setData({
+        //获取总时间
+        'testIndex':that.data.testIndex+1,
+        'DBIndex':0,
+        })
+      }
+      this.setMusic()
+    },
+  cantHear:function(e){
+    var that = this
+    if(that.data.DBIndex==8){
+      if(that.data.testIndex==5){
+        if(that.data.earIndex==0){
+          that.data.resultList.push(that.data.DBIndex)
+          that.setData({
+          //获取总时间
+          'earIndex':1,
+          'testIndex':0,
+          'DBIndex':0,
+          })
+        }else{
+          that.data.resultList.push(that.data.DBIndex)
+          console.log( that.data.resultList)
+          this.nextStep()
+        }
+      }else{
+        that.data.resultList.push(that.data.DBIndex)
+        that.setData({
+        //获取总时间
+        'testIndex':that.data.testIndex+1,
+        'DBIndex':0,
+        })
+      }
+    }else{
+      that.setData({
+      //获取总时间
+        'DBIndex':that.data.DBIndex+1,
+      })
+    }
+    this.setMusic()
   },
-
+  // 播放列表中的换曲功能
+  replay:function(e){
+    this.audioCtx.pause()
+    this.audioCtx.seek(0)
+    setTimeout(() => {
+      this.play()
+    }, 500); 
+  },
   /**
    * 生命周期函数--监听页面显示
    */

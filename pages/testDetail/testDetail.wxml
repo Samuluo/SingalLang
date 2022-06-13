@@ -60,7 +60,7 @@
               <view style="margin-top:60rpx;margin:0 auto;text-align: center;display:block">
               <view>
                <text decode="{{true}}" class="desc" style="display:inline-block;margin-left:110rpx">正在播放</text>
-               <image  mode="scaleToFill" style="width: 40rpx;height:40rpx;float:right;margin-right:30rpx"  src="../../images/test/replay.png"></image>
+               <image  mode="scaleToFill" catchtap="replay" style="width: 40rpx;height:40rpx;float:right;margin-right:30rpx"  src="../../images/test/replay.png"></image>
               </view>
               <button class="button" style="width:230rpx;margin-left:0rpx;margin-top:30rpx" catchtap="beginTest">开始测试</button>
               </view>
@@ -91,7 +91,7 @@
               <view style="margin:0 auto;text-align: center;display:block">
                <text decode="{{true}}" class="desc" style="display:inline-block;margin-left:110rpx">正在播放</text>
                <text>{{play.duration}}</text>
-               <image  catchtap="" mode="scaleToFill" style="width: 40rpx;height:40rpx;float:right;margin-right:30rpx"  src="../../images/test/replay.png"></image>
+               <image  catchtap="replay" mode="scaleToFill" style="width: 40rpx;height:40rpx;float:right;margin-right:30rpx"  src="../../images/test/replay.png"></image>
               </view>
               <view style="margin-top:100rpx">
               <button class="button" catchtap="canHear">能听见</button>

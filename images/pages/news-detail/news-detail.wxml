@@ -1,0 +1,19 @@
+<navigation-bar default-data="{{defaultData}}" ></navigation-bar>
+<view class="detail-container">
+  <image class="head-image" src="{{des.imgUrl}}"></image>
+  <view class="author-date">
+    <text class="author">新华网</text>
+    <text class="const-text">发表于</text>
+    <text class="date">{{des.time}}</text>
+      <image class="avatar" catchtap="star" src="{{isStar==false?'../../images/star2.png':'../../images/star1.png'}}"></image>
+  </view>
+  <text class="title">{{des.title}}</text>
+  <view class="tool">
+    <view class="circle-img">
+      <image src=""></image>
+      <image class="share-img" src=""></image>
+    </view>
+    <view class="horizon"></view>
+  </view>
+  <text class="detail">{{des.content}}</text>
+</view>

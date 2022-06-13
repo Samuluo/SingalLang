@@ -1,0 +1,145 @@
+<!--pages/test/test.wxml-->
+<navigation-bar default-data="{{defaultData}}" show="{{tabshow}}"></navigation-bar>
+<view class="container3">
+
+<view class="container2">
+
+  <view class="list-body">
+  <van-row>
+
+  <van-col span="22">   <van-search
+  value="{{ value }}"
+  disabled
+  shape="round"
+  input-class="serach-input"
+  custom-class="search-button"
+  background="rgba(241, 251, 242, 100);"
+  placeholder="查词"
+  bind:click-input="search"
+/></van-col>
+  <van-col span="2">
+      <image style="width: 40rpx; height: 40rpx;margin-top:10rpx" catchtap="showCalendar" mode="scaleToFill" src="../../images/calendar.png"></image>
+  </van-col>
+</van-row>
+      <view class="flex-wrp" style="flex-direction:row;">
+      <view class="item"><van-card
+          thumb="{{plan.dictionary.imgUrl}}" catchtap="cidianDetail" data-item="{{plan}}"
+          custom-class="card"
+          >
+
+          <view slot="title" style="margin-top:10rpx;margin-left:10rpx">
+          <text class="title">{{plan.dictionary.name}}</text>
+          <van-button plain wx:if="{{planN==0}}" type="primary" color="#83c6c2" style="float:right;margin-right:5rpx" size="small" data-item="{{plan}}"catchtap="addplan">添加计划</van-button>
+          <van-button plain wx:if="{{planN!=0}}" type="primary" color="#83c6c2" style="float:right;margin-right:5rpx" size="small" data-item="{{plan}}"catchtap="adjust">调整计划</van-button>
+          </view>
+          <view slot="desc" style="margin-top:20rpx;margin-left:5rpx" wx:if="{{planN!=0}}">
+          <text class="desc" >每日{{plan.amount}}词，剩余{{needday}}天</text>  
+          <progress percent="{{plan.learnedNumber*100/plan.totalNumber}}" active  color="#83c6c2 " stroke-width="3" />
+          </view>
+          <view slot="bottom" style="margin-left:5rpx" wx:if="{{planN!=0}}">
+           <text class="bottom-desc"  style="margin-top:15rpx;float:left">已学单词</text>
+           <text class="bottom-desc"  style="margin-top:15rpx;float:right">{{plan.totalNumber}}</text>
+           <text class="bottom-desc"  style="margin-top:15rpx;float:right">/</text>
+           <text class="bottom-desc"  style="margin-top:15rpx;float:right">{{plan.learnedNumber}}</text>
+          </view>
+          </van-card>
+          <view class="divLine"></view>
+          <view wx:if="{{finish==0&&planN!=0}}">
+          <view style="margin-left:36rpx;margin-top:20rpx;font-weight:bold">今日计划</view>
+          <view style="margin-left:36rpx;margin-top:20rpx;font-size:18rpx"><text style="font-weight:normal;font-size:25rpx;"  >未完成</text><text style="font-weight:normal;font-size:25rpx;margin-left:200rpx"  >已完成</text></view>
+          <view style="margin-left:40rpx;margin-top:20rpx"><text style="font-weight:bold;font-size:90rpx;font-style:italic">{{plan.todayAmount-todayLearned}}</text><text style="font-weight:bold;font-size:40rpx;margin-left:20rpx">词</text><text style="font-weight:bold;font-size:90rpx;font-style:italic;margin-left:110rpx">{{todayLearned}}</text><text style="font-weight:bold;font-size:40rpx;margin-left:20rpx">词</text></view>
+          <view style="margin-left:20rpx;margin-top:20rpx;margin-bottom:20rpx;margin-right:20rpx"> <van-button round type="info" style="width:90%;margin-top:50rpx" catchtap="beginLearn" color="#83c6c2" block>开始学习</van-button></view>
+          </view>
+          <view wx:if="{{finish==1&&planN!=0}}">
+          <view style="margin-left:36rpx;margin-top:20rpx"><text style="font-weight:bold">{{Year}}年{{Month}}月{{Day}}日</text> <text style="font-weight:normal;margin-left:50rpx;font-size:25rpx">已连续打卡{{continCard}}天</text></view>
+          <view style="margin-left:60rpx;margin-top:30rpx;"><text style="font-weight:bold;font-size:65rpx;font-style:italic;text-align:center"  >今日计划已完成!</text></view>
+          <view style="margin-left:20rpx;margin-top:60rpx;margin-bottom:20rpx;margin-right:20rpx"> <van-button round style="margin-left:5rpx;"  custom-class="button2" type="info"  size="normal" color="#83c6c2" catchtap="add">加量学习</van-button> <van-button round type="info" style="margin-right:5rpx;float:right"  custom-class="button2" size="normal" color="#9EDDB2" catchtap="getCard" >打卡分享</van-button></view>
+          </view>
+          </view>
+      </view>
+      <view>
+        <view class="container-footer" style="width: 100%;margin-top: 50rpx;">
+          <text bindtap="fighteveryday" style="background-color: {{color1}};color:#ffffff;font-weight: bold">随机挑战</text>
+          <text bindtap="wordtrain" style="background-color: {{color2}};color:#ffffff;font-weight: bold">单词训练</text>
+          <text bindtap="vocabularytext" style="background-color: {{color3}};color:#ffffff;font-weight: bold">词量测试</text>
+          </view>
+          <view class="dancieveryday" style="margin-bottom:50rpx">
+            <van-row>
+              <van-col span="17">  <text style="font-size: 30rpx;color: #101010;margin-left: 30rpx;">根据图片，选择正确的答案</text>
+              </van-col>
+              <van-col span="6">
+                <view class="" bindtap="exchangeword">
+              <text style="font-size: 28rpx;color: #101010;margin-left: 10rpx;"></text>
+              <van-icon name="exchange" style="margin-left: 50rpx;" />
+            </view>
+              </van-col>
+            </van-row>
+           <van-row >
+            <image style="width: 450rpx; height: 300rpx; background-color: #eeeeee;margin-left:100rpx;margin-top:50rpx" mode="scaleToFill" src="{{todayword.imgUrl}}"></image>
+           </van-row>
+           <view style="margin-top: 50rpx;">
+           <van-row gutter="20" >
+            <van-col span="10" offset="4">
+              <van-button round  custom-class="{{button1}}" color="{{Acolor1}}" data-button="button1" catchtap="answer" data-answer="{{answerpool[0]}}"   size = "small">{{answerpool[0]}}</van-button>
+            </van-col>
+            <van-col span="10"><van-button  round custom-class="{{button2}}" color="{{Acolor2}}" data-button="button2" catchtap="answer" data-answer="{{answerpool[1]}}"   size = "small">{{answerpool[1]}}</van-button></van-col>
+           </van-row>
+           </view>
+           <view style="margin-top: 40rpx;"> 
+            <van-row gutter="20">
+            <van-col span="10" offset="4"><van-button round custom-class="{{button3}}" color="{{Acolor3}}" data-button="button3" catchtap="answer" data-answer="{{answerpool[2]}}"   size = "small">{{answerpool[2]}}</van-button></van-col>
+            <van-col span="10"><van-button  round custom-class="{{button4}}" color="{{Acolor4}}" data-button="button4" catchtap="answer" data-answer="{{answerpool[3]}}"   size = "small">{{answerpool[3]}}</van-button></van-col>
+          </van-row>
+           </view>
+          
+          </view>
+      </view>
+  </view>
+</view>
+</view>
+  <van-dialog
+  use-slot
+  title="选择加词量"
+  show="{{ show }}"
+  show-cancel-button
+  confirm-button-open-type="getSubmit"
+  bind:close="onClose"
+  bind:confirm="getSubmit"
+>
+<view class="container" >
+	<view class="container-body space-content" style="width: 100%; align-items: center;">
+
+	  <view class="cidian-adjust" style="align-items: center;">
+
+			<van-picker show-toolbar custom-class="selectcidian"
+  title="" columns="{{ columns }}" bind:change="onChange" confirm-button-text="" cancel-button-text=""/>
+  
+	  </view>
+	 
+	</view>
+	<!-- <view class="container-footer">
+		<text>每日挑战</text>
+		<text bindtap="reserveHandle">单词训练</text>
+		<text class="apply-btn" bindtap="goApply">词量测试</text>
+	</view> -->
+</view>
+</van-dialog>
+<van-popup
+  show="{{cardshow}}"
+  closeable
+  close-icon-position="top-left"
+  position="bottom"
+  custom-style="height: 100%"
+  bind:close="cardClose"
+>
+<calendar  userId="{{userId}}"/>
+
+<van-share-sheet
+  show="{{ showShare }}"
+  title="立即分享给好友"
+  options="{{ options }}"
+  bind:select="shareSelect"
+  bind:close="shareClose"
+/>
+<van-button type="info" block bind:click="onShare" custom-class="bottom-button">分享</van-button>
+</van-popup>

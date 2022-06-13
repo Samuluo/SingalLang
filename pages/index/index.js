@@ -1,4 +1,4 @@
-const utils = require('../../utils/utils.js')
+const utils = require('../../utils/util.js')
 Page({
   onLoad () {
     let timer = setTimeout(() => {

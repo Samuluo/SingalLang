@@ -1,0 +1,53 @@
+/* pages/mine/mine.wxss */
+.userinfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #aaa;
+}
+
+.userinfo-avatar {
+  overflow: hidden;
+  width: 128rpx;
+  height: 128rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+}
+
+.usermotto {
+  margin-top: 200px;
+}
+/*容器类*/
+.mine-top,.mine-block{
+  padding: 20rpx;
+  padding-bottom: -14%;
+	background: #A8E9BD;
+  margin-bottom: 80rpx;
+  height: 80%;
+  border-bottom: 1rpx solid #F1FBF2;
+	border-bottom-right-radius: 40px; 
+  border-bottom-left-radius: 40px;
+	flex-direction: row;
+}
+
+.box{
+  width:90%;
+  height: 500rpx;
+  border:4px double seagreen;
+  margin-left: 5%;
+  float: left;
+}
+
+.userinfo-avatar2 {  
+  overflow:hidden;  
+  display: block;  
+  width: 160rpx;  
+  height: 160rpx;  
+  margin: 20rpx;  
+  margin-top: 110rpx;  
+  border-radius: 20rpx;  
+  border: 2px solid #fff;  
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2); 
+}  
+
+@import 'mine-wxa-auto-dark.wxss'

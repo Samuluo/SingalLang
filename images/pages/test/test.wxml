@@ -1,0 +1,3 @@
+<!--pages/test/test.wxml-->
+<navigation-bar default-data="{{defaultData}}"></navigation-bar>
+

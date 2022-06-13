@@ -1,0 +1,57 @@
+/* pages/word-detail/word-detail.wxss */
+.bg{
+  background-color: #F1FBF2;
+  min-height: 100vh;
+}
+.top{
+  background-color: #FFFFFF;
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+.top-first{
+  margin-top: 20rpx;
+  margin-right: 40rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+  background-color: #ffffff;
+  height:90rpx;
+}
+.top-first-item{
+  margin-left: 40rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+  background-color: #ffffff;
+  height:70rpx;
+  font-size:26rpx
+}
+.top2{
+  background-color: #FFFFFF;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+.content{
+  margin-top: 50rpx;
+  background-color: #F1FBF2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+.div{
+  width:75%;
+  height:2rpx;
+  border-top:2rpx solid #ccc;
+}

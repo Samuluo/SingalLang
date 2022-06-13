@@ -1,0 +1,61 @@
+<!--pages/cidianDetail/cidianDetail.wxml-->
+<navigation-bar default-data="{{defaultData}}"></navigation-bar>
+<view class="container" >
+	<view class="container-body space-content" style="width: 100%; align-items: center;">
+	  <view class="cidian-top">
+	  	<view class="cidian-banner" >
+				<view class="layout_horizontal">  				
+						<image src="{{plan.dictionary.imgUrl}}" mode="aspectFill" class="cidianpicture"/>
+						<view class="layout_vertical" style="margin-left: 40rpx;">
+							<view class="cidianname" >{{plan.dictionary.name}} </view>
+              <view  style="font-size:14px;text-align: end;">{{plan.dictionary.totalNumber}} 词</view>
+							<view style="font-size:14px;margin-top: 14px;" >{{plan.dictionary.description}}</view>
+						</view>
+				</view>
+	  	  
+	  	</view>
+	  </view>
+    <view class="danci-records">
+    <view class="container-footer" style="margin-left: 10%;">
+		<text bindtap="studied" style="background-color: {{color1}};">已学单词</text>
+		<text bindtap="mistaked" style="background-color: {{color2}};">已错单词</text>
+		<text bindtap=notstudy" style="background-color: {{color3}};">未学单词</text>
+	  </view>
+		<view class="danci" wx:if="{{wordList2!=null}}">
+			<view class="layout_horizontal2" >
+				<view wx:for="{{wordList2}}" style="width: 45%; position: relative;">
+				<view class="layout_horizontal" style="width: 100%;margin-left: 10%;">
+      	<view style="margin-top: 10rpx;">
+      		<text style="font-size:20px;width: 60px;position:absolute;">{{item.answer}}</text>
+					<van-icon name="description" custom-style="margin-left:100%;position:absolute;" size="20px" bindtap="getdetail" data-item="{{item.id}}"/>
+      		<van-icon name="star-o" custom-style="margin-left:140%;position:absolute;" size="20px" bindtap="setStar" data-item="{{item.id}}" />
+					<van-icon wx:if="{{item.isStar==true}}"   name="star" color="orange" custom-style="margin-left:140%;position:absolute;" size="20px" bindtap="setNotStar" data-item="{{item.id}}"/>
+				</view>
+    	</view>
+			</view>
+    </view>
+		</view>
+		<view class="danci" wx:for="{{countArr}}" wx:if="{{wordList2==null&&wordList==null}}"> 
+			<text style="text-align: center;">这个部分还没有单词哦</text>
+		</view>
+    <view class="danci" wx:for="{{countArr}}" wx:if="{{wordList2==null}}"> 
+    	<text class="danci-time">{{dateArr[item]}}</text>
+			<view class="layout_horizontal2">
+				<view wx:for="{{nameArr[item]}}" style="width: 45%; position: relative;">
+				<view class="layout_horizontal" style="width: 100%;margin-left: 10%;">
+      	<view style="margin-top: 10rpx;">
+      		<text style="font-size:20px;width: 60px;position:absolute;">{{item.word.answer}}</text>
+					<van-icon name="description" custom-style="margin-left:100%;position:absolute;" size="20px" bindtap="getdetail" data-item="{{item.wordId}}"/>
+      		<van-icon name="star-o" custom-style="margin-left:140%;position:absolute;" size="20px" bindtap="setStar" data-item="{{item.wordId}}" />
+					<van-icon wx:if="{{item.isStar==true}}"   name="star" color="orange" custom-style="margin-left:140%;position:absolute;" size="20px" bindtap="setNotStar" data-item="{{item.wordId}}"/>
+				</view>
+    	</view>
+			</view>
+    </view>
+			</view>
+  </view>
+	</view>
+  
+	
+</view>
+

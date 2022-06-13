@@ -1,0 +1,80 @@
+/* pages/test/test.wxss */
+page{
+  background-color: #f7f6f6;
+}
+.container2{
+  background-color:#f7f6f6;
+  padding: 20rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+.container3{
+  min-height: 95vh;
+  background-color:#f7f6f6;
+  height: 100%;
+}
+.item{
+  margin-top: 50rpx;
+}
+
+.list-body{
+  margin-top: 10rpx;
+  height: 100%;
+  width: 90%;
+}
+.title{
+  font-weight: bold;
+  font-size: 30rpx;
+}
+
+.desc{
+  font-weight: normal;
+  font-size: 25rpx;
+  display: flex;
+  margin-bottom: 20rpx;
+  flex-direction: column; /**子元素上下排列*/
+}
+.bottom-desc{
+  font-weight: lighter;
+  font-size: 25rpx;
+}
+.top-left{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+  background-color: #ffffff;
+  height:90rpx;
+  font-size:26rpx
+}
+.top-right{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+  background-color: #ffffff;
+  height:90rpx;
+}
+.top-left2{
+  margin-left: 40rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+  background-color: #ffffff;
+  height:70rpx;
+  font-size:26rpx
+}
+.right:focus {
+  color: rgb(79, 134, 253);
+
+}
+.wrong:foucs {
+  color: rgb(253, 79, 79);
+}

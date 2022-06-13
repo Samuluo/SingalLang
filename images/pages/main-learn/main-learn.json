@@ -1,0 +1,24 @@
+{
+  "usingComponents": {
+    "van-button": "@vant/weapp/button/index",
+    "van-card": "@vant/weapp/card/index",
+    "van-progress": "@vant/weapp/progress/index",
+    "van-icon": "@vant/weapp/icon/index",
+    "van-row": "@vant/weapp/row/index",
+    "van-col": "@vant/weapp/col/index",
+    "van-search": "@vant/weapp/search/index",
+    "van-dialog": "@vant/weapp/dialog/index",
+    "van-picker": "@vant/weapp/picker/index",
+    "van-calendar": "@vant/weapp/calendar/index",
+    "van-overlay": "@vant/weapp/overlay/index",
+    "van-share-sheet": "@vant/weapp/share-sheet/index",
+    "van-popup": "@vant/weapp/popup/index",
+    "calendar":"/components/calendar/calendar",
+    "van-cell": "@vant/weapp/cell/index",
+    "navigation-bar": "/components/navigation-bar/navigation-bar"
+  },
+  "navigationBarBackgroundColor": "#83c6c2",
+  "navigationBarTextStyle": "black",
+  "navigationBarTitleText": "声笙慢",
+  "navigationStyle":"custom"
+}

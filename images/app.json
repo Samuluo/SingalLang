@@ -1,0 +1,73 @@
+{
+  "pages": [
+    "pages/music/music",
+    "pages/music-playlist/music-playlist",
+    "pages/music-play/music-play",
+    "pages/music-info/music-info",
+    "pages/main/main",
+    "pages/main-learn/main-learn",
+    "pages/mine/mine",
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/adjustPlan/adjustPlan",
+    "pages/cidianDetail/cidianDetail",
+    "pages/switch-plan/switch-plan",
+    "pages/add-plan/add-plan",
+    "pages/learn-word/learn-word",
+    "pages/word-detail/word-detail",
+    "pages/search/search",
+    "pages/dictionary/dictionary",
+    "pages/wrong-learn/wrong-learn",
+    "pages/calendar/calendar",
+    "pages/find/find",
+    "pages/voice-translation/voice-translation",
+    "pages/news-detail/news-detail",
+    "pages/test/test"
+  ],
+  "window": {
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#83c6c2",
+    "navigationBarTitleText": "声笙慢",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/main/main",
+        "text": "首页",
+        "iconPath": "images/home.png",
+        "selectedIconPath": "images/homes.png"
+      },
+      {
+        "pagePath": "pages/main-learn/main-learn",
+        "text": "手语",
+        "iconPath": "images/hand.png",
+        "selectedIconPath": "images/hands.png"
+      },
+      {
+        "pagePath": "pages/find/find",
+        "text": "发现",
+        "iconPath": "images/find.png",
+        "selectedIconPath": "images/finds.png"
+      },
+      {
+        "pagePath": "pages/mine/mine",
+        "text": "个人",
+        "iconPath": "images/mine.png",
+        "selectedIconPath": "images/mines.png"
+      }
+    ],
+    "color": "#333",
+    "selectedColor": "#83c6c2",
+    "backgroundColor": "#ffffff",
+    "borderStyle": "white"
+  },
+  "sitemapLocation": "sitemap.json",
+  "lazyCodeLoading": "requiredComponents",
+  "plugins": {
+    "echarts": {
+      "version": "2.1.1",
+      "provider": "wx1db9e5ab1149ea03"
+    }
+  }
+}

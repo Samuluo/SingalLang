@@ -1,0 +1,84 @@
+/**app.wxss**/
+.container {
+	flex: 1;
+  	display: flex;
+  	flex-direction: column;
+	 box-sizing: border-box;
+}
+.container-body{
+	flex: 1;
+	overflow-y: auto;
+	overflow-x: hidden;
+	align-items: center;
+	justify-content: center;
+}
+.container-footer{
+	width: 80%;
+	display: flex;
+	height: 29px;
+	
+	background: #F1FBF2;
+}
+.container-footer text{
+	flex: 1;
+	display: block;
+	text-align: center;
+	height: 29px;
+	line-height: 29px;
+	font-size: 14px;
+	border-top: 1rpx solid #83c6c2;
+	border-left: 1rpx solid #83c6c2 ;
+	border-right: 1rpx solid #83c6c2;
+	border-bottom: 1rpx solid #83c6c2 ;
+	border-top-left-radius: 10px; 
+  border-top-right-radius: 10px; 	
+}
+.container-footer text:first-child{
+	border-left: 1;
+}
+.container-footer .btn-block{
+	border-radius:2;
+}
+.container-footer .btn-block:after{
+	border: 0;
+}
+.container-gray{
+	background: #F1FBF2;
+}
+
+
+/**词典模块***/
+.space-content{
+	background: #F1FBF2;
+	justify-content: center;
+}
+.cidian-top,.cidian-block{
+	padding: 20rpx;
+	background: #F1FBF2;
+	margin-bottom: 20rpx;
+  border-bottom: 1rpx solid #F1FBF2;
+	
+	flex-direction: row;
+}
+.cidian-block{
+  border-top: 2rpx solid #ddd;
+  
+}
+.cidian-banner{
+	position: relative;
+}
+.cidian-banner swiper{
+	width: 100%;
+  height: 360rpx;
+}
+.cidian .slide-image {
+	width: 20%;
+  height: 200rpx;
+  margin-top: 5%;
+	margin-left: 15%;
+	/*left: 28rpx;
+  top: 192rpx;
+  width: 75px;
+  height: 95px;*/
+}
+@import 'app-wxa-auto-dark.wxss'
