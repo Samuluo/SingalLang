@@ -3,7 +3,7 @@
 <!-- <text>pages/voice-translation/voice-translation.wxml</text> -->
 <view class='container'>
   <view class='button-layer' >
-      <image src='/images/button.png' style="width: 50rpx;height: 50rpx;" class='speak-button' bindtouchstart="touchdown_plugin" bindtouchend="touchup_plugin"></image>
+      <image src='/images/button.png' style="width: 50rpx;height: 50rpx;" class='speak-button' bindtouchstart="touchStart" bindtouchend="touchEnd"></image>
   </view>
 
   <!-- 页面输入框 -->
@@ -50,7 +50,7 @@
     bindtouchmove="touchmoveFn"
     bindtouchend="endFn">《滑动选择，松开输入》</button>
   <!-- 显示隐藏具体信息 -->
-  <scroll-view hidden="{{!istouch}}" scroll-x class="scroll-view" scroll-with-animation="true" scroll-left="{{scrollLeft}}" bindscroll="scrollMove">
+  <scroll-view hidden="{{!istouch}}" scroll-x class="scroll-view2" scroll-with-animation="true" scroll-left="{{scrollLeft}}" bindscroll="scrollMove">
       <view wx:for="{{normal}}"  class="{{curr==index?'tcp':'udp'}}" data-index='{{index}}'>
         <view id="id">{{item.content}}</view>
       </view>
@@ -60,8 +60,8 @@
   <view class='input-layer'>
       <view class="input-panel">
             <image src="/images/ques.png" bindtap="circle" style="height: 50rpx;width: 50rpx;"></image>
-            <image src="/images/setting.png" bindtap="setting" style="height: 50rpx;width: 50rpx;margin-left: 20rpx;"></image>
-            <image src="/images/edit.png" bindtap="setting" style="height: 50rpx;width: 50rpx;margin-left: 20rpx;"></image>
+            <image src="/images/setting.png" bindtap="wordtospeak" style="height: 50rpx;width: 50rpx;margin-left: 20rpx;"></image>
+            <image src="/images/edit.png" bindtap="edit" style="height: 50rpx;width: 50rpx;margin-left: 20rpx;"></image>
             <image src="/images/reverse.png" bindtap="circle" style="height: 50rpx;width: 50rpx;margin-left: 20rpx;"></image>
             <van-button round icon="delete-o" type="primary" size="mini" custom-style="font-size:30rpx;" bindtap='clear'>清空</van-button>
       </view>

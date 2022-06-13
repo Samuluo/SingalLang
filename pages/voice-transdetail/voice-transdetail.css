@@ -1,0 +1,7 @@
+/* pages/voice-translation/voice-translation.wxss */
+/* pages/talk/talk.wxss */
+.box {
+  width: 90%;
+  margin-left: 5%;
+  border:red 2rpx solid;
+}

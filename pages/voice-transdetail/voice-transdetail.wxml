@@ -1,2 +1,7 @@
 <!--pages/voice-transdetail/voice-transdetail.wxml-->
-<text>pages/voice-transdetail/voice-transdetail.wxml</text>
+<navigation-bar default-data="{{defaultData}}" ></navigation-bar>
+<view class="box">
+  <view class="box">
+  wefwef
+  </view>
+</view>

@@ -73,7 +73,7 @@
       "provider": "wx1db9e5ab1149ea03"
     },
     "WechatSI": {
-      "version": "0.3.4",
+      "version": "0.0.7",
       "provider": "wx069ba97219f66d99"
     }
   }

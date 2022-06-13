@@ -1,6 +1,7 @@
 // pages/voice-translation/voice-translation.js
 var plugin = requirePlugin("WechatSI")
 let manager = plugin.getRecordRecognitionManager()
+const innerAudioContext = wx.createInnerAudioContext()
 Page({
 
   /**
@@ -54,98 +55,75 @@ Page({
         //console.log(that.data.userId)
       }
     })
-    var that = this;
-
-manager.onRecognize = function (res) {
-
-       cons.log("current result", res.result)
-
-    }
-
-    manager.onStop = function (res) {
-
-      console.log('识别开始');
-
-      var result = res.result;
-
-      var s = result.indexOf('。') //找到第一次出现下划线的位置
-
-      result = result.substring(0,s)  //取下划线前的字符
-
-      var searchType = that.data.searchType;
-
-      wx.showToast({
-
-        title: result,
-
-      })
-
-}
-
-    manager.onError = function (res) {
-
-      console.log('manager.onError')
-
-      console.log(res) //报错信息打印
-
-      wx.showToast({
-
-        title: res.msg,
-
-      })
-
-      // UTIL.log("error msg", res.msg)
-
-    }
-
+    this.initRecord();
   },
-   //手指按下
-
-touchdown_plugin: function () {
-
-  var _this = this
-
-  // UTIL.stopTTS();
-
-  manager.start({
-
-    duration: 30000,
-
-    lang: "zh_CN"
-
-  })
-
-},
-
-//手指松开
-
-touchup_plugin: function (e) {
-
-  var searchType = e.currentTarget.dataset.type;
-
-  this.setData({
-
-    searchType: searchType,
-
-    background:  "#ED6C00",
-
-    yysb:"长按语音识别"
-
-  });
-
-  manager.stop();
-
-  wx.showToast({
-
-    title: '正在识别……',
-
-    icon: 'loading',
-
-    duration: 2000
-
-  })
-
-},
+  initRecord: function() {    
+    var that = this;
+    //有新的识别内容返回，则会调用此事件
+    manager.onRecognize = function (res) {      
+      console.log("current result", res.result)
+    }    
+    //正常开始录音识别时调用    
+    manager.onStart = function (res) {
+      //提示录音开始
+      wx.showToast({
+        title: '开始录音',      
+      })      
+      console.log("成功开始录音识别", res)    
+    }    
+    //识别错误事件    
+    manager.onError = function (res) {      
+      console.error("error msg", res.msg)    
+    }    
+    //识别结束事件    
+    manager.onStop = function (res) {      
+       console.log("record file path", res.tempFilePath)
+       console.log(res)      
+       console.log("result", res.result)            
+      if(res.result == ''){        
+      //录音内容为空时      
+      wx.showModal({
+      title: '提示',
+      content: '不好意思，郭郭没听清',
+      showCancel: false,
+      success: function (res) {}        
+      })
+      return;      
+      }     
+      else{       
+      //不为空时提示开始识别        
+      wx.showToast({
+      title: '正在识别',          
+      icon: 'loading'        
+      })        
+      var text = res.result.replace(/，/, ' ').replace(/。/gi, '');//正则去除识别结果结尾的句号        
+      //将识别结果显示在输入框        
+      that.setData({          
+      content: text        
+      })                          
+      }
+    }
+  },              
+    //按住说话  
+    touchStart: function(e){    
+    this.setData({//用来变换按钮样式
+    //录音状态      
+    voiceStyle: "voiceStyleDown"    
+    })    
+    //开始识别    
+    manager.start({      
+    lang: 'zh_CN',    //识别的语言，目前支持zh_CN en_US zh_HK sichuanhua
+    duration: 60000, //指定录音的时长，单位ms，最大为60000。如果传入了合法的 duration ，在到达指定的 duration 后会自动停止录音
+    })  
+    },  
+    //松开结束  
+    touchEnd: function(e){    
+    this.setData({//用来变换按钮样式         
+    voiceStyle: "voiceStyle"    
+    })
+    //结束识别    
+    manager.stop();  
+    },
   clear: function() {
     var that = this;
     var c = this.data.content;
@@ -210,6 +188,54 @@ touchup_plugin: function (e) {
   onShareAppMessage: function () {
 
   },
+  // 文字转语音（语音合成）
+  wordtospeak: function (e) {
+    var that = this
+
+    var content = that.data.content;
+
+    if (content==''){
+      wx.showToast({
+        title: '请输入文字',
+        image: '/images/fail.png',
+      })
+    }
+    
+    plugin.textToSpeech({
+      lang: "zh_CN",
+      tts: true,
+      content: content,
+      success: function (res) {
+        innerAudioContext.autoplay = true
+        innerAudioContext.src = res.filename
+        innerAudioContext.onPlay(() => {
+          console.log('开始播放')
+        })
+        
+        wx.showLoading({
+          title: '正在播放',
+        })
+
+        innerAudioContext.onError((res) => {
+          if (res) {
+            wx.hideLoading(),
+              wx.showToast({
+                title: '文本格式错误',
+                image: '/images/fail.png',
+              })
+          }
+        })
+
+        innerAudioContext.onEnded(function(){
+          wx.hideLoading()
+        })
+        console.log("succ tts", res.filename)
+      },
+      fail: function (res) {
+        console.log("fail tts", res)
+      },
+    })
+  },
   //获取常用语列表
   getSentence: function(e) {
     var that = this;
@@ -264,75 +290,6 @@ touchup_plugin: function (e) {
         styleA: 'transform:rotate(180deg);transition: .5s;'
       })
   },
-  // tartRecord: function() {
-
-  //   if (this.recorderManager == null) {
-    
-  //   this.recorderManager = wx.getRecorderManager();
-    
-  //   this.options = {
-    
-  //   duration: 10000,
-    
-  //   sampleRate: 16000,
-    
-  //   numberOfChannels: 1,
-    
-  //   encodeBitRate: 64000,
-    
-  //   format: 'mp3',
-    
-  //   frameSize: 50
-    
-  //   }
-    
-  //   }
-    
-  //   this.recorderManager.start(this.options);
-    
-  //   this.recorderManager.onStop((res) => {
-    
-  //   console.log(res)
-    
-  //   wx.uploadFile({
-    
-  //   url: 'https://https://bewcf.info/transform/speechRecognition',//将录音文件传到后台服务器
-    
-  //   filePath: res.tempFilePath,
-    
-  //   method:'POST',
-    
-  //   name: 'file',
-    
-  //   header: {
-    
-  //     'content-type': 'multipart/form-data'
-    
-  //   },
-    
-  //   success: function(res) {
-    
-  //     console.log(res);
-    
-  //   },
-    
-  //   fail: function() {
-    
-  //     console.log("语音识别失败");
-    
-  //   }
-    
-  //   })
-    
-  //   });
-    
-  //   },
-    
-  //   stopRecord: function() {
-    
-  //     this.recorderManager.stop()
-    
-  //   },
   
     startFn: function(e){
       var startPointX = this.data.screenWidth*0.08;
@@ -405,6 +362,9 @@ touchup_plugin: function (e) {
     this.data.scrollInfo.prevDistance = distance
   },
   
-
-    
+  edit: function(e) {
+    wx.redirectTo({
+      url: '/pages/voice-transdetail/voice-transdetail',
+    })
+  }
 })

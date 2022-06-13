@@ -195,6 +195,9 @@
 }
 .scroll-view{
   white-space: nowrap;
+}
+.scroll-view2{
+  white-space: nowrap;
   position: fixed;
   bottom: 250rpx;
 }
