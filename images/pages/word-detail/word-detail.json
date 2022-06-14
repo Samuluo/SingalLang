@@ -1,6 +1,0 @@
-{
-  "usingComponents": {
-    "van-divider": "@vant/weapp/divider/index",
-    "navigation-bar": "/components/navigation-bar/navigation-bar"
-  }
-}
