@@ -157,6 +157,13 @@
 					"id": -1,
 					"name": "pages/find/find",
 					"pathName": "pages/find/find",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/draw/draw",
+					"pathName": "pages/draw/draw",
 					"scene": null
 				}
 			]

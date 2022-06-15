@@ -1,7 +1,6 @@
 {
   "pages": [
     "pages/music/music",
-    "pages/music-list/music-list",
     "pages/main/main",
     "pages/testDetail/testDetail",
     "pages/music-playlist/music-playlist",
