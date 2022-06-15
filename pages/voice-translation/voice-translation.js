@@ -363,8 +363,8 @@ Page({
   },
   
   edit: function(e) {
-    wx.redirectTo({
-      url: '/pages/voice-transdetail/voice-transdetail',
+    wx.navigateTo({
+      url: '/pages/voice-detail/voice-detail',
     })
   }
 })

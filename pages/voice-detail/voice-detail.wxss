@@ -1,1 +1,36 @@
 /* pages/voice-detail/voice-detail.wxss */
+.scroll-view {
+  margin-top: 40rpx;
+  width: 90%;
+  margin-left: 5%;
+  height: 1000rpx;
+  border: 4rpx solid #83c6c2;
+  border-radius: 20rpx;
+  box-shadow:3rpx 3rpx 14rpx 14rpx #c2f0f0;
+}
+.borderx {
+  width: 94%;
+  margin-top: 10rpx;
+  margin-left: 3%;
+  border: 1rpx solid #83c6c2;
+}
+.right{  
+	height: inherit;
+	width: 120px;
+	color: white;
+	display: flex;
+}
+.right .item{
+	background-color: red;
+	width: 60px;
+	text-align: center;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.right .item:first-child{
+	background-color: green;
+}
+.scroll-item{
+  display: inline-block;
+}

@@ -46,7 +46,6 @@ Page({
         })
       }
     })
-    this.login();
   },
   statisticformonth: function() {
     wx.request({

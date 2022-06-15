@@ -75,6 +75,7 @@
 			"list": []
 		},
 		"miniprogram": {
+			"current": -1,
 			"list": [
 				{
 					"id": -1,
@@ -101,13 +102,6 @@
 					"id": -1,
 					"name": "pages/cidianDetail/cidianDetail",
 					"pathName": "pages/cidianDetail/cidianDetail",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pagesarcharch",
-					"pathName": "pagesarcharch",
 					"query": "",
 					"scene": null
 				},
@@ -164,6 +158,14 @@
 					"id": -1,
 					"name": "pages/draw/draw",
 					"pathName": "pages/draw/draw",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/voice-detail/voice-detail",
+					"pathName": "pages/voice-detail/voice-detail",
+					"query": "",
 					"scene": null
 				}
 			]

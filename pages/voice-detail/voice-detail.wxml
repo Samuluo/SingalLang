@@ -1,2 +1,26 @@
 <!--pages/voice-detail/voice-detail.wxml-->
-<text>pages/voice-detail/voice-detail.wxml</text>
+<navigation-bar default-data="{{defaultData}}"></navigation-bar>
+<van-dialog id="van-dialog" />
+<scroll-view class="scroll-view" scroll-y>
+  <view wx:for="{{array}}" >
+  <view>
+    {{sentence[item]}}
+    </view>
+  <view class="borderx" wx:for="{{sentencedetail[item]}}">
+    
+    <van-swipe-cell style="height: {{screenheight}};"
+      id="swipe-cell"
+      right-width="{{ 120 }}"
+    >
+      <van-cell-group>
+        <van-cell title="{{item.content}}" />
+      </van-cell-group>
+      <view slot="right" class="right">
+            <view class="item" >修改</view>
+            <view class="item" bindtap="onClose">删除</view>
+        </view>
+    </van-swipe-cell>
+  </view>
+</view>
+</scroll-view>
+

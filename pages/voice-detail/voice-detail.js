@@ -1,66 +1,84 @@
 // pages/voice-detail/voice-detail.js
+import Dialog from '@vant/weapp/dialog/dialog';
+
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    sentence:[],
+    array:[],
+    sentencedetail:[],
+    screenheight:0,
   },
-
+  
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-
+  onLoad(options) {
+    let that = this;
+    wx.getStorage({
+      key: "screenHeight",
+      success:(res)=>{
+        that.setData({
+          screenheight: res.data
+        })
+      }
+    })
+    wx.getStorage({
+      key: "userInfo",
+      success:(res)=>{
+        that.setData({
+          userId: res.data.id
+        })
+        that.getSentence(that.data.userId);
+      }
+    })
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
+  getSentence: function(e) {
+    var that = this;
+    console.log(this.data.userId)
+    wx.request({
+      url: 'https://bewcf.info/sentence/queryAll?userId='+e,
+      success:(res)=>{
+        console.log(res)
+        var a = []
+        var b = []
+        var arr = []
+        var i = 0
+        for (var key in res.data) {
+          arr.push(i)
+          i++
+          console.log(key);     //获取key值 
+          a.push(key);
+          console.log(a); //获取对应的value值
+          b.push(res.data[key])
+        }
+        console.log(b)
+        that.setData({
+          sentence: a,
+          sentencedetail:b,
+          array: arr
+        })
+      }
+    })
   },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
+  onClose(event) {
+    const { position, instance } = event.detail;
+    switch (position) {
+      case 'left':
+      case 'cell':
+        instance.close();
+        break;
+      case 'right':
+        Dialog.confirm({
+          message: '确定删除吗？',
+        }).then(() => {
+          instance.close();
+        });
+        break;
+    }
   },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  }
 })
