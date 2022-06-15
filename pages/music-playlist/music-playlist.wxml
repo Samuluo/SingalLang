@@ -17,12 +17,12 @@
 </van-popup>
 <scroll-view class="content-play2" scroll-y>
   <block wx:for="{{playlist}}" wx:key="id">
-  <view class="musiclist-container {{item.id === playingId ? 'playing': ''}}" 
+  <view class="musiclist-container {{item.id === songIndex ? 'playing': ''}}" 
   bindtap="change" data-musicid="{{item.id}}" data-index="{{index}}">
     <view class="musiclist-index">{{index+1}}</view>
     <view class="musiclist-info">
       <view class="musiclist-name">
-        {{item.title}}
+        {{item.title}}       <image catchtap="star" style="width: 40rpx; height: 40rpx;float:right" mode="scaleToFill" src="{{true?'../../images/music/like.png':'../../images/music/like2.png'}}"></image>
       </view>
       <view class="musiclist-singer">{{item.author}}</view>
     </view>

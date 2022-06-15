@@ -6,6 +6,7 @@ Page({
   // 页面初始数据
   data: {
     item:0,
+    userId:[],
     //记录当前页的索引
     tab:0,
     // 播放列表
@@ -13,6 +14,7 @@ Page({
     state:"paused",
     // 播放的索引值
     playIndex:0,
+    songIndex:0,
     showtop:false,
     //设置的默认值
     play:{
@@ -37,8 +39,8 @@ Page({
     duration:500,
     listInfo: {
       coverImgUrl:'https://cdn.bewcf.info/signlang/song_list_img1.webp',
-      title:'',
-      introduction:''
+      title:'我的收藏',
+      introduction:'收藏你喜欢的音乐吧，记得保护耳朵喔'
     },
     songlist:{}
   },
@@ -99,6 +101,14 @@ Page({
         })
       }
     })
+    wx.getStorage({
+      key: 'userInfo',
+      success(res){
+        that.setData({
+          'userId': res.data.id,
+        })
+      }
+    })
   },
   onReady:function(){
     //获取音频播放对象
@@ -109,10 +119,10 @@ Page({
       console.log("播放失败:"+that.audioCtx.src)
     })
     wx.request({
-      url: 'https://bewcf.info/song/getSong',
+      url: 'https://bewcf.info/song/getStar',
       method:"get",
       data:{
-        songListId:1
+        userId:1000
       },
       success:(res)=>{
         that.setData({
@@ -129,6 +139,7 @@ Page({
   this.audioCtx.src=music.url
   this.setData({
     playIndex:index,
+    songIndex:music.id,
     'play.title':music.title,
     'play.author':music.author,
     "play.coverImgUrl":music.imgUrl,
@@ -181,7 +192,20 @@ Page({
    }
   },
   songs:function(e){
+    console.log(e)
     var that = this
+    wx.request({
+      url: 'https://bewcf.info/song/getSong',
+      method:"get",
+      data:{
+        songListId:e.currentTarget.dataset.item.id
+      },
+      success:(res)=>{
+        that.setData({
+          'playlist':res.data
+        })
+      }
+    })
     that.setData({
       'listInfo.title':e.currentTarget.dataset.item.title,
       'listInfo.introduction':e.currentTarget.dataset.item.introduction,
