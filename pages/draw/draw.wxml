@@ -5,9 +5,52 @@
       <image class='icon'src='/images/rotate-pink.png' bindtap='rotate'></image>
     </view>
   </view>
-    <view class='canvas-area' style="{{styleA}}">
-      <canvas canvas-id='myCanvas' class='myCanvas' disable-scroll='true' bindtouchstart='touchstart' bindtouchmove='touchmove'></canvas>
+  <view class="canvas">
+    <canvas hidden='{{!alertShow}}' class="mycanvas bxz-bb w100p" canvas-id="canvas" bindtouchstart="canvasStart" bindtouchmove='canvasMove' bindtouchend='canvasEnd'></canvas>
+  </view>
+  <!-- 操作面板 -->
+  <view class="tool_bar d-f w100p bxz-bb">
+    <!-- <view class="cancel"><image class="icon" src="../../imgs/icon_cancel.png" />上一步</view> -->
+    <!-- chengCancel 点击橡皮擦 -->
+    <view class="cancel" bindtap="chengCancel"><image class="icon" src="../../imgs/icon_eraser.png" />橡皮擦</view>
+    <view class="cancel" bindtap="clearCanvas"><image class="icon" src="../../imgs/icon_del.png" />清除</view>
+  </view>
+  <!-- 粗细和颜色 -->
+  <view class="set_bar bxz-bb w100p">
+    <!-- 粗细 -->
+    <view class="linewidth_bar d-f">
+      <text class="title">粗细</text>
+      <view class="right_demo d-f">
+      <!-- 判断橡皮擦是否被选中 -->
+        <block wx:if="{{cancelChange}}">
+          <view wx:for="{{linewidth}}" class="linewidth_demo bdrs50p {{index == currentLinewidth ?'active':''}}" bindtap="changeLineWidth" id="{{index}}" style="width:{{item*2}}rpx;height:{{item*2}}rpx;background:#fff"></view>
+        </block>
+        <block wx:else>
+          <view wx:for="{{linewidth}}" class="linewidth_demo bdrs50p {{index == currentLinewidth ?'active':''}}" bindtap="changeLineWidth" id="{{index}}" style="width:{{item*2}}rpx;height:{{item*2}}rpx;background:{{color[currentColor]}};"></view>
+        </block>
+      </view>
     </view>
+    <!-- 颜色 -->
+    <view class="color_bar d-f">
+      <text class="title">颜色</text>
+      <view class="right_demo d-f">
+        <!-- wx:for 遍历颜色 -->
+        <!-- index 每一个颜色的编号 -->
+        <!-- 三元运算符 判断那个颜色是被选中的 -->
+ 
+        <block wx:if="{{cancelChange}}">
+          <i class="iconfont icon-huabi" wx:for="{{color}}" style="color:{{item}};" id="{{index}}" bindtap="changeColor"></i>
+        </block>
+        <block wx:else>
+          <i class="iconfont icon-huabi {{index == currentColor ?'active':''}}" wx:for="{{color}}" style="color:{{item}};" id="{{index}}" bindtap="changeColor"></i>
+        </block>
+      </view>
+    </view>
+  </view>
+ 
+  <view class="btn">
+    <button bindtap="fabu">发布作品</button>
+  </view> 
   <view class='canvas-tools-me'>
     <view class='icon-box'>
       <image class='icon' src='/images/rotate-blue.png' bindtap='rotate'></image>

@@ -1,10 +1,9 @@
-
+@import "iconfont.wxss";
 page{
   width: 100%;
   height: 90%;
   background: #f7f6f6
 }
-
 .canvas-area{
   margin-top: 130rpx;
   width:750rpx;
@@ -16,7 +15,6 @@ page{
   height: 100%;
 }
 .canvas-tools-you{
-  position: fixed;
   top: 0;
   height: 10%;
   width: 100%;
@@ -40,4 +38,154 @@ page{
   height: 70rpx;
   width: 70rpx;
   margin-left: 70rpx;
+}
+
+
+ 
+.container {
+  padding: 0 24rpx;
+  background: #eaeaea;
+}
+.bxz-bb { box-sizing: border-box; }
+.d-f { display: flex; }
+.d-b { display: block; }
+.w100p { width: 96%;margin:0 auto }
+.bdrs50p { border-radius: 50%; }
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  padding: 0;
+  box-sizing: border-box;
+} 
+ 
+ 
+.container > .header {
+  justify-content: space-between;
+  padding-top: 40rpx;
+  padding-bottom: 32rpx;
+  font-size: 30rpx;
+}
+ 
+.container > .header .left {
+  align-items: center;
+  color: #e22;
+}
+ 
+.container .left .icon {
+  width: 44rpx;
+  height: 44rpx;
+}
+ 
+.container > .header .right {
+  align-items: center;
+  color: #333;
+}
+ 
+.container .right .icon {
+  width: 40rpx;
+  height: 40rpx;
+  padding-left: 18rpx;
+}
+ 
+.mycanvas {
+  height: 700rpx;
+  margin-bottom: 22rpx;
+  background: #fff;
+  box-shadow: 0 0 10rpx #ccc;
+}
+.canvas{
+  height: 700rpx;
+  margin-bottom: 22rpx;
+  width:100%;  
+}
+.tool_bar {
+  justify-content: space-between;
+  padding: 0 12rpx;
+  margin-bottom: 30rpx;
+  font-size: 28rpx;
+}
+ 
+.tool_bar .icon {
+  width: 40rpx;
+  height: 40rpx;
+  padding-right: 8rpx;
+  vertical-align: bottom;
+}
+.set_bar { padding: 0 64rpx; }
+.set_bar .title {
+  padding-right: 30rpx;
+}
+.set_bar .right_demo { align-items: center; }
+.color_bar .right_demo {
+  justify-content: space-between;
+  flex: 1;
+}
+.linewidth_bar .linewidth_demo {
+  border: 5rpx solid transparent;
+  margin: 0 22rpx;
+}
+.linewidth_bar .linewidth_demo.active { border-color: #fff;box-shadow: 0rpx 0rpx 10rpx orange }
+.icon-huabi { font-size: 44rpx; }
+.icon-huabi.active { font-size: 64rpx; }
+.btn{
+  margin-top:20rpx;
+}
+.btn button{
+  border:0rpx;
+  border-radius: 10rpx;
+  height:80rpx;
+  line-height: 80rpx;
+  background: orange;
+  color:#fff;
+}
+ 
+/* 弹出框 */
+.alert{
+  width:100%;
+  height:100vh;
+  background:rgba(0,0,0,0.3);
+  position: fixed;
+  left:0;
+  top:100rpx;
+  z-index:999;
+}
+.alert-main{
+  width:95%;
+  height:400rpx;
+  position: absolute;
+  left:0;
+  top:20rpx;
+  right:0;
+  margin:auto;
+  background:#fff;
+}
+.alert-main .qwe{
+  display: flex;
+  height:100rpx;
+  margin:0 auto;
+  margin-top:20rpx;
+  line-height: 100rpx;
+  width:96%;
+}
+.alert-main .tishi{
+}
+.alert-main .form-btn{
+}
+.alert-main input{
+  width:500rpx;
+  height:80rpx;
+  background: #fff;
+  margin: 10rpx 0;
+  border:1px solid #7d7d7d;
+  border-radius: 5rpx;
+}
+.alert-main button{
+  width:200rpx;
+  height:50rpx;
+  text-align: center;
+  line-height: 50rpx;
+  margin-top:25rpx;
+  margin-bottom:25rpx;
 }
