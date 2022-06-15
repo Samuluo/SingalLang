@@ -7,19 +7,26 @@
 </swiper>
 
 
-<scroll-view class="content-play" scroll-y>
+<scroll-view class="content-play2" scroll-y>
 <view class="content-info-portal">
     <view >
-        <image src="../../images/handMusic.svg"></image>
-        <text style="font-size:30rpx;color:#666;font-family: MicroSoft Yahei;">手语歌</text>
+        <image src="../../images/handMusic.svg" style="width:150rpx;height:150rpx"></image>
+        <text style="font-size:27rpx;color:#666;font-family: MicroSoft Yahei;">手语歌</text>
     </view>
     <view >
-        <image src="../../images/protectEar.png"></image>
-        <text style="font-size:30rpx;color:#666;font-family: MicroSoft Yahei;">护耳纯音</text>
+        <image src="../../images/protectEar.png" style="width:150rpx;height:150rpx"></image>
+        <text style="font-size:27rpx;color:#666;font-family: MicroSoft Yahei;">护耳纯音</text>
     </view>
     <view>
-        <image src="../../images/likemusic.png"></image>
-        <text style="font-size:30rpx;color:#666;font-family: MicroSoft Yahei;">我的收藏</text>
+        <image src="../../images/likemusic.png" style="width:150rpx;height:150rpx"></image>
+        <text style="font-size:27rpx;color:#666;font-family: MicroSoft Yahei;">我的收藏</text>
     </view>
 </view>
+<view class="content-info-portal" wx:for="{{songlist}}">
+    <view wx:for="{{item}}">
+        <image src="{{item.imgUrl}}" style="width:150rpx;height:150rpx" catchtap="songs" data-item="{{item}}"></image>
+        <text style="font-size:27rpx;color:#666;font-family: MicroSoft Yahei;">{{item.title}}</text>
+    </view>
+</view>
+<view style="background-color:#ffffff;display: flex;margin-bottom:100rpx"></view>
 </scroll-view>

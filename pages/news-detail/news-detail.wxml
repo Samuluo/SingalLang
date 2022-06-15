@@ -2,7 +2,6 @@
 <view class="detail-container">
   <image class="head-image" src="{{des.imgUrl}}"></image>
   <view class="author-date">
-    <text class="author">新华网</text>
     <text class="const-text">发表于</text>
     <text class="date">{{des.time}}</text>
       <image class="avatar" catchtap="star" src="{{isStar==false?'../../images/star2.png':'../../images/star1.png'}}"></image>

@@ -49,7 +49,7 @@
 		"useStaticServer": true
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.14.0",
+	"libVersion": "2.21.4",
 	"appid": "wxa1df0e770eb25d99",
 	"projectname": "SignLang",
 	"simulatorType": "wechat",

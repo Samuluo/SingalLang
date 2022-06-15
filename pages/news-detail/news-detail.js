@@ -86,7 +86,6 @@ Page({
         that.setData({
           'des':res.data
         })
-        console.log(that.data.des)
       }
     })
   },

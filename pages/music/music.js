@@ -9,22 +9,11 @@ Page({
     //记录当前页的索引
     tab:0,
     // 播放列表
-    playlist:[{
-      id:1,
-      title:"周杰伦阿三大苏打",
-      singer:"周杰伦",
-      src:"/images/music/test.mp3",
-      coverImgUrl:"/images/protectEar.png"
-    },{
-      id:2,
-      title:"第一次爱的人委屈恶气",
-      singer:"王心凌",
-      src:"/images/music/test2.mp3",
-      coverImgUrl:"/images/protectEar.png"
-    }],
+    playlist:[],
     state:"paused",
     // 播放的索引值
     playIndex:0,
+    showtop:false,
     //设置的默认值
     play:{
       // 当前时间
@@ -46,6 +35,12 @@ Page({
     autoplay:true,
     interval:3000,
     duration:500,
+    listInfo: {
+      coverImgUrl:'https://cdn.bewcf.info/signlang/song_list_img1.webp',
+      title:'',
+      introduction:''
+    },
+    songlist:{}
   },
   // 保存在page里面了,音频对象
   audioCtx:null,
@@ -59,7 +54,8 @@ Page({
   changetab:function(e){
     this.setData({
       //当前页的索引
-      tab:e.detail.current
+      tab:e.detail.current,
+      'showtop':false,
     })
   },
   // 手动控制进度
@@ -73,6 +69,37 @@ Page({
       this.play()
     }, 500); 
   },
+  showtop:function(){
+    var that = this
+    that.setData({
+      'showtop':true
+    })
+  },
+  closeTop:function(){
+    var that = this
+    that.setData({
+      'showtop':false
+    })
+  },
+  onLoad:function(){
+    var that = this
+    wx.request({
+      url: 'https://bewcf.info/song/getSongList',
+      method:"get",
+      data:{
+      },
+      success:(res)=>{
+        const newArr = [];
+        while(res.data.length > 0) {
+          newArr.push(res.data.splice(0, 3));
+        }
+        console.log(newArr)
+        that.setData({
+          'songlist':newArr
+        })
+      }
+    })
+  },
   onReady:function(){
     //获取音频播放对象
     var that=this
@@ -81,17 +108,30 @@ Page({
     this.audioCtx.onError(function(){
       console.log("播放失败:"+that.audioCtx.src)
     })
+    wx.request({
+      url: 'https://bewcf.info/song/getSong',
+      method:"get",
+      data:{
+        songListId:1
+      },
+      success:(res)=>{
+        that.setData({
+          'playlist':res.data
+        })
+        this.setMusic(0)
+      }
+    })
 
-    this.setMusic(0)
   },
  setMusic:function(index){
+  console.log(this.data.playlist)
   var music=this.data.playlist[index]
-  this.audioCtx.src=music.src
+  this.audioCtx.src=music.url
   this.setData({
     playIndex:index,
     'play.title':music.title,
-    'play.singer':music.singer,
-    "play.coverImgUrl":music.coverImgUrl,
+    'play.author':music.author,
+    "play.coverImgUrl":music.imgUrl,
     "play.currentTime":'00:00',
     "play.duration":'00:00',
     "play.percent":0
@@ -133,10 +173,20 @@ Page({
     {
     console.log("hi")
     var that = this
+    console.log(e)
     this.setMusic(e.currentTarget.dataset.index);
     setTimeout(function () {
       that.play()
     }, 700)
    }
+  },
+  songs:function(e){
+    var that = this
+    that.setData({
+      'listInfo.title':e.currentTarget.dataset.item.title,
+      'listInfo.introduction':e.currentTarget.dataset.item.introduction,
+      'listInfo.imgUrl':e.currentTarget.dataset.item.imgUrl,
+      'item':2
+    })
   }
 })

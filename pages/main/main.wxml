@@ -8,7 +8,7 @@
     <view class="post-auther-date">
       <text class="post-date">{{one.time}}</text>
       <view style="float:right;margin-right:40rpx">
-      <van-tag type="danger" size="medium">{{item}}</van-tag>
+      <van-tag color="{{typeColor}}" size="medium">{{item}}</van-tag>
       </view>
     </view>
     <text class="post-title">{{one.title}}</text>

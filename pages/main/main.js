@@ -6,13 +6,15 @@ Page({
    */
   data: {
     imgUrls: [
-      "https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=2512412073,484693686&fm=27&gp=0.jpg",
-      "https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=231620273,2622968107&fm=27&gp=0.jpg",
-      "https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=281531042,273318123&fm=27&gp=0.jpg",
-      "http://img4.imgtn.bdimg.com/it/u=2731345960,2613387946&fm=26&gp=0.jpg"
+      "../../images/main/20200904044737661.jpg",
+      "../../images/main/20220127043120370.jpg",
+      "../../images/main/u=199574486,776717414&fm=253&fmt=auto&app=120&f=JPEG.webp",
+      "../../images/music/prop2.jpeg",
+      "../../images/music/prop3.jpeg",
     ],
     currentIndex:0,
     types:[],
+    typeColor:[],
     list:[]
   },
   swiperChange(e){
@@ -31,7 +33,8 @@ Page({
       },
       success:(res)=>{
         that.setData({
-          'list':res.data
+          'list':res.data,
+          'typeColor':'#83c6c2'
         })
       }
     })
@@ -47,7 +50,23 @@ Page({
     })
   },
   typeChange:function(e){
-    var that = this;
+    console.log(e)
+    var that = this
+    if(e.detail.title=="首页"){
+      that.setData({
+        'typeColor':'#83c6c2'
+      })
+    }
+    if(e.detail.title=="新闻"){
+      that.setData({
+        'typeColor':'#eeb173'
+      })
+    }
+    if(e.detail.title=="护耳"){
+      that.setData({
+        'typeColor':'#87c38f'
+      })
+    }
     wx.request({
       url: 'https://bewcf.info/article/queryAll',
       method:"get",

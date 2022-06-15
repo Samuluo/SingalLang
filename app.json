@@ -1,8 +1,9 @@
 {
   "pages": [
+    "pages/music/music",
+    "pages/music-list/music-list",
     "pages/main/main",
     "pages/testDetail/testDetail",
-    "pages/music/music",
     "pages/music-playlist/music-playlist",
     "pages/music-play/music-play",
     "pages/music-info/music-info",

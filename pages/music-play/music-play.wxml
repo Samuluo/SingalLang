@@ -1,12 +1,14 @@
+
 <view class="content-play">
+<image src="{{play.coverImgUrl}}" class="background_img" ></image>
     <!-- 显示音乐信息 -->
     <view class="content-play-info">
-        <text>{{play.title}}</text>
-        <view>--{{play.singer}}--</view>
+        <text style="color:#ffffff;font-size:50rpx;font-weight:bold">{{play.title}}</text>
+        <view style="color:#ffffff;margin-top:30rpx;font-style:italic;">--{{play.author}}--</view>
     </view>
     <!-- 专题封皮 -->
     <view class="content-play-cover">
-        <image src="{{play.coverImgeUrl}}" style="animation-play-state: {{stata}};"></image>
+        <image src="{{play.coverImgUrl}}" style="animation-play-state: {{state}};"></image>
     </view>
 <!-- 播放进度和时间 -->
 <view class="content-play-progress">

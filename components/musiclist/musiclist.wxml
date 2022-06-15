@@ -1,0 +1,13 @@
+<block wx:for="{{musiclist}}" wx:key="id">
+  <view class="musiclist-container {{item.id === playingId ? 'playing': ''}}" 
+  bind:tap="onSelect" data-musicid="{{item.id}}" data-index="{{index}}">
+    <view class="musiclist-index">{{index+1}}</view>
+    <view class="musiclist-info">
+      <view class="musiclist-name">
+        {{item.title}}
+    
+      </view>
+      <view class="musiclist-singer">{{item.author}}</view>
+    </view>
+  </view>
+</block>

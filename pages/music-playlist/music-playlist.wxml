@@ -1,13 +1,33 @@
-<scroll-view class="content-play" scroll-y>
-  <view class="playlist-item" wx:for="{{playlist}}" wx:key="id" bindtap="change" data-index="{{index}}">
-    <image class="playlist-cover" src="{{item.coverImgeUrl}}" />
-    <view class="playlist-info">
-      <view class="playlist-info-title">{{item.title}}</view>
-      <view class="playlist-info-singer">{{item.singer}}</view>
-    </view>
-    <view class="playlist-controls">
-      <text wx:if="{{index==playIndex}}">正在播放</text>
+<view class='detail-container' style='background: url({{listInfo.coverImgUrl}}) no-repeat  top/cover'></view>
+<view class='detail-mask'></view>
+<view class='detail-info'>
+  <image src="{{listInfo.coverImgUrl}}" class='detail-img'></image>
+  <view class='detail'>
+    <view class='detail-nm'>{{listInfo.title}}</view>
+      <view style="float:right;margin-top:50rpx" catchtap="showtop">介绍详情</view>
+  </view>
+</view>
+<van-popup
+  show="{{showtop}}"
+  position="top"
+  custom-style="height: 80%;"
+  bind:close="closeTop"
+>
+<text class="detailContent">{{listInfo.introduction}}</text>
+</van-popup>
+<scroll-view class="content-play2" scroll-y>
+  <block wx:for="{{playlist}}" wx:key="id">
+  <view class="musiclist-container {{item.id === playingId ? 'playing': ''}}" 
+  bindtap="change" data-musicid="{{item.id}}" data-index="{{index}}">
+    <view class="musiclist-index">{{index+1}}</view>
+    <view class="musiclist-info">
+      <view class="musiclist-name">
+        {{item.title}}
+      </view>
+      <view class="musiclist-singer">{{item.author}}</view>
     </view>
   </view>
+</block>
+
 </scroll-view>
 
