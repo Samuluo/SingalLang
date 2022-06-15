@@ -1,7 +1,6 @@
 {
   "pages": [
     "pages/music/music",
-    "pages/music-list/music-list",
     "pages/main/main",
     "pages/testDetail/testDetail",
     "pages/music-playlist/music-playlist",
@@ -18,15 +17,15 @@
     "pages/add-plan/add-plan",
     "pages/learn-word/learn-word",
     "pages/word-detail/word-detail",
-    "pagesarcharch",
+    "pages/search/search",
     "pages/dictionary/dictionary",
     "pages/wrong-learn/wrong-learn",
     "pages/calendar/calendar",
     "pages/find/find",
-    "pagesoice-translationoice-translation",
+    "pages/voice-translation/voice-translation",
     "pages/news-detail/news-detail",
     "pages/draw/draw",
-    "pagesoice-detailoice-detail"
+    "pages/voice-detail/voice-detail"
   ],
   "window": {
     "backgroundTextStyle": "dark",

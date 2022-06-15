@@ -1,4 +1,4 @@
-// pages/music-list/music-list.js
+// pages/voice-detail/voice-detail.js
 Page({
 
   /**
