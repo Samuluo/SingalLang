@@ -1,19 +1,30 @@
-const utils = require('../../utils/util.js')
+const app = getApp()
+
+// views/index/index.js
 Page({
-  onLoad () {
-    let timer = setTimeout(() => {
-      clearTimeout(timer)
-      this.direct()
-    }, 8000)
+
+  /**
+   * 页面的初始数据
+   */
+  data: {
   },
-  direct () {
-    let auth = utils.ifLogined()
-    let url = '/pages/main/main'
-    if (auth) {
-      url = '/pages/index/index'
-    }
-    wx.switchTab({
-      url,
-    })
+
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function (options) {
+    setTimeout(() => {
+      // 打开主页面
+      this.openPage()
+    }, 1500)
   },
+
+  /**
+   * 导航到主页面
+   */
+  openPage (replace) {
+    let options = { url: '../main/main' }
+    // 导航
+    wx.switchTab(options)
+  }
 })

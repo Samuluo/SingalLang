@@ -1,19 +1,26 @@
 /**index.wxss**/
-.userinfo {
+.page {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  color: #aaa;
+  justify-content: center;
+  background-color: #fff;
 }
 
-.userinfo-avatar {
-  overflow: hidden;
-  width: 128rpx;
-  height: 128rpx;
-  margin: 20rpx;
-  border-radius: 50%;
+.loading {
+  width: 220rpx;
+  height: 360rpx;
+  color: #000;
+  text-align: center;
 }
 
-.usermotto {
-  margin-top: 200px;
+.loading__logo {
+  width: 110%;
+  height: 45%;
+  display: block;
+  margin-bottom: 30rpx;
+}
+
+.loading__name {
+  font-size: 42rpx;
+  font-weight: 200;
 }
