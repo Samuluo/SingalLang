@@ -6,7 +6,6 @@ Page({
    */
   data: {
     // 弹框是否显示
-    alertShow:true,
     // 初始化标题
     project: '太阳',
     // 绘图线的粗细
@@ -21,18 +20,6 @@ Page({
     cancelChange:false,
     // 判断是否开始绘画
     isStart:false
-  },
-  // 点击自己出题
-  diy:function(){
-    this.setData({
-      "alertShow":false
-    });
-  },
-  // 点击弹框的灰色区域
-  alertClick:function(){
-    this.setData({
-      "alertShow": true
-    });
   },
   // 改变颜色的事件
   changeColor:function(e){
