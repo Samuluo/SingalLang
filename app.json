@@ -1,6 +1,7 @@
 {
   "pages": [
     "pages/music/music",
+    "pages/handVideo/handVideo",
     "pages/main/main",
     "pages/testDetail/testDetail",
     "pages/music-playlist/music-playlist",

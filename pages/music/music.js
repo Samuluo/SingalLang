@@ -119,16 +119,16 @@ Page({
       console.log("播放失败:"+that.audioCtx.src)
     })
     wx.request({
-      url: 'https://bewcf.info/song/getStar',
+      url: 'https://bewcf.info/song/getSong',
       method:"get",
       data:{
-        userId:1000
+        songListId:1,
+        userId:this.data.userId
       },
       success:(res)=>{
         that.setData({
           'playlist':res.data
         })
-        this.setMusic(0)
       }
     })
 
@@ -191,14 +191,56 @@ Page({
     }, 700)
    }
   },
+  star:function(e){
+    console.log(e.currentTarget)
+    var that = this
+    let tag =  'playlist[' + e.currentTarget.dataset.index + '].isStar'
+    if(e.currentTarget.dataset.isstar==false){
+      wx.request({
+        url: 'https://bewcf.info/song/star',
+        method:"post",
+        data:{
+          songId:e.currentTarget.dataset.id,
+          userId:this.data.userId
+        },
+        header: {
+          "content-type": "application/x-www-form-urlencoded" 
+        },
+        success:(res)=>{
+          that.setData({
+            [tag]:true
+          })
+          console.log(this.data.playlist)
+        }
+      })
+    }else if(e.currentTarget.dataset.isstar==true){
+      wx.request({
+        url: 'https://bewcf.info/song/cancelStar',
+        method:"post",
+        data:{
+          songId:e.currentTarget.dataset.id,
+          userId:this.data.userId
+        },
+        header: {
+          "content-type": "application/x-www-form-urlencoded" 
+        },
+        success:(res)=>{
+          that.setData({
+            [tag]:false
+          })
+          console.log(this.data.playlist)
+        }
+      })
+    }
+  },
   songs:function(e){
-    console.log(e)
     var that = this
     wx.request({
       url: 'https://bewcf.info/song/getSong',
       method:"get",
       data:{
-        songListId:e.currentTarget.dataset.item.id
+        songListId:e.currentTarget.dataset.item.id,
+        userId:this.data.userId
       },
       success:(res)=>{
         that.setData({

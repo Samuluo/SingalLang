@@ -1,0 +1,36 @@
+/* pages/activity/historyList/historyList.wxss */
+.font17{font-size: 34rpx;}
+ 
+.radius15{border-radius: 30rpx;}
+.radius20{border-radius: 40rpx;}
+.radius50{border-radius: 50%;}
+ 
+.border-or{border: 1px solid #f17f2b;}
+.border-wh{border: 2px solid #fff;}
+ 
+.font11{font-size: 22rpx;}
+.font17{font-size: 34rpx;}
+ 
+.wh25{width: 50rpx;height: 50rpx;}
+.wh100{width: 200rpx;height: 200rpx;}
+ 
+.lh20{line-height: 40rpx;}
+.lh30{line-height: 60rpx;}
+.lh35{line-height: 70rpx;}
+ 
+.p_tb7{padding-top:15rpx;padding-bottom:15rpx;}
+ 
+.bg_rule{background-color: #fe6903;}
+.bg_graye{background-color: #eee;}
+.bg_iconvip{background-color: #ffd200;}
+.bg_white{background-color: #ffffff;} 
+
+.videoStyle{ width:100%; height:450rpx;}
+.controls{ z-index:1; margin-top:5rpx;}
+.play{ 
+   position:absolute;
+    left:50%;
+   margin-top:-300rpx;
+    margin-left:-70rpx;   
+}
+ 

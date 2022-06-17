@@ -22,7 +22,7 @@
     <view class="musiclist-index">{{index+1}}</view>
     <view class="musiclist-info">
       <view class="musiclist-name">
-        {{item.title}}       <image catchtap="star" style="width: 40rpx; height: 40rpx;float:right" mode="scaleToFill" src="{{true?'../../images/music/like.png':'../../images/music/like2.png'}}"></image>
+        {{item.title}}       <image catchtap="star" data-index="{{index}}" data-isStar="{{item.isStar}}" data-id="{{item.id}}" style="width: 40rpx; height: 40rpx;float:right" mode="scaleToFill" src="{{item.isStar?'../../images/music/like2.png':'../../images/music/like.png'}}"></image>
       </view>
       <view class="musiclist-singer">{{item.author}}</view>
     </view>
