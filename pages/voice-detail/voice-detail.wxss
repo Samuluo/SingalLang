@@ -3,7 +3,7 @@
   margin-top: 40rpx;
   width: 90%;
   margin-left: 5%;
-  height: 1000rpx;
+  height: 1100rpx;
   border: 4rpx solid #83c6c2;
   border-radius: 20rpx;
   box-shadow:3rpx 3rpx 14rpx 14rpx #c2f0f0;
@@ -13,6 +13,7 @@
   margin-top: 10rpx;
   margin-left: 3%;
   border: 1rpx solid #83c6c2;
+  border-radius: 20rpx;
 }
 .right{  
 	height: inherit;
