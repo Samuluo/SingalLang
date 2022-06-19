@@ -3,7 +3,7 @@
 <!-- <text>pages/voice-translation/voice-translation.wxml</text> -->
 <view class='container'>
   <view class='button-layer' >
-      <image src='/images/button.png' style="width: 50rpx;height: 50rpx;" class='speak-button' bindtouchstart="touchStart" bindtouchend="touchEnd"></image>
+      <image src='/images/button.png' style="width: 100rpx;height: 100rpx;" class='speak-button' bindtouchstart="touchStart" bindtouchend="touchEnd"></image>
   </view>
 
   <!-- 页面输入框 -->
@@ -17,27 +17,38 @@
           autosize
           border="{{ false }}"
           bind:change="onChange"
-          custom-style="height:{{h1}};font-size:80rpx"
+          custom-style="height:{{h1}};font-size:40rpx"
         />
       </van-cell-group>
       
     </view>
   </view>
   <!-- 输入记录 -->
-  <view class='showme-layer2' style="margin-top: 20rpx;" hidden="{{istouch}}">
+  <view class='showme-layer2' style="margin-top: 30rpx;" hidden="{{istouch}}" >
     <view class='layer2-top' scroll-y="true">
-      输入记录:
+     <text style="padding-left:40rpx;font-weight:bold;"> 输入记录: </text>
     </view>
     <view class="layer2-content">
       <scroll-view scroll-y style="height: 100rpx;">
-      <view wx:for="{{history}}" style="height: 40rpx; margin-left: 20rpx;">
-        {{item}}
+      <view wx:for="{{history}}" class="history-item" style="margin-left: 30rpx;margin-top: 5rpx;margin-bottom: 5rpx;">
+       <view style="width: 87%;">
+       <text style="color: #dbdbdb;font-weight:bold;font-size:25rpx">{{index+1}}.</text>
+       <text style="margin-left: 10rpx;color: #dbdbdb;font-size:29rpx;"> {{item}}</text>
+        <view class="view_fengexian;" >
+	        <view ></view>
+        	<view ></view>
+        </view>
+      </view>
+         <view style="margin-left:0rpx;display: flex;justify-content: center;align-items: center;">
+        <image src="../../images/translation/add.png" style="width: 38rpx;height: 38rpx" ></image>
+        <image src="../../images/translation/plus.png" style="width: 38rpx;height: 38rpx" ></image>
+         </view>
       </view>
       </scroll-view>
     </view>
   </view>
   <!-- 常用语模块 -->
-  <view class="footer" style="margin-top: 20rpx;margin-left: 8%; background: {{color2}};border: 1px solid {{color2}};transition: .5s;">
+  <view class="footer"  style="margin-top: 20rpx;margin-left: 8%; background: {{color2}};border: 1px solid {{color2}};transition: .5s;">
   <scroll-view scroll-x class="scroll-view">
       <view bindtap="selecttarget" data-item="{{item}}" class="scroll-item" wx:for="{{array}}" class="sdf" style="background-color: {{color1[item%5]}}">
         <text>{{sentence[item]}}</text>
@@ -45,25 +56,39 @@
   </scroll-view>
   </view>
   <!-- 滑动按钮 -->
-  <button style="width: 84%;margin-left: 8%;background: aqua;z-index: 1;"
+  <button style="width: 84%;margin-left: 8%;font-size:35rpx;font-weight:bold;color:#f0ecec;background: #83c6c2;z-index: 1;  box-shadow:1rpx 1rpx 5rpx 5rpx #c2f0f0"
     bindtouchstart="startFn"
     bindtouchmove="touchmoveFn"
-    bindtouchend="endFn">《滑动选择，松开输入》</button>
+    bindtouchend="endFn">《 - - 滑动选择    <image style="width:40rpx;height:40rpx" src="../../images/translation/touch.png"></image>    松开输入 - - 》</button>
   <!-- 显示隐藏具体信息 -->
   <scroll-view hidden="{{!istouch}}" scroll-x class="scroll-view2" scroll-with-animation="true" scroll-left="{{scrollLeft}}" bindscroll="scrollMove">
       <view wx:for="{{normal}}"  class="{{curr==index?'tcp':'udp'}}" data-index='{{index}}'>
         <view id="id">{{item.content}}</view>
       </view>
   </scroll-view>
-  
+    <view class='button-layer' >
+      <image src='/images/button.png' style="width: 100rpx;height: 100rpx;z-index: 3;" class='speak-button' bindtouchstart="touchStart" bindtouchend="touchEnd"></image>
+  </view>
+
   <!-- 按钮栏 -->
   <view class='input-layer'>
       <view class="input-panel">
+        <view class="circle_line">
+        <view class="circle">
+          <view class="circle_icon">
+    <image class="circle_icon_image" style="width: 45rpx;height: 45rpx;margin-top: 3rpx;" mode="scaleToFill" src="/images/ques.png" />
+  </view>
+        </view>
+          <view class="circle"></view>
+          <view class="circle"></view>
+        </view>
             <image src="/images/ques.png" bindtap="circle" style="height: 50rpx;width: 50rpx;"></image>
-            <image src="/images/setting.png" bindtap="wordtospeak" style="height: 50rpx;width: 50rpx;margin-left: 20rpx;"></image>
-            <image src="/images/edit.png" bindtap="edit" style="height: 50rpx;width: 50rpx;margin-left: 20rpx;"></image>
-            <image src="/images/reverse.png" bindtap="circle" style="height: 50rpx;width: 50rpx;margin-left: 20rpx;"></image>
-            <van-button round icon="delete-o" type="primary" size="mini" custom-style="font-size:30rpx;" bindtap='clear'>清空</van-button>
+            <image src="/images/setting.png" bindtap="wordtospeak" style="height: 50rpx;width: 50rpx;margin-left:50rpx;"></image>
+            <image src="/images/edit.png" bindtap="edit" style="height: 50rpx;width: 50rpx;margin-left: 250rpx;"></image>
+            <image src="/images/reverse.png" bindtap="circle" style="height: 50rpx;width: 50rpx;margin-left: 50rpx;"></image>
+            <view style="margin-left: 50rpx;">
+            <van-button round icon="delete-o" type="primary" size="mini" custom-class="goodbutton" bindtap='clear'>清空</van-button>
+          </view>
       </view>
   </view>
 </view>

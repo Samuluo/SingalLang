@@ -1,6 +1,5 @@
 /* pages/voice-translation/voice-translation.wxss */
 /* pages/talk/talk.wxss */
-
 .button-layer{
   display: flex;
   justify-content: center;
@@ -16,24 +15,28 @@
   width: 90%;
   margin-left: 5%;
   background: #ffffff;
-  border: 1rpx solid #83c6c2;
+  border: 0rpx solid #83c6c2;
   border-radius: 40rpx 40rpx 40rpx 40rpx;
+  box-shadow:1rpx 1rpx 10rpx 10rpx #c2f0f0
 }
 .showme-layer2{
   height: 30%;
   position: relative;
   width: 90%;
+  box-shadow:1rpx 1rpx 10rpx 10rpx #c2f0f0;
   margin-left: 5%;
-  background: #ffffff;
+  border-radius: 20rpx 20rpx 20rpx 20rpx;
+  background: #f0f0f0;
 }
 .showme-layer2 .layer2-top {
-  background-color: #83c6c2;
+  background-image: linear-gradient(to right,  #83c6c2 ,#d6fcfc);
   height: 20%;
-  color:#f3f3f3;
+  color:#ffffff;
+ 
   border-radius: 20rpx 20rpx 0rpx 0rpx;
 }
 .showme-layer2 .layer2-content {
-  background-color: #095751;
+  background-color: #75b8b2;
   color:#5e5a5a;
   border-radius: 0rpx 0rpx 20rpx 20rpx;
   font-size: 40rpx;
@@ -42,7 +45,7 @@
 .content-box-showme{
   height: 100%;
   line-height: 5.5;
-  padding: 20rpx 20rpx 0 30rpx;
+  padding: 20rpx 20rpx 20rpx 20rpx;
   box-sizing: border-box;
   border-bottom: 1px solid #e5e5e5;
 }
@@ -65,7 +68,9 @@
   width: 100%;
   position: fixed;
   bottom: 0;
+
   background: #ffffff;
+  z-index: 2;
 }
 
 .speak-button{
@@ -85,7 +90,7 @@
 }
 .input-panel {
     height: 100%;
-    padding: 0 15rpx 0 15rpx;
+    padding: 0 20rpx 0 20rpx;
     background: #f0f0f0;
     box-sizing: border-box;
     display: flex;
@@ -157,22 +162,25 @@
 }
 
 .footer{
-	width: 84%;
+  display: flex;
+	width: 83%;
   height: 25px;
 	border: 1px solid #83c6c2;
   border-top-left-radius: 10px; 
   border-top-right-radius: 10px;
 }
 .sdf{
-  width: auto;
+  padding-top: 10rpx;
   padding-left: 20rpx;
   padding-right: 20rpx;
+  padding-bottom: 0rpx;
   display: inline-block;
 	text-align: center;
   height: 20px;
   z-index: 1;
-	line-height: 20px;
-  font-size: 14px;
+  letter-spacing: 3rpx;
+	line-height: 30rpx;
+  font-size: 29rpx;
   background-color: #095751;
 	border-bottom-left-radius: 10rpx; 
   border-bottom-right-radius: 10rpx; 	
@@ -181,11 +189,11 @@
 }
 .sdf:first-child{
   border-left: 1;
-  border-top-left-radius: 20rpx; 
+  /*border-top-left-radius: 20rpx;*/
 }
 .sdf:last-child{
   border-right: 1;
-  border-top-right-radius: 20rpx; 
+  /*border-top-right-radius: 20rpx;*/ 
 }
 .footer .btn-block{
 	border-radius:2;
@@ -194,7 +202,9 @@
 	border: 0;
 }
 .scroll-view{
+  margin: auto;
   white-space: nowrap;
+  width: 96%;
 }
 .scroll-view2{
   white-space: nowrap;
@@ -212,24 +222,90 @@
   text-align:center;
   writing-mode: vertical-lr;
   color: white;
-  background: pink;
+  background: #83c6c2;
+  opacity: 0.7;
+  font-size: 30rpx;
   width: 70rpx;
   padding-top: 20rpx;
   padding-bottom: 20rpx;
   line-height:70rpx;
+  letter-spacing: 3rpx;
+  border-radius: 10rpx;
 }
 .tcp {
   z-index: 5;
+  font-size: 35rpx;
   margin-left: 5%;
   display: inline-block;
   bottom: 290rpx;
   text-align:center;
   writing-mode: vertical-lr;
-  border: 8rpx solid white;
+  border: 8rpx solid  #83c6c2;
+  border-radius: 10rpx;
   color: white;
-  background: blue;
+  font-weight: bold;
+  background: #83c6c2;
   width: 70rpx;
   padding-top: 20rpx;
   padding-bottom: 20rpx;
   line-height:70rpx;
+  letter-spacing: 7rpx;
+}
+.goodbutton{
+  margin-top: 0rpx;
+  background: #83c6c2; 
+  width:70%;
+  color:#ffffff;
+  font-weight: bold;
+}
+.view_fengexian {
+  width: 100%;
+  height: 2rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin: 5rpx 0rpx 0rpx 0rpx;
+}
+
+/* 两个view的样式 */
+.view_fengexian view {
+  width: 46%;
+
+  border:1rpx dashed #bfbfbf;
+  height:0;
+}
+
+.history-item{
+  display:flex;
+  vertical-align: middle;
+  align-self: center;
+}
+
+.circle_line {
+  /* 定义弹性布局，默认水平排列 */
+  display: flex;
+  /* 设置主轴对齐方式，space-around表示两端对齐，项目间间隔相等 */
+  justify-content: space-around;
+  /* 在交叉上的对齐方式 */
+  align-items: center;
+}
+.circle {
+  width: 60rpx;
+  height: 60rpx;
+  border-radius: 50%;
+  background:linear-gradient(to right,  #63b4af ,#cbe0e0);
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  justify-content: center;
+}
+.circle_icon_image {
+  height: 30px;
+  width: 30px;
+}
+.circle_txt {
+  color: #fff;
+  text-align: center;
+  font-size: 13px;
 }

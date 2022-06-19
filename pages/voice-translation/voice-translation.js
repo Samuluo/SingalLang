@@ -9,9 +9,9 @@ Page({
    */
   data: {
     h1: "600rpx",
-    istouch: false,
+    istouch: '',
     curr: 1,
-    color2: 'red',
+    color2:  '#83c6c2',
     startPoint:[0,0],
     css2:"",
     userId: '',
@@ -19,10 +19,10 @@ Page({
     screenWidth:'',
     array:[],
     sentence:[],
-    color1:['red','orange','green','blue','purple'],
+    color1:['#83c6c2','#3f81c1','#36ab60','#ea986c','#be8dbd'],
     sentencedetail:[],
     content:'郭运鹏是憨批',
-    history:[],//输入历史记录
+    history:['暂无记录','撒大苏打撒大苏打实打实大撒大撒你撒谎大家按时打算离开多久啊是'],//输入历史记录
     normal:["你好","谢谢","我说不了话","我听不见","对不起","麻烦了","劳驾了","我叫郭运鹏"]
   },
 
@@ -302,7 +302,7 @@ Page({
           this.setData({
             curr: i,
             startPoint:[e.touches[0].pageX,e.touches[0].pageY],
-            istouch:true,
+            istouch:'hidden',
             h1:"760rpx"
           })
           
@@ -335,7 +335,7 @@ Page({
     endFn(){
       var con = this.data.content+this.data.normal[this.data.curr].content;
       this.setData({
-        istouch:false,
+        istouch:'',
         h1:"600rpx",
         content: con
       })

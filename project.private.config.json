@@ -6,80 +6,87 @@
     "miniprogram": {
       "list": [
         {
-          "name": "",
-          "pathName": "pages/cidianDetail/cidianDetail",
-          "query": "",
-          "launchMode": "default",
-          "scene": null
-        },
-        {
-          "name": "",
-          "pathName": "pages/main-learn/main-learn",
-          "query": "",
-          "launchMode": "default",
-          "scene": null
-        },
-        {
-          "name": "",
-          "pathName": "pages/mine/mine",
-          "query": "",
-          "launchMode": "default",
-          "scene": null
-        },
-        {
-          "name": "",
-          "pathName": "pages/word-detail/word-detail",
-          "query": "",
-          "launchMode": "default",
-          "scene": null
-        },
-        {
-          "name": "",
-          "pathName": "pages/learn-word/learn-word",
-          "query": "",
-          "launchMode": "default",
-          "scene": null
-        },
-        {
-          "name": "",
-          "pathName": "pages/search/search",
-          "query": "",
-          "launchMode": "default",
-          "scene": null
-        },
-        {
-          "name": "",
+          "name": "pages/adjustPlan/adjustPlan",
           "pathName": "pages/adjustPlan/adjustPlan",
           "query": "",
-          "launchMode": "default",
           "scene": null
         },
         {
-          "name": "语音翻译",
+          "name": "pages/word-detail/word-detail",
+          "pathName": "pages/word-detail/word-detail",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/learn-word/learn-word",
+          "pathName": "pages/learn-word/learn-word",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/cidianDetail/cidianDetail",
+          "pathName": "pages/cidianDetail/cidianDetail",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/calendar/calendar",
+          "pathName": "pages/calendar/calendar",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/test/test",
+          "pathName": "pages/test/test",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/testE/testE",
+          "pathName": "pages/testE/testE",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/voice-translation/voice-translation",
           "pathName": "pages/voice-translation/voice-translation",
           "query": "",
-          "launchMode": "default",
           "scene": null
         },
         {
-          "name": "",
+          "name": "pages/main/main",
+          "pathName": "pages/main/main",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/testDetail/testDetail",
+          "pathName": "pages/testDetail/testDetail",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/find/find",
+          "pathName": "pages/find/find",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/draw/draw",
           "pathName": "pages/draw/draw",
           "query": "",
-          "launchMode": "default",
           "scene": null
         },
         {
-          "name": "wqe",
-          "pathName": "pages/launch/launch",
+          "name": "pages/voice-detail/voice-detail",
+          "pathName": "pages/voice-detail/voice-detail",
           "query": "",
-          "launchMode": "default",
           "scene": null
         },
         {
-          "name": "",
+          "name": "pages/index/index",
           "pathName": "pages/index/index",
           "query": "",
-          "launchMode": "default",
           "scene": null
         }
       ]
@@ -87,5 +94,5 @@
   },
   "description": "项目私有配置文件。此文件中的内容将覆盖 project.config.json 中的相同字段。项目的改动优先同步到此文件中。详见文档：https://developers.weixin.qq.com/miniprogram/dev/devtools/projectconfig.html",
   "libVersion": "2.21.4",
-  "projectname": "SingalLang"
+  "projectname": "0123"
 }
