@@ -1,13 +1,14 @@
 /* pages/voice-translation/voice-translation.wxss */
 /* pages/talk/talk.wxss */
+
 .button-layer{
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-top: 15rpx;
-  height: 20%;
+  padding-top: 10rpx;
+  height: 10%;
   width: 100%;
-  background: #f0f0f0;
+
 }
 .showme-layer{
   height: 100%;
@@ -69,14 +70,13 @@
   position: fixed;
   bottom: 0;
 
-  background: #ffffff;
   z-index: 2;
 }
 
 .speak-button{
   height: 220rpx;
   width: 220rpx;
-  margin-bottom: 20rpx;
+
 }
 .speak-button:active{
     opacity: .7;
@@ -90,8 +90,8 @@
 }
 .input-panel {
     height: 100%;
-    padding: 0 20rpx 0 20rpx;
-    background: #f0f0f0;
+    padding: 0 0rpx 0 20rpx;
+
     box-sizing: border-box;
     display: flex;
     align-items: center;
@@ -207,6 +207,8 @@
   width: 96%;
 }
 .scroll-view2{
+  margin-left:50rpx;
+  width: 80%;
   white-space: nowrap;
   position: fixed;
   bottom: 250rpx;
@@ -254,7 +256,7 @@
 .goodbutton{
   margin-top: 0rpx;
   background: #83c6c2; 
-  width:70%;
+  width:100%;
   color:#ffffff;
   font-weight: bold;
 }
@@ -299,6 +301,7 @@
   flex-direction: column;
   align-items: center; 
   justify-content: center;
+  box-shadow:1rpx 1rpx 7rpx 7rpx #c2f0f0
 }
 .circle_icon_image {
   height: 30px;

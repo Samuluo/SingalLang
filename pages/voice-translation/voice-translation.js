@@ -303,7 +303,7 @@ Page({
             curr: i,
             startPoint:[e.touches[0].pageX,e.touches[0].pageY],
             istouch:'hidden',
-            h1:"760rpx"
+            h1:"847rpx"
           })
           
         }

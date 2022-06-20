@@ -3,7 +3,7 @@
 <!-- <text>pages/voice-translation/voice-translation.wxml</text> -->
 <view class='container'>
   <view class='button-layer' >
-      <image src='/images/button.png' style="width: 100rpx;height: 100rpx;" class='speak-button' bindtouchstart="touchStart" bindtouchend="touchEnd"></image>
+    <image src='/images/translation/wts.png' style="width: 120rpx;height: 120rpx;z-index: 3;" class='speak-button' bindtouchstart="touchStart" bindtouchend="touchEnd"></image>
   </view>
 
   <!-- 页面输入框 -->
@@ -24,7 +24,7 @@
     </view>
   </view>
   <!-- 输入记录 -->
-  <view class='showme-layer2' style="margin-top: 30rpx;" hidden="{{istouch}}" >
+  <view class='showme-layer2' style="margin-top: 10rpx;" hidden="{{istouch}}" >
     <view class='layer2-top' scroll-y="true">
      <text style="padding-left:40rpx;font-weight:bold;"> 输入记录: </text>
     </view>
@@ -48,7 +48,7 @@
     </view>
   </view>
   <!-- 常用语模块 -->
-  <view class="footer"  style="margin-top: 20rpx;margin-left: 8%; background: {{color2}};border: 1px solid {{color2}};transition: .5s;">
+  <view class="footer" hidden="{{istouch}}" style="margin-top:5rpx;margin-left: 8%; background: {{color2}};border: 1px solid {{color2}};transition: .5s;">
   <scroll-view scroll-x class="scroll-view">
       <view bindtap="selecttarget" data-item="{{item}}" class="scroll-item" wx:for="{{array}}" class="sdf" style="background-color: {{color1[item%5]}}">
         <text>{{sentence[item]}}</text>
@@ -66,29 +66,45 @@
         <view id="id">{{item.content}}</view>
       </view>
   </scroll-view>
+
+
+
     <view class='button-layer' >
-      <image src='/images/button.png' style="width: 100rpx;height: 100rpx;z-index: 3;" class='speak-button' bindtouchstart="touchStart" bindtouchend="touchEnd"></image>
+      <image src='/images/translation/wts.png' style="width: 120rpx;height: 120rpx;z-index: 3;" class='speak-button' bindtouchstart="touchStart" bindtouchend="touchEnd"></image>
   </view>
 
   <!-- 按钮栏 -->
   <view class='input-layer'>
       <view class="input-panel">
         <view class="circle_line">
-        <view class="circle">
+
+        <view class="circle" style="margin-left: 15rpx;">
           <view class="circle_icon">
-    <image class="circle_icon_image" style="width: 45rpx;height: 45rpx;margin-top: 3rpx;" mode="scaleToFill" src="/images/ques.png" />
+    <image class="circle_icon_image" bindtap="wordtospeak" style="width: 45rpx;height: 45rpx;margin-top:7rpx;" mode="scaleToFill" src="/images/translation/set.png" />
   </view>
         </view>
-          <view class="circle"></view>
-          <view class="circle"></view>
+        <view class="circle" style="margin-left: 40rpx;">
+          <view class="circle_icon" >
+    <image class="circle_icon_image" bindtap="edit" style="width: 45rpx;height: 45rpx;margin-top:7rpx;" mode="scaleToFill" src="/images/translation/sentence.png" />
+  </view>
         </view>
-            <image src="/images/ques.png" bindtap="circle" style="height: 50rpx;width: 50rpx;"></image>
-            <image src="/images/setting.png" bindtap="wordtospeak" style="height: 50rpx;width: 50rpx;margin-left:50rpx;"></image>
-            <image src="/images/edit.png" bindtap="edit" style="height: 50rpx;width: 50rpx;margin-left: 250rpx;"></image>
-            <image src="/images/reverse.png" bindtap="circle" style="height: 50rpx;width: 50rpx;margin-left: 50rpx;"></image>
-            <view style="margin-left: 50rpx;">
-            <van-button round icon="delete-o" type="primary" size="mini" custom-class="goodbutton" bindtap='clear'>清空</van-button>
-          </view>
+        <view class="circle" style="margin-left: 290rpx;">
+          <view class="circle_icon">
+    <image class="circle_icon_image" bindtap="circle" style="width: 45rpx;height: 45rpx;margin-top:7rpx;" mode="scaleToFill" src="/images/translation/rotate.png" />
+  </view>
+        </view>
+        <view class="circle"  style="margin-left:40rpx;">
+          <view class="circle_icon">
+    <image class="circle_icon_image" bindtap='clear' style="width: 45rpx;height: 45rpx;margin-top:7rpx;" mode="scaleToFill" src="/images/translation/clear.png" />
+  </view>
+        </view>
+        <view class="circle"  style="margin-left:40rpx;">
+          <view class="circle_icon">
+    <image class="circle_icon_image" bindtap="savesentence" style="width: 45rpx;height: 45rpx;margin-top:7rpx;" mode="scaleToFill" src="/images/translation/save.png" />
+  </view>
+        </view>
+        </view>
+
       </view>
   </view>
 </view>
