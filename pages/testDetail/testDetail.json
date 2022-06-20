@@ -1,10 +1,13 @@
 {
   "usingComponents": {
+    "chart": "plugin://echarts/chart",
     "createProcess": "/components/createProcess/createProcess",
     "van-row": "@vant/weapp/row/index",
     "van-col": "@vant/weapp/col/index",
     "van-circle": "@vant/weapp/circle/index",
-    "navigation-bar": "/components/navigation-bar-full/navigation-bar-full"
+    "navigation-bar": "/components/navigation-bar-full/navigation-bar-full",
+    "van-tab": "@vant/weapp/tab/index",
+    "van-tabs": "@vant/weapp/tabs/index"
   },
   "navigationBarBackgroundColor": "#A8E9BD",
   "navigationBarTextStyle": "black",

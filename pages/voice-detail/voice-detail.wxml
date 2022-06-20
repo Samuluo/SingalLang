@@ -2,12 +2,12 @@
 <navigation-bar default-data="{{defaultData}}"></navigation-bar>
 <scroll-view class="scroll-view" scroll-y>
   <view wx:for="{{array}}" >
-  <view>
-    {{sentence[item]}}
+  <view style="margin-left:100rpx;font-size:40rpx;font-weight:bold;align-items: center;text-align: center;padding-top: 20rpx;padding-bottom: 10rpx;letter-spacing: 10rpx;">
+    {{sentence[item]}}<van-icon style="margin-left: 20rpx;" name="delete-o"  /><van-icon  style="margin-left: 20rpx;" name="edit" />
     </view>
   <view  class="borderx">
-    <view wx:for="{{sentencedetail[item]}}">
-    <van-swipe-cell style="height: {{screenheight}};"
+    <view wx:for="{{sentencedetail[item]}}"  style="height: {{screenheight}};border-radius: 20rpx;width:96%;margin-left: 2%;">
+    <van-swipe-cell style="height: {{screenheight}};border-radius:20rpx;"
       id="swipe-cell"
       right-width="{{ 120 }}"
     >
@@ -20,7 +20,7 @@
         </view>
     </van-swipe-cell>
   </view>
-  <view style="height: 10%rpx;padding: 10rpx;text-align: center;display: flex;align-items: center;justify-content: center;" bindtap="onAdd" data-item="{{sentence[item]}}">增加一条</view>
+  <view style="height: 10%rpx;padding: 10rpx;text-align: center;display:flex;align-items: center;justify-content: center;background-color: aqua;border-radius: 0rpx 0rpx 20rpx 20rpx;" bindtap="onAdd" data-item="{{sentence[item]}}">增加一条</view>
   </view>
 </view>
 </scroll-view>
@@ -36,7 +36,7 @@
 </van-dialog>
 <van-dialog
   use-slot
-  title="修改界面"
+  title="请修改该条常用语句"
   show="{{ show2 }}"
   show-cancel-button
   bind:close="onClose"

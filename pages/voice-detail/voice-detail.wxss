@@ -5,6 +5,7 @@
   margin-left: 5%;
   height: 1100rpx;
   border: 4rpx solid #83c6c2;
+  background-color: #d3fdfad7;
   border-radius: 20rpx;
   box-shadow:3rpx 3rpx 14rpx 14rpx #c2f0f0;
 }
@@ -13,24 +14,32 @@
   margin-top: 10rpx;
   margin-left: 3%;
   border: 1rpx solid #83c6c2;
+  background-color: #ffffff;
   border-radius: 20rpx;
 }
 .right{  
+  background-color: #ffffff;
 	height: inherit;
-	width: 120px;
-	color: white;
+	width: 240rpx;
+  color: white;
+  font-weight: bold;
 	display: flex;
 }
 .right .item{
-	background-color: red;
-	width: 60px;
+  margin-top: 10rpx;
+  margin-bottom: 10rpx;
+  margin-left:20rpx;
+	background-color: rgb(221, 68, 68);
+  width: 90rpx;
+  font-size: 28rpx;
+  border-radius: 20rpx;
 	text-align: center;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 }
 .right .item:first-child{
-	background-color: green;
+	background-color: #83c6c2;
 }
 .scroll-item{
   display: inline-block;

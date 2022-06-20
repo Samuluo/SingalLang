@@ -102,8 +102,21 @@
      </van-row>
     </swiper-item>
         <swiper-item catchtouchmove='catchTouchMove'>
-
-    </swiper-item>
+          <van-row gutter="30" custom-class="Grid" >
+      <van-col offset="2" span="20">
+          <view class="card2">
+            <chart chart-class="line" option="{{ options }}" notMerge bindinstance="" />
+            <van-tabs active="{{ active }}" bind:change="onChange" style="margin-top: 20rpx;">
+              <van-tab title="左耳"></van-tab>
+              <van-tab title="右耳"></van-tab>
+              <van-tab title="知识"></van-tab>
+            </van-tabs>
+          </view>
+          
+     </van-col>
+     </van-row>
+          
+        </swiper-item>
   </swiper>
 </view>
 </view>

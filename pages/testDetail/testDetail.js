@@ -28,6 +28,52 @@ Page({
       Hz:"",
       DB:""
     },
+   options: {
+    title: {
+      text: '测试结果'
+    },
+    tooltip: {
+      trigger: 'axis'
+    },
+    legend: {
+      data: ['左耳', '右耳', 'Video Ads', 'Direct', 'Search Engine']
+    },
+    grid: {
+      show: true,
+      bottom: 20,
+      top: 20,
+      left: 40,
+      right: 20
+  },
+    toolbox: {
+      feature: {
+        saveAsImage: {}
+      }
+    },
+    xAxis: {
+      type: 'category',
+      boundaryGap: false,
+      data: [250,500,1000,2000,3000,4000]
+    },
+    yAxis: {
+      type: 'value'
+    },
+    series: [
+      {
+        name: '左耳',
+        type: 'line',
+        stack: 'Total',
+        data: []
+      },
+      {
+        name: '右耳',
+        type: 'line',
+        stack: 'Total',
+        data: []
+      },
+    ]
+ }
+
   },
   catchTouchMove:function(res){
 
@@ -36,8 +82,68 @@ Page({
   },
   nextStep:function(res){
     var that = this
+    
     that.setData({
       item:that.data.item+1
+    })
+    if(that.data.item===3) that.getCharts();
+  },
+  getCharts: function() {
+    var that = this;
+    var res = that.data.resultList;
+    let lres = []
+    let rres = []
+    for (var i=0;i<res.length;i++) {
+      res[i] = res[i]*10+10;
+      if(i<6) lres.push(res[i])
+      else rres.push(res[i])
+    }
+    that.setData({
+      options: {
+        title: {
+          text: '测试结果'
+        },
+        tooltip: {
+          trigger: 'axis'
+        },
+        legend: {
+          data: ['左耳', '右耳', 'Video Ads', 'Direct', 'Search Engine']
+        },
+        grid: {
+          show: true,
+          bottom: 20,
+          top: 20,
+          left: 40,
+          right: 20
+      },
+        toolbox: {
+          feature: {
+            saveAsImage: {}
+          }
+        },
+        xAxis: {
+          type: 'category',
+          boundaryGap: false,
+          data: [250,500,1000,2000,3000,4000]
+        },
+        yAxis: {
+          type: 'value'
+        },
+        series: [
+          {
+            name: '左耳',
+            type: 'line',
+            stack: 'Total',
+            data: lres
+          },
+          {
+            name: '右耳',
+            type: 'line',
+            stack: 'Total',
+            data: rres
+          },
+        ]
+     }
     })
   },
   goText:function(){
