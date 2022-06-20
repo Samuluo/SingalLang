@@ -2,12 +2,62 @@
 <navigation-bar default-data="{{defaultData}}"></navigation-bar>
 <!-- <text>pages/voice-translation/voice-translation.wxml</text> -->
 <view class='container'>
-  <view class='button-layer' >
-    <image src='/images/translation/wts.png' style="width: 120rpx;height: 120rpx;z-index: 3;" class='speak-button' bindtouchstart="touchStart" bindtouchend="touchEnd"></image>
-  </view>
+  <swiper current="{{bigitem}}" style="height: 133rpx;"  >
+    <swiper-item catchtouchmove='catchTouchMove' >
+    </swiper-item>
+    <swiper-item catchtouchmove='catchTouchMove' >
+      <view class='input-layer2' >
+      <view class="input-panel">
+        <view class="circle_line">
 
+        <view class="circle" style="margin-left: 5rpx;">
+          <view class="circle_icon">
+          
+            <image class="circle_icon_image" bindtap="savesentence" style="width: 45rpx;height: 45rpx;margin-top:7rpx;transform: rotate(180deg)" mode="scaleToFill" src="/images/translation/save.png" />
+
+  </view>
+        </view>
+        <view class="circle" style="margin-left: 40rpx;">
+          <view class="circle_icon" >
+            <image class="circle_icon_image" bindtap='clear' style="width: 45rpx;height: 45rpx;margin-top:7rpx;transform: rotate(180deg)" mode="scaleToFill" src="/images/translation/clear.png" />
+  </view>
+        </view>
+        <view class="circle" style="margin-left: 40rpx;">
+          <view class="circle_icon">
+    <image class="circle_icon_image" bindtap="circle" style="width: 45rpx;height: 45rpx;margin-top:7rpx;transform: rotate(180deg)" mode="scaleToFill" src="/images/translation/rotate.png" />
+  </view>
+        </view>
+        <view class="circle"  style="margin-left:270rpx;">
+          <view class="circle_icon">
+            <image class="circle_icon_image" bindtap="edit" style="width: 45rpx;height: 45rpx;margin-top:7rpx;transform: rotate(180deg)" mode="scaleToFill" src="/images/translation/sentence.png" />
+  </view>
+        </view>
+        <view class="circle"  style="margin-left:40rpx;">
+          <view class="circle_icon">
+            <image class="circle_icon_image" bindtap="wordtospeak" style="width: 45rpx;height: 45rpx;margin-top:7rpx;" mode="scaleToFill" src="/images/translation/set.png" />
+  </view>
+        </view>
+        </view>
+
+      </view>
+  </view>
+  <swiper current="{{smallitem}}" style="height: 133rpx;" >
+        <swiper-item  >
+          <view class='button-layer' style="margin-bottom:1rpx; padding-top: 5rpx;" >
+            <image src='/images/translation/wts.png' style="width: 120rpx;height: 120rpx;z-index: 3;transform: rotate(180deg)" class='speak-button' bindtouchstart="touchStart" bindtouchend="touchEnd"></image>
+  </view>
+    </swiper-item>
+    <swiper-item  >
+      <view class='button-layer' style="margin-bottom:1rpx; padding-top: 5rpx;" >
+        <image src='/images/translation/sound.png' style="width: 100rpx;height: 100rpx;z-index: 3;" class='speak-button' bindtap="wordtospeak"></image>
+  </view>
+    </swiper-item>
+  </swiper>
+    </swiper-item>
+  </swiper>
   <!-- 页面输入框 -->
   <view class='showme-layer' style="{{styleA}}">
+    <text style="margin-left:240rpx;font-size: 30rpx;position:absolute;z-index: 3;font-weight: bold;color: #83c6c2;">{{smallitem==0?'文字转语音ing':'语音转文字ing'}}</text>
     <view class='content-box-showme' scroll-y="true">
       <van-cell-group>
         <van-field
@@ -68,12 +118,23 @@
   </scroll-view>
 
 
-
-    <view class='button-layer' >
+  <swiper current="{{bigitem}}" style="height: 145rpx;" >
+    
+    <swiper-item catchtouchmove='catchTouchMove'>
+      <swiper current="{{smallitem}}" style="height: 145rpx;" >
+    
+    <swiper-item  >
+      <view class='button-layer' >
       <image src='/images/translation/wts.png' style="width: 120rpx;height: 120rpx;z-index: 3;" class='speak-button' bindtouchstart="touchStart" bindtouchend="touchEnd"></image>
   </view>
-
   <!-- 按钮栏 -->
+    </swiper-item>
+        <swiper-item  >
+          <view class='button-layer' >
+      <image src='/images/translation/sound.png' style="width: 100rpx;height: 100rpx;z-index: 3;transform: rotate(180deg)" class='speak-button' bindtap="wordtospeak" ></image>
+  </view>
+    </swiper-item>
+  </swiper>
   <view class='input-layer'>
       <view class="input-panel">
         <view class="circle_line">
@@ -107,4 +168,9 @@
 
       </view>
   </view>
+  <!-- 按钮栏 -->
+    </swiper-item>
+    <swiper-item catchtouchmove='catchTouchMove' >
+    </swiper-item>
+  </swiper>
 </view>

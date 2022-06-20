@@ -8,6 +8,8 @@ Page({
    * 页面的初始数据
    */
   data: {
+    bigitem:0,
+    smallitem:0,
     h1: "600rpx",
     istouch: '',
     curr: 1,
@@ -21,7 +23,7 @@ Page({
     sentence:[],
     color1:['#83c6c2','#3f81c1','#36ab60','#ea986c','#be8dbd'],
     sentencedetail:[],
-    content:'郭运鹏是憨批',
+    content:'',
     history:['暂无记录','撒大苏打撒大苏打实打实大撒大撒你撒谎大家按时打算离开多久啊是'],//输入历史记录
     normal:["你好","谢谢","我说不了话","我听不见","对不起","麻烦了","劳驾了","我叫郭运鹏"]
   },
@@ -280,9 +282,18 @@ Page({
   },
   //点击卡片旋转
   circle: function() {
+     if(this.data.bigitem==0){
+      this.setData({
+        bigitem: 1,
+      })
+     }else if(this.data.bigitem==1){
+      this.setData({
+        bigitem: 0,
+      })
+     }
     if(this.data.styleA=='transform:rotate(180deg);transition: .5s;') {
       this.setData({
-        styleA: 'transform:rotate(0deg);transition: .5s;'
+        styleA: 'transform:rotate(0deg);transition: .5s;',
       })
     }
     else
@@ -308,6 +319,11 @@ Page({
           
         }
       }
+    },
+    catchTouchMove:function(res){
+
+      return false
+    
     },
      touchmoveFn: function(e){
       var curPoint = [e.touches[0].pageX,e.touches[0].pageY];

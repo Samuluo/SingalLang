@@ -5,8 +5,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-top: 10rpx;
-  height: 10%;
+  padding-top: 5rpx;
+  padding-bottom: 7rpx;
+  height: 80%;
   width: 100%;
 
 }
@@ -65,14 +66,21 @@
   transform: scaleX(-1);
 }
 .input-layer{
-  height: 5%;
+  height: 45%;
   width: 100%;
   position: fixed;
   bottom: 0;
 
   z-index: 2;
 }
+.input-layer2{
+  height: 50%;
+  width: 100%;
+  position: fixed;
+  top: 10;
 
+  z-index: 2;
+}
 .speak-button{
   height: 220rpx;
   width: 220rpx;
