@@ -100,22 +100,19 @@ Page({
     }
     that.setData({
       options: {
-        title: {
-          text: '测试结果'
-        },
+        grid: {
+          show: true,
+          bottom: 60,
+          top: 60,
+          left: 50,
+          right: 60
+      },
         tooltip: {
           trigger: 'axis'
         },
         legend: {
-          data: ['左耳', '右耳', 'Video Ads', 'Direct', 'Search Engine']
+          data: ['左耳', '右耳']
         },
-        grid: {
-          show: true,
-          bottom: 20,
-          top: 20,
-          left: 40,
-          right: 20
-      },
         toolbox: {
           feature: {
             saveAsImage: {}
@@ -123,25 +120,144 @@ Page({
         },
         xAxis: {
           type: 'category',
+          name: '音调/Hz',
+          nameLocation:'middle',
+          nameTextStyle:{ 
+              fontSize:10,  
+              padding:10
+          },
           boundaryGap: false,
           data: [250,500,1000,2000,3000,4000]
         },
         yAxis: {
-          type: 'value'
+          type: 'value',
+          name: '分贝/DB',
+          nameLocation:'middle',
+          nameTextStyle:{ 
+              fontSize:10,  
+              padding:10
+          },
         },
+        dataZoom: [
+          // ...
+        ],
         series: [
           {
             name: '左耳',
             type: 'line',
-            stack: 'Total',
-            data: lres
+            data: lres,
+            lineStyle: {
+              normal: {
+                color: 'red',
+                width: 4,
+                
+              }
+            }
           },
           {
             name: '右耳',
             type: 'line',
-            stack: 'Total',
-            data: rres
+            data: rres,
+            lineStyle: {
+              normal: {
+                color: 'black',
+                width: 4,
+                
+              }
+            }
           },
+          
+           
+                {
+            name: 'Line 1',
+            type: 'line',
+            stack: 'Total',
+            smooth: true,
+            lineStyle: {
+              width: 0
+            },
+            showSymbol: false,
+            areaStyle: {
+              opacity: 0.8,
+              
+            },
+            emphasis: {
+              focus: 'series'
+            },
+            data: [25, 25, 25, 25, 25, 25]
+          },
+          {
+            name: 'Line 2',
+            type: 'line',
+            stack: 'Total',
+            smooth: true,
+            lineStyle: {
+              width: 0
+            },
+            showSymbol: false,
+            areaStyle: {
+              opacity: 0.8,
+            },
+            emphasis: {
+              focus: 'series'
+            },
+            data: [15, 15, 15, 15, 15, 15]
+          },
+          {
+            name: 'Line 3',
+            type: 'line',
+            stack: 'Total',
+            smooth: true,
+            lineStyle: {
+              width: 0
+            },
+            showSymbol: false,
+            areaStyle: {
+              opacity: 0.8,
+            },
+            emphasis: {
+              focus: 'series'
+            },
+            data: [15, 15, 15, 15, 15, 15]
+          },
+          {
+            name: 'Line 4',
+            type: 'line',
+            stack: 'Total',
+            smooth: true,
+            lineStyle: {
+              width: 0
+            },
+            showSymbol: false,
+            areaStyle: {
+              opacity: 0.8,
+            },
+            emphasis: {
+              focus: 'series'
+            },
+            data: [15, 15, 15, 15, 15, 15]
+          },
+          {
+            name: 'Line 5',
+            type: 'line',
+            stack: 'Total',
+            smooth: true,
+            lineStyle: {
+              width: 0
+            },
+            showSymbol: false,
+            label: {
+              show: true,
+              position: 'top'
+            },
+            areaStyle: {
+              opacity: 0.8,
+            },
+            emphasis: {
+              focus: 'series'
+            },
+            data: [15, 15, 15, 15, 15, 15]
+          }
         ]
      }
     })

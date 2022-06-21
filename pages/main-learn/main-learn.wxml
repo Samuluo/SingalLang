@@ -53,15 +53,15 @@
           <view wx:if="{{finish==1&&planN!=0}}">
           <view style="margin-left:36rpx;margin-top:20rpx"><text style="font-weight:bold">{{Year}}年{{Month}}月{{Day}}日</text> <text style="font-weight:normal;margin-left:50rpx;font-size:25rpx">已连续打卡{{continCard}}天</text></view>
           <view style="margin-left:60rpx;margin-top:30rpx;"><text style="font-weight:bold;font-size:65rpx;font-style:italic;text-align:center"  >今日计划已完成!</text></view>
-          <view style="margin-left:20rpx;margin-top:60rpx;margin-bottom:20rpx;margin-right:20rpx"> <van-button round style="margin-left:5rpx;"  custom-class="button2" type="info"  size="normal" color="#83c6c2" catchtap="add">加量学习</van-button> <van-button round type="info" style="margin-right:5rpx;float:right"  custom-class="button2" size="normal" color="#9EDDB2" catchtap="getCard" >打卡分享</van-button></view>
+          <view style="margin-left:20rpx;margin-top:60rpx;margin-bottom:20rpx;margin-right:20rpx"> <van-button round style="margin-left:5rpx;"  custom-class="button2" type="info"  size="normal" color="#83c6c2" catchtap="add">加量学习</van-button> <van-button round type="info" style="margin-right:5rpx;float:right" color="#83c6c2"  custom-class="button2" size="normal"  catchtap="getCard" >打卡分享</van-button></view>
           </view>
           </view>
       </view>
       <view>
         <view class="container-footer" style="width: 100%;margin-top: 50rpx;">
-          <text bindtap="fighteveryday" style="background-color: {{color1}};color:#ffffff;font-weight: bold">随机挑战</text>
-          <text bindtap="wordtrain" style="background-color: {{color2}};color:#ffffff;font-weight: bold">单词训练</text>
-          <text bindtap="vocabularytext" style="background-color: {{color3}};color:#ffffff;font-weight: bold">词量测试</text>
+          <text bindtap="fighteveryday" style="background-color: {{color1}};color:#ffffff;font-weight: bold;letter-spacing: 10rpx;">随机挑战</text>
+          <text bindtap="wordtrain" style="background-color: {{color2}};color:#ffffff;font-weight: bold;letter-spacing: 10rpx;">错词训练</text>
+
           </view>
           <view class="dancieveryday" style="margin-bottom:50rpx">
             <van-row>
@@ -141,5 +141,7 @@
   bind:select="shareSelect"
   bind:close="shareClose"
 />
-<van-button type="info" block bind:click="onShare" custom-class="bottom-button">分享</van-button>
+<view style="width: 80%;margin-left: 10%;">
+<van-button type="info" block bind:click="onShare" custom-class="bottom-button" color="#83c6c2">分享</van-button>
+</view>
 </van-popup>

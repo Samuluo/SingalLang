@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/index/index",
     "pages/music/music",
     "pages/handVideo/handVideo",
     "pages/main/main",
@@ -10,7 +11,6 @@
     "pages/testE/testE",
     "pages/main-learn/main-learn",
     "pages/mine/mine",
-    "pages/index/index",
     "pages/logs/logs",
     "pages/adjustPlan/adjustPlan",
     "pages/cidianDetail/cidianDetail",

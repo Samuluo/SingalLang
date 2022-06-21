@@ -37,8 +37,8 @@ page {
   height: 25rpx;
   padding: 5rpx 10rpx;
   border-radius: 10rpx;
-  background-color: #00a8ff;
-  border: 1rpx solid #00a8ff;
+  background-color: #83c6c2;
+  border: 1rpx solid #83c6c2;
 }
 .week-row {
   width: 100%;
@@ -74,7 +74,7 @@ page {
   box-sizing: border-box;
 }
 .day-today {
-  background: #00a8ff;
+  background:#83c6c2;
   color: #fff;
 }
 .day-otherMonth {

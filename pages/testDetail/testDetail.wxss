@@ -113,3 +113,7 @@
       /* 宽度给其自适应 */
     height: 100%;
   }
+  .line {
+    height: 470rpx;
+    width: 100%;
+  }

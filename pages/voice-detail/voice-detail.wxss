@@ -16,6 +16,7 @@
   border: 1rpx solid #83c6c2;
   background-color: #ffffff;
   border-radius: 20rpx;
+  margin-bottom: 15rpx;
 }
 .right{  
   background-color: #ffffff;
@@ -31,6 +32,7 @@
   margin-left:20rpx;
 	background-color: rgb(221, 68, 68);
   width: 90rpx;
+  height: 65rpx;
   font-size: 28rpx;
   border-radius: 20rpx;
 	text-align: center;

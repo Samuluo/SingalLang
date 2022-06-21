@@ -1,4 +1,5 @@
-// pages/voice-translation/voice-translation.js
+
+
 var plugin = requirePlugin("WechatSI")
 let manager = plugin.getRecordRecognitionManager()
 const innerAudioContext = wx.createInnerAudioContext()
@@ -8,6 +9,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    showConfig:false,
     bigitem:0,
     smallitem:0,
     h1: "600rpx",
@@ -24,7 +26,7 @@ Page({
     color1:['#83c6c2','#3f81c1','#36ab60','#ea986c','#be8dbd'],
     sentencedetail:[],
     content:'',
-    history:['暂无记录','撒大苏打撒大苏打实打实大撒大撒你撒谎大家按时打算离开多久啊是'],//输入历史记录
+    history:[],//输入历史记录
     normal:["你好","谢谢","我说不了话","我听不见","对不起","麻烦了","劳驾了","我叫郭运鹏"]
   },
 
@@ -54,6 +56,7 @@ Page({
           userId: res.data.id
         })
         that.getSentence(that.data.userId);
+        that.getHistory(that.data.userId)
         //console.log(that.data.userId)
       }
     })
@@ -128,14 +131,30 @@ Page({
     },
   clear: function() {
     var that = this;
-    var c = this.data.content;
-    var h = that.data.history;
-    h.push(c)
     that.setData({
-      history:h,
       content:'',
     })
-    console.log(that.data.history)
+  },
+  savesentence:function(){
+    var that = this
+    console.log(that.data.userId)
+    console.log(that.data.content)
+    var c = this.data.content;
+    var h = that.data.history;
+    wx.request({
+      url: 'https://bewcf.info/record/add',
+      method:"post",
+      data:{
+        userId:that.data.userId,
+        sentence:that.data.content
+      },
+      header: {
+        "content-type": "application/x-www-form-urlencoded" 
+      },
+      success:(res)=>{
+        that.getHistory()
+      }
+    })
   },
   onChange(event) {
     // event.detail 为当前输入的值
@@ -238,14 +257,31 @@ Page({
       },
     })
   },
+  getHistory:function(){
+    var that = this;
+    wx.request({
+      url: 'https://bewcf.info/record/get',
+      method:"get",
+      data:{
+        userId:that.data.userId
+      },
+      success:(res)=>{
+        var history = []
+        for (var key in res.data) {
+          history.push(res.data[key]);
+        }
+        that.setData({
+          history: history,
+        })
+      }
+    })
+  },
   //获取常用语列表
   getSentence: function(e) {
     var that = this;
-    console.log(this.data.userId)
     wx.request({
       url: 'https://bewcf.info/sentence/queryAll?userId='+e,
       success:(res)=>{
-        console.log(res)
         var a = []
         var b = []
         var arr = []
@@ -253,16 +289,14 @@ Page({
         for (var key in res.data) {
           arr.push(i)
           i++
-          console.log(key);     //获取key值 
           a.push(key);
-          console.log(a); //获取对应的value值
           b.push(res.data[key])
         }
-        console.log(b)
         that.setData({
           sentence: a,
           sentencedetail:b,
-          array:arr
+          array:arr,
+          normal: b[0]
         })
       }
     })
@@ -314,7 +348,7 @@ Page({
             curr: i,
             startPoint:[e.touches[0].pageX,e.touches[0].pageY],
             istouch:'hidden',
-            h1:"847rpx"
+            h1:"810rpx"
           })
           
         }
@@ -377,10 +411,44 @@ Page({
     let distance = e.detail.scrollLeft;
     this.data.scrollInfo.prevDistance = distance
   },
-  
+  historyAdd:function(e){
+    var that = this
+    that.setData({
+      content:that.data.content+e.currentTarget.dataset.sentence,
+    })
+  },
+  historyDele:function(e){
+    var that = this
+    console.log(e)
+    wx.request({
+      url: 'https://bewcf.info/record/remove',
+      method:"post",
+      data:{
+        recordId:e.currentTarget.dataset.id,
+      },
+      header: {
+        "content-type": "application/x-www-form-urlencoded" 
+      },
+      success:(res)=>{
+        that.getHistory()
+      }
+    })
+  },
   edit: function(e) {
     wx.navigateTo({
       url: '/pages/voice-detail/voice-detail',
+    })
+  },
+  changeSmallItem: function(e){
+    var that = this
+    that.setData({
+      smallitem:e.detail.current
+    })
+  },
+  config:function(e){
+    var that = this
+    that.setData({
+      showConfig:true
     })
   }
 })

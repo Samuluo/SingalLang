@@ -4,7 +4,8 @@
     "van-field": "@vant/weapp/field/index",
     "van-icon": "@vant/weapp/icon/index",
     "van-button": "@vant/weapp/button/index",
-    "van-slider": "@vant/weapp/slider/index"
+    "van-slider": "@vant/weapp/slider/index",
+    "van-dialog": "@vant/weapp/dialog/index"
   },
   "navigationStyle": "custom"
 }

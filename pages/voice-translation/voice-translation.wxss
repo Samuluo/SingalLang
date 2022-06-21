@@ -320,3 +320,6 @@
   text-align: center;
   font-size: 13px;
 }
+.dialog12{
+  height:200rpx
+}

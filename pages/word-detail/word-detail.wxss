@@ -1,7 +1,6 @@
 /* pages/word-detail/word-detail.wxss */
 .bg{
   background-color: #f7f6f6;
-  min-height: 100vh;
 }
 .top{
   background-color: #FFFFFF;
@@ -42,7 +41,7 @@
   box-sizing: border-box;
 }
 .content{
-  margin-top: 50rpx;
+  margin-top: 100rpx;
   background-color: #f7f6f6;
   display: flex;
   flex-direction: column;

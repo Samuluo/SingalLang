@@ -34,14 +34,14 @@
         </view>
         <view class="circle"  style="margin-left:40rpx;">
           <view class="circle_icon">
-            <image class="circle_icon_image" bindtap="wordtospeak" style="width: 45rpx;height: 45rpx;margin-top:7rpx;" mode="scaleToFill" src="/images/translation/set.png" />
+            <image class="circle_icon_image" bindtap="config" style="width: 45rpx;height: 45rpx;margin-top:7rpx;" mode="scaleToFill" src="/images/translation/set.png" />
   </view>
         </view>
         </view>
 
       </view>
   </view>
-  <swiper current="{{smallitem}}" style="height: 133rpx;" >
+  <swiper current="{{smallitem}}" bindchange="changeSmallItem" style="height: 133rpx;" >
         <swiper-item  >
           <view class='button-layer' style="margin-bottom:1rpx; padding-top: 5rpx;" >
             <image src='/images/translation/wts.png' style="width: 120rpx;height: 120rpx;z-index: 3;transform: rotate(180deg)" class='speak-button' bindtouchstart="touchStart" bindtouchend="touchEnd"></image>
@@ -57,7 +57,7 @@
   </swiper>
   <!-- 页面输入框 -->
   <view class='showme-layer' style="{{styleA}}">
-    <text style="margin-left:240rpx;font-size: 30rpx;position:absolute;z-index: 3;font-weight: bold;color: #83c6c2;">{{smallitem==0?'文字转语音ing':'语音转文字ing'}}</text>
+    <text style="margin-left:240rpx;font-size: 30rpx;position:absolute;z-index: 3;font-weight: bold;color: #83c6c2;">{{smallitem==0?'语音转文字ing':'文字转语音ing'}}</text>
     <view class='content-box-showme' scroll-y="true">
       <van-cell-group>
         <van-field
@@ -83,15 +83,15 @@
       <view wx:for="{{history}}" class="history-item" style="margin-left: 30rpx;margin-top: 5rpx;margin-bottom: 5rpx;">
        <view style="width: 87%;">
        <text style="color: #dbdbdb;font-weight:bold;font-size:25rpx">{{index+1}}.</text>
-       <text style="margin-left: 10rpx;color: #dbdbdb;font-size:29rpx;"> {{item}}</text>
+       <text style="margin-left: 10rpx;color: #dbdbdb;font-size:29rpx;" > {{item.sentence}}</text>
         <view class="view_fengexian;" >
 	        <view ></view>
         	<view ></view>
         </view>
       </view>
          <view style="margin-left:0rpx;display: flex;justify-content: center;align-items: center;">
-        <image src="../../images/translation/add.png" style="width: 38rpx;height: 38rpx" ></image>
-        <image src="../../images/translation/plus.png" style="width: 38rpx;height: 38rpx" ></image>
+        <image src="../../images/translation/add.png" catchtap="historyAdd" style="width: 38rpx;height: 38rpx" data-sentence="{{item.sentence}}"></image>
+        <image src="../../images/translation/plus.png" catchtap="historyDele" style="width: 38rpx;height: 38rpx" data-id="{{item.id}}"></image>
          </view>
       </view>
       </scroll-view>
@@ -118,10 +118,10 @@
   </scroll-view>
 
 
-  <swiper current="{{bigitem}}" style="height: 145rpx;" >
+  <swiper current="{{bigitem}}" style="height: 145rpx;">
     
     <swiper-item catchtouchmove='catchTouchMove'>
-      <swiper current="{{smallitem}}" style="height: 145rpx;" >
+      <swiper current="{{smallitem}}" style="height: 145rpx;" 	bindchange="changeSmallItem">
     
     <swiper-item  >
       <view class='button-layer' >
@@ -141,7 +141,7 @@
 
         <view class="circle" style="margin-left: 15rpx;">
           <view class="circle_icon">
-    <image class="circle_icon_image" bindtap="wordtospeak" style="width: 45rpx;height: 45rpx;margin-top:7rpx;" mode="scaleToFill" src="/images/translation/set.png" />
+    <image class="circle_icon_image" bindtap="config" style="width: 45rpx;height: 45rpx;margin-top:7rpx;" mode="scaleToFill" src="/images/translation/set.png" />
   </view>
         </view>
         <view class="circle" style="margin-left: 40rpx;">
@@ -174,3 +174,14 @@
     </swiper-item>
   </swiper>
 </view>
+<van-dialog
+  use-slot
+  show="{{ showConfig }}"
+  customStyle="dialog12"
+  confirm-button-open-type="getSubmit"
+  bind:close="onClose"
+  bind:confirm="changeConfig"
+  close-on-click-overlay="true"
+>
+  <image src="https://img.yzcdn.cn/1.jpg" />
+</van-dialog>

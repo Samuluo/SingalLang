@@ -234,6 +234,12 @@ Page({
     }
   },
   songs:function(e){
+    console.log(e)
+    if(e.currentTarget.dataset.item.id=="6"){
+      wx.navigateTo({
+        url: '/pages/handVideo/handVideo',
+      })
+    }else{
     var that = this
     wx.request({
       url: 'https://bewcf.info/song/getSong',
@@ -254,5 +260,6 @@ Page({
       'listInfo.imgUrl':e.currentTarget.dataset.item.imgUrl,
       'item':2
     })
+  }
   }
 })

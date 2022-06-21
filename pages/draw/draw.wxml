@@ -1,7 +1,7 @@
 <navigation-bar default-data="{{defaultData}}"></navigation-bar>
   <view class='canvas-tools-you'>
     <view class='icon-box'>
-         <image class='icon' src='/images/draw/save-p.png' bindtap='clearCanvas'></image>
+         <image class='icon' src='/images/draw/save-p.png' bindtap='save'></image>
           <image class='icon' src='/images/draw/eraser-p.png' bindtap='chengCancel'></image>
       <image class='icon' src='/images/dele-pink.png' bindtap='clearCanvas'></image>
       <image class='icon'src='/images/rotate-pink.png' bindtap='rotate'></image>
@@ -51,6 +51,6 @@
       <image class='icon' src='/images/rotate-blue.png' bindtap='rotate'></image>
       <image class='icon' src='/images/dele-blue.png' bindtap='clearCanvas'></image>
       <image class='icon' src='/images/draw/eraser.png' bindtap='chengCancel'></image>
-      <image class='icon' src='/images/draw/save.png' bindtap='clearCanvas'></image>
+      <image class='icon' src='/images/draw/save.png' bindtap='save'></image>
     </view>
   </view>

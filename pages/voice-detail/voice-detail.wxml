@@ -7,12 +7,12 @@
     </view>
   <view  class="borderx">
     <view wx:for="{{sentencedetail[item]}}"  style="height: {{screenheight}};border-radius: 20rpx;width:96%;margin-left: 2%;">
-    <van-swipe-cell style="height: {{screenheight}};border-radius:20rpx;"
+    <van-swipe-cell style="height: {{screenheight}};border-radius:20rpx;letter-spacing: 4rpx;"
       id="swipe-cell"
       right-width="{{ 120 }}"
     >
-      <van-cell-group>
-        <van-cell title="{{item.content}}" />
+      <van-cell-group >
+        <van-cell title="{{item.content}}"  />
       </van-cell-group>
       <view slot="right" class="right">
             <view class="item" bindtap="onEdit" data-item="{{item}}" >修改</view>

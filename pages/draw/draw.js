@@ -7,6 +7,8 @@ Page({
   data: {
     // 弹框是否显示
     // 初始化标题
+    width:'',
+    height:'',
     project: '太阳',
     // 绘图线的粗细
     linewidth: [2, 3, 4, 5,6,7,8,9],
@@ -86,7 +88,8 @@ Page({
     this.mycanvas.setStrokeStyle(data.color[data.currentColor]);
     // 初始化粗细
     this.mycanvas.setLineWidth(data.linewidth[data.currentLinewidth]);
- 
+    this.mycanvas.setFillStyle('#ffffff')
+    this.mycanvas.fillRect(0, 0, 400, 400)
   },
   // 绘画开始
   canvasStart:function(e){
@@ -114,11 +117,7 @@ Page({
  
   },
   // 绘画结束
-  dele: function () {
-    ctx.setFillStyle('#ffffff')
-    ctx.fillRect(0, 0, 750, 1000)
-    ctx.draw()
-  },
+
   rotate: function () {
     if(this.data.styleA=='transform:rotate(180deg);transition: .5s;') {
       this.setData({
@@ -137,9 +136,35 @@ Page({
     });
  
   },
+  save:function(){
+    wx.canvasToTempFilePath({//把当前画布指定区域的内容导出生成指定大小的图片
+      canvasId: 'canvas',
+      fileType:'png',
+      success(res) {
+        console.log(res.tempFilePath)
+        wx.authorize({//向用户发起授权请求
+          scope: 'scope.writePhotosAlbum',//保存相册授权
+          success: () => {
+            console.log("授权了")
+            wx.saveImageToPhotosAlbum({//保存图片到系统相册
+              filePath: res.tempFilePath,
+              success: () => {
+                console.log("保存了")
+                wx.showToast({
+                  title: '图片保存成功'
+                })
+              }
+            })
+          }
+        })
+      }
+    })
+  },
   // 清除画板
   clearCanvas:function(){
-    // 清除区域
+    // 清除区域   
+    this.mycanvas.setFillStyle('#ffffff')
+    this.mycanvas.fillRect(0, 0, 750, 1000)
     this.mycanvas.clearRect(0,0,400,400);
     this.mycanvas.draw(true);
   },

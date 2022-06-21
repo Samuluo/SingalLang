@@ -11,6 +11,7 @@ Page({
   },
 //    <-{{nowword.isStar==false?'../../images/star.png':'../../images/star-y.png'}}->
   star: function(e){
+    console.log(e)
   var that = this
   console.log(that.data.nowword)
   if(that.data.nowword.isStar==false){
@@ -55,6 +56,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+
     var that = this
     wx.request({
       url: 'https://bewcf.info/word/queryOne',
@@ -63,6 +65,7 @@ Page({
         id:options.id
       },
       success:(res)=>{
+        console.log(res.data)
         that.setData({
           'word':res.data,
         })
