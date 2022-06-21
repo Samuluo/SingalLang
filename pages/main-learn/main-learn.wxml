@@ -141,7 +141,7 @@
   bind:select="shareSelect"
   bind:close="shareClose"
 />
-<view style="width: 80%;margin-left: 10%;">
+<view style="width: 80%;margin-left: 10%;margin-top: 70%;">
 <van-button type="info" block bind:click="onShare" custom-class="bottom-button" color="#83c6c2">分享</van-button>
 </view>
 </van-popup>

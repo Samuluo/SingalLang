@@ -1,2 +1,8 @@
 <navigation-bar default-data="{{defaultData}}"></navigation-bar>
 <calendar userId="{{userId}}"/>
+
+
+<van-tabs active="{{ active }}" custom-class="static">
+  <van-tab title="月统计"><chart chart-class="box" option="{{ options }}" notMerge bindinstance="" /></van-tab>
+  <van-tab title="最近一周" >内容 2</van-tab>
+    </van-tabs>

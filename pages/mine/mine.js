@@ -47,46 +47,6 @@ Page({
       }
     })
   },
-  statisticformonth: function() {
-    wx.request({
-      url: 'https://bewcf.info/card/queryLearnedByMonth?userId='+this.data.userInfo.id,
-      method:'GET',
-      success: (res) => {
-        console.log(res)
-        var a = []
-        var b = []
-        for (var key in res.data) {
-          console.log(key);     //获取key值 
-          a.push(key+"月");
-          console.log(res[key]); //获取对应的value值
-          b.push(res[key])
-        }
-        this.setData({
-          options: {
-            title: {
-              text: '学习统计'
-            },
-      
-            tooltip: {},
-            legend: {
-              data: ['已学单词数'],
-              x:'right'
-            },
-            xAxis:{
-              data:a,
-            },
-            yAxis:{},
-            series: [{
-              name: '已学单词数',
-              type: 'bar',
-              data: b,
-            }]
-          },
-
-        })
-      }
-    })
-  },
   login() {
     var that = this;
     // 登录

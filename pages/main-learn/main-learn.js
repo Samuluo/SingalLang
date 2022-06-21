@@ -96,6 +96,7 @@ Page({
     })
   },
   adjust: function(e){
+    console.log("hello")
      console.log(e)
       wx.navigateTo({
         url: '/pages/adjustPlan/adjustPlan?plan='+JSON.stringify(e.currentTarget.dataset.item),
