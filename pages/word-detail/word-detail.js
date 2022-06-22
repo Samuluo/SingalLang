@@ -5,6 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    userId:[],
     word:{
 
     }
@@ -13,40 +14,38 @@ Page({
   star: function(e){
     console.log(e)
   var that = this
-  console.log(that.data.nowword)
-  if(that.data.nowword.isStar==false){
+
+  if(that.data.word.isStar==false){
     wx.request({
       url: 'https://bewcf.info/starWord/add',
       method:"post",
       data:{
         userId:that.data.userId,
-        planId:that.data.nowword.planId,
-        wordId:that.data.nowword.wordId
+        wordId:that.data.word.id
       },
       header: {
         "content-type": "application/x-www-form-urlencoded" 
       },
       success:(res)=>{
         that.setData({
-          'nowword.isStar':true,
+          'word.isStar':true,
         })
       }
     })
-  }else if(that.data.nowword.isStar==true){
+  }else if(that.data.word.isStar==true){
     wx.request({
       url: 'https://bewcf.info/starWord/removeOne',
       method:"post",
       data:{
         userId:that.data.userId,
-        planId:that.data.nowword.planId,
-        wordId:that.data.nowword.wordId
+        wordId:that.data.word.id
       },
       header: {
         "content-type": "application/x-www-form-urlencoded" 
       },
       success:(res)=>{
         that.setData({
-          'nowword.isStar':false,
+          'word.isStar':false,
         })
       }
     })
@@ -56,18 +55,26 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
     var that = this
-    wx.request({
-      url: 'https://bewcf.info/word/queryOne',
-      method:"get",
-      data:{
-        id:options.id
-      },
-      success:(res)=>{
-        console.log(res.data)
+    wx.getStorage({
+      key: 'userInfo',
+      success(res){
         that.setData({
-          'word':res.data,
+          'userId': res.data.id,
+        })
+        wx.request({
+          url: 'https://bewcf.info/word/queryOne',
+          method:"get",
+          data:{
+            id:options.id,
+            userId:that.data.userId
+          },
+          success:(res)=>{
+            that.setData({
+              'word':res.data,
+            })
+            console.log(that.data.word)
+          }
         })
       }
     })

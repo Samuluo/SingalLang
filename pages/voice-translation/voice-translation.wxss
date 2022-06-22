@@ -320,6 +320,30 @@
   text-align: center;
   font-size: 13px;
 }
-.dialog12{
-  height:200rpx
+.configpop{
+  background-color: rgba(0,0,0,0)!important;
+
+}
+.circle_line2 {
+  /* 定义弹性布局，默认水平排列 */
+
+  display: flex;
+  /* 设置主轴对齐方式，space-around表示两端对齐，项目间间隔相等 */
+  justify-content: space-around;
+  /* 在交叉上的对齐方式 */
+  align-items: center;
+  position: fixed;
+  bottom:0;
+  margin-bottom: 30rpx;
+}
+.color{
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  justify-content: center;
+}
+
+.textInput{
+  font-weight: bold;
+  color: var(--field-input-text-color);
 }

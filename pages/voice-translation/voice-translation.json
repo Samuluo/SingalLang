@@ -5,7 +5,8 @@
     "van-icon": "@vant/weapp/icon/index",
     "van-button": "@vant/weapp/button/index",
     "van-slider": "@vant/weapp/slider/index",
-    "van-dialog": "@vant/weapp/dialog/index"
+    "van-dialog": "@vant/weapp/dialog/index",
+    "van-popup": "@vant/weapp/popup/index"
   },
   "navigationStyle": "custom"
 }

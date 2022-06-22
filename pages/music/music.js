@@ -29,9 +29,6 @@ Page({
       coverImgUrl:"/images/protectEar.png",
     },
    imgUrls:[
-    "../../images/music/swip1.jpg",
-    "../../images/music/prop2.jpeg",
-    "../../images/music/prop3.jpeg",
     ],
     indicatorDots:true,
     autoplay:true,
@@ -131,7 +128,15 @@ Page({
         })
       }
     })
-
+    wx.request({
+      url: 'https://bewcf.info/swiper/getMusic',
+      method:"get",
+      success:(res)=>{
+        that.setData({
+          'imgUrls':res.data
+        })
+      }
+    })
   },
  setMusic:function(index){
   console.log(this.data.playlist)

@@ -1,14 +1,16 @@
 
-
+const app =getApp()
 var plugin = requirePlugin("WechatSI")
 let manager = plugin.getRecordRecognitionManager()
 const innerAudioContext = wx.createInnerAudioContext()
-Page({
-
+Page({ 
   /**
    * 页面的初始数据
    */
   data: {
+    backgroundcolor:'#ffffff',
+    textcolor:'#83c6c2',
+    font:50,
     showConfig:false,
     bigitem:0,
     smallitem:0,
@@ -27,7 +29,8 @@ Page({
     sentencedetail:[],
     content:'',
     history:[],//输入历史记录
-    normal:["你好","谢谢","我说不了话","我听不见","对不起","麻烦了","劳驾了","我叫郭运鹏"]
+    normal:["你好","谢谢","我说不了话","我听不见","对不起","麻烦了","劳驾了","我叫郭运鹏"],
+    configitem:1
   },
 
   /**
@@ -450,5 +453,40 @@ Page({
     that.setData({
       showConfig:true
     })
-  }
+  },
+  closeConfig:function(e){
+    var that = this
+    that.setData({
+      showConfig:false
+    })
+  },
+  changeConfigItem:function(e){
+    var that = this
+    that.setData({
+      configitem:e.currentTarget.dataset.id
+    })
+    if(e.currentTarget.dataset.id==3){
+      that.setData({
+        font:that.data.font+5
+      })
+      console.log(that.data.font)
+    }
+    if(e.currentTarget.dataset.id==4){
+      that.setData({
+        font:that.data.font-5
+      })
+    }
+  },
+  changeColor:function(e){
+    var that = this
+    that.setData({
+      textcolor:e.currentTarget.dataset.color
+    })
+  },
+  changeBackground:function(e){
+    var that = this
+    that.setData({
+      backgroundcolor:e.currentTarget.dataset.color
+    })
+  },
 })

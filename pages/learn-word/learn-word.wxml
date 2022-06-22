@@ -19,7 +19,7 @@
       <image catchtap="star" style="width: 40rpx; height: 40rpx;" mode="scaleToFill" src="{{nowword.isStar==false?'../../images/star.png':'../../images/star-y.png'}}"></image>
       <text>收藏</text>
       </view>
-      <view class="top-left2" style="">
+      <view class="top-left2" >
       <image catchtap="toPrev" style="width: 40rpx; height: 40rpx;" mode="scaleToFill" src="../../images/prev.png"></image>
       <text>上一个</text>
       </view>

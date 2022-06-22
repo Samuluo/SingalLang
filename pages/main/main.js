@@ -6,11 +6,7 @@ Page({
    */
   data: {
     imgUrls: [
-      "../../images/main/20200904044737661.jpg",
-      "../../images/main/20220127043120370.jpg",
-      "../../images/main/u=199574486,776717414&fm=253&fmt=auto&app=120&f=JPEG.webp",
-      "../../images/music/prop2.jpeg",
-      "../../images/music/prop3.jpeg",
+
     ],
     currentIndex:0,
     types:[],
@@ -90,6 +86,17 @@ Page({
       success:(res)=>{
         that.setData({
           'types':res.data
+        })
+      }
+    })
+    wx.request({
+      url: 'https://bewcf.info/swiper/getIndex',
+      method:"get",
+      data:{
+      },
+      success:(res)=>{
+        that.setData({
+          'imgUrls':res.data
         })
       }
     })
