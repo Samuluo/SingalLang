@@ -26,7 +26,7 @@ Page({
       percent:0,
       title:'',
       singer:'',
-      coverImgUrl:"/images/protectEar.png",
+      coverImgUrl:"",
     },
    imgUrls:[
     ],
