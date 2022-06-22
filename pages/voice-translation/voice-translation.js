@@ -339,7 +339,7 @@ Page({
     startFn: function(e){
       var startPointX = this.data.screenWidth*0.08;
       var lastPointX = this.data.screenWidth*0.92;
-      var len = this.data.normal.length+2;
+      var len = this.data.normal.length;
       //var len = 7;
       var step = (lastPointX-startPointX)/len;
       for(var i=0;i<len;i++) {
@@ -363,7 +363,7 @@ Page({
       var curPoint = [e.touches[0].pageX,e.touches[0].pageY];
       var startPointX = this.data.screenWidth*0.08;
       var lastPointX = this.data.screenWidth*0.92;
-      var len = this.data.normal.length+2;
+      var len = this.data.normal.length;
       //var len = 7;
       var step = (lastPointX-startPointX)/len;
       if(curPoint[0]<=startPointX||curPoint[0]>lastPointX) {
