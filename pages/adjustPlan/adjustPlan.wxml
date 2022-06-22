@@ -12,10 +12,10 @@
          		 <text style="width: 50%;">{{cidiandata.dictionary.name}}</text>
           	<van-button plain type="primary" style="float:right;margin-right:5rpx" size="small" data-item="{{plan}}"catchtap="changePlan">切换计划</van-button>
 						</view>
-							<view style="font-size:14px;margin-top: 20rpx;" >每日 {{cidiandata.amount}} 词 ，剩余 20 天</view>
+							<view style="font-size:14px;margin-top: 20rpx;" >每日 {{cidiandata.amount}} 词 ，剩余 {{restdays}} 天</view>
 							<view class="progress-box" style="margin-top: 20rpx;">
-              	<progress percent="60" active stroke-width="4" />
-								<view style="font-size:14px;margin-top: 20rpx;">已学单词  1400/{{cidiandata.dictionary.totalNumber}}</view>
+              	<progress percent="{{cidiandata.learnedNumber/cidiandata.dictionary.totalNumber}}" active stroke-width="4" />
+								<view style="font-size:14px;margin-top: 20rpx;">已学单词  {{cidiandata.learnedNumber}}/{{cidiandata.dictionary.totalNumber}}</view>
 							</view>
 						</view>
 				</view>

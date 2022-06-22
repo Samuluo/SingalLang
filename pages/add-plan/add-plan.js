@@ -77,8 +77,13 @@ Page({
         userId:that.data.userId
       },
       success:(res)=>{
+        var d=new Date(); 
+        var m=d.getMonth()+1; 
+        var newdate = d.getFullYear()+'年'+m+'月'+d.getDate()+'日';
+
         that.setData({
           'dictionaries':res.data,
+          predictnum: newdate
         })
       }
     })

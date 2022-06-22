@@ -5,6 +5,7 @@ const citys = {
 
 Page({
   data: {
+    restdays: 20,
     amount:'',
     pOrder:1,
     userId:1000,
@@ -46,10 +47,16 @@ Page({
   onLoad: function (options) {
     var f = JSON.parse(options.plan) 
     console.log(f)
-    
+    var days = (f.dictionary.totalNumber-f.learnedNumber)/f.todayAmount;
+    var d=new Date(); 
+    d.setDate(d.getDate()+days); 
+    var m=d.getMonth()+1; 
+    var newdate = d.getFullYear()+'年'+m+'月'+d.getDate()+'日';
+    var sd = parseInt(days);
     this.setData({
       cidiandata: f,
-      spaceimgs:["https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/cover/(5).jpg.webp"]
+      restdays:sd,
+      predictnum: newdate
     })  
   },
   setCurrent: function(e){  //当前图片索引
