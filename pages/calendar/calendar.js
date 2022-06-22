@@ -69,9 +69,9 @@ Page({
     this.setData({nowYear, nowMonth});
     this.initCalendar();
   },
-  statisticformonth: function() {
+  statisticformonth: function(e) {
     wx.request({
-      url: 'https://bewcf.info/card/queryLearnedByMonth?userId='+this.data.userId,
+      url: 'https://bewcf.info/card/queryLearnedByMonth?userId='+e,
       method:'GET',
       success: (res) => {
         console.log(res)
@@ -80,8 +80,8 @@ Page({
         for (var key in res.data) {
           console.log(key);     //获取key值 
           a.push(key+"月");
-          console.log(res[key]); //获取对应的value值
-          b.push(res[key])
+          console.log(res.data[key]); //获取对应的value值
+          b.push(res.data[key])
         }
         this.setData({
           options: {
@@ -190,6 +190,7 @@ Page({
           userId:options.userId
         })
         this.initCalendar();
+        this.statisticformonth(options.userId);
       }
     })
   },
