@@ -12,6 +12,7 @@ Page({
     nowMonth: new Date().getMonth()+1,//当前月份
     totalDay: [],//日历天数
     cards:[],
+    options2:[],
     options: {
       title: {
         text: '学习统计'
@@ -109,6 +110,47 @@ Page({
       }
     })
   },
+  statisticforweek: function(e) {
+    wx.request({
+      url: 'https://bewcf.info/card/queryLearnedByWeek?userId='+e,
+      method:'GET',
+      success: (res) => {
+        console.log(res.data)
+        var a = []
+        var b = []
+        for (var key in res.data) {
+          console.log(key);     //获取key值 
+          a.push(key+"月");
+          console.log(res.data[key]); //获取对应的value值
+          b.push(res.data[key])
+        }
+        this.setData({
+          options2: {
+            title: {
+              text: '学习统计'
+            },
+      
+            tooltip: {},
+            legend: {
+              data: ['已学单词数'],
+              x:'right'
+            },
+            xAxis:{
+              data:["周一","周二","周三","周四","周五","周六","周日"],
+            },
+            yAxis:{},
+            series: [{
+              name: '已学单词数',
+              type: 'bar',
+              data: b,
+            }]
+          },
+          
+        })
+        console.log(this.data.options2)
+      }
+    })
+  },
   /**
    * 初始化日历
    */
@@ -191,6 +233,8 @@ Page({
         })
         this.initCalendar();
         this.statisticformonth(options.userId);
+        this.statisticforweek(options.userId);
+        
       }
     })
   },
