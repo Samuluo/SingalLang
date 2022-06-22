@@ -1,4 +1,7 @@
 /* pages/cidianDetail/cidianDetail.wxss */
+page{
+  background-color: #f7f6f6;
+}
 .cidianpicture {
   left: 28rpx;
   top: 192rpx;
@@ -13,6 +16,8 @@
   color: #101010 100%;
   font-size: 18px;
   text-align: left;
+  letter-spacing: 5rpx;
+  font-weight: bold;
   font-family: PingFangSC-regular;
 }
 /*横向布局  */
@@ -30,7 +35,7 @@
 }
 /*纵向布局  */
 .layout_vertical{
-  height: 360rpx;
+  height: 230rpx;
   display: flex;
   /*row 横向  column 列表  */
   flex-direction: column;
@@ -64,16 +69,21 @@
 .danci-records {
   margin-top: 10rpx;
   width: auto;
-  background: #F1FBF2;
+  background: #f7f6f6;
+  margin-bottom:50rpx
 }
 .danci {
   background: white;
   flex-direction: column;
   width: 80%;
   margin-left: 10%;
-  border: 1rpx solid #46CA53;
+  border-left: 5rpx solid #83c6c2;
+  border-right: 5rpx solid #83c6c2;
+  border-top: 1rpx solid #83c6c2;
+  border-bottom: 1rpx solid #83c6c2;
   padding-top: 20rpx;
   padding-bottom: 20rpx;
+  box-shadow: 2rpx 10rpx 10rpx 5rpx #83c6c2;
 }
 .danci-time {
   height: 30px;
@@ -83,7 +93,7 @@
   margin-bottom: 20px;
   line-height: 20px;
   text-align: center;
-  background: #9EDDB2;
+  background: #83c6c2;
   color: #fff;
   border-bottom-right-radius: 10px; 
   border-top-right-radius: 10px; 	

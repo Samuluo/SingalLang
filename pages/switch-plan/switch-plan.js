@@ -6,7 +6,6 @@ Page({
    */
   data: {
     userId:1000,
-    picture:"/images/loadpicture.png",
     plans:[],
   },
 
@@ -22,7 +21,7 @@ Page({
          'userId': res.data.id,
        })
        wx.request({
-        url: 'https://bewcf.info:8081/plan/queryAll',
+        url: 'https://bewcf.info/plan/queryAll',
         method:"get",
         data:{
           userId:that.data.userId
@@ -43,13 +42,15 @@ Page({
     })
   },
   switch: function(e){
-  
     var that = this
     wx.request({
-      url: 'https://bewcf.info:8081/plan/switchPlan',
+      url: 'https://bewcf.info/plan/switchPlan',
       method:"post",
       data:{
         id:e.currentTarget.dataset.item
+      },
+      header: {
+        "content-type": "application/x-www-form-urlencoded" 
       },
       success:(res)=>{
         console.log(res)
@@ -60,20 +61,39 @@ Page({
     })
   },
   deleteplan: function(e) {
+    var that = this
     var item = e.currentTarget.dataset.item
-    wx.request({
-      url: 'https://bewcf.info:8081/plan/removeOne?id='+item.id,
-      method:"POST",
-    })
-  },
-  changeplan: function(e) {
-    var item = e.currentTarget.dataset.item
-    console.log(item)
-    wx.request({
-      url: 'https://bewcf.info:8081/plan/switchPlan?id='+item.id,
-      method:"POST",
-      success:(res)=>{
-        this.onLoad();
+    wx.showModal({
+      title: '提示',
+      content: '确认删除该计划么',
+      success (res) {
+        if (res.confirm) {
+          wx.request({
+            url: 'https://bewcf.info/plan/removeOne?id='+item.id,
+            method:"POST",
+            data:{
+              id:e.currentTarget.dataset.item
+            },
+            header: {
+              "content-type": "application/x-www-form-urlencoded" 
+            },
+            success:(res)=>{
+              that.onShow()
+              that.setData({
+                everyday:that.data.amount
+              })
+              wx.showToast({
+                title: '删除成功',
+                icon: 'none',
+                duration: 1000,
+                success: function () {
+
+                  }
+                })
+            }
+          })
+        }else if (res.cancel) {
+        }
       }
     })
   },
@@ -88,7 +108,20 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    var that = this
+    wx.request({
+      url: 'https://bewcf.info/plan/queryAll',
+      method:"get",
+      data:{
+        userId:that.data.userId
+      },
+      success:(res)=>{
+        that.setData({
+          'plans':res.data,
+        })
+        console.log(res)
+      }
+    })
   },
 
   /**

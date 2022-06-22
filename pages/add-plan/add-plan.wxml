@@ -4,19 +4,27 @@
   <view class="list-body">
       <view class="flex-wrp" style="flex-direction:row;">
       <view class="item2">
-      <text class="content">可选词库</text>
+      <text class="content" style="padding-left: 35%;letter-spacing: 2rpx;color: #83c6c2;font-weight: bold;font-size: 30rpx;">可选词库</text>
+      
       </view>
+      <view wx:if="{{dictionaries.length==0}}">
+  <van-empty
+  class="custom-image"
+  image="https://img.yzcdn.cn/vant/custom-empty-image.png"
+  description="暂无其他计划"
+  />
+  </view>
       <view wx:for="{{dictionaries}}">
           <view class="item">
           <van-card bindtap= "todetail" data-item="{{item}}"
           >  <view slot="title" style="margin-top:10rpx;margin-left:10rpx">
-          <text class="title">{{item.name}}</text>
+          <text class="title" style="letter-spacing: 10rpx;font-weight: bold;font-size: 35rpx;">{{item.name}}</text>
           </view>
           <view slot="thumb" style="margin-top:20rpx;margin-left:0rpx">
-          <image style="width: 120rpx; height: 120rpx;margin-left:20rpx" mode="scaleToFill" src="{{item.imgUrl}}" data-item="{{item}}" catchtap="todetail"></image>
+          <image style="width: 150rpx; height: 150rpx;margin-left:10rpx" mode="scaleToFill" src="{{item.imgUrl}}" data-item="{{item}}" catchtap="todetail"></image>
           </view>
            <view slot="desc" style="margin-top:20rpx;margin-left:5rpx">
-          <text class="desc" >{{item.description}}</text>
+          <text class="desc" style="letter-spacing: 2rpx;" >{{item.description}}</text>
           </view>
           </van-card>
           </view>
@@ -36,8 +44,8 @@
 	<view class="container-body space-content" style="width: 100%; align-items: center;">
 
 	  <view class="cidian-adjust" style="align-items: center;">
-    <view style="background-color: #A8E9BD;text-align: center;padding: 20rpx;">制订计划</view>
-    <view style="padding: 20rpx;font-size: 28rpx;border-left: 1rpx solid #46CA53;border-right: 1rpx solid #46CA53;">预计完成日期:{{predictnum}}</view>
+    <view style="background-color: #83c6c2;text-align: center;padding: 20rpx;letter-spacing: 5rpx;font-weight: bold;color:#ffffff;font-size: 40rpx;border-radius: 20rpx 20rpx 0rpx 0rpx;">制订计划</view>
+    <view style="padding: 20rpx;font-size: 28rpx;border-left: 1rpx solid #83c6c2;border-right: 1rpx solid #83c6c2;letter-spacing: 3rpx;">预计完成日期: <text style="color:red">{{predictnum}}</text></view>
 			<van-picker show-toolbar custom-class="selectcidian"
   title="" columns="{{ columns }}" bind:change="onChange" confirm-button-text="完成天数" cancel-button-text="每日背单词"/>
   

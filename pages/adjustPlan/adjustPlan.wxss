@@ -17,7 +17,7 @@
 }
 /*横向布局  */
 .layout_horizontal{
-  height: 360rpx;
+  height: 300rpx;
   display: flex;
   /*row 横向  column 列表  */
   flex-direction: row;
@@ -54,5 +54,6 @@
   align-self: center;
   margin-bottom: 20rpx;
   background: #F1FBF2;
-  border: 1rpx solid #46CA53;
+  border: 1rpx solid #83c6c2;
+  border-radius: 0rpx 0rpx 20rpx 20rpx;
 }

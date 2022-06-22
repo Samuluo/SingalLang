@@ -134,9 +134,9 @@ Page({
       wordList2: null,
     })
     this.setData({
-      color1: '#46CA53',
-      color2: '#F1FBF2',
-      color3: '#F1FBF2'
+      color1: '#83c6c2',
+      color2: '#aad1cf',
+      color3: '#aad1cf'
     })
     wx.request({
       url: 'https://bewcf.info/plan/queryCompletedWord?id='+this.data.planid,
@@ -151,9 +151,9 @@ Page({
   },
   mistaked: function(e) {
     this.setData({
-      color1: '#F1FBF2',
-      color2: '#46CA53',
-      color3: '#F1FBF2'
+      color1: '#aad1cf',
+      color2: '#83c6c2',
+      color3: '#aad1cf'
     })
     var that = this;
     wx.request({
@@ -169,9 +169,9 @@ Page({
   },
   notstudy: function(e) {
     this.setData({
-      color1: '#F1FBF2',
-      color2: '#F1FBF2',
-      color3: '#46CA53'
+      color1: '#aad1cf',
+      color2: '#aad1cf',
+      color3: '#83c6c2'
     })
     var that = this;
     wx.request({
@@ -209,6 +209,7 @@ Page({
             "wordId": item,
             "planId": that.data.planId,
           }
+          
         })
       }
     })

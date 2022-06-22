@@ -9,7 +9,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    amount:'',
+    amount:'5',
     pOrder:1,
     userId:1000,
     picture:"/images/loadpicture.png",
@@ -89,21 +89,38 @@ Page({
     })
   },
   getSubmit(event) {
-    wx.request({
-      url: 'https://bewcf.info/plan/add',
-      method:"post",
-      data: ({
-        "userId": this.data.userId,
-        "dictionaryId":this.data.dictionaryId,
-        "amount":this.data.amount,
-        "pOrder":this.data.pOrder,
-      }),
-      header:{  
-        'content-type':"application/x-www-form-urlencoded"
-     },
-      dataType:'JSON', 
-      success:(res)=>{
-          console.log(res)  
+    var that = this
+    wx.showModal({
+      title: '提示',
+      content: '确认添加该计划么',
+      success (res) {
+        if (res.confirm) {
+          wx.request({
+            url: 'https://bewcf.info/plan/add',
+            method:"post",
+            data: ({
+              "userId": that.data.userId,
+              "dictionaryId":that.data.dictionaryId,
+              "amount":that.data.amount,
+              "pOrder":that.data.pOrder,
+            }),
+            header:{  
+              'content-type':"application/x-www-form-urlencoded"
+           },
+            dataType:'JSON', 
+            success:(res)=>{
+              wx.showToast({
+                title: '修改成功',
+                icon: 'none',
+                duration: 1000,
+                success: function () {
+                  that.onShow()
+                }
+                })
+            }
+          })
+        }else if (res.cancel) {
+        }
       }
     })
   },
@@ -120,7 +137,24 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    var that = this
+    wx.request({
+      url: 'https://bewcf.info/dictionary/queryRest',
+      method:"get",
+      data:{
+        userId:that.data.userId
+      },
+      success:(res)=>{
+        var d=new Date(); 
+        var m=d.getMonth()+1; 
+        var newdate = d.getFullYear()+'年'+m+'月'+d.getDate()+'日';
 
+        that.setData({
+          'dictionaries':res.data,
+          predictnum: newdate
+        })
+      }
+    })
   },
 
   /**

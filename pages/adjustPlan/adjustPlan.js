@@ -6,9 +6,10 @@ const citys = {
 Page({
   data: {
     restdays: 20,
-    amount:'',
+    amount:'5',
     pOrder:1,
-    userId:1000,
+    id:'',
+    everyda:'',
     picture:"/images/loadpicture.png",
     totalNumber: 2000,
     predictnum: 'xxxx年xx月xx日',
@@ -30,14 +31,12 @@ Page({
   onChange(event) {
     const { picker, value, index } = event.detail;
     var x = value[0].replace("个","");
-    console.log(this.data.cidiandata.dictionary.totalNumber)
     var days = this.data.cidiandata.dictionary.totalNumber/x;
     var col = [parseInt(days)+"天"]
     var d=new Date(); 
     d.setDate(d.getDate()+days); 
     var m=d.getMonth()+1; 
     var newdate = d.getFullYear()+'年'+m+'月'+d.getDate()+'日';
-    console.log(newdate);
     this.setData({
       'predictnum': newdate,
       'amount': x
@@ -46,17 +45,19 @@ Page({
   },
   onLoad: function (options) {
     var f = JSON.parse(options.plan) 
-    console.log(f)
     var days = (f.dictionary.totalNumber-f.learnedNumber)/f.todayAmount;
     var d=new Date(); 
     d.setDate(d.getDate()+days); 
     var m=d.getMonth()+1; 
     var newdate = d.getFullYear()+'年'+m+'月'+d.getDate()+'日';
     var sd = parseInt(days);
+    console.log(f)
     this.setData({
       cidiandata: f,
       restdays:sd,
-      predictnum: newdate
+      predictnum: newdate,
+      id:f.id,
+      everyday:f.amount
     })  
   },
   setCurrent: function(e){  //当前图片索引
@@ -65,20 +66,43 @@ Page({
     })
   },
   getSubmit(event) {
-    wx.request({
-      url: 'https://bewcf.info/plan/changeOne',
-      method:"post",
-      data: ({
-        "userId": this.data.userId,
-        "amount":this.data.amount,
-        "pOrder":this.data.pOrder,
-      }),
-     
-      dataType:'JSON', 
-      success:(res)=>{
-          console.log(res)  
+    var that = this
+    wx.showModal({
+      title: '提示',
+      content: '确认修改该计划么',
+      success (res) {
+        if (res.confirm) {
+          wx.request({
+            url: 'https://bewcf.info/plan/changeOne',
+            method:"post",
+            data: ({
+              "id": that.data.id,
+              "amount":that.data.amount,
+              "pOrder":that.data.pOrder,
+            }),
+            header: {
+              "content-type": "application/x-www-form-urlencoded" 
+            },
+            dataType:'JSON', 
+            success:(res)=>{
+              that.setData({
+                everyday:that.data.amount
+              })
+              wx.showToast({
+                title: '修改成功',
+                icon: 'none',
+                duration: 1000,
+                success: function () {
+
+                  }
+                })
+            }
+          })
+        }else if (res.cancel) {
+        }
       }
     })
+
   },
   imgPreview: function(){ //图片预览
     const imgs = this.data.spaceimgs;

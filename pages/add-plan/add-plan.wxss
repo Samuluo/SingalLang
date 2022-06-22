@@ -13,18 +13,23 @@
 }
 .item{
   height:200rpx;
-  border-color: #46CA53;
+  border-color: #83c6c2;
   border-style: solid;
   border-width: 2rpx 4rpx 10rpx 4rpx;
+  border-radius: 0rpx 0rpx 0rpx 0rpx;
+  box-shadow: 2rpx 5rpx 10rpx 5rpx #83c6c2;
 }
 .item2{
+  margin-top: 20%;
   height:80rpx;
   background-color: #ffffff;
-  border-color: #46CA53;
+  border-color: #83c6c2;
   border-style: solid;
+  border-radius: 20rpx 20rpx 0rpx 0rpx;
   border-width: 2rpx 4rpx 2rpx 4rpx;
   display: flex; /*设置显示样式**/
   align-items: center; /**子view垂直居中*/
+  box-shadow: 2rpx 5rpx 10rpx 5rpx #83c6c2;
 }
 .list-body{
   margin-top: 10rpx;
@@ -81,7 +86,7 @@
  
 /*划线  */
 .line {
-   background-color: blue;
+   background-color: #83c6c2;
    height: 2rpx;
    width: 100%;
 }
@@ -102,5 +107,6 @@
   align-self: center;
   margin-bottom: 20rpx;
   background: #F1FBF2;
-  border: 1rpx solid #46CA53;
+  border: 1rpx solid #83c6c2;
+  border-radius: 0rpx 0rpx 20rpx 20rpx;
 }

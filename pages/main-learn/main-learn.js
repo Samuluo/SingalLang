@@ -255,10 +255,6 @@ Page({
           }
         })
       },fail(){
-        console.log("跳转")
-        wx.switchTab({
-          url: '/pages/mine/mine'
-        })
       }
     })
   },
@@ -444,10 +440,7 @@ Page({
           }
         })
       },fail(){
-        console.log("hjh")
-        wx.switchTab({
-          url: '/pages/mine/mine'
-        })
+
       }
     })
     if(that.data.plan.todayAmount==that.data.todayLearned){
