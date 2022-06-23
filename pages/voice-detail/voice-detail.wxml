@@ -2,32 +2,37 @@
 <navigation-bar default-data="{{defaultData}}"></navigation-bar>
 <scroll-view class="scroll-view" scroll-y>
   <view wx:for="{{array}}" >
-  <view style="margin-left:100rpx;font-size:40rpx;font-weight:bold;align-items: center;text-align: center;padding-top: 20rpx;padding-bottom: 10rpx;letter-spacing: 10rpx;">
-    {{sentence[item]}}<van-icon style="margin-left: 20rpx;" name="delete-o"  /><van-icon  style="margin-left: 20rpx;" name="edit" />
+  <view style="margin-left:100rpx;font-size:40rpx;font-weight:bold;align-items: center;text-align: center;padding-top: 20rpx;padding-bottom: 10rpx;letter-spacing: 10rpx;color:{{color1[item%5]}}">
+   {{sentence[item]}}<van-icon style="margin-left: 20rpx;" bind:click="deleteCategory"  data-name="{{sentence[item]}}" name="delete-o"  /><van-icon  style="margin-left: 20rpx;" bind:click="showChangeCategory" data-name="{{sentence[item]}}" name="edit" />
     </view>
   <view  class="borderx">
-    <view wx:for="{{sentencedetail[item]}}"  style="height: {{screenheight}};border-radius: 20rpx;width:96%;margin-left: 2%;">
+    <view wx:for="{{sentencedetail[item]}}" wx:for-item="e" style="height: {{screenheight}};border-radius: 20rpx;width:96%;margin-left: 2%;">
     <van-swipe-cell style="height: {{screenheight}};border-radius:20rpx;letter-spacing: 4rpx;"
       id="swipe-cell"
       right-width="{{ 120 }}"
     >
       <van-cell-group >
-        <van-cell title="{{item.content}}"  />
+        <van-cell  >
+         <view slot="title">
+          <view style="font-weight:500;letter-spacing:4rpx;font-size:33rpx;color:{{color1[item%5]}}">{{e.content}}</view>
+          </view>
+</van-cell>
       </van-cell-group>
       <view slot="right" class="right">
-            <view class="item" bindtap="onEdit" data-item="{{item}}" >修改</view>
-            <view class="item" bindtap="onDelete" data-item="{{item}}">删除</view>
+            <view class="item" bindtap="onEdit" data-item="{{e}}" >修改</view>
+            <view class="item" bindtap="onDelete" data-item="{{e}}">删除</view>
         </view>
     </van-swipe-cell>
   </view>
-  <view style="height: 10%rpx;padding: 10rpx;text-align: center;display:flex;align-items: center;justify-content: center;background-color: aqua;border-radius: 0rpx 0rpx 20rpx 20rpx;" bindtap="onAdd" data-item="{{sentence[item]}}">增加一条</view>
+  <view style="height: 10%rpx;padding: 10rpx;text-align: center;display:flex;align-items: center;justify-content: center;background-color:{{color1[item%5]}};border-radius: 0rpx 0rpx 20rpx 20rpx;color:#ffffff;letter-spacing:15rpx;font-weight: bold;" bindtap="onAdd" data-item="{{sentence[item]}}">增加一条</view>
   </view>
 </view>
 </scroll-view>
+<van-button round type="info" customStyle="width:60%;margin-top:50rpx;font-weight:bold;letter-spacing:10rpx;font-size:37rpx" catchtap="showAddCategory" color="#83c6c2" block>增加分类</van-button>
 <!-- 弹框 -->
 <van-dialog
   use-slot
-  title="确定删除?"
+  title="确定删除该条语句?"
   show="{{ show }}"
   show-cancel-button
   bind:close="onClose"
@@ -36,7 +41,7 @@
 </van-dialog>
 <van-dialog
   use-slot
-  title="请修改该条常用语句"
+  title="请修改该条语句"
   show="{{ show2 }}"
   show-cancel-button
   bind:close="onClose"
@@ -53,7 +58,7 @@
 </van-dialog>
 <van-dialog
   use-slot
-  title="增加界面"
+  title="增加一条该类记录"
   show="{{ show3 }}"
   show-cancel-button
   bind:close="onClose"
@@ -67,4 +72,50 @@
           border="{{ false }}"
           bind:change="onChange2"
         />
+</van-dialog>
+
+<van-dialog
+  use-slot
+  title="增加一个语句分类"
+  show="{{ show4 }}"
+  show-cancel-button
+  bind:close="onClose"
+  bind:confirm="addCategory"
+>
+<van-field
+          value="{{content3}}"
+          type="textarea"
+          placeholder="请输入内容"
+          autosize
+          border="{{ false }}"
+          bind:change="onChange3"
+        />
+</van-dialog>
+
+<van-dialog
+  use-slot
+  title="修改一个语句分类"
+  show="{{ show5 }}"
+  show-cancel-button
+  bind:close="onClose"
+  bind:confirm="changeCategory"
+>
+<van-field
+          value="{{content3}}"
+          type="textarea"
+          placeholder="请输入内容"
+          autosize
+          border="{{ false }}"
+          bind:change="onChange4"
+        />
+</van-dialog>
+
+<van-dialog
+  use-slot
+  title="确定删除该分类?"
+  show="{{ show6 }}"
+  show-cancel-button
+  bind:close="onClose"
+  bind:confirm="deleteCat"
+>
 </van-dialog>

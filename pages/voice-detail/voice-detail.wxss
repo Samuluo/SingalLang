@@ -1,6 +1,6 @@
 /* pages/voice-detail/voice-detail.wxss */
 .scroll-view {
-  margin-top: 40rpx;
+  margin-top: 100rpx;
   width: 90%;
   margin-left: 5%;
   height: 1100rpx;

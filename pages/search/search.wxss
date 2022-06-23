@@ -27,6 +27,7 @@
   margin-top: 30rpx;
    text-align: center;
    background-color: #FFFFFF;
+   margin-bottom:30rpx;
 }
 .div{
   margin-right: 0rpx;

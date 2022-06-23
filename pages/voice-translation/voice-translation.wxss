@@ -7,9 +7,17 @@
   align-items: center;
   padding-top: 5rpx;
   padding-bottom: 7rpx;
-  height: 80%;
+  height: 120%;
   width: 100%;
-
+}
+.button2-layer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 5rpx;
+  padding-bottom: 7rpx;
+  height: 130%;
+  width: 100%;
 }
 .showme-layer{
   height: 100%;
@@ -42,7 +50,7 @@
   color:#5e5a5a;
   border-radius: 0rpx 0rpx 20rpx 20rpx;
   font-size: 40rpx;
-  height: 100rpx;
+  height: 140rpx;
 }
 .content-box-showme{
   height: 100%;
@@ -170,6 +178,7 @@
 }
 
 .footer{
+  padding-top: rpx;
   display: flex;
 	width: 83%;
   height: 25px;
@@ -219,7 +228,7 @@
   width: 80%;
   white-space: nowrap;
   position: fixed;
-  bottom: 250rpx;
+  bottom: 330rpx;
 }
 .scroll-item{
   display: inline-block;
@@ -334,7 +343,7 @@
   align-items: center;
   position: fixed;
   bottom:0;
-  margin-bottom: 30rpx;
+  margin-bottom: 50rpx;
 }
 .color{
   display: flex;

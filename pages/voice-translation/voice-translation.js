@@ -8,13 +8,14 @@ Page({
    * 页面的初始数据
    */
   data: {
+    isUsed: 0,
     backgroundcolor:'#ffffff',
     textcolor:'#83c6c2',
     font:50,
     showConfig:false,
     bigitem:0,
     smallitem:0,
-    h1: "600rpx",
+    h1: "650rpx",
     istouch: '',
     curr: 1,
     color2:  '#83c6c2',
@@ -30,7 +31,8 @@ Page({
     content:'',
     history:[],//输入历史记录
     normal:["你好","谢谢","我说不了话","我听不见","对不起","麻烦了","劳驾了","我叫郭运鹏"],
-    configitem:1
+    configitem:1,
+    scrollInfo:{}
   },
 
   /**
@@ -39,7 +41,7 @@ Page({
   onLoad: function (options) {
     let scrollInfo = {
       prevDistance: 0, //滚动条的距离（默认为0）
-      screenHalfwidth: wx.getSystemInfoSync().windowWidth / 2, 
+      screenHalfwidth: (wx.getSystemInfoSync().windowWidth*0.84) / 2, 
     }
  
     this.data.scrollInfo = scrollInfo;
@@ -48,7 +50,8 @@ Page({
     wx.getSystemInfo({
       success: function (res) {
         that.setData({
-          screenWidth: res.screenWidth
+          screenWidth: res.screenWidth,
+          scrollInfo: scrollInfo
         })
       },
     })
@@ -351,7 +354,7 @@ Page({
             curr: i,
             startPoint:[e.touches[0].pageX,e.touches[0].pageY],
             istouch:'hidden',
-            h1:"810rpx"
+            h1:"925rpx"
           })
           
         }
@@ -376,12 +379,34 @@ Page({
       }
       for(var i=0;i<len;i++) {
         if(startPointX+step*i<curPoint[0]&&curPoint[0]<=startPointX+step*(i+1)) {
-          this.setData({
-            curr: i
-          })
+          let prevDistance = this.data.scrollInfo.prevDistance;
           this.data.scrollInfo.subLeft = startPointX+step*i; //元素一半宽度
-          this.data.scrollInfo.subHalfWidth = 35; 
-          this.moveTo();
+          this.data.scrollInfo.subHalfWidth = (this.data.screenWidth*0.02)/2; 
+          if(i<this.data.curr&&this.data.isUsed==0) {
+            this.setData({
+              isUsed: 1,
+              curr: i
+            })
+            //this.data.scrollInfo.prevDistance = 0;
+            this.moveTo();
+          }
+          if(i<this.data.curr&&this.data.isUsed!=0) {
+            this.setData({
+              isUsed: 1,
+              curr: i
+            })
+            this.moveTo();
+          }
+          if(i>this.data.curr) {
+            this.setData({
+              isUsed: 0,
+              curr: i
+            })
+            this.moveTo();
+          }
+          //console.log(this.data.isUsed);
+          
+          
         }
       }
     },
@@ -389,8 +414,9 @@ Page({
       var con = this.data.content+this.data.normal[this.data.curr].content;
       this.setData({
         istouch:'',
-        h1:"600rpx",
-        content: con
+        h1:"650rpx",
+        content: con,
+        isUsed: 0
       })
     },
   //移动导航栏
@@ -399,20 +425,30 @@ Page({
     let subHalfWidth = this.data.scrollInfo.subHalfWidth;
     let prevDistance = this.data.scrollInfo.prevDistance;
     let screenHalfwidth = this.data.scrollInfo.screenHalfwidth;
- 
-    let needScroll = subLeft - screenHalfwidth + subHalfWidth;
+    
+    let needScroll = subLeft - screenHalfwidth-8;
+    console.log(subLeft)
+    console.log(screenHalfwidth)
+    console.log(needScroll)
+    console.log(subHalfWidth)
     let scrollLeft = needScroll + prevDistance;
+    console.log(scrollLeft)
  
     this.setData({
       scrollLeft: scrollLeft
     })
   },
- 
   //记录滚动的距离
   scrollMove: function(e) {
- 
+    
     let distance = e.detail.scrollLeft;
-    this.data.scrollInfo.prevDistance = distance
+    let scrollInfo = {
+      prevDistance: distance, //滚动条的距离（默认为0）
+      screenHalfwidth: (wx.getSystemInfoSync().windowWidth*0.84) / 2, 
+    }
+    this.setData({
+      scrollInfo: scrollInfo
+    })
   },
   historyAdd:function(e){
     var that = this

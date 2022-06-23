@@ -2,7 +2,7 @@
 <navigation-bar default-data="{{defaultData}}"></navigation-bar>
 <!-- <text>pages/voice-translation/voice-translation.wxml</text> -->
 <view class='container'>
-  <swiper current="{{bigitem}}" style="height: 133rpx;"  >
+  <swiper current="{{bigitem}}" style="height: 200rpx;"  >
     <swiper-item catchtouchmove='catchTouchMove' >
     </swiper-item>
     <swiper-item catchtouchmove='catchTouchMove' >
@@ -41,14 +41,14 @@
 
       </view>
   </view>
-  <swiper current="{{smallitem}}" bindchange="changeSmallItem" style="height: 133rpx;" >
+  <swiper current="{{smallitem}}" bindchange="changeSmallItem" style="height: 200rpx;" >
         <swiper-item  >
-          <view class='button-layer' style="margin-bottom:1rpx; padding-top: 5rpx;" >
+          <view class='button2-layer' style="margin-bottom:1rpx; padding-top: 5rpx;" >
             <image src='/images/translation/wts.png' style="width: 120rpx;height: 120rpx;z-index: 3;transform: rotate(180deg)" class='speak-button' bindtouchstart="touchStart" bindtouchend="touchEnd"></image>
   </view>
     </swiper-item>
     <swiper-item  >
-      <view class='button-layer' style="margin-bottom:1rpx; padding-top: 5rpx;" >
+      <view class='button2-layer' style="margin-bottom:1rpx; ;" >
         <image src='/images/translation/sound.png' style="width: 100rpx;height: 100rpx;z-index: 3;" class='speak-button' bindtap="wordtospeak"></image>
   </view>
     </swiper-item>
@@ -76,12 +76,12 @@
     </view>
   </view>
   <!-- 输入记录 -->
-  <view class='showme-layer2' style="margin-top: 10rpx;" hidden="{{istouch}}" >
+  <view class='showme-layer2' style="margin-top: 20rpx;" hidden="{{istouch}}" >
     <view class='layer2-top' scroll-y="true">
      <text style="padding-left:40rpx;font-weight:bold;"> 输入记录: </text>
     </view>
     <view class="layer2-content">
-      <scroll-view scroll-y style="height: 100rpx;">
+      <scroll-view scroll-y style="height: 140rpx;">
       <view wx:for="{{history}}" class="history-item" style="margin-left: 30rpx;margin-top: 5rpx;margin-bottom: 5rpx;">
        <view style="width: 87%;">
        <text style="color: #dbdbdb;font-weight:bold;font-size:25rpx">{{index+1}}.</text>
@@ -100,7 +100,7 @@
     </view>
   </view>
   <!-- 常用语模块 -->
-  <view class="footer" hidden="{{istouch}}" style="margin-top:5rpx;margin-left: 8%; background: {{color2}};border: 1px solid {{color2}};transition: .5s;">
+  <view class="footer" hidden="{{istouch}}" style="margin-top:20rpx;margin-left: 8%; background: {{color2}};border: 1px solid {{color2}};transition: .5s;">
   <scroll-view scroll-x class="scroll-view">
       <view bindtap="selecttarget" data-item="{{item}}" class="scroll-item" wx:for="{{array}}" class="sdf" style="background-color: {{color1[item%5]}}">
         <text>{{sentence[item]}}</text>
@@ -108,19 +108,19 @@
   </scroll-view>
   </view>
   <!-- 滑动按钮 -->
-  <button style="width: 84%;margin-left: 8%;font-size:35rpx;font-weight:bold;color:#f0ecec;background: #83c6c2;z-index: 1;  box-shadow:1rpx 1rpx 5rpx 5rpx #c2f0f0"
+  <button style="height:80rpx;width: 84%;margin-left: 8%;font-size:35rpx;font-weight:bold;color:#f0ecec;background: #83c6c2;z-index: 1;  box-shadow:1rpx 1rpx 5rpx 5rpx #c2f0f0"
     bindtouchstart="startFn"
     bindtouchmove="touchmoveFn"
     bindtouchend="endFn">《 - - 滑动选择    <image style="width:40rpx;height:40rpx" src="../../images/translation/touch.png"></image>    松开输入 - - 》</button>
   <!-- 显示隐藏具体信息 -->
-  <scroll-view hidden="{{!istouch}}" scroll-x class="scroll-view2" scroll-with-animation="true" scroll-left="{{scrollLeft}}" bindscroll="scrollMove">
+  <scroll-view hidden="{{!istouch}}" scroll-x class="scroll-view2" scroll-with-animation="true" bindscroll="scrollMove" scroll-left="{{scrollLeft}}">
       <view wx:for="{{normal}}"  class="{{curr==index?'tcp':'udp'}}" data-index='{{index}}'>
-        <view id="id">{{item.content}}</view>
+        <view id="{{item.content}}">{{item.content}}</view>
       </view>
   </scroll-view>
 
 
-  <swiper current="{{bigitem}}" style="height: 145rpx;">
+  <swiper current="{{bigitem}}" style="height: 200rpx;margin-top: 0rpx;">
     
     <swiper-item catchtouchmove='catchTouchMove'>
       <swiper current="{{smallitem}}" style="height: 145rpx;" 	bindchange="changeSmallItem">
@@ -181,7 +181,7 @@
   round
   show="{{ showConfig }}"
   position="bottom"
-  custom-style="height: 28%;"
+  custom-style="height: 25%;"
   :close-on-click-overlay="true"
   bind:close="closeConfig"
   overlay-style="opacity:0.5"
@@ -246,7 +246,7 @@
 </view>
 </view>
 
-<view  class="circle_line" wx:if="{{configitem==3||configitem==4}}" style="margin-bottom:10rpx;margin-left: 5%;width: 90%;height:120rpx;background-color: #83c6c2;border-radius: 30rpx;">
+<view  class="circle_line" wx:if="{{configitem==3||configitem==4}}" style="margin-bottom:0rpx;margin-left: 5%;width: 90%;height:120rpx;background-color: #83c6c2;border-radius: 30rpx;">
 <text style="font-weight: bold;color:#ffffff;letter-spacing: 10rpx;font-size: 37rpx;">字号:{{font}}rpx</text>
 </view>
 

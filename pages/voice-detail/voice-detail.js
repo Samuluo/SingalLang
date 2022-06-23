@@ -8,17 +8,25 @@ Page({
    * 页面的初始数据
    */
   data: {
+    color1:['#83c6c2','#3f81c1','#36ab60','#ea986c','#be8dbd'],
     content:"",
     content2:"",
+    content3:"",
+    content4:"",
     curr: 0,
     currgroup:"",
     show: false,
     show2: false,
     show3: false,
+    show4:false,
+    show5:false,
+    show6:false,
     sentence:[],
     array:[],
     sentencedetail:[],
     screenheight:0,
+    toChagneCategory:[],
+    toDeleteCategory:[]
   },
   
   /**
@@ -46,11 +54,10 @@ Page({
   },
   getSentence: function(e) {
     var that = this;
-    console.log(this.data.userId)
+
     wx.request({
       url: 'https://bewcf.info/sentence/queryAll?userId='+e,
       success:(res)=>{
-        console.log(res)
         var a = []
         var b = []
         var arr = []
@@ -58,12 +65,12 @@ Page({
         for (var key in res.data) {
           arr.push(i)
           i++
-          console.log(key);     //获取key值 
+  
           a.push(key);
-          console.log(a); //获取对应的value值
+
           b.push(res.data[key])
         }
-        console.log(b)
+
         that.setData({
           sentence: a,
           sentencedetail:b,
@@ -107,6 +114,86 @@ Page({
     this.setData({
       show3: true,
       currgroup:s
+    })
+  },
+  showAddCategory(){
+    this.setData({
+      show4: true,
+    })
+  },
+  showChangeCategory(e){
+    this.setData({
+      show5: true,
+      toChagneCategory:e.currentTarget.dataset.name
+    })
+  },
+  deleteCategory(e){
+    console.log(e)
+    this.setData({
+      show6: true,
+      toDeleteCategory:e.currentTarget.dataset.name
+    })
+  },
+  addCategory(){
+    wx.request({
+      url: 'https://bewcf.info/sentence/addGroup',
+      method:"POST",
+      data:{
+        userId:this.data.userId,
+        name:this.data.content3
+      },
+      header: {
+        "content-type": "application/x-www-form-urlencoded" 
+      },
+      success:(res)=>{
+        console.log("删除成功")
+        this.onLoad();
+      }
+    })
+  },
+  changeCategory(e){
+    wx.request({
+      url: 'https://bewcf.info/sentence/updateGroup',
+      method:"POST",
+      data:{
+        userId:this.data.userId,
+        name:this.data.toChagneCategory,
+        newName:this.data.content4
+      },
+      header: {
+        "content-type": "application/x-www-form-urlencoded" 
+      },
+      success:(res)=>{
+        this.onLoad();
+      }
+    })
+  },
+  deleteCat(e){
+    wx.request({
+      url: 'https://bewcf.info/sentence/removeGroup',
+      method:"POST",
+      data:{
+        userId:this.data.userId,
+        name:this.data. toDeleteCategory,
+      },
+      header: {
+        "content-type": "application/x-www-form-urlencoded" 
+      },
+      success:(res)=>{
+        this.onLoad();
+      }
+    })
+  },
+  onChange3(event) {
+    // event.detail 为当前输入的值
+    this.setData({
+      content3:event.detail
+    })
+  },
+  onChange4(event) {
+    // event.detail 为当前输入的值
+    this.setData({
+      content4:event.detail
     })
   },
   onClose(item) {

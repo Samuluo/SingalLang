@@ -1,9 +1,5 @@
 /* pages/calendar/calendar.wxss */
-page {
-  height: 100%;
-  width: 100%;
-  background: #f3f5f9;
-}
+
 .calendar-page {
   width: 100%;
   height: 42%;
@@ -83,11 +79,17 @@ page {
 .box{
   width:90%;
   height: 500rpx;
-  border:4px double seagreen;
+  margin-top: 50rpx;
+  border:4rpx double #83c6c2;
+  border-radius: 5%;
   margin-left: 5%;
   float: left;
 }
 .static{
   position: fixed;
   bottom:0
+}
+.van-tabs {
+  height: 45%;
+  background-color: #FFFFFF;
 }
