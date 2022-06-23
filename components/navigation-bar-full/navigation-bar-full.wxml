@@ -4,7 +4,7 @@
     <view style="{{'height: ' + statusBarHeight}}"></view>
     <!--自定义导航栏-->
     <view class="navigation-bar" style="{{'height:' + navigationBarHeight}}">
-        <view class="navigation-title" style="{{'line-height:' + navigationBarHeight}}">声笙慢</view>
+        <view class="navigation-title" style="{{'line-height:' + navigationBarHeight}}">scu<text>-声 之 形</text></view>
         <view class="navigation-buttons" style="{{'height:' + menuButtonHeight}}">
             <image  catchtap="goback" class="nav-img" src='/images/back.png'  wx:if="{{show}}"/>
         </view>

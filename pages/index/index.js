@@ -16,7 +16,7 @@ Page({
     setTimeout(() => {
       // 打开主页面
       this.openPage()
-    }, 1500)
+    }, 2000)
   },
 
   /**
