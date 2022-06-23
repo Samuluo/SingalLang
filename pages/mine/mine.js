@@ -2,11 +2,12 @@ const app = getApp()
 
 Page({
   data: {
+    tabshow:false,
     filePath:'',//临时雷达图路径
-    totalAmount: 3000,
+    totalAmount: '',
     avatar: "http://m.imeitou.com/uploads/allimg/220318/5-22031Q55648.jpg",
     nickname: "",
-    totalDate:30,
+    totalDate:'',
     options: {
       title: {
         text: '学习统计'
@@ -44,6 +45,7 @@ Page({
           avatar: res.data.avatar,
           nickname: res.data.nickname,
         })
+        this.login();
       }
     })
   },
