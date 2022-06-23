@@ -80,15 +80,15 @@
            <view style="margin-top: 50rpx;">
            <van-row gutter="20" >
             <van-col span="10" offset="4">
-              <van-button round  custom-class="{{button1}}" color="{{Acolor1}}" data-button="button1" catchtap="answer" data-answer="{{answerpool[0]}}"   size = "small">{{answerpool[0]}}</van-button>
+              <van-button round  custom-style="letter-spacing:6rpx;font-size:29rpx"  custom-class="{{button1}}" color="{{Acolor1}}" data-button="button1" catchtap="answer" data-answer="{{answerpool[0]}}"   size = "small">{{answerpool[0]}}</van-button>
             </van-col>
-            <van-col span="10"><van-button  round custom-class="{{button2}}" color="{{Acolor2}}" data-button="button2" catchtap="answer" data-answer="{{answerpool[1]}}"   size = "small">{{answerpool[1]}}</van-button></van-col>
+            <van-col span="10"><van-button custom-style="letter-spacing:6rpx;font-size:29rpx"   round custom-class="{{button2}}" color="{{Acolor2}}" data-button="button2" catchtap="answer" data-answer="{{answerpool[1]}}"   size = "small">{{answerpool[1]}}</van-button></van-col>
            </van-row>
            </view>
            <view style="margin-top: 40rpx;"> 
             <van-row gutter="20">
-            <van-col span="10" offset="4"><van-button round custom-class="{{button3}}" color="{{Acolor3}}" data-button="button3" catchtap="answer" data-answer="{{answerpool[2]}}"   size = "small">{{answerpool[2]}}</van-button></van-col>
-            <van-col span="10"><van-button  round custom-class="{{button4}}" color="{{Acolor4}}" data-button="button4" catchtap="answer" data-answer="{{answerpool[3]}}"   size = "small">{{answerpool[3]}}</van-button></van-col>
+            <van-col span="10" offset="4"><van-button custom-style="letter-spacing:6rpx;font-size:29rpx" round custom-class="{{button3}}" color="{{Acolor3}}" data-button="button3" catchtap="answer" data-answer="{{answerpool[2]}}"   size = "small">{{answerpool[2]}}</van-button></van-col>
+            <van-col span="10"><van-button  custom-style="letter-spacing:6rpx;font-size:29rpx"  round custom-class="{{button4}}" color="{{Acolor4}}" data-button="button4" catchtap="answer" data-answer="{{answerpool[3]}}"   size = "small">{{answerpool[3]}}</van-button></van-col>
           </van-row>
            </view>
           

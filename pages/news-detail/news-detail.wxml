@@ -2,11 +2,11 @@
 <view class="detail-container">
   <image class="head-image" src="{{des.imgUrl}}"></image>
   <view class="author-date">
-    <text class="const-text">发表于</text>
-    <text class="date">{{des.time}}</text>
+    <text class="const-text" style="font-size: 30rpx;">发表于</text>
+    <text class="date" style="font-size: 30rpx;">{{des.time}}</text>
       <image class="avatar" catchtap="star" src="{{isStar==false?'../../images/star2.png':'../../images/star1.png'}}"></image>
   </view>
-  <text class="title">{{des.title}}</text>
+  <text class="title" style="font-size: 40rpx;padding-left: 10rpx;">{{des.title}}</text>
   <view class="tool">
     <view class="circle-img">
       <image src=""></image>

@@ -36,14 +36,14 @@ Page({
       trigger: 'axis'
     },
     legend: {
-      data: ['左耳', '右耳', 'Video Ads', 'Direct', 'Search Engine']
+      data: ['左耳', '右耳', 'Line 1', 'Direct', 'Search Engine']
     },
     grid: {
       show: true,
       bottom: 20,
       top: 20,
       left: 40,
-      right: 20
+      right: 0
   },
     toolbox: {
       feature: {
@@ -56,7 +56,7 @@ Page({
       data: [250,500,1000,2000,3000,4000]
     },
     yAxis: {
-      type: 'value'
+      type: 'value',
     },
     series: [
       {
@@ -110,8 +110,9 @@ Page({
         tooltip: {
           trigger: 'axis'
         },
+        color: ['', '', '#19fa28', '#36ab60', '#f6ef37','red'],
         legend: {
-          data: ['左耳', '右耳']
+          data: ['左耳', '右耳','健听区','轻损区','中损区','重损区'],
         },
         toolbox: {
           feature: {
@@ -160,7 +161,7 @@ Page({
             data: rres,
             lineStyle: {
               normal: {
-                color: 'black',
+                color: 'blue',
                 width: 4,
                 
               }
@@ -169,7 +170,7 @@ Page({
           
            
                 {
-            name: 'Line 1',
+            name: '健听区',
             type: 'line',
             stack: 'Total',
             smooth: true,
@@ -178,8 +179,9 @@ Page({
             },
             showSymbol: false,
             areaStyle: {
-              opacity: 0.8,
-              
+              color:'#19fa28',
+              opacity: 0.4
+          
             },
             emphasis: {
               focus: 'series'
@@ -187,7 +189,7 @@ Page({
             data: [25, 25, 25, 25, 25, 25]
           },
           {
-            name: 'Line 2',
+            name: '轻损区',
             type: 'line',
             stack: 'Total',
             smooth: true,
@@ -196,7 +198,8 @@ Page({
             },
             showSymbol: false,
             areaStyle: {
-              opacity: 0.8,
+              color:'#36ab60',
+              opacity: 0.4,
             },
             emphasis: {
               focus: 'series'
@@ -204,7 +207,7 @@ Page({
             data: [15, 15, 15, 15, 15, 15]
           },
           {
-            name: 'Line 3',
+            name: '中损区',
             type: 'line',
             stack: 'Total',
             smooth: true,
@@ -213,15 +216,14 @@ Page({
             },
             showSymbol: false,
             areaStyle: {
-              opacity: 0.8,
-            },
-            emphasis: {
+              color:'#f6ef37',
+              opacity: 0.4,
               focus: 'series'
             },
             data: [15, 15, 15, 15, 15, 15]
           },
           {
-            name: 'Line 4',
+            name: '重损区',
             type: 'line',
             stack: 'Total',
             smooth: true,
@@ -230,34 +232,14 @@ Page({
             },
             showSymbol: false,
             areaStyle: {
-              opacity: 0.8,
+              color:'red',
+              opacity: 0.4,
             },
             emphasis: {
               focus: 'series'
             },
-            data: [15, 15, 15, 15, 15, 15]
+            data: [30, 30, 30, 30, 30, 30]
           },
-          {
-            name: 'Line 5',
-            type: 'line',
-            stack: 'Total',
-            smooth: true,
-            lineStyle: {
-              width: 0
-            },
-            showSymbol: false,
-            label: {
-              show: true,
-              position: 'top'
-            },
-            areaStyle: {
-              opacity: 0.8,
-            },
-            emphasis: {
-              focus: 'series'
-            },
-            data: [15, 15, 15, 15, 15, 15]
-          }
         ]
      }
     })

@@ -11,9 +11,10 @@
   box-sizing: border-box;
 }
 .goodbutton{
-  margin-top: 40rpx;
+  margin-top: 0rpx;
   background: #83c6c2; 
   width:70%;
   color:#ffffff;
   font-weight: bold;
+  letter-spacing: 2rpx;
 }

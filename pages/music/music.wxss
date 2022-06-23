@@ -153,7 +153,7 @@ page{
   justify-content: space-around;
   /* 决定主轴，从上到下排列 还有一个从左到右row，相反则加-reverse*/
   flex-direction: column;
-  height: 70%;
+  height: 75%;
 }
 .content-play-info > view{
   color: #888;

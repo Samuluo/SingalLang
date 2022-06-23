@@ -90,7 +90,7 @@ page{
 }
  
 .mycanvas {
-  height: 600rpx;
+  height: 650rpx;
   margin-bottom: 22rpx;
   background: #fff;
   box-shadow: 0 0 10rpx #ccc;

@@ -5,8 +5,9 @@
   flex-direction: column;
 }
 .head-image {
+  padding-top: 5%;
   background-color:#f7f6f6;
-  width: 70%;
+  width: 80%;
   height: 400rpx;
   background-position:center ;
   display: block;    
@@ -20,8 +21,8 @@
 }
 
 .avatar {
-  height: 64rpx;
-  width: 64rpx;
+  height: 80rpx;
+  width: 80rpx;
   vertical-align: middle;
   float:right;
   margin-right:20rpx;
@@ -58,7 +59,7 @@
 }
 
 .tool {
-  margin-top: 20rpx;
+  margin-top: 0rpx;
 }
 
 .circle-img {
@@ -88,12 +89,13 @@
 }
 
 .detail {
-  margin-left: 30rpx;
-  margin-top: 20rpx;
-  margin-right: 30rpx;
+  margin-left: 7%;
+  margin-top: 0rpx;
+  margin-right: 7%;
   line-height: 44rpx;
-  letter-spacing: 2px;
-  font-size: 24rpx;
+  letter-spacing: 10rpx;
+  font-size: 30rpx;
+  margin-bottom: 15%;
   color: #666;
   font-family: MicroSoft Yahei;
 }

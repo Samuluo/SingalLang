@@ -12,16 +12,16 @@
             <image  wx:if="{{!canIUseGetUserProfile}}"  style="width:128rpx;height:128rpx;margin-left: 2%;" catchtap="getUserProfile" src="/images/mines.png" mode="scaleToFill"></image>
 					</view>
 					<view class="center_info">
-						<view class="center_name">{{nickname}}</view>
+						<view class="center_name" style="font-size: 60rpx;letter-spacing: 15rpx;font-weight: bold;">{{nickname}}</view>
 						<!-- <view class="center_phone">phone:{{phone}}</view> -->
 					</view>
 				</view>
 				<view class="center_down">
 					<view class="center_rank" >
-						<text class="rank_text">累计学习单词  {{totalAmount}}</text>
+						<text class="rank_text" style="font-size:31rpx;">累计学习单词   <text style="color:#83c6c2;margin-left: 20rpx;">{{totalAmount}}</text></text>
 					</view>
 					<view class="center_score" >
-						<text class="rank_text">累计学习天数  {{totalDate}} </text>
+						<text class="rank_text" style="font-size:31rpx;">累计学习天数    <text style="color:#83c6c2;margin-left: 20rpx;">{{totalDate}}</text></text>
 					</view>
 				</view>
 			</view>

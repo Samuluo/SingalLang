@@ -30,7 +30,7 @@
 			</view>
 			<van-picker  custom-class="selectcidian" 
  columns="{{ columns }}" bind:change="onChange" />
-	<van-button round custom-style="width:100%;font-size:24px;margin-top:20rpx" color="#83c6c2 100%" bindtap="getSubmit">确认修改</van-button>
+	<van-button round custom-style="width:100%;font-size:24px;margin-top:60rpx" color="#83c6c2 100%" bindtap="getSubmit">确认修改</van-button>
 	  </view>
 	</view>
 	</view>

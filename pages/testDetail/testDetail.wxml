@@ -46,8 +46,8 @@
 <van-circle value="{{ value }}" size="120" stroke-width="10" color="{{ gradientColor }}" text="测试音频" layer-color="#f7f6f6"  />
          <image  mode="scaleToFill" style="width: 100rpx;height:100rpx;margin-left:20rpx;margin-bottom:55rpx"  src="../../images/test/RSS-R.png"></image>
           </view>
-    <text style="display:block;margin:0 auto; text-align: center;margin-top:30rpx;">播放测试音频，<text decode="{{true}}" style="color:red">请注意音量</text></text>
-      <text style="padding-top:30rpx;display:block;margin:0 auto; text-align: center">建议系统音量:<text decode="{{true}}" style="color:red">70%</text></text>
+    <text style="display:block;margin:0 auto; text-align: center;margin-top:40rpx;">播放测试音频，<text decode="{{true}}" style="color:red">请注意音量</text></text>
+      <text style="padding-top:50rpx;display:block;margin:0 auto; text-align: center">建议系统音量:<text decode="{{true}}" style="color:red">70%</text></text>
 
 <button class="btn btn-grad8">
 </button>
@@ -57,9 +57,9 @@
      <slider disabled  max="95"  activeColor="#83c6c2" block-size="12" backgroundColor="#dadada"  value="{{play.percent}}" ></slider>
     </view>
     </view>
-              <view style="margin-top:60rpx;margin:0 auto;text-align: center;display:block">
+              <view style="margin-top:30rpx;margin:0 auto;text-align: center;display:block">
               <view>
-               <text decode="{{true}}" class="desc" style="display:inline-block;margin-left:110rpx">正在播放</text>
+               <text decode="{{true}}" class="desc" style="display:inline-block;margin-left:110rpx;margin-bottom: 70rpx;">正在播放</text>
                <image  mode="scaleToFill" catchtap="replay" style="width: 40rpx;height:40rpx;float:right;margin-right:30rpx"  src="../../images/test/replay.png"></image>
               </view>
               <button class="button" style="width:230rpx;margin-left:0rpx;margin-top:30rpx" catchtap="beginTest">开始测试</button>
@@ -73,12 +73,12 @@
           <van-row gutter="30" custom-class="Grid" >
       <van-col offset="2" span="20">
           <view class="card2">
-          <view style="padding-top:50rpx"  >
-          <image wx:if="{{earIndex==0}}"  mode="scaleToFill" style="position:absolute;width: 100rpx;height:100rpx;left:130rpx;top:215rpx" src="../../images/test/RSS-L.png"></image>
+          <view style="padding-top:70rpx;margin-bottom: 70rpx;"  >
+          <image wx:if="{{earIndex==0}}"  mode="scaleToFill" style="position:absolute;width: 100rpx;height:100rpx;left:130rpx;top:245rpx" src="../../images/test/RSS-L.png"></image>
 <van-circle value="{{ play.Hz/4000*100 }}" class="item2" size="120" stroke-width="10" color="{{ gradientColor }}" text="{{earIndex==0?'左耳测试':'右耳测试'}}" layer-color="#f7f6f6"  />
-         <image  wx:if="{{earIndex==1}}" mode="scaleToFill" style="position:absolute;width: 100rpx;height:100rpx;right:130rpx;top:215rpx"  src="../../images/test/RSS-R.png"></image>
+         <image  wx:if="{{earIndex==1}}" mode="scaleToFill" style="position:absolute;width: 100rpx;height:100rpx;right:130rpx;top:245rpx"  src="../../images/test/RSS-R.png"></image>
           </view>
-    <text style="margin-left:50rpx;padding-top:50rpx">频率{{play.Hz}}Hz</text>
+    <text style="margin-left:50rpx;padding-top:150rpx">频率{{play.Hz}}Hz</text>
     <text style="float:right;margin-right:50rpx">分贝{{play.DB}}DB</text>
 <button class="btn btn-grad8">
 </button>

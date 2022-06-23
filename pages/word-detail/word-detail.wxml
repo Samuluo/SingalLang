@@ -4,18 +4,14 @@
 <view class="top">
 <view class="top-first">
     <view class="top-first-item">
-      <image catchtap="star" style="width: 40rpx; height: 40rpx;" mode="scaleToFill" src="{{word.isStar==false?'../../images/star.png':'../../images/star-y.png'}}"></image>
-      <text>收藏</text>
-    </view>
-    <view class="top-first-item">
-      <image catchtap="onShareAppMessage"  style="width: 40rpx; height: 40rpx;" mode="scaleToFill" src="../../images/share.png"></image>
-      <text>分享</text>
+      <image catchtap="star" style="width: 50rpx; height: 60rpx;" mode="scaleToFill" src="{{word.isStar==false?'../../images/star.png':'../../images/star-y.png'}}"></image>
+      <text style="font-size:26rpx;letter-spacing: 5rpx;">收藏</text>
     </view>
 </view>
 </view>
 
 <view class="top2" >
-<text style="font-size:80rpx;margin-top:50rpx">{{word.answer}}</text>
+<text style="font-size:80rpx;margin-top:90rpx">{{word.answer}}</text>
 </view>
 <view class="content">
       <image style="width: 450rpx; height: 300rpx; background-color: #eeeeee" mode="scaleToFill" src="{{word.imgUrl}}"></image>

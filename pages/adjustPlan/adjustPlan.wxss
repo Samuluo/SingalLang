@@ -40,7 +40,7 @@
 
 .cidian-adjust{
   
-  margin-top: 20rpx;
+  margin-top: 15%;
   width: 80% ;
   
   align-self: center; 

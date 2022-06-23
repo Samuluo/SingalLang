@@ -11,7 +11,9 @@
 <view class="content-info-portal" wx:for="{{songlist}}">
     <view wx:for="{{item}}">
         <image src="{{item.imgUrl}}" style="width:150rpx;height:150rpx" catchtap="songs" data-item="{{item}}"></image>
-        <text style="font-size:27rpx;color:#666;font-family: MicroSoft Yahei;">{{item.title}}</text>
+        <view style="margin-top:50rpx;">
+        <text style="font-size:29rpx;color:#666;font-weight:bold;font-family: MicroSoft Yahei;letter-spacing: 3rpx;padding-top: 20rpx;">{{item.title}}</text>
+      </view>
     </view>
 </view>
 <view style="background-color:#ffffff;display: flex;margin-bottom:100rpx"></view>
