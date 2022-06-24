@@ -7,7 +7,7 @@
       <text class="content" style="padding-left: 35%;letter-spacing: 2rpx;color: #83c6c2;font-weight: bold;font-size: 30rpx;">可选词库</text>
       
       </view>
-      <view wx:if="{{dictionaries.length==0}}">
+      <view wx:if="{{empty}}">
   <van-empty
   class="custom-image"
   image="https://img.yzcdn.cn/vant/custom-empty-image.png"

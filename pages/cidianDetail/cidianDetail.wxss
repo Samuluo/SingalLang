@@ -99,4 +99,5 @@ page{
   border-top-right-radius: 10px; 	
   font-size: 14px;
 }
-@import 'cidianDetail-wxa-auto-dark.wxss'
+@import 'cidianDetail-wxa-auto-dark.wxss';
+@import "/pages/cidianDetail/cidianDetail.skeleton.wxss";

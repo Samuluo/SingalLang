@@ -9,6 +9,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    empty:'',
     amount:'5',
     pOrder:1,
     userId:1000,
@@ -80,7 +81,11 @@ Page({
         var d=new Date(); 
         var m=d.getMonth()+1; 
         var newdate = d.getFullYear()+'年'+m+'月'+d.getDate()+'日';
-
+        if(res.data.length==0){
+          that.setData({
+            'empty':true
+          })
+        }
         that.setData({
           'dictionaries':res.data,
           predictnum: newdate

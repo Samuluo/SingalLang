@@ -1,7 +1,7 @@
 <!--pages/test/test.wxml-->
 <view class="container2">
 <navigation-bar default-data="{{defaultData}}"></navigation-bar>
-  <view wx:if="{{plans.length==0}}">
+  <view wx:if="{{empty}}">
   <van-empty
   class="custom-image"
   image="https://img.yzcdn.cn/vant/custom-empty-image.png"

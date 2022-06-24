@@ -19,6 +19,7 @@ Page({
     wordList2:null,
     spacedata:{},
     spaceimgs:[],
+    loading: true,
     currentIndex:1,
     columns: [
       {

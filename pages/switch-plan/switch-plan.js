@@ -7,6 +7,7 @@ Page({
   data: {
     userId:1000,
     plans:[],
+    empty:false,
   },
 
   /**
@@ -30,6 +31,11 @@ Page({
           that.setData({
             'plans':res.data,
           })
+          if(res.data.length==0){
+            that.setData({
+              'empty':true,
+            })
+          }
           console.log(res)
         }
       })
