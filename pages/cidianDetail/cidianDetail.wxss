@@ -99,3 +99,23 @@ page{
   border-top-right-radius: 10px; 	
   font-size: 14px;
 }
+
+.center{
+  width: 80%;
+  margin: 30rpx 10% 0;
+  float: left;
+  font-size: 26rpx;
+  height: 200rpx;
+  background-color: #fff;
+}
+.animation{
+  animation:center 1s;
+}
+@keyframes center{
+  from {
+    transform:scale(0.3);
+  }
+  to {
+    transform:scale(1);
+  }
+}

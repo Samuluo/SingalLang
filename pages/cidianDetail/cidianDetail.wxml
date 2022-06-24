@@ -23,22 +23,36 @@
 	  </view>
 		<view class="danci" wx:if="{{wordList2!=null}}">
 			<view class="layout_horizontal2" >
-				<view wx:for="{{wordList2}}" style="width: 45%; position: relative;">
+				<view wx:for="{{wordList2}}" style="width: 45%; position: relative;" >
 				<view class="layout_horizontal" style="width: 100%;margin-left: 10%;margin-top: 7rpx;margin-bottom: 7rpx;">
       	<view style="margin-top: 10rpx;">
       		<text style="font-size:35rpx;width: 60px;position:absolute;letter-spacing: 5rpx;">{{item.answer}}</text>
 					<van-icon name="description" custom-style="margin-left:90%;position:absolute;padding-bottom:15rpx" size="20px" bindtap="getdetail" data-item="{{item.id}}"/>
-      		<van-icon name="star-o" custom-style="margin-left:130%;position:absolute;padding-bottom:15rpx" size="20px" bindtap="setStar" data-item="{{item.id}}" />
-					<van-icon wx:if="{{item.isStar==true}}"   name="star" color="orange" custom-style="margin-left:140%;position:absolute;padding-bottom:15rpx" size="20px" bindtap="setNotStar" data-item="{{item.id}}"/>
+      		<van-icon wx:if="{{item.isStar==false}}" name="star-o" custom-style="margin-left:130%;position:absolute;padding-bottom:15rpx" size="40rpx" bindtap="setStar" data-item="{{item.id}}" />
+          <van-icon wx:if="{{item.isStar==true}}"   name="star" color="orange" custom-style="margin-left:130%;position:absolute;padding-bottom:15rpx" size="40rpx" bindtap="setNotStar" data-item="{{item.id}}"/>
 				</view>
     	</view>
 			</view>
     </view>
 		</view>
-		<view class="danci" wx:for="{{countArr}}" wx:if="{{wordList2==null&&wordList==null}}"> 
-			<text style="text-align: center;">这个部分还没有单词哦</text>
+    <view class="danci" wx:if="{{wordList3!=null}}">
+			<view class="layout_horizontal2" >
+				<view wx:for="{{wordList3}}" style="width: 45%; position: relative;" >
+				<view class="layout_horizontal" style="width: 100%;margin-left: 10%;margin-top: 7rpx;margin-bottom: 7rpx;">
+      	<view style="margin-top: 10rpx;">
+      		<text style="font-size:35rpx;width: 60px;position:absolute;letter-spacing: 5rpx;">{{item.word.answer}}</text>
+					<van-icon name="description" custom-style="margin-left:90%;position:absolute;padding-bottom:15rpx" size="20px" bindtap="getdetail" data-item="{{item.id}}"/>
+      		<van-icon wx:if="{{item.isStar==false}}" name="star-o" custom-style="margin-left:130%;position:absolute;padding-bottom:15rpx" size="40rpx" bindtap="setStar" data-item="{{item.id}}" />
+          <van-icon wx:if="{{item.isStar==true}}"   name="star" color="orange" custom-style="margin-left:130%;position:absolute;padding-bottom:15rpx" size="40rpx" bindtap="setNotStar" data-item="{{item.id}}"/>
+				</view>
+    	</view>
+			</view>
+    </view>
 		</view>
-    <view class="danci" wx:for="{{countArr}}" wx:if="{{wordList2==null}}"> 
+		<!-- <view class="danci" wx:for="{{countArr}}" wx:if="{{wordList2==null&&wordList==null&&wordList3==null}}"> 
+			<text style="text-align: center;">这个部分还没有单词哦</text>
+		</view> -->
+    <view class="danci" wx:for="{{countArr}}" wx:if="{{wordList!=null&&wordList2==null&&wordList3==null}}"> 
     	<text class="danci-time">{{dateArr[item]}}</text>
 			<view class="layout_horizontal2" style="margin-top: 5rpx;margin-bottom: 10rpx;">
 				<view wx:for="{{nameArr[item]}}" style="width: 45%; position: relative;">
