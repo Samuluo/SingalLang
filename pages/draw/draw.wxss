@@ -49,7 +49,7 @@ page{
 .bxz-bb { box-sizing: border-box; }
 .d-f { display: flex; margin-bottom:15rpx }
 .d-b { display: block; }
-.w100p { width: 96%;margin:0 auto }
+.w100p { width: 720rpx;margin:0 auto }
 .bdrs50p { border-radius: 50%; }
 .container {
   display: flex;
@@ -90,6 +90,7 @@ page{
 }
  
 .mycanvas {
+  width: 720rpx;
   height: 650rpx;
   margin-bottom: 22rpx;
   background: #fff;

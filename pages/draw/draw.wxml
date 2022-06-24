@@ -8,8 +8,8 @@
 
     </view>
   </view>
-  <view class="canvas" style="{{styleA}}">
-    <canvas  class="mycanvas bxz-bb w100p" canvas-id="canvas" bindtouchstart="canvasStart" bindtouchmove='canvasMove' bindtouchend='canvasEnd'></canvas>
+  <view class="canvas" style="{{styleA}}"  >
+    <canvas   class="mycanvas bxz-bb w100p" canvas-id="canvas" bindtouchstart="canvasStart" bindtouchmove='canvasMove' bindtouchend='canvasEnd'></canvas>
 
    <view class="set_bar bxz-bb w100p">
     <!-- 粗细 -->

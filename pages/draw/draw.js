@@ -96,7 +96,8 @@ Page({
     // 获取触摸点的x，y位置
     let x = e.touches[0].x;
     let y = e.touches[0].y;
- 
+    console.log(x)
+
     // 将画笔移动到指定坐标
     this.mycanvas.moveTo(x,y);
   },
@@ -114,21 +115,41 @@ Page({
     // 绘制完成，将起始点进行移动
     this.mycanvas.moveTo(x,y);
  
- 
   },
   // 绘画结束
 
   rotate: function () {
     if(this.data.styleA=='transform:rotate(180deg);transition: .5s;') {
       this.setData({
-        styleA: 'transform:rotate(0deg);transition: .5s;'
-      })
+    styleA: 'transform:rotate(0deg);transition: .5s;'
+   })
     }
-    else
+     else{
       this.setData({
         styleA: 'transform:rotate(180deg);transition: .5s;'
       })
+      }
   },
+    /*this.mycanvas.save()
+    this.mycanvas.setFillStyle('#ffffff')
+    this.mycanvas.clearRect(0,0,350,325);
+    this.mycanvas.restore()*/
+    /*this.mycanvas.fillRect(0, 0, 350, 325)
+    this.mycanvas.clearRect(0,0,350,325);*/
+    /*this.mycanvas.rotate(90 / 180 * Math.PI);
+    this.mycanvas.translate(-175, -162.5);   
+    this.mycanvas.restore()*/
+    
+    /* 
+if(this.data.styleA=='transform:rotate(180deg);transition: .5s;') {
+  this.setData({
+    styleA: 'transform:rotate(0deg);transition: .5s;'
+  })
+}
+else
+  this.setData({
+    styleA: 'transform:rotate(180deg);transition: .5s;'
+  })*/
   canvasEnd:function(){
     // 判断是否开始绘画
     this.setData({
@@ -141,20 +162,64 @@ Page({
       canvasId: 'canvas',
       fileType:'png',
       success(res) {
-        console.log(res.tempFilePath)
-        wx.authorize({//向用户发起授权请求
-          scope: 'scope.writePhotosAlbum',//保存相册授权
-          success: () => {
-            console.log("授权了")
-            wx.saveImageToPhotosAlbum({//保存图片到系统相册
-              filePath: res.tempFilePath,
-              success: () => {
-                console.log("保存了")
-                wx.showToast({
-                  title: '图片保存成功'
-                })
-              }
-            })
+        var temp = res.tempFilePath
+        console.log(temp)
+        wx.getSetting({
+          success(res) {
+            console.log(res);
+            // 如果从未申请保存到相册权限，则申请权限
+            if (res.authSetting['scope.writePhotosAlbum'] == null) {
+              //申请权限
+              wx.authorize({
+                scope: 'scope.writePhotosAlbum',
+                success() {
+                  // 用户已经同意
+                  console.log("success");
+                  wx.saveImageToPhotosAlbum({//保存图片到系统相册
+                    filePath: res.tempFilePath,
+                    success: () => {
+                      console.log("保存了")
+                      wx.showToast({
+                        title: '图片保存成功'
+                      })
+                    }
+                  })
+                },
+                fail() {
+                  // 用户不同意
+                  console.log("fail");
+                  wx.showToast({
+                      title: '获取权限失败，请再次点击按钮并授权保存到相册',
+                      icon: 'none',
+                      duration: 2000
+                  });
+                }
+              })
+            }
+            // 如果已经有权限，就下载图片
+            else if (res.authSetting['scope.writePhotosAlbum'] == true) {
+              console.log("已经有权限")
+              console.log(temp)
+              wx.saveImageToPhotosAlbum({//保存图片到系统相册
+                filePath: temp,
+                success: (res) => {
+                  console.log(res)
+                  console.log("保存了")
+                  wx.showToast({
+                    title: '图片保存成功'
+                  })
+                }
+              })
+            }
+            // 被拒绝过授权，重新申请
+            else {
+              wx.showModal({
+                title: '警告',
+                content: '你否认了小程序发起的授权请求，前往个人信息授权界面进行确认',
+                success (res) {
+                }
+              })
+            }
           }
         })
       }
@@ -170,4 +235,3 @@ Page({
   },
  
 })
-

@@ -26,7 +26,8 @@
     "pages/voice-translation/voice-translation",
     "pages/news-detail/news-detail",
     "pages/draw/draw",
-    "pages/voice-detail/voice-detail"
+    "pages/voice-detail/voice-detail",
+    "pages/aboutUs/aboutUs"
   ],
   "window": {
     "backgroundTextStyle": "dark",

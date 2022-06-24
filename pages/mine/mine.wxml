@@ -12,7 +12,7 @@
             <image  wx:if="{{!canIUseGetUserProfile}}"  style="width:128rpx;height:128rpx;margin-left: 2%;" catchtap="getUserProfile" src="/images/mines.png" mode="scaleToFill"></image>
 					</view>
 					<view class="center_info">
-						<view class="center_name" style="font-size: 60rpx;letter-spacing: 15rpx;font-weight: bold;">{{nickname}}</view>
+						<view class="center_name" style="font-size: 40rpx;letter-spacing: 5rpx;font-weight: bold;">{{nickname}}</view>
 						<!-- <view class="center_phone">phone:{{phone}}</view> -->
 					</view>
 				</view>
@@ -25,6 +25,59 @@
 					</view>
 				</view>
 			</view>
+      <view class="center" style="margin-top: 100rpx;  box-shadow:3rpx 3rpx 14rpx 14rpx #f0f0f0;">
+        <view class="">
+          <van-cell-group >
+            <van-cell  icon="completed" is-link>
+                <view slot="title">
+                  <button  open-type="feedback"  class="row-btn">收藏单词</button>
+             </view>
+            </van-cell>
+            <van-cell  icon="newspaper-o" is-link link-type="navigateTo"  url="/pages/index/index" >
+                <view slot="title">
+            <view class="van-cell-text" >收藏文章</view>
+             </view>
+             </van-cell>
+            <van-cell  icon="volume-o" is-link>
+                <view slot="title">
+                  <button  open-type="contact"  class="row-btn">测听记录</button>
+             </view>
+            </van-cell>
+
+        </van-cell-group>
+				</view>
+    	</view>
+      <view class="center" style="margin-top: 100rpx; height: 400rpx; box-shadow:3rpx 3rpx 14rpx 14rpx #f0f0f0;">
+        <view class="">
+          <van-cell-group >
+           
+            <van-cell  icon="friends-o" is-link link-type="navigateTo"  url="/pages/aboutUs/aboutUs" >
+                <view slot="title">
+            <view class="van-cell-text" >关于我们</view>
+             </view>
+             </van-cell>
+            <van-cell  icon="phone-o" is-link>
+                <view slot="title">
+                  <button  open-type="contact"  class="row-btn">在线客服</button>
+             </view>
+            </van-cell>
+            <van-cell  icon="todo-list-o" is-link>
+                <view slot="title">
+                  <button  open-type="feedback"  class="row-btn">意见反馈</button>
+             </view>
+             
+            </van-cell>
+            <van-cell  icon="setting-o" is-link>
+                <view slot="title">
+                  <button  open-type="openSetting"  class="row-btn">我的授权</button>
+             </view>
+             
+            </van-cell>
+        </van-cell-group>
+				</view>
+		
+    
+    	</view>
       
 			<image src='http://docfile.funkingka.cn/FqzmiFqvXbHg-cfbquNRlawHUgHt' mode='scaleToFill' class='gif-wave'></image>
 		</view>

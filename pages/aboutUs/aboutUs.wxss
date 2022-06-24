@@ -1,0 +1,26 @@
+/**index.wxss**/
+.page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fffff9;
+}
+
+.loading {
+  width: 100%;
+  min-height: 100vh;
+  color: #000;
+  text-align: center;
+}
+
+.loading__logo {
+  width: 110%;
+  height: 100%;
+  display: block;
+  margin-bottom: 30rpx;
+}
+
+.loading__name {
+  font-size: 42rpx;
+  font-weight: 200;
+}
