@@ -19,7 +19,7 @@ Page({
     planid: [],
     wordList:null,
     wordList2:null,
-    wordList3:null,
+    wordList3:[],
     spacedata:{},
     spaceimgs:[],
     loading: true,
@@ -209,49 +209,49 @@ Page({
       success: (res)=> {
         console.log(res.data)
         this.setData({
-          'wordList3':res.data
+          wordList3:res.data
         })
-        for (let i = 0; i <res.data.length; i++) {
-          wx.createSelectorQuery().select('#curr' + i).boundingClientRect(function (rect) {
-            that.data.wordList3[i].height = rect.top
-            if (that.data.wordList3[i].height <= that.data.windowHeight) {
-              that.data.wordList3[i].hide = true
-            } else {
-              that.data.wordList3[i].hide = false
-            }
-            if (i == (res.data.length - 1)) {
-              that.setData({
-                'wordList3':that.data.wordList3
-              })
-            }
-          }).exec()
-        }
+      //   for (let i = 0; i <that.data.wordList3.length; i++) {
+      //     wx.createSelectorQuery().select('#curr' + i).boundingClientRect(function (rect) {
+      //       that.data.wordList3[i].height = rect.top
+      //       if (that.data.wordList3[i].height <= that.data.windowHeight*4) {
+      //         that.data.wordList3[i].hide = true
+      //       } else {
+      //         that.data.wordList3[i].hide = false
+      //       }
+      //       if (i == (res.data.length - 1)) {
+      //         that.setData({
+      //           wordList3:that.data.wordList3
+      //         })
+      //       }
+      //     }).exec()
+      //   }
       }
-    })
+     })
   },
-  onPageScroll: function (e) {
-    let that = this
-    if (that.data.detail[that.data.detail.length - 1].hide) {
-      return false
-    }
-    wx.getSystemInfo({
-      success: function (res) {
-        that.setData({
-          windowHeight: res.windowHeight + e.scrollTop
-        })
-      },
-    })
-    for (let i = 0; i < that.data.detail.length; i++) {
-      if (that.data.detail[i].height <= that.data.windowHeight) {
-        that.data.detail[i].hide = true
-      } else {
-        that.data.detail[i].hide = that.data.detail[i].hide ? true : false
-      }
-    }
-    that.setData({
-      detail: that.data.detail
-    })
-  },
+  // onPageScroll: function (e) {
+  //   let that = this
+  //   if (that.data.wordList3[147 - 1].hide) {
+  //     return false
+  //   }
+  //   wx.getSystemInfo({
+  //     success: function (res) {
+  //       that.setData({
+  //         windowHeight: res.windowHeight + e.scrollTop
+  //       })
+  //     },
+  //   })
+  //   for (let i = 0; i < 147; i++) {
+  //     if (that.data.wordList3[i].height <= that.data.windowHeight) {
+  //       that.data.wordList3[i].hide = true
+  //     } else {
+  //       that.data.wordList3[i].hide = that.data.wordList3[i].hide ? true : false
+  //     }
+  //   }
+  //   that.setData({
+  //     wordList3: that.data.wordList3
+  //   })
+  // },
   getdetail: function(e) {
     var item = e.currentTarget.dataset.item;
     wx.navigateTo({

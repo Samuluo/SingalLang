@@ -35,7 +35,7 @@
 			</view>
     </view>
 		</view>
-    <view class="danci" wx:if="{{wordList3!=null}}">
+    <view class="danci" wx:if="{{wordList3!=[]}}">
 			<view class="layout_horizontal2" >
 				<view wx:for="{{wordList3}}" style="width: 45%; position: relative;" >
 				<view class="layout_horizontal" style="width: 100%;margin-left: 10%;margin-top: 7rpx;margin-bottom: 7rpx;">
@@ -52,7 +52,7 @@
 		<!-- <view class="danci" wx:for="{{countArr}}" wx:if="{{wordList2==null&&wordList==null&&wordList3==null}}"> 
 			<text style="text-align: center;">这个部分还没有单词哦</text>
 		</view> -->
-    <view class="danci" wx:for="{{countArr}}" wx:if="{{wordList!=null&&wordList2==null&&wordList3==null}}"> 
+    <view class="danci" wx:for="{{countArr}}" wx:if="{{wordList!=null&&wordList2==null}}"> 
     	<text class="danci-time">{{dateArr[item]}}</text>
 			<view class="layout_horizontal2" style="margin-top: 5rpx;margin-bottom: 10rpx;">
 				<view wx:for="{{nameArr[item]}}" style="width: 45%; position: relative;">
