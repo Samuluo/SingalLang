@@ -170,6 +170,7 @@ Page({
       success:(res)=>{
         a = res.data.learnedNumber;
         b = res.data.totalNumber-a;
+        c = res.data.mistakeNum;
         this.setData({
           options3:  {
             tooltip: {
