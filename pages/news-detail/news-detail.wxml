@@ -15,4 +15,17 @@
     <view class="horizon"></view>
   </view>
   <text class="detail">{{des.content}}</text>
+  <view class="center" style="margin-top: 0rpx; box-shadow:3rpx 3rpx 14rpx 14rpx #f0f0f0;">
+        <view class="">
+          <van-cell-group >
+            <van-cell  icon="phone-o" is-link>
+                <view slot="title">
+                  <button  open-type="contact"  class="row-btn">在线客服</button>
+             </view>
+            </van-cell>
+        </van-cell-group>
+				</view>
+		
+    
+    	</view>
 </view>

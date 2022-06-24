@@ -19,7 +19,14 @@
   margin-left: 30rpx;
   margin-top: 20rpx;
 }
-
+.center {
+  width: 100%;
+  background: white;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  border-radius: 5px;
+}
 .avatar {
   height: 80rpx;
   width: 80rpx;
@@ -35,7 +42,26 @@
   vertical-align: middle;
   color: #666;
 }
-
+.van-cell-text{
+  margin-left: 20rpx;
+  font-size: 30rpx;
+  letter-spacing: 5rpx;
+ }
+ .row-btn{
+     position: absolute;
+     font-size: 30rpx;
+     letter-spacing: 5rpx;
+     top: 0;
+     padding-left:20rpx;
+     width: 90% !important;
+     text-align: left;
+     
+     border-radius: 0;
+     border:none;
+     border: 0rpx;
+     /* background-color: #267afe; */
+      background-color: transparent;
+ }
 .const-text {
   font-size: 24rpx;
   color: #999;
@@ -95,8 +121,11 @@
   line-height: 44rpx;
   letter-spacing: 10rpx;
   font-size: 30rpx;
-  margin-bottom: 15%;
+  margin-bottom: 10%;
   color: #666;
   font-family: MicroSoft Yahei;
 }
 
+button::after{
+  border: none;
+}
