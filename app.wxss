@@ -85,4 +85,3 @@
   width: 75px;
   height: 95px;*/
 }
-@import 'app-wxa-auto-dark.wxss'

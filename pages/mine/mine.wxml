@@ -38,9 +38,9 @@
             <view class="van-cell-text" >收藏文章</view>
              </view>
              </van-cell>
-            <van-cell  icon="volume-o" is-link>
+            <van-cell  icon="bar-chart-o" is-link  link-type="navigateTo"  url="/pages/calendar/calendar?userId={{userInfo.id}}">
                 <view slot="title">
-                  <button  open-type="contact"  class="row-btn">测听记录</button>
+                  <view class="van-cell-text" >学习统计</view>
              </view>
             </van-cell>
 

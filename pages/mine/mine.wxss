@@ -186,4 +186,3 @@ Page {
 button::after{
   border: none;
 }
-@import 'mine-wxa-auto-dark.wxss'
