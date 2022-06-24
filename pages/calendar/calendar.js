@@ -5,6 +5,12 @@ Page({
    * 页面的初始数据
    */
   data: {
+    color1: '#83c6c2',
+    color2: '#aad1cf',
+    color3: '#aad1cf',
+    month: true,
+    week2: false,
+    all: false,
     userId:[],
     week: ["一", "二", "三", "四", "五", "六", "日"],//星期
     maxDayList: [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31],//一年12个月，每个月的天数，初始化都给平年
@@ -13,6 +19,7 @@ Page({
     totalDay: [],//日历天数
     cards:[],
     options2:[],
+    options3:[],
     options: {
       title: {
         text: '学习统计'
@@ -87,7 +94,7 @@ Page({
         this.setData({
           options: {
             title: {
-              text: '学习统计'
+              text: '月统计'
             },
       
             tooltip: {},
@@ -127,7 +134,7 @@ Page({
         this.setData({
           options2: {
             title: {
-              text: '学习统计'
+              text: '周统计'
             },
       
             tooltip: {},
@@ -150,6 +157,65 @@ Page({
         console.log(this.data.options2)
       }
     })
+  },
+  /**
+   * 饼图
+   */
+  statisticforAll(e) {
+    var a = 0;
+    var b = 0; 
+    var c = 0;
+    wx.request({
+      url: 'https://bewcf.info/plan/queryNow?userId='+e,
+      success:(res)=>{
+        a = res.data.learnedNumber;
+        b = res.data.totalNumber-a;
+        this.setData({
+          options3:  {
+            tooltip: {
+              trigger: 'item'
+            },
+            legend: {
+              top: '5%',
+              left: 'center'
+            },
+            series: [
+              {
+                name: '计划统计',
+                type: 'pie',
+                radius: ['40%', '70%'],
+                avoidLabelOverlap: false,
+                itemStyle: {
+                  borderRadius: 10,
+                  borderColor: '#fff',
+                  borderWidth: 2
+                },
+                label: {
+                  show: false,
+                  position: 'center'
+                },
+                emphasis: {
+                  label: {
+                    show: true,
+                    fontSize: '40',
+                    fontWeight: 'bold'
+                  }
+                },
+                labelLine: {
+                  show: false
+                },
+                data: [
+                  { value: a, name: '已学单词' },
+                  { value: b, name: '未学单词' },
+                  { value: c, name: '已错单词' },
+                ]
+              }
+            ]
+          }
+        })
+      } 
+    })
+    
   },
   /**
    * 初始化日历
@@ -234,11 +300,47 @@ Page({
         this.initCalendar();
         this.statisticformonth(options.userId);
         this.statisticforweek(options.userId);
+        this.statisticforAll(options.userId);
         
       }
     })
   },
-
+  studied:function() {
+    this.setData({
+      month: true,
+      week2: false,
+      all: false
+    })
+    this.setData({
+      color1: '#83c6c2',
+      color2: '#aad1cf',
+      color3: '#aad1cf'
+    })
+  },
+  mistaked: function(e) {
+    this.setData({
+      month: false,
+      week2: true,
+      all: false
+    })
+    this.setData({
+      color1: '#aad1cf',
+      color2: '#83c6c2',
+      color3: '#aad1cf'
+    })
+  },
+  notstudy: function(e) {
+    this.setData({
+      month: false,
+      week2: false,
+      all: true
+    })
+    this.setData({
+      color1: '#aad1cf',
+      color2: '#aad1cf',
+      color3: '#83c6c2'
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

@@ -1,8 +1,13 @@
 <navigation-bar default-data="{{defaultData}}"></navigation-bar>
 <calendar userId="{{userId}}"/>
 
-
-<van-tabs active="{{ active }}" custom-class="static"  color="#83c6c2">
-  <van-tab title="月统计" customStyle=""><chart chart-class="box" option="{{ options}}" notMerge bindinstance="" /></van-tab>
-  <van-tab title="最近一周" ><chart chart-class="box2" option="{{ options2 }}" notMerge bindinstance="" /></van-tab>
-    </van-tabs>
+<view class="danci-records">
+    <view class="container-footer" style="margin-left: 10%;">
+		  <text bindtap="studied" style="background-color: {{color1}};">按月统计</text>
+		  <text bindtap="mistaked" style="background-color: {{color2}};">按周统计</text>
+		  <text bindtap=notstudy" style="background-color: {{color3}};">单词占比</text>
+	  </view>
+    <chart wx:if="{{month}}" chart-class="box" option="{{ options}}" bindinstance="" />
+    <chart wx:if="{{week2}}" chart-class="box" option="{{options2}}" bindinstance="" />
+    <chart wx:if="{{all}}" chart-class="box" option="{{options3}}" bindinstance="" />
+</view>

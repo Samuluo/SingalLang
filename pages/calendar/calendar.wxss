@@ -79,7 +79,6 @@
 .box{
   width:90%;
   height: 500rpx;
-  margin-top: 50rpx;
   border:4rpx double #83c6c2;
   border-radius: 5%;
   margin-left: 5%;

@@ -59,119 +59,90 @@
     "tabSize": 2
   },
   "condition": {
-    "search": {
-      "list": []
-    },
-    "conversation": {
-      "list": []
-    },
-    "plugin": {
-      "list": []
-    },
-    "game": {
-      "list": []
-    },
-    "gamePlugin": {
-      "list": []
-    },
     "miniprogram": {
-      "current": -1,
       "list": [
         {
-          "id": -1,
           "name": "pages/adjustPlan/adjustPlan",
           "pathName": "pages/adjustPlan/adjustPlan",
           "query": "",
           "scene": null
         },
         {
-          "id": -1,
           "name": "pages/word-detail/word-detail",
           "pathName": "pages/word-detail/word-detail",
           "query": "",
           "scene": null
         },
         {
-          "id": -1,
           "name": "pages/learn-word/learn-word",
           "pathName": "pages/learn-word/learn-word",
           "query": "",
           "scene": null
         },
         {
-          "id": -1,
           "name": "pages/cidianDetail/cidianDetail",
           "pathName": "pages/cidianDetail/cidianDetail",
           "query": "",
           "scene": null
         },
         {
-          "id": -1,
           "name": "pages/calendar/calendar",
           "pathName": "pages/calendar/calendar",
           "query": "",
           "scene": null
         },
         {
-          "id": -1,
           "name": "pages/test/test",
           "pathName": "pages/test/test",
           "query": "",
           "scene": null
         },
         {
-          "id": -1,
           "name": "pages/testE/testE",
           "pathName": "pages/testE/testE",
           "query": "",
           "scene": null
         },
         {
-          "id": 8,
           "name": "pages/voice-translation/voice-translation",
           "pathName": "pages/voice-translation/voice-translation",
           "query": "",
           "scene": null
         },
         {
-          "id": -1,
           "name": "pages/main/main",
           "pathName": "pages/main/main",
           "query": "",
           "scene": null
         },
         {
-          "id": -1,
           "name": "pages/testDetail/testDetail",
           "pathName": "pages/testDetail/testDetail",
           "query": "",
           "scene": null
         },
         {
-          "id": -1,
           "name": "pages/find/find",
           "pathName": "pages/find/find",
           "query": "",
           "scene": null
         },
         {
-          "id": -1,
           "name": "pages/draw/draw",
           "pathName": "pages/draw/draw",
           "query": "",
           "scene": null
         },
         {
-          "id": -1,
           "name": "pages/voice-detail/voice-detail",
           "pathName": "pages/voice-detail/voice-detail",
           "query": "",
           "scene": null
         },
         {
-          "id": -1,
           "name": "pages/index/index",
           "pathName": "pages/index/index",
+          "query": "",
           "scene": null
         }
       ]
