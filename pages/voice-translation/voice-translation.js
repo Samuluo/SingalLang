@@ -83,7 +83,16 @@ Page({
       console.log("成功开始录音识别", res)    
     }    
     //识别错误事件    
-    manager.onError = function (res) {      
+    manager.onError = function (res) {   
+      console.error(res.msg)  
+      if(res.msg=="record manager record failed"){
+        wx.showModal({
+          title: '警告',
+          content: '你否认了小程序发起的授权请求，前往个人信息授权界面进行确认',
+          success (res) {
+          }
+        })
+      } 
       console.error("error msg", res.msg)    
     }    
     //识别结束事件    
@@ -95,7 +104,7 @@ Page({
       //录音内容为空时      
       wx.showModal({
       title: '提示',
-      content: '不好意思，郭郭没听清',
+      content: '不好意思，没听清',
       showCancel: false,
       success: function (res) {}        
       })
@@ -116,9 +125,10 @@ Page({
     }
   },              
     //按住说话  
-    touchStart: function(e){    
+    touchStart: function(e){ 
+      console.log(e)
     this.setData({//用来变换按钮样式
-    //录音状态      
+    //录音状态      console.log(e)
     voiceStyle: "voiceStyleDown"    
     })    
     //开始识别    
