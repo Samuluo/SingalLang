@@ -146,3 +146,30 @@
 <van-button type="info" block bind:click="onShare" custom-class="bottom-button" color="#83c6c2">分享</van-button>
 </view>
 </van-popup>
+
+<van-dialog
+  use-slot
+  show="{{ show2 }}"
+  confirm-button-open-type="getSubmit"
+  bind:close="onClose"
+  bind:confirm="getSubmit"
+>
+<canvas canvas-id="myCanvas" id='my-canvas' class='canvas' ></canvas>
+
+<view class='invite-head'>
+  <view class='card-com'  bindtap='saveImageToPhotos'>
+    <view class='inv-card'>
+      <view class='pic'>
+        <image class='img' id='card-img'  mode='scaleToFill' src='{{cardImgSrc}}' />
+      </view>
+      <view class='info' id='card-info'>
+        <view class='u-name'>我是<label class='n'>{{userInfo.nickname}}</label></view>
+        <view class='u-des'>已连续学习手语 {{dakaDays}} 天！</view>
+        <view class='pp'>长按二维码，开启你的学习之路</view>
+        <image class='ewm-img' id='ewm-img' src='../../images/ewm.jpg' />
+      </view>
+    </view>
+  </view>
+  <view class='inv-tip'>点击上方图片保存并发送给好友</view> 
+</view>
+</van-dialog>

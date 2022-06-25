@@ -104,7 +104,7 @@ Page({
       //录音内容为空时      
       wx.showModal({
       title: '提示',
-      content: '不好意思，没听清',
+      content: '不好意思，郭郭没听清',
       showCancel: false,
       success: function (res) {}        
       })

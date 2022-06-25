@@ -1,9 +1,0 @@
-{
-  "usingComponents": {
-    "navigation-bar": "/components/navigation-bar-full/navigation-bar-full"
-  },
-  "navigationBarBackgroundColor": "#A8E9BD",
-  "navigationBarTextStyle": "black",
-  "navigationBarTitleText": "单词学习",
-  "navigationStyle":"custom"
-}
