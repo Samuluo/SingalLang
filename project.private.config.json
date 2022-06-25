@@ -88,6 +88,13 @@
           "pathName": "pages/index/index",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/daka/daka",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
         }
       ]
     }

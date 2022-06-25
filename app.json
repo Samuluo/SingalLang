@@ -27,7 +27,8 @@
     "pages/draw/draw",
     "pages/voice-detail/voice-detail",
     "pages/aboutUs/aboutUs",
-    "pages/starArticle/starArticle"
+    "pages/starArticle/starArticle",
+    "pages/daka/daka"
   ],
   "window": {
     "backgroundTextStyle": "dark",

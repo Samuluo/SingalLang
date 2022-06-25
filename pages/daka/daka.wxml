@@ -1,0 +1,33 @@
+<!--pages/daka/daka.wxml-->
+<!--pages/canvas/canvas.wxml-->
+<navigation-bar default-data="{{defaultData}}" show="{{tabshow}}"></navigation-bar>
+<!-- canvas画布-->
+<canvas canvas-id="myCanvas" id='my-canvas' class='canvas' ></canvas>
+
+<view class='invite-head'>
+  <view class='card-com'  bindtap='saveImageToPhotos'>
+    <view class='inv-card'>
+      <view class='pic'>
+        <image class='img' id='card-img'  mode='scaleToFill' src='{{cardImgSrc}}' />
+      </view>
+      <view class='info' id='card-info'>
+        <view class='u-name'>我是<label class='n'>{{userInfo.nickname}}</label></view>
+        <view class='u-des'>已连续学习手语 {{dakaDays}} 天！</view>
+        <view class='pp'>长按二维码，开启你的学习之路</view>
+        <image class='ewm-img' id='ewm-img' src='../../images/ewm.jpg' />
+      </view>
+    </view>
+  </view>
+  <view class='inv-tip'>点击上方图片保存并发送给好友</view> 
+</view>
+
+
+<!-- 用于计算宽高值 -->
+<view class='query'>
+  <view class='pd'></view>
+  <view class='ewm-leftTop'></view>
+  <view class='pt1'></view>
+  <view class='pt2'></view>
+  <view class='pt3'></view>
+</view>
+
