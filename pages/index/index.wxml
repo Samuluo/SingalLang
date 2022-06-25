@@ -5,8 +5,8 @@
     <view style="margin-left: 10%;width: 80%;">
     <text style="color: #83c6c2;font-weight: bold;font-size: 35rpx;letter-spacing: 10rpx;display: block;">关注城市、关注乡村</text>
     </view>
-    <view style="margin-left: 10%;width: 80%;margin-top: 20rpx;">
-      <text style="color: #83c6c2;font-weight: bold;font-size: 35rpx;letter-spacing: 5rpx;padding: 20rpx;">致力于为更多听障与愿意了解听障的人提供更方便的生活服务</text>
+    <view style="margin-left: 5%;width: 90%;margin-top: 50rpx;">
+      <text style="color: #83c6c2;font-weight: bold;font-size: 35rpx;letter-spacing: 5rpx;padding: 20rpx;line-height: 80rpx;">致力于为更多听障与愿意了解听障的人提供更方便的生活服务</text>
     </view>
   </view>
 </view>

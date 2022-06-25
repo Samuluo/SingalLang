@@ -230,11 +230,11 @@ Component({
         }
         )
         wx.redirectTo({
-          url: '/pages/word-detail/word-detail?id='+e.currentTarget.dataset.id,
+          url: '/pages/word-detail/word-detail?id='+e.currentTarget.dataset.id+'&&isLearning='+2,
         })
       }else{//答题未结束
       wx.navigateTo({
-        url: '/pages/word-detail/word-detail?id='+e.currentTarget.dataset.id,
+        url: '/pages/word-detail/word-detail?id='+e.currentTarget.dataset.id+'&&isLearning='+1,
         success: function(res) {
           setTimeout(function() {
             that.setData({

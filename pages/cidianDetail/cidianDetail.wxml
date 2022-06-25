@@ -24,9 +24,9 @@
 		<view class="danci" wx:if="{{wordList2!=null}}">
 			<view class="layout_horizontal2" >
 				<view wx:for="{{wordList2}}" style="width: 45%; position: relative;" >
-				<view class="layout_horizontal" style="width: 100%;margin-left: 10%;margin-top: 7rpx;margin-bottom: 7rpx;">
-      	<view style="margin-top: 10rpx;">
-      		<text style="font-size:35rpx;width: 60px;position:absolute;letter-spacing: 5rpx;">{{item.answer}}</text>
+				<view class="layout_horizontal" style="width: 100%;margin-left: 10%;margin-top: 7rpx;margin-bottom: 14rpx;">
+      	<view style="margin-top: 40rpx;">
+      		<text style="font-size:30rpx;width: 120rpx;position:absolute;letter-spacing: 2rpx;">{{item.answer}}</text>
 					<van-icon name="description" custom-style="margin-left:90%;position:absolute;padding-bottom:15rpx" size="20px" bindtap="getdetail" data-item="{{item.id}}"/>
       		<van-icon wx:if="{{item.isStar==false}}" name="star-o" custom-style="margin-left:130%;position:absolute;padding-bottom:15rpx" size="40rpx" bindtap="setStar" data-item="{{item.id}}" />
           <van-icon wx:if="{{item.isStar==true}}"   name="star" color="orange" custom-style="margin-left:130%;position:absolute;padding-bottom:15rpx" size="40rpx" bindtap="setNotStar" data-item="{{item.id}}"/>
@@ -39,8 +39,8 @@
 			<view class="layout_horizontal2" >
 				<view wx:for="{{wordList3}}" style="width: 45%; position: relative;" >
 				<view class="layout_horizontal" style="width: 100%;margin-left: 10%;margin-top: 7rpx;margin-bottom: 7rpx;">
-      	<view style="margin-top: 10rpx;">
-      		<text style="font-size:35rpx;width: 60px;position:absolute;letter-spacing: 5rpx;">{{item.word.answer}}</text>
+      	<view style="margin-top: 40rpx;">
+      		<text style="font-size:30rpx;width: 120rpx;position:absolute;letter-spacing: 2rpx;">{{item.word.answer}}</text>
 					<van-icon name="description" custom-style="margin-left:90%;position:absolute;padding-bottom:15rpx" size="20px" bindtap="getdetail" data-item="{{item.id}}"/>
       		<van-icon wx:if="{{item.isStar==false}}" name="star-o" custom-style="margin-left:130%;position:absolute;padding-bottom:15rpx" size="40rpx" bindtap="setStar" data-item="{{item.id}}" />
           <van-icon wx:if="{{item.isStar==true}}"   name="star" color="orange" custom-style="margin-left:130%;position:absolute;padding-bottom:15rpx" size="40rpx" bindtap="setNotStar" data-item="{{item.id}}"/>
@@ -57,8 +57,8 @@
 			<view class="layout_horizontal2" style="margin-top: 5rpx;margin-bottom: 10rpx;">
 				<view wx:for="{{nameArr[item]}}" style="width: 45%; position: relative;">
 				<view class="layout_horizontal" style="width: 100%;margin-left: 10%;">
-      	<view style="margin-top: 20rpx;">
-      		<text style="font-size:35rpx;width: 120rpx;position:absolute;letter-spacing: 5rpx;">{{item.word.answer}}</text>
+      	<view style="margin-top: 40rpx;">
+      		<text style="font-size:30rpx;width: 120rpx;position:absolute;letter-spacing: 2rpx;">{{item.word.answer}}</text>
 					<van-icon name="description" custom-style="margin-left:90%;position:absolute;padding-bottom:15rpx" size="40rpx" bindtap="getdetail" data-item="{{item.wordId}}"/>
       		<van-icon  wx:if="{{item.isStar==false}}"  name="star-o" custom-style="margin-left:130%;position:absolute;padding-bottom:15rpx" size="40rpx" bindtap="setStar" data-item="{{item.wordId}}" />
 					<van-icon wx:if="{{item.isStar==true}}"   name="star" color="orange" custom-style="margin-left:130%;position:absolute;padding-bottom:15rpx" size="40rpx" bindtap="setNotStar" data-item="{{item.wordId}}"/>

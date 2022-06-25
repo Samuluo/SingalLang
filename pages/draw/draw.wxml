@@ -15,13 +15,13 @@
     <!-- 粗细 -->
     <view class="linewidth_bar d-f">
       <text class="title">粗细</text>
-      <view class="right_demo d-f">
+      <view class="right_demo d-f" >
       <!-- 判断橡皮擦是否被选中 -->
         <block wx:if="{{cancelChange}}">
-          <view wx:for="{{linewidth}}" class="linewidth_demo bdrs50p {{index == currentLinewidth ?'active':''}}" bindtap="changeLineWidth" id="{{index}}" style="width:{{item*2}}rpx;height:{{item*2}}rpx;background:#fff"></view>
+          <view wx:for="{{linewidth}}" class="linewidth_demo bdrs50p {{index == currentLinewidth ?'active':''}}" bindtap="changeLineWidth" id="{{index}}" style="width:{{item*4}}rpx;height:{{item*4}}rpx;background:#fff"></view>
         </block>
         <block wx:else>
-          <view wx:for="{{linewidth}}" class="linewidth_demo bdrs50p {{index == currentLinewidth ?'active':''}}" bindtap="changeLineWidth" id="{{index}}" style="width:{{item*2}}rpx;height:{{item*2}}rpx;background:{{color[currentColor]}};"></view>
+          <view wx:for="{{linewidth}}" class="linewidth_demo bdrs50p {{index == currentLinewidth ?'active':''}}" bindtap="changeLineWidth" id="{{index}}" style="width:{{item*4}}rpx;height:{{item*4}}rpx;background:{{color[currentColor]}};margin-top: 5rpx;"></view>
         </block>
       </view>
     </view>

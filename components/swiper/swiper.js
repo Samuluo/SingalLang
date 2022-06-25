@@ -19,7 +19,6 @@ Component({
    */
   methods: {
     swiperChange(e) {
-      console.log(e);
       this.setData({
         currentIndex: e.detail.current
       });

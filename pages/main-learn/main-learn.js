@@ -149,6 +149,9 @@ Page({
           'button1':"right",
           'Acolor1':"#87c38f",
         })
+        setTimeout(() => {
+          this.exchangeword()
+        }, 1000); 
       }else{
         that.setData({
           'button1':"wrong",
@@ -162,6 +165,9 @@ Page({
           'button2':"right",
           'Acolor2':" #87c38f",
         })
+        setTimeout(() => {
+          this.exchangeword()
+        }, 1000); 
       }else{
         that.setData({
           'button2':"wrong",
@@ -175,6 +181,9 @@ Page({
           'button3':"right",
           'Acolor3':" #87c38f",
         })
+        setTimeout(() => {
+          this.exchangeword()
+        }, 1000); 
       }else{
         that.setData({   
           'button3':"wrong",
@@ -188,6 +197,9 @@ Page({
           'button4':"right",
           'Acolor4':" #87c38f",
         })
+        setTimeout(() => {
+          this.exchangeword()
+        }, 1000); 
       }else{
         that.setData({
           'button4':"wrong",

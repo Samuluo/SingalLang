@@ -20,4 +20,6 @@
  
 
 </view>
+<van-button  type="info" wx:if="{{isLearning==1}}" custom-style="width:40%;position:fixed;bottom:20rpx;right:30rpx;letter-spacing:13rpx;font-size:39rpx;font-weight:bold;opacity:0.8" catchtap="go" color="#83c6c2" >继续学习</van-button>
+<van-button  type="info" wx:if="{{isLearning==0}}" custom-style="width:40%;position:fixed;bottom:20rpx;right:30rpx;letter-spacing:13rpx;font-size:39rpx;font-weight:bold;opacity:0.8" catchtap="go" color="#83c6c2" >完成学习</van-button>
 </view>

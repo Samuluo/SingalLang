@@ -33,7 +33,7 @@
                   <button  open-type="feedback"  class="row-btn">收藏单词</button>
              </view>
             </van-cell>
-            <van-cell  icon="newspaper-o" is-link link-type="navigateTo"  url="/pages/index/index" >
+            <van-cell  icon="newspaper-o" is-link link-type="navigateTo"  url="/pages/starArticle/starArticle" >
                 <view slot="title">
             <view class="van-cell-text" >收藏文章</view>
              </view>

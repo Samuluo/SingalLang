@@ -11,7 +11,7 @@ Page({
     height:'',
     project: '太阳',
     // 绘图线的粗细
-    linewidth: [2, 3, 4, 5,6,7,8,9],
+    linewidth: [5, 5.5,6, 6.5,7,7.5,8,8.5],
     // 当前默认的粗细
     currentLinewidth: 0,
     // 绘图的颜色

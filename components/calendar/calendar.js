@@ -24,7 +24,6 @@ Component({
   methods: {
     loadFirst(e){
      var that = this
-     console.log(e)
       that.setData({
         userId:e
       })

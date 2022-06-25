@@ -244,20 +244,23 @@ Page({
      }
     })
   },
+  audioCtx:null,
   goText:function(){
+    console.log("我开始播放测音")
     var that = this
     that.setData({
       item:that.data.item+1
     })
     this.audioCtx=wx.createInnerAudioContext()
     // 播放失败检测
-    this.audioCtx.onError(function(){
+    this.audioCtx.onError(function(e){
+      console.log(e)
       console.log("播放失败:"+that.audioCtx.src)
     })
     this.setMusic2()
   },
-  audioCtx:null,
   setMusic2:function(){
+    console.log("set阶段")
     var that = this
     var music=this.data.testListL2[2][2].url
     console.log(this.data.testListL2[2][2].url)
@@ -306,7 +309,7 @@ Page({
     })
     this.audioCtx=wx.createInnerAudioContext()
     // 播放失败检测
-    this.audioCtx.onError(function(){
+    this.audioCtx.onError(function(e){
       console.log("播放失败:"+that.audioCtx.src)
     })
     this.setMusic()
@@ -345,9 +348,13 @@ Page({
  },
   play:function(){
     var that = this
-    this.audioCtx.onCanplay(() => {
+    setTimeout(() => {
+      that.audioCtx.play()
+    }, 500); 
+   /* this.audioCtx.onCanplay(() => {
+      console.log(1)
           that.audioCtx.play() // play()方法看上去能重新触发onTimeUpdate()回调
-    })
+    })*/
     function formatTime(time){    
       var minute=Math.floor(time/60)%60;
       var second=Math.floor(time)%60;
@@ -426,6 +433,7 @@ Page({
   },
   // 播放列表中的换曲功能
   replay:function(e){
+    console.log("我重播了")
     this.audioCtx.pause()
     this.audioCtx.seek(0)
     setTimeout(() => {

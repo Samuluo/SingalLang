@@ -5,6 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    isLearning:'',
     userId:[],
     word:{
 
@@ -56,6 +57,12 @@ Page({
    */
   onLoad: function (options) {
     var that = this
+    console.log(options)
+    if(options.isLearning==1||0){
+      that.setData({
+        'isLearning':options.isLearning,
+      })
+    }
     wx.getStorage({
       key: 'userInfo',
       success(res){
@@ -78,6 +85,9 @@ Page({
         })
       }
     })
+  },
+  go: function(e){
+    wx.navigateBack()
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

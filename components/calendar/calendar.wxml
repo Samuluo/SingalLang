@@ -3,9 +3,9 @@
   <view class="calendar">
     <view class="btn-row">
       <image class="image" src="../../images/arrow-double-left.png" bindtap="changeDate" data-type="preYear"></image>
-      <image class="image" src="../../images/arrow-left.png" bindtap="changeDate" data-type="preMonth"></image>
-      <view class="view">{{nowYear + "-" + (nowMonth >= 10 ? nowMonth : "0" + nowMonth)}}</view>
-      <image class="image" src="../../images/arrow-right.png" bindtap="changeDate" data-type="nextMonth"></image>
+      <image class="image" style="margin-left: 50rpx;" src="../../images/arrow-left.png" bindtap="changeDate" data-type="preMonth"></image>
+      <view class="view" style="margin-left: 20rpx;margin-right: 30rpx;font-size: 30rpx;">{{nowYear + "-" + (nowMonth >= 10 ? nowMonth : "0" + nowMonth)}}</view>
+      <image class="image" style="margin-right: 60rpx;margin-left: 10rpx;"src="../../images/arrow-right.png" bindtap="changeDate" data-type="nextMonth"></image>
       <image class="image" src="../../images/arrow-double-right.png" bindtap="changeDate" data-type="nextYear"></image>
     </view>
     <view class="week-row">

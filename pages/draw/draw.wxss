@@ -118,13 +118,13 @@ page{
 .set_bar { padding: 30rpx 0rpx 0rpx 30rpx; 
   background:linear-gradient(to right,  #8eccc8 ,#e6eeee);
   border-radius: 10rpx;
-  width: 85%;
+  width: 95%;
   box-shadow: 5px 5px 5px #cdcfcf;
   letter-spacing: 10rpx;
 }
 .set_bar .title {
   letter-spacing: 2rpx;
-  padding-right: 20rpx;
+  padding-right: 35rpx;
   font-weight: bold;
   color:#ffffff;
 
@@ -139,8 +139,8 @@ page{
   margin: 0 22rpx;
 }
 .linewidth_bar .linewidth_demo.active { border-color: #fff;box-shadow: 0rpx 0rpx 10rpx orange }
-.icon-huabi { font-size: 44rpx; }
-.icon-huabi.active { font-size: 64rpx; }
+.icon-huabi { font-size: 56rpx; }
+.icon-huabi.active { font-size: 74rpx; }
 .btn{
   margin-top:20rpx;
 }

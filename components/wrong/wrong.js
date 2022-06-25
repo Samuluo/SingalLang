@@ -168,11 +168,11 @@ Component({
         }
         )
         wx.redirectTo({
-          url: '/pages/word-detail/word-detail?id='+e.currentTarget.dataset.id,
+          url: '/pages/word-detail/word-detail?id='+e.currentTarget.dataset.id+'&&isLearnin='+0,
         })
       }else{
       wx.navigateTo({
-        url: '/pages/word-detail/word-detail?id='+e.currentTarget.dataset.id,
+        url: '/pages/word-detail/word-detail?id='+e.currentTarget.dataset.id+'&&isLearnin='+1,
         success: function(res) {
           setTimeout(function() {
             that.setData({

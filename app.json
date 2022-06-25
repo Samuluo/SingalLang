@@ -19,7 +19,6 @@
     "pages/learn-word/learn-word",
     "pages/word-detail/word-detail",
     "pages/search/search",
-    "pages/dictionary/dictionary",
     "pages/wrong-learn/wrong-learn",
     "pages/calendar/calendar",
     "pages/find/find",
@@ -27,7 +26,8 @@
     "pages/news-detail/news-detail",
     "pages/draw/draw",
     "pages/voice-detail/voice-detail",
-    "pages/aboutUs/aboutUs"
+    "pages/aboutUs/aboutUs",
+    "pages/starArticle/starArticle"
   ],
   "window": {
     "backgroundTextStyle": "dark",
