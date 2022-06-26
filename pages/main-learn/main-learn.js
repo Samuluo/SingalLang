@@ -265,6 +265,7 @@ Page({
           },
           success:(res)=>{
             that.setData({
+              'continuday':res.data
             })
           }
         })
