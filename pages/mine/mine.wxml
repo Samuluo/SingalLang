@@ -28,9 +28,9 @@
       <view class="center" style="margin-top: 100rpx;  box-shadow:3rpx 3rpx 14rpx 14rpx #f0f0f0;">
         <view class="">
           <van-cell-group >
-            <van-cell  icon="completed" is-link>
+            <van-cell  icon="completed" is-link url="/pages/myWords/myWords">
                 <view slot="title">
-                  <button  open-type="feedback"  class="row-btn">收藏单词</button>
+                  <button  class="row-btn">收藏单词</button>
              </view>
             </van-cell>
             <van-cell  icon="newspaper-o" is-link link-type="navigateTo"  url="/pages/starArticle/starArticle" >

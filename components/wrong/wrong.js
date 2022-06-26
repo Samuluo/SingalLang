@@ -168,11 +168,11 @@ Component({
         }
         )
         wx.redirectTo({
-          url: '/pages/word-detail/word-detail?id='+e.currentTarget.dataset.id+'&&isLearnin='+0,
+          url: '/pages/word-detail/word-detail?id='+e.currentTarget.dataset.id+'&&isLearning='+2,
         })
       }else{
       wx.navigateTo({
-        url: '/pages/word-detail/word-detail?id='+e.currentTarget.dataset.id+'&&isLearnin='+1,
+        url: '/pages/word-detail/word-detail?id='+e.currentTarget.dataset.id+'&&isLearning='+1,
         success: function(res) {
           setTimeout(function() {
             that.setData({
@@ -188,7 +188,7 @@ Component({
               }
               )
               wx.redirectTo({
-                url: '/pages/word-detail/word-detail?id='+e.currentTarget.dataset.id,
+                url: '/pages/word-detail/word-detail?id='+e.currentTarget.dataset.id+'&&isLearning='+2,
               })
             }else{//如果不是一次循环的后一道题，则+1
             that.setData({

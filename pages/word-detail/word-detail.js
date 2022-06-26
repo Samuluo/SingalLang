@@ -58,7 +58,8 @@ Page({
   onLoad: function (options) {
     var that = this
     console.log(options)
-    if(options.isLearning==1||0){
+    if(options.isLearning==1||2){
+      console.log(that.data.isLearing)
       that.setData({
         'isLearning':options.isLearning,
       })

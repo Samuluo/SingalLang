@@ -28,7 +28,8 @@
     "pages/voice-detail/voice-detail",
     "pages/aboutUs/aboutUs",
     "pages/starArticle/starArticle",
-    "pages/daka/daka"
+    "pages/daka/daka",
+    "pages/myWords/myWords"
   ],
   "window": {
     "backgroundTextStyle": "dark",

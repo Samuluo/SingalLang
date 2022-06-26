@@ -1,0 +1,33 @@
+<!--pages/main/main.wxml-->
+<navigation-bar default-data="{{defaultData}}"></navigation-bar>
+
+<van-tabs  active="{{ active }}" color="#83c6c2" bind:change="typeChange">
+  <van-tab title="我的收藏" > <view     class="container2">
+    <view wx:if="{{empty}}">
+  <van-empty
+  class="custom-image"
+  image="https://img.yzcdn.cn/vant/custom-empty-image.png"
+  description="暂无收藏"
+  />
+  </view>
+  <van-cell wx:for="{{starList}}" data-item="{{item}}" bind:click="toTheWord">
+  <view slot="title" >
+  <text style="letter-spacing: 5rpx;font-size: 35rpx;">{{item.answer}}</text>
+  </view>
+  </van-cell> 
+  </view></van-tab>
+  <van-tab title="我的错词"  > <view     class="container2">
+    <view wx:if="{{empty}}">
+  <van-empty
+  class="custom-image"
+  image="https://img.yzcdn.cn/vant/custom-empty-image.png"
+  description="暂无错词"
+  />
+  </view>
+  <van-cell wx:for="{{wrongList}}" data-item="{{item}}" bind:click="toTheWord">
+  <view slot="title" >
+  <text style="letter-spacing: 5rpx;font-size: 35rpx;">{{item.answer}}</text>
+  </view>
+  </van-cell> 
+  </view></van-tab>
+</van-tabs>
