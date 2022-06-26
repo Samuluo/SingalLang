@@ -37,19 +37,19 @@ Page({
         img: 'https://img2.baidu.com/it/u=3355844021,4179371454&fm=253&fmt=auto&app=138&f=JPEG?w=281&h=500'
       }, {
         id: '02',
-        img: 'https://cdn.bewcf.info/dakaimange/load.png'
+        img: 'https://img0.baidu.com/it/u=1802919804,2554595945&fm=253&fmt=auto&app=138&f=JPEG?w=400&h=800'
       }, {
         id: '03',
-        img: 'https://cdn.bewcf.info/dakaimange/card-tp03.jpg'
+        img: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg1.doubanio.com%2Fview%2Frichtext%2Flarge%2Fpublic%2Fp231769778.jpg&refer=http%3A%2F%2Fimg1.doubanio.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1658758562&t=69370c1e37e6e30c239783a96c889f39'
       }, {
         id: '04',
-        img: 'https://cdn.bewcf.info/dakaimange/card-tp04.jpg'
+        img: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fc-ssl.duitang.com%2Fuploads%2Fitem%2F202004%2F14%2F20200414103000_symeg.thumb.400_0.jpg&refer=http%3A%2F%2Fc-ssl.duitang.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1658758562&t=a1a8303f55fc2698edf2993859541b49'
       }, {
         id: '05',
-        img: 'https://cdn.bewcf.info/dakaimange/card-tp05.jpg'
+        img: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fc-ssl.duitang.com%2Fuploads%2Fitem%2F202006%2F03%2F20200603115002_hKG3C.thumb.400_0.jpeg&refer=http%3A%2F%2Fc-ssl.duitang.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1658758562&t=d9e8d60cc84768e78be6a546c2c3199c'
       }, {
         id: '06',
-        img: 'https://cdn.bewcf.info/dakaimange/card-tp06.jpg'
+        img: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fc-ssl.duitang.com%2Fuploads%2Fitem%2F201908%2F01%2F20190801070209_XnWXa.thumb.400_0.jpeg&refer=http%3A%2F%2Fc-ssl.duitang.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1658758562&t=1bbca499b07eaeacf812a058b38ebbe7'
       },
     ],
     dakaDays: []
@@ -220,7 +220,8 @@ Page({
   //卡片默认显示第一张
   defaultFirstShow(e) {
     let that = this,
-      defaultCardImgSrc = that.data.cardArr[0].img;
+    
+      defaultCardImgSrc = that.data.cardArr[e].img;
       // that.setData({
       //   cardImgSrc:defaultCardImgSrc
       // })
@@ -335,7 +336,7 @@ Page({
       key: "userInfo",
       success:(res)=>{
         that.getPix();
-        that.defaultFirstShow();
+        that.defaultFirstShow(Math.round(Math.random()*5));
         that.querySelect();
         that.drawCanvas();
         that.getDays(res.data.id);

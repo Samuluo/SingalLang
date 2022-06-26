@@ -115,17 +115,30 @@ Page({
    */
   onShow: function () {
     var that = this
-    wx.request({
-      url: 'https://bewcf.info/plan/queryAll',
-      method:"get",
-      data:{
-        userId:that.data.userId
-      },
-      success:(res)=>{
+    wx.getStorage({
+      key: 'userInfo',
+      success(res){
         that.setData({
-          'plans':res.data,
+          'userId': res.data.id,
         })
-        console.log(res)
+        wx.request({
+         url: 'https://bewcf.info/plan/queryAll',
+         method:"get",
+         data:{
+           userId:that.data.userId
+         },
+         success:(res)=>{
+           that.setData({
+             'plans':res.data,
+           })
+           if(res.data.length==0){
+             that.setData({
+               'empty':true,
+             })
+           }
+           console.log(res)
+         }
+       })
       }
     })
   },

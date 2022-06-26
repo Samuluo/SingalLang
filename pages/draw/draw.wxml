@@ -1,4 +1,5 @@
-<navigation-bar default-data="{{defaultData}}"></navigation-bar>
+<!--pages/activity/historyList/historyList.wxml-->
+<navigation-bar default-data="{{defaultData}}" ></navigation-bar>
   <view class='canvas-tools-you'>
     <view class='icon-box'>
          <image class='icon' src='/images/draw/save-p.png' bindtap='save'></image>

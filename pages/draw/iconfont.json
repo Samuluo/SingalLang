@@ -1,0 +1,16 @@
+{
+  "id": "3468181",
+  "name": "a",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "1724238",
+      "name": "画笔",
+      "font_class": "huabi",
+      "unicode": "e606",
+      "unicode_decimal": 58886
+    }
+  ]
+}

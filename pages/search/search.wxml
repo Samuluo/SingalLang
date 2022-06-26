@@ -39,12 +39,12 @@
     <van-grid-item use-slot wx:for="{{dictionaries}}" >
     <image
       mode="scaleToFill"
-      style="width: 80%; height: 150rpx;"
+      style="width: 80%; height: 200rpx;"
       src="{{item.imgUrl}}"
       catchtap="choseDictionary"
       data-item="{{item}}"
     />
-    <text style="margin-top:20rpx;font-size:25rpx">{{item.name}}</text>
+    <text style="margin-top:20rpx;font-size:28rpx;letter-spacing: 3rpx;">{{item.name}}</text>
   </van-grid-item>
  </van-grid>
      <van-cell wx:for="{{kindList}}" wx:if="{{title!='分类词典'}}" data-item="{{item}}" bind:click="toTheWord">
