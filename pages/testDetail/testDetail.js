@@ -5,6 +5,8 @@ Page({
    * 页面的初始数据
    */
   data: {
+    getChart:false,
+    filePath:[],
     testListL2:[],
     testListR2:[],
     testIndex:0,
@@ -115,9 +117,6 @@ Page({
           data: ['左耳', '右耳','健听区','轻损区','中损区','重损区'],
         },
         toolbox: {
-          feature: {
-            saveAsImage: {}
-          }
         },
         xAxis: {
           type: 'category',
@@ -241,7 +240,8 @@ Page({
             data: [30, 30, 30, 30, 30, 30]
           },
         ]
-     }
+     },
+      getChart: true
     })
   },
   audioCtx:null,
@@ -258,6 +258,73 @@ Page({
       console.log("播放失败:"+that.audioCtx.src)
     })
     this.setMusic2()
+  },
+  onInstance({detail: instance}) {
+    wx.getSetting({
+      success(res) {
+        console.log(res);
+        // 如果从未申请保存到相册权限，则申请权限
+        if (res.authSetting['scope.writePhotosAlbum'] == null) {
+          //申请权限
+          wx.authorize({
+            scope: 'scope.writePhotosAlbum',
+            success() {
+              // 用户已经同意
+              setTimeout(function () {
+                const dom = instance.getDom()
+              const that = this;
+              dom.saveAsImage().then((path) => {
+                // 临时地址
+                console.log(path);
+                wx.saveImageToPhotosAlbum({
+                  filePath: path
+                })
+                that.setData({
+                  filePath:path
+                })
+              });
+              }, 1500)  
+            },
+            fail() {
+              // 用户不同意
+              console.log("fail");
+              wx.showToast({
+                  title: '获取权限失败，请再次点击按钮并授权保存到相册',
+                  icon: 'none',
+                  duration: 2000
+              });
+            }
+          })
+        }
+        // 如果已经有权限，就下载图片
+        else if (res.authSetting['scope.writePhotosAlbum'] == true) {
+          setTimeout(function () {
+            const dom = instance.getDom()
+          const that = this;
+          dom.saveAsImage().then((path) => {
+            // 临时地址
+            console.log(path);
+            wx.saveImageToPhotosAlbum({
+              filePath: path
+            })
+            that.setData({
+              filePath:path
+            })
+          });
+          }, 1500)  
+        }
+        // 被拒绝过授权，重新申请
+        else {
+          wx.showModal({
+            title: '警告',
+            content: '你否认了小程序发起的授权请求，前往个人信息授权界面进行确认',
+            success (res) {
+            }
+          })
+        }
+      }
+    })
+
   },
   setMusic2:function(){
     console.log("set阶段")
@@ -278,7 +345,7 @@ Page({
   onLoad: function (options) {
 
   },
-
+  
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
