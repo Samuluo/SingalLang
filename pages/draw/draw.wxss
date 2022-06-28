@@ -100,7 +100,7 @@ page{
   height: 700rpx;
   margin-bottom: 22rpx;
   width:100%;  
-  margin-top:130rpx
+  margin-top:200rpx
 }
 .tool_bar {
   justify-content: space-between;
