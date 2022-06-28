@@ -185,16 +185,12 @@ Page({
   },
   // 播放列表中的换曲功能
   change:function(e){
-    if(e.currentTarget.dataset.index!=this.data.playIndex)
-    {
-    console.log("hi")
     var that = this
     console.log(e)
     this.setMusic(e.currentTarget.dataset.index);
     setTimeout(function () {
       that.play()
     }, 700)
-   }
   },
   star:function(e){
     console.log(e.currentTarget)

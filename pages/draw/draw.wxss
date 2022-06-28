@@ -1,4 +1,4 @@
-@import "iconfont.wxss";
+
 page{
   width: 100%;
   height: 90%;
@@ -123,8 +123,8 @@ page{
   letter-spacing: 10rpx;
 }
 .set_bar .title {
-  letter-spacing: 2rpx;
-  padding-right: 35rpx;
+  letter-spacing: 10rpx;
+  padding-right: 10rpx;
   font-weight: bold;
   color:#ffffff;
 
@@ -143,6 +143,14 @@ page{
 .icon-huabi.active { font-size: 74rpx; }
 .btn{
   margin-top:20rpx;
+}
+.huabi{
+  width: 60rpx;
+  height: 60rpx;
+}
+.active{
+  width: 80rpx;
+  height: 80rpx;
 }
 .btn button{
   border:0rpx;

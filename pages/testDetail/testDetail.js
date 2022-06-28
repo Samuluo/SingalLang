@@ -5,6 +5,13 @@ Page({
    * 页面的初始数据
    */
   data: {
+    left1:"",
+    left2:"",
+    left3:"",
+    right1:"",
+    right2:"",
+    right3:"",
+    knowledge:"",
     getChart:false,
     filePath:[],
     testListL2:[],
@@ -13,6 +20,7 @@ Page({
     DBIndex:0,
     earIndex:0,
     resultList:[],
+    resultList2:[],
     processList:['通知','调音','测试','结果'],
     iconIndex:2,
     gradientColor: {
@@ -259,7 +267,170 @@ Page({
     })
     this.setMusic2()
   },
+  getContent(){
+    var that = this
+    var average
+    var content
+
+    for (var i =0;i<that.data.resultList.length;i++) {
+      console.log(i)
+      console.log(content)
+      console.log(average)
+      if(i == 0){
+        average = (that.data.resultList[i] + that.data.resultList[i+1])/2
+        if(average<25){
+          content="左耳低频综合听损"+average+"分贝,"+"听力处于健康水平，请继续保护耳朵，欢迎多加测试"
+          that.setData({
+            "left1":content
+          })
+        }else if(average<40){
+          content="左耳低频综合听损"+average+"分贝,"+"听力属于轻度受损，对细小的声音风吹树叶声难以分辨；请关注听力健康，积极进行更专业的检测治疗"
+          that.setData({
+            "left1":content
+          })
+        }else if(average<55){
+          content="左耳低频综合听损"+average+"分贝,"+"听力处于中度听力受损，日常交流受到影响，说话能听到但是听不清，请务必尽早接受专业检查治疗。"
+          that.setData({
+            "left1":content
+          })
+        }else{
+          content="左耳低频综合听损"+average+"分贝,"+"听力处于重度水平，为了你的生活正常进行，请进行更专业的检测、评析、治疗"
+          that.setData({
+            "left1":content
+          })
+        }
+      }
+      if(i == 2){
+        average = (that.data.resultList[i] + that.data.resultList[i+1])/2
+        if(average<25){
+          content="左耳中频综合听损"+average+"分贝,"+"听力处于健康水平，请继续保护耳朵，欢迎多加测试"
+          that.setData({
+            "left2":content
+          })
+        }else if(average<40){
+          content="左耳中频综合听损"+average+"分贝,"+"听力属于轻度受损，对细小的声音风吹树叶声难以分辨；请关注听力健康，积极进行更专业的检测治疗"
+          that.setData({
+            "left2":content
+          })
+        }else if(average<55){
+          content="左耳中频综合听损"+average+"分贝,"+"听力处于中度听力受损，日常交流受到影响，说话能听到但是听不清，请务必尽早接受专业检查治疗。"
+          that.setData({
+            "left2":content
+          })
+        }else{
+          content="左耳中频综合听损"+average+"分贝,"+"听力处于重度水平，为了你的生活正常进行，请进行更专业的检测、评析、治疗"
+          that.setData({
+            "left2":content
+          })
+        }
+      }
+      if(i == 4){
+        average = (that.data.resultList[i] + that.data.resultList[i+1])/2
+        if(average<25){
+          content="左耳高频综合听损"+average+"分贝,"+"听力处于健康水平，请继续保护耳朵，欢迎多加测试"
+          that.setData({
+            "left3":content
+          })
+        }else if(average<40){
+          content="左耳高频综合听损"+average+"分贝,"+"听力属于轻度受损，对细小的声音风吹树叶声难以分辨；请关注听力健康，积极进行更专业的检测治疗"
+          that.setData({
+            "left3":content
+          })
+        }else if(average<55){
+          content="左耳高频综合听损"+average+"分贝,"+"听力处于中度听力受损，日常交流受到影响，说话能听到但是听不清，请务必尽早接受专业检查治疗。"
+          that.setData({
+            "left3":content
+          })
+        }else{
+          content="左耳高频综合听损"+average+"分贝,"+"听力处于重度水平，为了你的生活正常进行，请进行更专业的检测、评析、治疗"
+          that.setData({
+            "left3":content
+          })
+        }
+      }
+      if(i == 6){
+        average = (that.data.resultList[i] + that.data.resultList[i+1])/2
+        if(average<25){
+          content="右耳低频综合听损"+average+"分贝,"+"听力处于健康水平，请继续保护耳朵，欢迎多加测试"
+          that.setData({
+            "right1":content
+          })
+        }else if(average<40){
+          content="右耳低频综合听损"+average+"分贝,"+"听力属于轻度受损，对细小的声音风吹树叶声难以分辨；请关注听力健康，积极进行更专业的检测治疗"
+          that.setData({
+            "right1":content
+          })
+        }else if(average<55){
+          content="右耳低频综合听损"+average+"分贝,"+"听力处于中度听力受损，日常交流受到影响，说话能听到但是听不清，请务必尽早接受专业检查治疗。"
+          that.setData({
+            "right1":content
+          })
+        }else{
+          content="右耳低频综合听损"+average+"分贝,"+"听力处于重度水平，为了你的生活正常进行，请进行更专业的检测、评析、治疗"
+          that.setData({
+            "right1":content
+          })
+        }
+      }
+      if(i == 8){
+        average = (that.data.resultList[i] + that.data.resultList[i+1])/2
+        if(average<25){
+          content="右耳中频综合听损"+average+"分贝,"+"听力处于健康水平，请继续保护耳朵，欢迎多加测试"
+          that.setData({
+            "right2":content
+          })
+        }else if(average<40){
+          content="右耳中频综合听损"+average+"分贝,"+"听力属于轻度受损，对细小的声音风吹树叶声难以分辨；请关注听力健康，积极进行更专业的检测治疗"
+          that.setData({
+            "right2":content
+          })
+        }else if(average<55){
+          content="右耳中频综合听损"+average+"分贝,"+"听力处于中度听力受损，日常交流受到影响，说话能听到但是听不清，请务必尽早接受专业检查治疗。"
+          that.setData({
+            "right2":content
+          })
+        }else{
+          content="右耳中频综合听损"+average+"分贝,"+"听力处于重度水平，为了你的生活正常进行，请进行更专业的检测、评析、治疗"
+          that.setData({
+            "right2":content
+          })
+        }
+      }
+      if(i == 10){
+        average = (that.data.resultList[i] + that.data.resultList[i+1])/2
+        if(average<25){
+          content="右耳高频综合听损"+average+"分贝,"+"听力处于健康水平，请继续保护耳朵，欢迎多加测试"
+          that.setData({
+            "right3":content
+          })
+        }else if(average<40){
+          content="右耳高频综合听损"+average+"分贝,"+"听力属于轻度受损，对细小的声音风吹树叶声难以分辨；请关注听力健康，积极进行更专业的检测治疗"
+          that.setData({
+            "right3":content
+          })
+        }else if(average<55){
+          content="右耳高频综合听损"+average+"分贝,"+"听力处于中度听力受损，日常交流受到影响，说话能听到但是听不清，请务必尽早接受专业检查治疗。"
+          that.setData({
+            "right3":content
+          })
+        }else{
+          content="右耳高频综合听损"+average+"分贝,"+"听力处于重度水平，为了你的生活正常进行，请进行更专业的检测、评析、治疗"
+          that.setData({
+            "right3":content
+          })
+        }
+      }
+    }
+  },
   onInstance({detail: instance}) {
+    var that = this
+    this.getContent()
+    console.log(that.data.left1)
+    console.log(that.data.left2)
+    console.log(that.data.left3)
+    console.log(that.data.right1)
+    console.log(that.data.right2)
+    console.log(that.data.right3)
     wx.getSetting({
       success(res) {
         console.log(res);
@@ -329,8 +500,8 @@ Page({
   setMusic2:function(){
     console.log("set阶段")
     var that = this
-    var music=this.data.testListL2[2][2].url
-    console.log(this.data.testListL2[2][2].url)
+    var music=this.data.testListL2[2][0].url
+    console.log(this.data.testListL2[2][0].url)
    this.audioCtx.src=music
    that.setData({
      "play.currentTime":'00:00',

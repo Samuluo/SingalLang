@@ -425,7 +425,7 @@ Page({
       this.setData({
         istouch:'',
         h1:"650rpx",
-        content: con,
+        content: con+'，',
         isUsed: 0
       })
     },

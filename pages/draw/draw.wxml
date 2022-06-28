@@ -28,7 +28,7 @@
     </view>
     <!-- 颜色 -->
     <view class="color_bar d-f">
-      <text class="title">颜色</text>
+      <text class="title" style="width: 50rpx;" >颜色</text>
       <view class="right_demo d-f">
         <!-- wx:for 遍历颜色 -->
         <!-- index 每一个颜色的编号 -->
@@ -36,8 +36,9 @@
         <block wx:if="{{cancelChange}}">
           <i class="iconfont icon-huabi" wx:for="{{color}}" style="color:{{item}};" id="{{index}}" bindtap="changeColor"></i>
         </block>
+        
         <block wx:else>
-          <text class="iconfont icon-huabi {{index == currentColor ?'active':''}}" wx:for="{{color}}" style="color:{{item}};" id="{{index}}" bindtap="changeColor"></text>
+          <image wx:for="{{huabis}}" class="huabi {{index == currentColor ?'active':''}}"  id="{{index}}"   bindtap="changeColor" src="{{item.url}}" ></image>
         </block>
       </view>
     </view>

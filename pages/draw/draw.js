@@ -15,6 +15,45 @@ Page({
     // 当前默认的粗细
     currentLinewidth: 0,
     // 绘图的颜色
+    huabis:[
+      {
+        url: '/images/draw/huabi1.png',
+        color: '#da1c34'
+      },
+      {
+        url: '/images/draw/huabi2.png',
+        color: '#8a3022'
+      },
+      {
+        url: '/images/draw/huabi3.png',
+        color: '#ffc3b0'
+      },
+      {
+        url: '/images/draw/huabi4.png',
+        color: '#ffa300'
+      },
+      {
+        url: '/images/draw/huabi5.png',
+        color: '#66b502'
+      },
+      {
+        url: '/images/draw/huabi6.png',
+        color: '#148bfd'
+      },
+
+      {
+        url: '/images/draw/huabi8.png',
+        color: '#000'
+      },
+      {
+        url: '/images/draw/huabi9.png',
+        color: '#9700c2'
+      },
+      {
+        url: '/images/draw/huabi10.png',
+        color: '#8a8989'
+      },
+    ],
     color: ['#da1c34', '#8a3022', '#ffc3b0', '#ffa300', '#66b502', '#148bfd', '#000', '#9700c2', '#8a8989'],
     // 当前默认的颜色
     currentColor: 0,
@@ -26,6 +65,7 @@ Page({
   // 改变颜色的事件
   changeColor:function(e){
     // 获取点击画笔的编号
+    console.log(e)
     let colorIndex = e.currentTarget.id;
     // 修改默认的颜色编号
     this.setData({

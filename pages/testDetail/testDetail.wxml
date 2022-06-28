@@ -108,9 +108,51 @@
             <chart wx:if="{{getChart}}" chart-class="line" option="{{ options }}" bindinstance="onInstance"/>
             <van-tabs active="{{ active }}" bind:change="onChange" style="margin-top: 20rpx;" >
              
-              <van-tab title="左耳"></van-tab>
-              <van-tab title="右耳"></van-tab>
-              <van-tab title="知识"></van-tab>
+              <van-tab title="左耳">
+                <scroll-view scroll-y style="height: 200rpx;margin-left: 5%;width: 90%;">
+              <text style="padding-left:50rpx;font-size: 28rpx;letter-spacing: 2rpx;">
+              {{left1}}
+
+              {{left2}}
+
+              {{left3}}
+              </text>
+</scroll-view></van-tab>
+              <van-tab title="右耳">
+                <scroll-view scroll-y style="height: 200rpx;margin-left: 5%;width: 90%;">
+              <text style="padding-left:50rpx;font-size: 28rpx;letter-spacing: 2rpx;">
+              {{right1}}
+
+              {{right2}}
+              
+              {{right3}}
+              </text>
+</scroll-view></van-tab>
+              <van-tab title="知识">
+              <scroll-view scroll-y style="height: 200rpx;margin-left: 5%;width: 90%;">
+              <text style="padding-left:50rpx;font-size: 28rpx;letter-spacing: 2rpx;">
+              根据世界卫生组织WHO的分级标准：
+
+              正常听力范围是0—25dBHL，自然界的声音如风声，树叶沙沙声等都可以听到。超过25dB就存在不同程度的听力损失。
+              26—40dBHL属于轻度听力损失，对细小的声音风吹树叶声难以分辨；
+              41—60dBHL属于中度听力损失，日常交流受到影响，说话能听到但是听不清；
+              61—80dBHL则属于重度听力损失，对于较大的谈话声，日常生活中的大声都感到模糊；
+              超过80dBHL就很严重了，属于极重度，对于声音基本没有感知。我们可以通过听力分级标准自测一下听力是否在正常范围内哦。
+
+              分贝分级表示的是声音的大小感知，除此之外，还有在测试听力时，我们还要频率分布，即对声音的粗细的感知，比如有些人听男生的声音更清晰，有些人听女生的声音更清晰，就和频率有关。
+              一般频率可以分为低频、中频和高频。
+              125—1000（HZ）是低频，像男同志的粗的浑厚的声音，
+              1000—2500（HZ）属于中频，大部分的声音都集中在这个阶段，体现的是声音的可懂度和明亮度。
+              2500（HZ）以上是高频，又脆又细的声音，比如鸟叫声，电话铃声等。
+              
+              同一个人对于不同音频段的获取能力也是不同的
+              如果你超过了25DB，问题可大可小，全国超过听损临界线的人数预计占1/5，应多多注意听力健康，有条件积极就医
+              联合国认定的听力残障范畴为40。建议进行更专业的检测并积极就医
+
+              90%以上的听障是神经性的，剩下不到10%是传导性听障，传到性听障根据其原因或许可以医治，寻找可靠的助听器也是良好的选择
+              </text>
+</scroll-view>
+              </van-tab>
             </van-tabs>
           </view>
           
