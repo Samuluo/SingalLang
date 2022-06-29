@@ -500,8 +500,8 @@ Page({
   setMusic2:function(){
     console.log("set阶段")
     var that = this
-    var music=this.data.testListL2[2][0].url
-    console.log(this.data.testListL2[2][0].url)
+    var music=this.data.testListL2[2][1].url
+    console.log(this.data.testListL2[2][1].url)
    this.audioCtx.src=music
    that.setData({
      "play.currentTime":'00:00',

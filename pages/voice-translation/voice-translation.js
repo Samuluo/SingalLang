@@ -195,7 +195,18 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    var that = this
+    wx.getStorage({
+      key: "userInfo",
+      success:(res)=>{
+        that.setData({
+          userId: res.data.id
+        })
+        that.getSentence(that.data.userId);
+        that.getHistory(that.data.userId)
+        //console.log(that.data.userId)
+      }
+    })
   },
 
   /**

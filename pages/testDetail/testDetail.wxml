@@ -47,7 +47,7 @@
          <image  mode="scaleToFill" style="width: 100rpx;height:100rpx;margin-left:20rpx;margin-bottom:55rpx"  src="../../images/test/RSS-R.png"></image>
           </view>
     <text style="display:block;margin:0 auto; text-align: center;margin-top:40rpx;">播放测试音频，<text decode="{{true}}" style="color:red">请注意音量</text></text>
-      <text style="padding-top:50rpx;display:block;margin:0 auto; text-align: center">建议系统音量:<text decode="{{true}}" style="color:red">70%</text></text>
+      <text style="padding-top:50rpx;display:block;margin:0 auto; text-align: center">建议系统音量:<text decode="{{true}}" style="color:red">80%</text></text>
 
 <button class="btn btn-grad8">
 </button>
