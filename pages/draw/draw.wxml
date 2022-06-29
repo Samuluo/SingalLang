@@ -34,7 +34,7 @@
         <!-- index 每一个颜色的编号 -->
         <!-- 三元运算符 判断那个颜色是被选中的 -->
         <block wx:if="{{cancelChange}}">
-          <i class="iconfont icon-huabi" wx:for="{{color}}" style="color:{{item}};" id="{{index}}" bindtap="changeColor"></i>
+          <image wx:for="{{huabis}}" class="huabi {{index == currentColor ?'active':''}}"  id="{{index}}"   bindtap="changeColor" src="{{item.url}}" ></image>
         </block>
         
         <block wx:else>
