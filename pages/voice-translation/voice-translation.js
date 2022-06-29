@@ -133,6 +133,10 @@ Page({
     //录音状态      console.log(e)
     voiceStyle: "voiceStyleDown"    
     })    
+    wx.showLoading({
+      title: '正在识别',
+    })
+
     //开始识别    
     manager.start({      
     lang: 'zh_CN',    //识别的语言，目前支持zh_CN en_US zh_HK sichuanhua
@@ -141,6 +145,7 @@ Page({
     },  
     //松开结束  
     touchEnd: function(e){    
+      wx.hideLoading()
     this.setData({//用来变换按钮样式         
     voiceStyle: "voiceStyle"    
     })
