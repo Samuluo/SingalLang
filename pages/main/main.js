@@ -53,7 +53,7 @@ Page({
         'typeColor':'#83c6c2'
       })
     }
-    if(e.detail.title=="新闻"){
+    if(e.detail.title=="乡村"){
       that.setData({
         'typeColor':'#eeb173'
       })
@@ -61,6 +61,21 @@ Page({
     if(e.detail.title=="护耳"){
       that.setData({
         'typeColor':'#87c38f'
+      })
+    }
+    if(e.detail.title=="政策"){
+      that.setData({
+        'typeColor':'hsl(286, 54%, 50%);'
+      })
+    }
+    if(e.detail.title=="公益"){
+      that.setData({
+        'typeColor':'red'
+      })
+    }
+    if(e.detail.title=="招聘"){
+      that.setData({
+        'typeColor':'rgb(236, 173, 194);'
       })
     }
     wx.request({

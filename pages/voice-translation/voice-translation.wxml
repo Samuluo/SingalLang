@@ -44,11 +44,13 @@
   <swiper current="{{smallitem}}" bindchange="changeSmallItem" style="height: 200rpx;" >
         <swiper-item  >
           <view class='button2-layer' style="margin-bottom:1rpx; padding-top: 5rpx;" >
+            <text style="position:fixed;right:20rpx;bottom:45rpx;font-weight:bold;color: #6967674b;transform: rotate(180deg)">《 右滑切换</text>
             <image src='/images/translation/wts.png' style="width: 120rpx;height: 120rpx;z-index: 3;transform: rotate(180deg)" class='speak-button' bindtouchstart="touchStart" bindtouchend="touchEnd"></image>
   </view>
     </swiper-item>
     <swiper-item  >
       <view class='button2-layer' style="margin-bottom:1rpx; ;" >
+        <text style="position:fixed;left:20rpx;bottom:45rpx;font-weight:bold;color: #6967674b;transform: rotate(180deg)">左滑切换 》</text>
         <image src='/images/translation/sound.png' style="width: 100rpx;height: 100rpx;z-index: 3;" class='speak-button' bindtap="wordtospeak"></image>
   </view>
     </swiper-item>
@@ -111,7 +113,7 @@
   <button style="height:80rpx;width: 84%;margin-left: 8%;font-size:35rpx;font-weight:bold;color:#f0ecec;background: #83c6c2;z-index: 1;  box-shadow:1rpx 1rpx 5rpx 5rpx #c2f0f0"
     bindtouchstart="startFn"
     bindtouchmove="touchmoveFn"
-    bindtouchend="endFn">《 - - 滑动选择    <image style="width:40rpx;height:40rpx" src="../../images/translation/touch.png"></image>    松开输入 - - 》</button>
+    bindtouchend="endFn">《 - - {{tips1}}    <image style="width:40rpx;height:40rpx" src="../../images/translation/touch.png"></image>   {{tips2}} - - 》</button>
   <!-- 显示隐藏具体信息 -->
   <scroll-view hidden="{{!istouch}}" scroll-x class="scroll-view2" scroll-with-animation="true" bindscroll="scrollMove" scroll-left="{{scrollLeft}}">
       <view wx:for="{{normal}}"  class="{{curr==index?'tcp':'udp'}}" data-index='{{index}}'>
@@ -128,11 +130,14 @@
     <swiper-item  >
       <view class='button-layer' >
       <image src='/images/translation/wts.png' style="width: 120rpx;height: 120rpx;z-index: 3;" class='speak-button' bindtouchstart="touchStart" bindtouchend="touchEnd"></image>
+      <text style="position:fixed;right:20rpx;bottom:45rpx;font-weight:bold;color: #6967674b;">左滑切换 》</text>
   </view>
+
   <!-- 按钮栏 -->
     </swiper-item>
         <swiper-item  >
           <view class='button-layer' >
+            <text style="position:fixed;left:20rpx;bottom:45rpx;font-weight:bold;color: #6967674b;">《 右滑切换</text>
       <image src='/images/translation/sound.png' style="width: 100rpx;height: 100rpx;z-index: 3;transform: rotate(180deg)" class='speak-button' bindtap="wordtospeak" ></image>
   </view>
     </swiper-item>

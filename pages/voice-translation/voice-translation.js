@@ -8,6 +8,8 @@ Page({
    * 页面的初始数据
    */
   data: {
+    tips1:'滑动',
+    tips2:'选择',
     isUsed: 0,
     backgroundcolor:'#ffffff',
     textcolor:'#83c6c2',
@@ -104,7 +106,7 @@ Page({
       //录音内容为空时      
       wx.showModal({
       title: '提示',
-      content: '不好意思，郭郭没听清',
+      content: '不好意思，没听清',
       showCancel: false,
       success: function (res) {}        
       })
@@ -353,6 +355,11 @@ Page({
   },
   
     startFn: function(e){
+      var that = this
+      that.setData({
+        tips1: '松开',
+        tips2: '输入',
+      })
       var startPointX = this.data.screenWidth*0.08;
       var lastPointX = this.data.screenWidth*0.92;
       var len = this.data.normal.length;
@@ -421,8 +428,11 @@ Page({
       }
     },
     endFn(){
+      var that = this
       var con = this.data.content+this.data.normal[this.data.curr].content;
       this.setData({
+        tips1: '滑动',
+        tips2: '选择',
         istouch:'',
         h1:"650rpx",
         content: con+'，',
