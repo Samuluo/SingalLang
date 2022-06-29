@@ -370,40 +370,42 @@ Page({
       })
   },
   
-    startFn: function(e){
-      var that = this
-      that.setData({
-        tips1: '松开',
-        tips2: '输入',
-      })
-      var startPointX = this.data.screenWidth*0.08;
-      var lastPointX = this.data.screenWidth*0.92;
-      var len = this.data.normal.length;
-      //var len = 7;
-      var step = (lastPointX-startPointX)/len;
-      for(var i=0;i<len;i++) {
-        if(startPointX+step*i<e.touches[0].pageX&&e.touches[0].pageX<=startPointX+step*(i+1)) {
-          this.setData({
-            curr: i,
-            startPoint:[e.touches[0].pageX,e.touches[0].pageY],
-            istouch:'hidden',
-            h1:"925rpx"
-          })
-          
-        }
+  startFn: function(e){
+    var that = this
+    that.setData({
+      tips1: '松开',
+      tips2: '输入',
+    })
+    var startPointX = this.data.screenWidth*0.08;
+    var lastPointX = this.data.screenWidth*0.92;
+    var len = this.data.normal.length;
+    //var len = 7;
+    var step = (lastPointX-startPointX)/len;
+    for(var i=0;i<len;i++) {
+      if(startPointX+step*i<e.touches[0].pageX&&e.touches[0].pageX<=startPointX+step*(i+1)) {
+        this.setData({
+          curr: i,
+          startPoint:[e.touches[0].pageX,e.touches[0].pageY],
+          istouch:'hidden',
+          h1:"925rpx"
+        })
+        this.data.scrollInfo.prevDistance = 0;
+        this.moveTo();
       }
-    },
+    }
+  },
     catchTouchMove:function(res){
 
       return false
     
     },
-     touchmoveFn: function(e){
+    touchmoveFn: function(e){
       var curPoint = [e.touches[0].pageX,e.touches[0].pageY];
       var startPointX = this.data.screenWidth*0.08;
       var lastPointX = this.data.screenWidth*0.92;
       var len = this.data.normal.length;
       //var len = 7;
+      var step2 = (lastPointX-startPointX)/6;
       var step = (lastPointX-startPointX)/len;
       if(curPoint[0]<=startPointX||curPoint[0]>lastPointX) {
         this.setData({
@@ -412,8 +414,7 @@ Page({
       }
       for(var i=0;i<len;i++) {
         if(startPointX+step*i<curPoint[0]&&curPoint[0]<=startPointX+step*(i+1)) {
-          let prevDistance = this.data.scrollInfo.prevDistance;
-          this.data.scrollInfo.subLeft = startPointX+step*i; //元素一半宽度
+          this.data.scrollInfo.subLeft = startPointX+step2*i; //元素一半宽度
           this.data.scrollInfo.subHalfWidth = (this.data.screenWidth*0.02)/2; 
           if(i<this.data.curr&&this.data.isUsed==0) {
             this.setData({
@@ -462,7 +463,7 @@ Page({
     let prevDistance = this.data.scrollInfo.prevDistance;
     let screenHalfwidth = this.data.scrollInfo.screenHalfwidth;
     
-    let needScroll = subLeft - screenHalfwidth-8;
+    let needScroll = subLeft - screenHalfwidth;
     console.log(subLeft)
     console.log(screenHalfwidth)
     console.log(needScroll)
