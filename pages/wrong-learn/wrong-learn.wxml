@@ -1,7 +1,16 @@
 <!--pages/test/test.wxml-->
 <navigation-bar default-data="{{defaultData}} "></navigation-bar>
 <view class="container3">
+  <view wx:if="{{empty}}">
+  <van-empty
+  class="custom-image"
+  image="https://img.yzcdn.cn/vant/custom-empty-image.png"
+  description="暂无错题单词"
+  />
+  </view>
+  <view wx:if="{{!empty}}">
 <van-row>
+
 
   <van-col span="8"> <view  class="top-left" style="border-color: #83c6c2;border-style:solid;border-width:2rpx 2rpx 2rpx 0rpx;">
     <text style="padding-top: 5rpx;font-size: 25rpx;letter-spacing: 3rpx;">已纠正{{completeN}} 词</text>
@@ -27,4 +36,5 @@
 </van-row>
 
 <learn bind:completeN="new" bind:toCompletedN="new2" bind:nowword="new3" bind:prevId="prev" words="{{words}}"/>
+</view>
 </view>

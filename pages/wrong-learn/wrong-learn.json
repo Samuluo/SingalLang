@@ -8,6 +8,7 @@
     "van-progress": "@vant/weapp/progress/index",
     "van-icon": "@vant/weapp/icon/index",
     "learn":"/components/wrong/wrong",
+    "van-empty": "@vant/weapp/empty/index",
     "navigation-bar": "/components/navigation-bar-full/navigation-bar-full"
   },
   "navigationBarBackgroundColor": "#A8E9BD",

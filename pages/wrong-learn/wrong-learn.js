@@ -13,6 +13,7 @@ Page({
     completeN:[],
     toCompletedN:[],
     userId:[],
+    empty:false
   },
 
   /**
@@ -101,7 +102,16 @@ Page({
   }
   },
   onLoad: function (options) {
+    console.log(options)
+    console.log(options.wrongwords)
+    console.log(options.wrongwords.length)
     var that = this
+    if(options.wrongwords.length==2){
+      that.setData({
+        'empty':true,
+      })
+    }
+ 
     wx.getStorage({
       key: 'userInfo',
       success(res){
