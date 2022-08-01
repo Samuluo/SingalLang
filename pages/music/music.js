@@ -39,7 +39,8 @@ Page({
       title:'我的收藏',
       introduction:'收藏你喜欢的音乐吧，记得保护耳朵喔'
     },
-    songlist:{}
+    songlist:{},
+    empty:false
   },
   // 保存在page里面了,音频对象
   audioCtx:null,
@@ -123,9 +124,15 @@ Page({
         userId:this.data.userId
       },
       success:(res)=>{
+        if(res.data.status==400){
+          that.setData({
+            'empty':true
+          })
+        }
         that.setData({
           'playlist':res.data
         })
+        console.log(res.data)
       }
     })
     wx.request({
@@ -138,6 +145,9 @@ Page({
       }
     })
   },
+ onUnload: function () {
+   this.audioCtx.pause()
+ },
  setMusic:function(index){
   console.log(this.data.playlist)
   var music=this.data.playlist[index]
@@ -253,6 +263,7 @@ Page({
         that.setData({
           'playlist':res.data
         })
+        console.log(res.data)
       }
     })
     that.setData({

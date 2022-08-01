@@ -2,8 +2,8 @@
 <navigation-bar default-data="{{defaultData}}" show='{{navshow}}'></navigation-bar>
 <view class='page-cont' wx:if="{{isTiptrue}}">
   <view class='top'>
-    <image src='../images/jiantou.png'></image>
-    <view class='p_one'>「声之形」首次进入，请您先登录</view>
+    <image src=''></image>
+    <view class='p_one'>首次进入，请您先登录以保证各功能正常使用</view>
   </view>
   <view class='cont'>
     <view class='cont-p'>

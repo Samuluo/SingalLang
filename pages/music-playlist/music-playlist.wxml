@@ -15,7 +15,14 @@
 >
 <text class="detailContent">{{listInfo.introduction}}</text>
 </van-popup>
-<scroll-view class="content-play2" scroll-y>
+<view wx:if="{{empty}}">
+  <van-empty
+  class="custom-image"
+  image="https://img.yzcdn.cn/vant/custom-empty-image.png"
+  description="请进行登录查看歌单详情"
+  />
+</view>
+<scroll-view class="content-play2" scroll-y wx:if="{{!empty}}">
   <block wx:for="{{playlist}}" wx:key="id">
   <view class="musiclist-container {{item.id === songIndex ? 'playing': ''}}" 
   bindtap="change" data-musicid="{{item.id}}" data-index="{{index}}">
