@@ -1,10 +1,12 @@
 // pages/main/main.js
+const app = getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    isTiptrue: true,
     imgUrls: [
 
     ],
@@ -19,8 +21,19 @@ Page({
       currentIndex:e.detail.current
     })
   },
-  onLoad: function () {
+  onLoad: function (query) {
     var that = this;
+    let firstOpen = wx.getStorageSync("loadOpen")
+    console.log("是否首次打开本页面==",firstOpen)
+    if (firstOpen == undefined || firstOpen == '') { //根据缓存周期决定是否显示新手引导
+      this.setData({
+        isTiptrue: true,
+      })
+    } else {
+      this.setData({
+        isTiptrue: false,
+      })
+    }
     wx.request({
       url: 'https://bewcf.info/article/queryAll',
       method:"get",
@@ -35,7 +48,16 @@ Page({
       }
     })
    },
-
+   closeThis(e){
+    console.log("s")
+      wx.setStorage({
+        key: 'loadOpen',
+        data: 'OpenTwo'
+      })
+      this.setData({
+        isTiptrue:false
+      })
+    },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

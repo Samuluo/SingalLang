@@ -5,7 +5,7 @@
 <canvas canvas-id="myCanvas" id='my-canvas' class='canvas' ></canvas>
 
 <view class='invite-head'>
-  <view class='card-com'  bindtap='saveImageToPhotos'>
+  <view class='card-com'>
     <view class='inv-card'>
       <view class='pic'>
         <image class='img' id='card-img'  mode='scaleToFill' src='{{cardImgSrc}}' />
@@ -16,9 +16,11 @@
         <view class='pp'>长按二维码，开启你的学习之路</view>
         <image class='ewm-img' id='ewm-img' src='../../images/ewm.jpg' />
       </view>
+      <image class='icon' src='/images/draw/save.png' bindtap='saveImageToPhotos' style="margin-top: 20rpx;margin-left: 15%;"></image>
+      <image class='icon' src='/images/share.png' bindtap='share' style="margin-top: 20rpx;margin-left: 45%;"></image>
     </view>
   </view>
-  <view class='inv-tip'>点击上方图片保存并发送给好友</view> 
+ 
 </view>
 
 

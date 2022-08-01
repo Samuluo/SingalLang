@@ -29,7 +29,7 @@ Page({
     // 卡片模块：
     currentTab: 0, //预设当前项的值
     scrollLeft: 0, //切换栏的滚动条位置
-    cardImgSrc: '',  //存储卡片图
+    cardImgSrc: 'https://img2.baidu.com/it/u=3355844021,4179371454&fm=253&fmt=auto&app=138&f=JPEG?w=281&h=500',  //存储卡片图
     //卡片数组
     cardArr: [
       {
@@ -52,7 +52,7 @@ Page({
         img: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fc-ssl.duitang.com%2Fuploads%2Fitem%2F201908%2F01%2F20190801070209_XnWXa.thumb.400_0.jpeg&refer=http%3A%2F%2Fc-ssl.duitang.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1658758562&t=1bbca499b07eaeacf812a058b38ebbe7'
       },
     ],
-    dakaDays: []
+    dakaDays: 0
   },
   //获取打卡天数
   getDays: function(e) {
@@ -117,7 +117,31 @@ Page({
       })
     }, .1e3);
   },
-
+  share() {
+    let that = this;
+    that.drawCanvas();
+    //加个定时器，防止图为黑屏
+    setTimeout(()=>{
+      wx.canvasToTempFilePath({
+        x: 0,
+        y: 0,
+        width: that.data.width,
+        height: that.data.height,
+        destWidth: that.data.width * that.data.pixelRatio,     //乘以像素比，防止模糊
+        destHeight: that.data.height * that.data.pixelRatio,
+        canvasId: 'myCanvas',
+        success(res) {
+          console.log(res.tempFilePath)
+          that.setData({
+            poster: res.tempFilePath,
+          })
+          wx.nextTick(() => {
+            that.shareFriend();
+          })
+        }
+      })
+    }, .1e3);
+  },
   // 保存图片方法
   saveCanvasImage() {
     let that = this;
@@ -134,6 +158,24 @@ Page({
       }
     })
   },
+  shareFriend(){
+    let that = this;
+    let urls = that.data.poster   //图片临时路径
+    wx.showShareImageMenu({  //分享给朋友
+        path: urls,
+        success: (res) => {
+            console.log("分享成功：", res);
+        },
+        fail: (err) => {
+            console.log("分享失败：", err);
+            wx.showToast({
+                title: "分享失败",
+                duration: 2000
+            })
+        },
+    })
+
+},
 
 
   // 点击保存图片到相册（授权）
