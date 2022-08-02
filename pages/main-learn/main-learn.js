@@ -8,6 +8,7 @@ Page({
     defaultData: {
       title: "我的主页", // 导航栏标题
    },
+   empty:false,
    show2: false,
    tabshow:false,
     showshare:false,
@@ -297,6 +298,7 @@ Page({
         userId:that.data.userId
       },
       success:(res)=>{
+  
         that.setData({
           'todayLearned':res.data
         })
@@ -382,9 +384,13 @@ Page({
    */
   onShow: function () {
     var that = this
+
     wx.getStorage({
       key: 'userInfo',
       success(res){
+        that.setData({
+          'empty':false
+        })
         that.setData({
           'userId': res.data.id,
         })
@@ -395,6 +401,7 @@ Page({
             userId:that.data.userId
           },
           success:(res)=>{
+         
             that.setData({
               'plans':res.data,
               'planN':res.data.length
@@ -406,6 +413,7 @@ Page({
                 userId:that.data.userId
               },
               success:(res)=>{
+                console.log(res.data)
                 that.setData({
                   'plan.id':res.data.id,
                   'plan.amount':res.data.amount,
@@ -452,7 +460,10 @@ Page({
           }
         })
       },fail(){
-
+          that.setData({
+            'empty':true
+          })
+      
       }
     })
     if(that.data.plan.todayAmount==that.data.todayLearned){

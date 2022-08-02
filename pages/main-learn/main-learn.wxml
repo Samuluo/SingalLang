@@ -22,17 +22,23 @@
   </van-col>
 </van-row>
       <view class="flex-wrp" style="flex-direction:row;">
-      <view class="item"><van-card
+      <view class="item">
+        <view wx:if="{{empty}}" style="font-weight:bold;text-align: center;font-size: 30rpx;letter-spacing: 20rpx;margin-top:60rpx">
+          您暂未登录，为正常使用该小程序功能，请先进行登录
+</view>
+      <van-card
           thumb="{{plan.dictionary.imgUrl}}" catchtap="cidianDetail" data-item="{{plan}}"
           custom-class="card"
           >
-
           <view slot="title" style="margin-top:10rpx;margin-left:10rpx">
           <text class="title">{{plan.dictionary.name}}</text>
+
           <van-button plain wx:if="{{planN==0}}" type="primary" color="#83c6c2" style="float:right;margin-right:5rpx" size="small" data-item="{{plan}}"catchtap="addplan">添加计划</van-button>
           <van-button plain wx:if="{{planN!=0}}" type="primary" color="#83c6c2" style="float:right;margin-right:5rpx" size="small" data-item="{{plan}}"catchtap="adjust">调整计划</van-button>
           </view>
+          
           <view slot="desc" style="margin-top:20rpx;margin-left:5rpx" wx:if="{{planN!=0}}">
+          
           <text class="desc" >每日{{plan.amount}}词，剩余{{needday}}天</text>  
           <progress percent="{{plan.learnedNumber*100/plan.totalNumber}}" active  color="#83c6c2 " stroke-width="3" />
           </view>
@@ -46,6 +52,7 @@
           <view class="divLine"></view>
           <view wx:if="{{finish==0&&planN!=0}}">
           <view style="margin-left:36rpx;margin-top:20rpx;font-weight:bold">今日计划</view>
+          
           <view style="margin-left:36rpx;margin-top:20rpx;font-size:18rpx"><text style="font-weight:normal;font-size:25rpx;"  >未完成</text><text style="font-weight:normal;font-size:25rpx;margin-left:200rpx"  >已完成</text></view>
           <view style="margin-left:40rpx;margin-top:20rpx"><text style="font-weight:bold;font-size:90rpx;font-style:italic">{{plan.todayAmount-todayLearned}}</text><text style="font-weight:bold;font-size:40rpx;margin-left:20rpx">词</text><text style="font-weight:bold;font-size:90rpx;font-style:italic;margin-left:110rpx">{{todayLearned}}</text><text style="font-weight:bold;font-size:40rpx;margin-left:20rpx">词</text></view>
           <view style="margin-left:20rpx;margin-top:20rpx;margin-bottom:20rpx;margin-right:20rpx"> <van-button round type="info" style="width:90%;margin-top:50rpx" catchtap="beginLearn" color="#83c6c2" block>开始学习</van-button></view>

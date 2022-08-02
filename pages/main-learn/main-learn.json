@@ -14,7 +14,8 @@
     "van-popup": "@vant/weapp/popup/index",
     "calendar":"/components/calendar/calendar",
     "van-cell": "@vant/weapp/cell/index",
-    "navigation-bar": "/components/navigation-bar/navigation-bar"
+    "navigation-bar": "/components/navigation-bar/navigation-bar",
+    "van-empty": "@vant/weapp/empty/index"
   },
   "navigationBarBackgroundColor": "#83c6c2",
   "navigationBarTextStyle": "black",
