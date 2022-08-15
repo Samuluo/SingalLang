@@ -2,6 +2,18 @@
 page{
   background-color: #f7f6f6;
 }
+.main {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 300px;
+  height: 300px;
+  transform: translate(-50%, -50%);
+  perspective:1500;
+  -webkit-perspective: 1500;
+  -moz-perspective: 1500;
+}
+
 .container2{
   background-color:#f7f6f6;
   padding: 20rpx;
@@ -77,4 +89,25 @@ page{
 }
 .wrong:foucs {
   color: rgb(253, 79, 79);
+}
+.danci {
+  position: absolute;
+  transition: all 1s;
+  overflow: hidden;
+  width: 80%;
+  backface-visibility: hidden;
+  border-left: 5rpx solid #83c6c2;
+  border-right: 5rpx solid #83c6c2;
+  border-top: 1rpx solid #83c6c2;
+  border-bottom: 1rpx solid #83c6c2;
+  padding-top: 20rpx;
+  padding-bottom: 20rpx;
+  box-shadow: 2rpx 10rpx 10rpx 5rpx #83c6c2;
+}
+.b1 {
+  background: white;
+}
+
+.b2 {
+  transform: rotateY(-180deg);
 }

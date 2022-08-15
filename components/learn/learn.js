@@ -1,4 +1,6 @@
 // components/learn.js
+let touchDotX = 0; //X按下时坐标
+let touchDotY = 0; //y按下时坐标
 Component({
   /**
    * 组件的属性列表
@@ -40,13 +42,130 @@ Component({
     FinishIndex:[],
     wordIds:[],
     planId:[],
-    uesrId:[]
+    uesrId:[],
+    styleA:'',
+    styleB:'',
+    isComplete: 0,
+    animationData1: {},
+    ballTop1: 240,
+    ballWidth1: 680,
+    index1: 3,
   },
-
+  
   /**
    * 组件的方法列表
    */
   methods: {
+    showb1() {
+      this.setData({
+        styleA: 'transform:rotateY(180deg)',
+        styleB: 'transform:rotateY(0deg)'
+      })
+    },
+    showb2() {
+      this.setData({
+        styleA: 'transform:rotateY(0deg)',
+        styleB: 'transform:rotateY(-180deg)'
+      })
+    },
+     /**
+ * 卡片1手势
+ */
+ touchstart1: function (event) {
+  touchDotX = event.touches[0].pageX; // 获取触摸时的原点
+  touchDotY = event.touches[0].pageY;
+  console.log("起始点的坐标X:" + touchDotX);
+  console.log("起始点的坐标Y:" + touchDotY);
+  },
+  // 移动结束处理动画
+  touchend1: function (event) {
+  // 手指离开屏幕时记录的坐标
+  let touchMoveX = event.changedTouches[0].pageX;
+  let touchMoveY = event.changedTouches[0].pageY;
+  // 起始点的坐标(x0,y0)和手指离开时的坐标(x1,y1)之差
+  let tmX = touchMoveX - touchDotX;
+  let tmY = touchMoveY - touchDotY;
+  // 两点横纵坐标差的绝对值
+  let absX = Math.abs(tmX);
+  let absY = Math.abs(tmY);
+  //起始点的坐标(x0,y0)和手指离开时的坐标(x1,y1)之间的距离
+  let delta = Math.sqrt(absX * absX + absY * absY);
+  console.log('起始点和离开点距离:' + delta + 'px');
+  // 如果delta超过60px（可以视情况自己微调）,判定为手势触发
+  if (delta >= 60) {
+  // 如果 |x0-x1|>|y0-y1|,即absX>abxY,判定为左右滑动
+  if (absX > absY) {
+  // 如更tmX<0，即(离开点的X)-(起始点X)小于0 ，判定为左滑
+  if (tmX < 0) {
+   console.log("左滑=====");
+   // 执行左滑动画
+   this.Animation1(-500);
+   // 如更tmX>0，即(离开点的X)-(起始点X)大于0 ，判定为右滑
+  } else {
+   console.log("右滑=====");
+   // 执行右滑动画
+   this.Animation1(500);
+  }
+  // 如果 |x0-x1|<|y0-y1|,即absX<abxY,判定为上下滑动
+  } else {
+  // 如更tmY<0，即(离开点的Y)-(起始点Y)小于0 ，判定为上滑
+  if (tmY < 0) {
+   console.log("上滑动=====");
+   this.setData({
+   isFront1: !this.data.isFront1
+   });
+   // 如更tmY>0，即(离开点的Y)-(起始点Y)大于0 ，判定为下滑
+  } else {
+   console.log("下滑动=====");
+   this.setData({
+   isFront1: !this.data.isFront1
+   });
+  }
+  }
+  } else {
+  console.log("手势未触发=====");
+  }
+   
+  // 让上一张卡片展现正面（如果之前翻转过的话）
+  this.setData({
+  isFront3: true,
+  });
+  },
+  /**
+ * 卡片1:
+ * 左滑动右滑动动画
+ */
+ Animation1: function (translateXX) {
+  let animation = wx.createAnimation({
+  duration: 680,
+  timingFunction: "ease",
+  });
+  this.animation = animation;
+  // 如果大于0，判定是右滑动画，否则左滑
+  if (translateXX > 0) {
+  this.animation.translateY(0).rotate(20).translateX(translateXX).opacity(0).step();
+  } else {
+  this.animation.translateY(0).rotate(-20).translateX(translateXX).opacity(0).step();
+  }
+  // 设置10ms，视觉欺骗，直接归位到原来位置
+  this.animation.translateY(0).translateX(0).opacity(1).rotate(0).step({
+  duration: 10
+  });
+  
+  this.setData({
+  animationData1: this.animation.export(),
+  });
+  // 动画结束后重拍三张卡片
+  setTimeout(() => {
+  this.setData({
+  ballTop1: 220,
+  ballLeft1: 102.5,
+  ballWidth1: 605,
+  index1: 1,
+  })
+  }, 500);
+  },
+ 
     updateWTF(){
       var that = this
       let wordToFinish=[];
@@ -111,7 +230,7 @@ Component({
       }else{
         that.setData({
           'button1':"wrong",
-          'color1':"rgb(253, 79, 79)"
+          'color1':"rgb(253, 79, 79)",
         })
         wx.request({
           url: 'https://bewcf.info/mistakeWord/add',
@@ -226,7 +345,8 @@ Component({
 
         wx.setStorage({
           key: 'wordIds' ,
-          data: that.data.wordIds
+          data: that.data.wordIds,
+          isComplete: 1,
         }
         )
         wx.redirectTo({

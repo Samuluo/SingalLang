@@ -79,10 +79,10 @@
   </view>
   <!-- 输入记录 -->
   <view class='showme-layer2' style="margin-top: 20rpx;" hidden="{{istouch}}" >
-    <view class='layer2-top' scroll-y="true">
+    <view class='layer2-top' scroll-y="true" bindtap="showall">
      <text style="padding-left:40rpx;font-weight:bold;"> 输入记录: </text>
     </view>
-    <view class="layer2-content">
+    <view class="layer2-content" wx:if="{{showhistory===1}}">
       <scroll-view scroll-y style="height: 140rpx;">
       <view wx:for="{{history}}" class="history-item" style="margin-left: 30rpx;margin-top: 5rpx;margin-bottom: 5rpx;">
        <view style="width: 87%;">

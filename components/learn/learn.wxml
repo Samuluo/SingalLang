@@ -1,12 +1,13 @@
 <!--components/learn.wxml-->
-<view class="container2">
+<view class="container2" bindtouchstart="touchstart1" bindtouchend="touchend1" style="z-index:{{index1}};top:{{ballTop1}}rpx;  margin-left:{{ballLeft1}}rpx;width:{{ballWidth1}}rpx;" animation="{{animationData1}}">
+  <view class="danci b1" catchtap="showb1" style="{{styleA}}" >
   <view class="list-body">
       <view class="flex-wrp" style="flex-direction:row;">
       <view style="margin-top:10%">
       <text style="letter-spacing: 5rpx;font-weight: bold;">请选择正确选项</text>
       </view>
       <view style="margin-top:70rpx">
-      <image style="width: 600rpx; height: 400rpx; background-color: #eeeeee;margin-left:25rpx" mode="scaleToFill" src="{{wordToFinish[index].word.imgUrl}}"></image>
+      <image style="max-width: 500rpx; max-height: 400rpx; background-color: #eeeeee;margin-left:25rpx" mode="scaleToFill" src="{{wordToFinish[index].word.imgUrl}}"></image>
      </view>
 
       <view class="info" >
@@ -24,5 +25,20 @@
           </view>
       </view>
       </view>
+  </view>
+</view>
+  <view class="danci b2" style="{{styleB}}" catchtap="showb2">
+    <view class="top2" >
+<text style="font-size:80rpx;margin-top:90rpx;justify-content: center;align-items: center;">{{wordToFinish[index].word.answer}}</text>
+</view>
+<view class="content">
+      <image style="max-width: 500rpx; max-height: 400rpx; background-color: #eeeeee;margin-left:25rpx" mode="scaleToFill" src="{{wordToFinish[index].word.imgUrl}}"></image>
+      <view class="div" style="margin-top:100rpx;margin-bottom:60rpx"></view>
+      <text decode="{{true}}" style="margin-top:20rpx;width: 80%;letter-spacing: 3rpx;font-weight: normal;font-size: 35rpx;line-height: 50rpx;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{wordToFinish[index].word.description}}</text>
+ 
+
+</view>
+<van-button  type="info" wx:if="{{isComplete===0}}" custom-style="width:40%;right:30rpx;letter-spacing:13rpx;font-size:39rpx;font-weight:bold;opacity:0.8" catchtap="go" color="#83c6c2" >继续学习</van-button>
+<van-button  type="info" wx:if="{{isComplete===1}}" custom-style="width:40%;right:30rpx;letter-spacing:13rpx;font-size:39rpx;font-weight:bold;opacity:0.8" catchtap="go" color="#83c6c2" >完成学习</van-button>
   </view>
 </view>

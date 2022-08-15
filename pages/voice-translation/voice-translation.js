@@ -8,6 +8,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    showhistory: 0,
     tips1:'滑动',
     tips2:'选择',
     isUsed: 0,
@@ -69,6 +70,19 @@ Page({
       }
     })
     this.initRecord();
+  },
+  showall: function() {
+    var that = this;
+    if(that.data.showhistory===0) {
+      that.setData({
+        showhistory: 1
+      })
+    }else {
+      that.setData({
+        showhistory: 0
+      })
+    }
+    
   },
   initRecord: function() {    
     var that = this;

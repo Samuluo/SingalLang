@@ -30,6 +30,13 @@ Page({
           that.setData({
             'isStar':true,
           })
+        },
+        fail(){
+          wx.showToast({
+            title: '您还未登录',
+            icon: 'fail',
+            duration: 2000//持续的时间
+          })
         }
       })
     }else if(that.data.isStar==true){
@@ -46,6 +53,13 @@ Page({
         success:(res)=>{
           that.setData({
             'isStar':false,
+          })
+        },
+        fail(){
+          wx.showToast({
+            title: '您还未登录',
+            icon: 'fail',
+            duration: 2000//持续的时间
           })
         }
       })
