@@ -48,7 +48,7 @@ Component({
     isComplete: 0,
     animationData1: {},
     ballTop1: 240,
-    ballWidth1: 680,
+    ballWidth1: 1080,
     index1: 3,
   },
   
@@ -99,12 +99,14 @@ Component({
   if (tmX < 0) {
    console.log("左滑=====");
    // 执行左滑动画
-   this.Animation1(-500);
+   
+   //this.Animation1(-500);
    // 如更tmX>0，即(离开点的X)-(起始点X)大于0 ，判定为右滑
   } else {
    console.log("右滑=====");
    // 执行右滑动画
-   this.Animation1(500);
+   //this.Animation1(500);
+   this.showb1();
   }
   // 如果 |x0-x1|<|y0-y1|,即absX<abxY,判定为上下滑动
   } else {
@@ -141,6 +143,7 @@ Component({
   timingFunction: "ease",
   });
   this.animation = animation;
+  this.showb2();
   // 如果大于0，判定是右滑动画，否则左滑
   if (translateXX > 0) {
   this.animation.translateY(0).rotate(20).translateX(translateXX).opacity(0).step();
@@ -159,8 +162,8 @@ Component({
   setTimeout(() => {
   this.setData({
   ballTop1: 220,
-  ballLeft1: 102.5,
-  ballWidth1: 605,
+  ballLeft1: 150,
+  ballWidth1: 785,
   index1: 1,
   })
   }, 500);
@@ -353,86 +356,167 @@ Component({
           url: '/pages/word-detail/word-detail?id='+e.currentTarget.dataset.id+'&&isLearning='+2,
         })
       }else{//答题未结束
-      wx.navigateTo({
-        url: '/pages/word-detail/word-detail?id='+e.currentTarget.dataset.id+'&&isLearning='+1,
-        success: function(res) {
-          setTimeout(function() {
-            that.setData({
-              'prevId':that.data.wordToFinish[that.data.index].wordId,
-            })
+      // wx.navigateTo({
+      //   url: '/pages/word-detail/word-detail?id='+e.currentTarget.dataset.id+'&&isLearning='+1,
+      //   success: function(res) {
+      //     setTimeout(function() {
+      //       that.setData({
+      //         'prevId':that.data.wordToFinish[that.data.index].wordId,
+      //       })
         
-            that.triggerEvent("prevId",that.data.prevId);
-            //如果这道题是一次循环的最后一题，下一题从0开始
+      //       that.triggerEvent("prevId",that.data.prevId);
+      //       //如果这道题是一次循环的最后一题，下一题从0开始
+      //       if(that.data.index==that.data.wordToFinish.length-1){
+      //         that.setData({
+      //           'index':0,
+      //           'completeN':that.data.amount-that.data.wordToFinish.length+that.data.wordIds.length,
+      //           'toCompletedN':that.data.wordToFinish.length-that.data.wordIds.length,
+      //           'button1':"",
+      //           'color1':"#83c6c2",
+      //           'button2':"",
+      //           'color2':"#83c6c2",
+      //           'button3':"",
+      //           'color3':"#83c6c2",
+      //           'button4':"",
+      //           'color4':"#83c6c2"
+      //         })
+      //       }else{//如果不是一次循环的后一道题，则+1
+      //       that.setData({
+      //         'index':that.data.index+1,
+      //         'completeN':that.data.amount-that.data.wordToFinish.length+that.data.wordIds.length,
+      //         'toCompletedN':that.data.wordToFinish.length-that.data.wordIds.length,
+      //         'button1':"",
+      //         'color1':"#83c6c2",
+      //         'button2':"",
+      //         'color2':"#83c6c2",
+      //         'button3':"",
+      //         'color3':"#83c6c2",
+      //         'button4':"",
+      //         'color4':"#83c6c2"
+      //       })
+      //      }//当为true，继续到下一道
+      //       while(that.data.wordToFinish[that.data.index].completed==true){
+      //           if(that.data.index==that.data.wordToFinish.length-1){
+      //             console.log("到头了")
+      //             that.setData({
+      //               'index':0,
+      //             })
+      //           }
+      //           else{
+      //             that.setData({
+      //               'index':that.data.index+1,
+      //             })
+      //           }
+      //       }
+      //       that.setData({
+      //         'nowword':that.data.wordToFinish[that.data.index],
+      //       })
+      //       that.triggerEvent("completeN",that.data.completeN);
+      //       that.triggerEvent("toCompletedN",that.data.toCompletedN);
+      //       that.triggerEvent("nowword",that.data.nowword);
+      //       wx.setStorage({
+      //         key: 'wordIds' ,
+      //         data: that.data.wordIds
+      //       }
+      //       )
+      //       let answer = [that.data.wordToFinish[that.data.index].word.answer,that.data.wordToFinish[that.data.index].word.answer2,that.data.wordToFinish[that.data.index].word.answer3,that.data.wordToFinish[that.data.index].word.answer4];
+      //       const randomSort = () => {
+      //         return Math.random() > 0.5 ? -1 : 1;
+      //       };
+      //       answer.sort(() => randomSort());
+      //       that.setData({
+      //         'method':'answer',
+      //         'answer1':answer[0],
+      //         'answer2':answer[1],
+      //         'answer3':answer[2],
+      //         'answer4':answer[3],
+      //       })
+      //     }, 1000);
+      //   }
+      // })
+      that.setData({
+        styleA: 'transform:rotateY(180deg)',
+        styleB: 'transform:rotateY(0deg)'
+      })
+      setTimeout(function() {
+        that.Animation1(500);
+      },500);
+      setTimeout(function() {
+        
+        that.setData({
+          'prevId':that.data.wordToFinish[that.data.index].wordId,
+        })
+        that.triggerEvent("prevId",that.data.prevId);
+        //如果这道题是一次循环的最后一题，下一题从0开始
+        if(that.data.index==that.data.wordToFinish.length-1){
+          that.setData({
+            'index':0,
+            'completeN':that.data.amount-that.data.wordToFinish.length+that.data.wordIds.length,
+            'toCompletedN':that.data.wordToFinish.length-that.data.wordIds.length,
+            'button1':"",
+            'color1':"#83c6c2",
+            'button2':"",
+            'color2':"#83c6c2",
+            'button3':"",
+            'color3':"#83c6c2",
+            'button4':"",
+            'color4':"#83c6c2"
+          })
+        }else{//如果不是一次循环的后一道题，则+1
+        that.setData({
+          'index':that.data.index+1,
+          'completeN':that.data.amount-that.data.wordToFinish.length+that.data.wordIds.length,
+          'toCompletedN':that.data.wordToFinish.length-that.data.wordIds.length,
+          'button1':"",
+          'color1':"#83c6c2",
+          'button2':"",
+          'color2':"#83c6c2",
+          'button3':"",
+          'color3':"#83c6c2",
+          'button4':"",
+          'color4':"#83c6c2"
+        })
+       }//当为true，继续到下一道
+        while(that.data.wordToFinish[that.data.index].completed==true){
             if(that.data.index==that.data.wordToFinish.length-1){
+              console.log("到头了")
               that.setData({
                 'index':0,
-                'completeN':that.data.amount-that.data.wordToFinish.length+that.data.wordIds.length,
-                'toCompletedN':that.data.wordToFinish.length-that.data.wordIds.length,
-                'button1':"",
-                'color1':"#83c6c2",
-                'button2':"",
-                'color2':"#83c6c2",
-                'button3':"",
-                'color3':"#83c6c2",
-                'button4':"",
-                'color4':"#83c6c2"
               })
-            }else{//如果不是一次循环的后一道题，则+1
-            that.setData({
-              'index':that.data.index+1,
-              'completeN':that.data.amount-that.data.wordToFinish.length+that.data.wordIds.length,
-              'toCompletedN':that.data.wordToFinish.length-that.data.wordIds.length,
-              'button1':"",
-              'color1':"#83c6c2",
-              'button2':"",
-              'color2':"#83c6c2",
-              'button3':"",
-              'color3':"#83c6c2",
-              'button4':"",
-              'color4':"#83c6c2"
-            })
-           }//当为true，继续到下一道
-            while(that.data.wordToFinish[that.data.index].completed==true){
-                if(that.data.index==that.data.wordToFinish.length-1){
-                  console.log("到头了")
-                  that.setData({
-                    'index':0,
-                  })
-                }
-                else{
-                  that.setData({
-                    'index':that.data.index+1,
-                  })
-                }
             }
-            that.setData({
-              'nowword':that.data.wordToFinish[that.data.index],
-            })
-            that.triggerEvent("completeN",that.data.completeN);
-            that.triggerEvent("toCompletedN",that.data.toCompletedN);
-            that.triggerEvent("nowword",that.data.nowword);
-            wx.setStorage({
-              key: 'wordIds' ,
-              data: that.data.wordIds
+            else{
+              that.setData({
+                'index':that.data.index+1,
+              })
             }
-            )
-            let answer = [that.data.wordToFinish[that.data.index].word.answer,that.data.wordToFinish[that.data.index].word.answer2,that.data.wordToFinish[that.data.index].word.answer3,that.data.wordToFinish[that.data.index].word.answer4];
-            const randomSort = () => {
-              return Math.random() > 0.5 ? -1 : 1;
-            };
-            answer.sort(() => randomSort());
-            that.setData({
-              'method':'answer',
-              'answer1':answer[0],
-              'answer2':answer[1],
-              'answer3':answer[2],
-              'answer4':answer[3],
-            })
-          }, 1000);
         }
-      })
+        that.setData({
+          'nowword':that.data.wordToFinish[that.data.index],
+        })
+        that.triggerEvent("completeN",that.data.completeN);
+        that.triggerEvent("toCompletedN",that.data.toCompletedN);
+        that.triggerEvent("nowword",that.data.nowword);
+        wx.setStorage({
+          key: 'wordIds' ,
+          data: that.data.wordIds
+        }
+        )
+        let answer = [that.data.wordToFinish[that.data.index].word.answer,that.data.wordToFinish[that.data.index].word.answer2,that.data.wordToFinish[that.data.index].word.answer3,that.data.wordToFinish[that.data.index].word.answer4];
+        const randomSort = () => {
+          return Math.random() > 0.5 ? -1 : 1;
+        };
+        answer.sort(() => randomSort());
+        that.setData({
+          'method':'answer',
+          'answer1':answer[0],
+          'answer2':answer[1],
+          'answer3':answer[2],
+          'answer4':answer[3],
+        })
+      }, 800);
     }
     },600);
+   
     }
   },
   lifetimes:{
