@@ -94,7 +94,7 @@ page{
   position: absolute;
   transition: all 1s;
   overflow: hidden;
-  width: 80%;
+  width: 90%;
   margin-left: -330rpx;
   backface-visibility: hidden;
   border-left: 5rpx solid #83c6c2;

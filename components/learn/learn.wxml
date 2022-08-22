@@ -4,23 +4,23 @@
   <view class="list-body">
       <view class="flex-wrp" style="flex-direction:row;">
       <view style="margin-top:10%">
-      <text style="letter-spacing: 5rpx;font-weight: bold;">请选择正确选项</text>
+      <text style="letter-spacing: 5rpx;font-weight: bold;margin-left: 10%;">请选择正确选项</text>
       </view>
-      <view style="margin-top:70rpx">
+      <view style="margin-top:70rpx;margin-left: 10%;">
       <image style="max-width: 500rpx; max-height: 400rpx; background-color: #eeeeee;margin-left:25rpx" mode="scaleToFill" src="{{wordToFinish[index].word.imgUrl}}"></image>
      </view>
 
       <view class="info" >
-          <view class="item">
+          <view class="item" style="margin-left: 10%;">
               <van-button round custom-class="{{button1}}"  color="{{color1}}" data-button="button1" catchtap="{{method}}" data-id="{{wordToFinish[index].word.id}}" data-answer="{{answer1}}" type="info" customStyle="width:80%;margin-top:80rpx;letter-spacing:10rpx;font-weight:bold" block>{{answer1}}</van-button>
           </view>
-        <view class="item">
+        <view class="item" style="margin-left: 10%;">
               <van-button round custom-class="{{button2}}"  color="{{color2}}" data-button="button2" catchtap="{{method}}" data-id="{{wordToFinish[index].word.id}}" data-answer="{{answer2}}" type="info" customStyle="width:80%;margin-top:60rpx;letter-spacing:10rpx;font-weight:bold" block>{{answer2}}</van-button>
           </view>
-        <view class="item">
+        <view class="item" style="margin-left: 10%;">
               <van-button round custom-class="{{button3}}"  color="{{color3}}" data-button="button3" catchtap="{{method}}"  data-id="{{wordToFinish[index].word.id}}" data-answer="{{answer3}}" type="info" customStyle="width:80%;margin-top:60rpx;letter-spacing:10rpx;font-weight:bold" block>{{answer3}}</van-button>
           </view>
-        <view class="item" >
+        <view class="item" style="margin-left: 10%;">
               <van-button round custom-class="{{button4}}"  color="{{color4}}" data-button="button4" catchtap="{{method}}" data-id="{{wordToFinish[index].word.id}}" data-answer="{{answer4}}" type="info" customStyle="width:80%;margin-top:60rpx;letter-spacing:10rpx;font-weight:bold" block>{{answer4}}</van-button>
           </view>
       </view>
@@ -29,16 +29,14 @@
 </view>
   <view class="danci b2" style="{{styleB}}" catchtap="showb2">
     <view class="top2" >
-<text style="font-size:80rpx;margin-top:90rpx;justify-content: center;align-items: center;">{{wordToFinish[index].word.answer}}</text>
+<text style="font-size:80rpx;margin-top:90rpx;justify-content: center;align-items: center;margin-left: 5%;margin-top:20%;font-weight: bold;">{{wordToFinish[index].word.answer}}</text>
 </view>
-<view class="content">
-      <image style="max-width: 500rpx; max-height: 400rpx; background-color: #eeeeee;margin-left:25rpx" mode="scaleToFill" src="{{wordToFinish[index].word.imgUrl}}"></image>
+<view class="content" style="margin-left:5%;width:90%">
+      <image style="max-width: 500rpx; max-height: 400rpx; background-color: #eeeeee;margin-left:25rpx;margin-left: 12%;margin-top: 15%;" mode="scaleToFill" src="{{wordToFinish[index].word.imgUrl}}"></image>
       <view class="div" style="margin-top:100rpx;margin-bottom:60rpx"></view>
-      <text decode="{{true}}" style="margin-top:20rpx;width: 80%;letter-spacing: 3rpx;font-weight: normal;font-size: 35rpx;line-height: 50rpx;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{wordToFinish[index].word.description}}</text>
- 
-
+      <text decode="{{true}}" style="margin-top:20rpx;letter-spacing: 3rpx;font-weight: normal;font-size: 35rpx;line-height: 50rpx;margin-left: 5%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{wordToFinish[index].word.description}}</text>
 </view>
-<van-button  type="info" wx:if="{{isComplete===0}}" custom-style="width:40%;right:30rpx;letter-spacing:13rpx;font-size:39rpx;font-weight:bold;opacity:0.8" catchtap="go" color="#83c6c2" >继续学习</van-button>
-<van-button  type="info" wx:if="{{isComplete===1}}" custom-style="width:40%;right:30rpx;letter-spacing:13rpx;font-size:39rpx;font-weight:bold;opacity:0.8" catchtap="go" color="#83c6c2" >完成学习</van-button>
+<van-button  type="info" wx:if="{{isComplete===0}}" custom-style="width:40%;right:30rpx;letter-spacing:13rpx;font-size:39rpx;font-weight:bold;opacity:0.8;margin-top:10%;margin-bottom:5%;float:right" catchtap="go" color="#83c6c2" >继续学习</van-button>
+<van-button  type="info" wx:if="{{isComplete===1}}" custom-style="width:40%;right:30rpx;letter-spacing:13rpx;font-size:39rpx;font-weight:bold;opacity:0.8;margin-top:10%;margin-bottom:5%;float:right" catchtap="go" color="#83c6c2" >完成学习</van-button>
   </view>
 </view>

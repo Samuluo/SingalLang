@@ -359,8 +359,8 @@ Page({
   },
   getCard(){
     var that =this
-    that.setData({
-      'cardshow': true,
+    wx.navigateTo({
+      url: '/pages/daka/daka',
     })
     wx.request({
       url: 'https://bewcf.info/card/clock',
