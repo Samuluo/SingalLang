@@ -36,7 +36,7 @@
       <view class="div" style="margin-top:100rpx;margin-bottom:60rpx"></view>
       <text decode="{{true}}" style="margin-top:20rpx;letter-spacing: 3rpx;font-weight: normal;font-size: 35rpx;line-height: 50rpx;margin-left: 5%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{wordToFinish[index].word.description}}</text>
 </view>
-<van-button  type="info" wx:if="{{isComplete===0}}" custom-style="width:40%;right:30rpx;letter-spacing:13rpx;font-size:39rpx;font-weight:bold;opacity:0.8;margin-top:10%;margin-bottom:5%;float:right" catchtap="go" color="#83c6c2" >继续学习</van-button>
-<van-button  type="info" wx:if="{{isComplete===1}}" custom-style="width:40%;right:30rpx;letter-spacing:13rpx;font-size:39rpx;font-weight:bold;opacity:0.8;margin-top:10%;margin-bottom:5%;float:right" catchtap="go" color="#83c6c2" >完成学习</van-button>
+<van-button  type="info" wx:if="{{isComplete===0}}" custom-style="width:40%;right:30rpx;letter-spacing:13rpx;font-size:39rpx;font-weight:bold;opacity:0.8;margin-top:10%;margin-bottom:5%;float:right" catchtap="goon" color="#83c6c2" >继续学习</van-button>
+<van-button  type="info" wx:if="{{isComplete===1}}" custom-style="width:40%;right:30rpx;letter-spacing:13rpx;font-size:39rpx;font-weight:bold;opacity:0.8;margin-top:10%;margin-bottom:5%;float:right" catchtap="goon" color="#83c6c2" >完成学习</van-button>
   </view>
 </view>

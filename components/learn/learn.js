@@ -438,6 +438,13 @@ Component({
         styleA: 'transform:rotateY(180deg)',
         styleB: 'transform:rotateY(0deg)'
       })
+      
+    }
+    },600);
+   
+    },
+    goon: function() {
+      let that = this;
       setTimeout(function() {
         that.Animation1(500);
       },500);
@@ -515,11 +522,8 @@ Component({
         })
       }, 800);
     }
-    },600);
-   
-    }
   },
-  lifetimes:{
+    lifetimes:{
     ready:function(){
       var that = this
       wx.getStorage({
